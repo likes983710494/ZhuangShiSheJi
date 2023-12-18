@@ -8,7 +8,9 @@ using UnityEngine.UI;
 /// </summary>
 public class AntidiastoleManager : MonoBehaviour
 {
-   // public List<TextMeshProUGUI> 楼地面装饰InputField = new List<InputField>();//楼地面装饰
+
+
+    public List<TextMesh> 楼地面装饰InputField = new List<TextMesh>();//楼地面装饰
 	//public List<InputField> 墙柱面装饰InputField = new List<InputField>();//墙柱面装饰
 	//public List<InputField> 天棚工程InputField = new List<InputField>();//天棚工程
 	//public List<InputField> 油漆涂料InputField = new List<InputField>();//油漆涂料及裱糊工程
