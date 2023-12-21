@@ -5,6 +5,7 @@ using Unity.VisualScripting.YamlDotNet.Core.Tokens;
 using UnityEditor.AnimatedValues;
 using UnityEngine;
 using UnityEngine.UI;
+using Unit;
 /// <summary>
 /// //限额分解
 /// </summary>
@@ -159,6 +160,11 @@ public class AntidiastoleManager : MonoBehaviour
 			Debug.Log("分部工程的汇总金额符合");
 			promptContentText.text = "分部工程的汇总金额符合";
 			affirmButton.gameObject.SetActive(true);
+			Unit.UnitDollarData.楼地面装饰_Amount = 楼地面装饰_Amount.text;
+			Unit.UnitDollarData.墙柱面装饰_Amount = 墙柱面装饰_Amount.text;
+			Unit.UnitDollarData.天棚工程_Amount = 天棚工程_Amount.text;
+			Unit.UnitDollarData.油漆涂料_Amount = 油漆涂料_Amount.text;
+			Unit.UnitDollarData.其他装饰_Amount = 其他装饰_Amount.text;
 		}
 		if (proportion > 1)
 		{
