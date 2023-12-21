@@ -10,19 +10,21 @@ using UnityEngine.UIElements;
 /// </summary>
 public class ResultManager : MonoBehaviour
 {
+	public UnityEngine.UI.Button submitButton;
 	public List<GameObject> ChangePlane= new List<GameObject>();//image切换
-	public List<UnityEngine.UI.Button> ChangePlaneButtons = new List<UnityEngine.UI.Button>();//按钮
+	public List<UnityEngine.UI.Toggle> ChangePlaneButtons = new List<UnityEngine.UI.Toggle>();//按钮
 	public  List<UnityEngine.UI.Button> AddImageButtons = new List<UnityEngine.UI.Button>();//选取本地图片 按钮
-	
+	public Transform PlaneParent0, PlaneParent1, PlaneParent2, PlaneParent3, PlaneParent4;//父节点
 
-	 void Start()
+	void Start()
 	{
-		//ChangeLaodPlane(0);
+		submitButton.onClick.AddListener(SubmitLaodPlane);
+
 		for (int i = 0; i < ChangePlaneButtons.Count; i++)
 		{
 			int x = i;
 
-			ChangePlaneButtons[x].onClick.AddListener(() =>
+			ChangePlaneButtons[x].onValueChanged.AddListener((value) =>
 			{
 				ChangeLaodPlane(x);
 			});
@@ -38,9 +40,15 @@ public class ResultManager : MonoBehaviour
 
 	// Update is called once per frame
 	void Update()
-    {
-
-    }
+	{
+		
+			if(PlaneParent0.childCount > 2&& PlaneParent1.childCount > 2 && PlaneParent2.childCount > 2 && PlaneParent3.childCount > 2 && PlaneParent4.childCount > 2)
+			{
+			//
+				submitButton.interactable = true;
+			}
+		
+	}
 	public void ChangeLaodPlane(int objNum)
 	{
 		for (int i = 0; i < ChangePlane.Count; i++)
@@ -122,6 +130,20 @@ public class ResultManager : MonoBehaviour
            // Debug.Log("加载用时:" + startTime);
         }
     }
+	/// <summary>
+	/// 删除
+	/// </summary>
+	public void DestroyLoadPane()
+	{
+		
+	}
+	/// <summary>
+	/// 提交
+	/// </summary>
+	public void SubmitLaodPlane()
+	{
+
+	}
 
 }
 

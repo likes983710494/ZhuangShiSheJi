@@ -173,7 +173,9 @@ public class AntidiastoleManager : MonoBehaviour
 	public void PromptContentAffirm()
 	{
 		//隐藏模块
+		//将分部限额金额通知到装饰设计
 		//提交确定信息
+
 	}
 
 }
