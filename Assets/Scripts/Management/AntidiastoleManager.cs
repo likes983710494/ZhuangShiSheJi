@@ -165,6 +165,7 @@ public class AntidiastoleManager : MonoBehaviour
 			Unit.UnitDollarData.天棚工程_Amount = 天棚工程_Amount.text;
 			Unit.UnitDollarData.油漆涂料_Amount = 油漆涂料_Amount.text;
 			Unit.UnitDollarData.其他装饰_Amount = 其他装饰_Amount.text;
+			Debug.Log(Unit.UnitDollarData.其他装饰_Amount);
 		}
 		if (proportion > 1)
 		{
