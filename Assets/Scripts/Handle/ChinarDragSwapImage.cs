@@ -1,10 +1,3 @@
-// ========================================================
-// 描述：Demo 02 —— 通过继承 + 接口实现 图片拖动替换位置。
-// 作者：Chinar 
-// 创建时间：2019-04-29 16:39:11
-// 版 本：1.0
-// ========================================================
-
 using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -106,11 +99,6 @@ namespace QmDreamer.UI
 		/// <param name="t2">交换的物体</param>
 		private void SetPosExchange(Transform t, Transform t2)
 		{
-			//parentTr = beginParentTransform;
-			//t.SetParent(t2.parent);
-			//t.position = t2.parent.position;
-			//t2.SetParent(parentTr);
-			//t2.position = parentTr.position;
 
 			parentTr = beginParentTransform;
 			t.SetParent(t2.parent);
@@ -118,6 +106,9 @@ namespace QmDreamer.UI
 			t2.SetParent(parentTr);
 			t2.position = parentTr.position;
 		}
+
+	
+
 
 	}
 }

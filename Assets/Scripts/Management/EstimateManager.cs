@@ -2,13 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = System.Random;
 
 /// <summary>
 /// 投资估算
 /// </summary>
 public class EstimateManager : MonoBehaviour
 {
-    public List<Transform> ParentTrms = new List<Transform>();
+    public List<Transform> ParentTrms = new List<Transform>();//填入块
+
+	public List<Transform> SonTrms = new List<Transform>();//选择块
+
+	public List<Vector2> SonTrmsTrmsPos = new List<Vector2>(); //选择块原位置
+
 	public List<bool> isSet = new List<bool>();//储存每个框结果
 
 	public Button submitButton;
@@ -16,11 +22,15 @@ public class EstimateManager : MonoBehaviour
 	public GameObject promptContentPlane;//提示面板父节点
 	public Text promptContentText;//提示内容
 
+
+
 	void Start()
     {
 
 		submitButton.onClick.AddListener(SetParentAndTransform);
 		affirmButton.onClick.AddListener(PromptContentAffirm);
+
+		ChangeParentPos();
 
 	}
 
@@ -169,4 +179,48 @@ public class EstimateManager : MonoBehaviour
 	   //隐藏模块
 	   //提交完成信息
 	}
+	/// <summary>
+	/// 首页进入投资估算之前调用 ，选择区选择模块位置打乱
+	/// </summary>
+	public void ChangeParentPos()
+	{
+		SonTrms =Outoforder(SonTrms);
+		for (int i = 0; i < SonTrms.Count; i++)
+		{
+
+			int x = i;
+			//SonTrms[x].localPosition = SonTrmsTrmsPos[x];
+			SonTrms[x].GetComponent<RectTransform>().anchoredPosition= SonTrmsTrmsPos[x];
+		}
+		
+		
+	}
+
+
+
+
+
+/// <summary>
+/// 打乱排序
+/// </summary>
+
+	public List<T> Outoforder<T>(List<T> pos)
+	{
+		Random randomNum = new Random();
+		int index = 0;
+		T temp;
+		for (int i = 0; i < pos.Count; i++)
+		{
+			index = randomNum.Next(0, pos.Count - 1);
+			if (index != i)
+			{
+				temp = pos[i];
+				pos[i] = pos[index];
+				pos[index] = temp;
+			}
+		}
+		return pos;
+	}
+
+
 }
