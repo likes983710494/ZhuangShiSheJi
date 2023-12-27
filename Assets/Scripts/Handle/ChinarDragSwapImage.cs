@@ -54,7 +54,7 @@ namespace QmDreamer.UI
 
         public void OnDrag(PointerEventData _)
         {
-			Debug.Log("OnDrag");
+			
 			transform.position = Input.mousePosition;
             if (transform.GetComponent<Image>().raycastTarget) transform.GetComponent<Image>().raycastTarget = false;
         }
@@ -106,12 +106,18 @@ namespace QmDreamer.UI
 		/// <param name="t2">交换的物体</param>
 		private void SetPosExchange(Transform t, Transform t2)
 		{
+			//parentTr = beginParentTransform;
+			//t.SetParent(t2.parent);
+			//t.position = t2.parent.position;
+			//t2.SetParent(parentTr);
+			//t2.position = parentTr.position;
+
 			parentTr = beginParentTransform;
 			t.SetParent(t2.parent);
 			t.position = t2.parent.position;
 			t2.SetParent(parentTr);
 			t2.position = parentTr.position;
 		}
-	
+
 	}
 }
