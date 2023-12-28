@@ -1,0 +1,121 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &150432
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 22450432}
+  - component: {fileID: 22250432}
+  - component: {fileID: 11450434}
+  - component: {fileID: 11450432}
+  m_Layer: 5
+  m_Name: PDFViewer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &11450432
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3336498750a5d264196a60af63ef9dbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11450434
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19dc9f9e53a9c6a4b984db3c8176ed0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Internal: {fileID: 0}
+  m_AllowOpenURL: 1
+  m_BytesSupplierComponent: {fileID: 0}
+  m_BytesSupplierFunctionName: 
+  m_BytesSupplierObject: {fileID: 0}
+  m_FileName: 
+  m_FilePath: 
+  m_FileSource: 0
+  m_FileURL: 
+  m_Folder: 
+  m_LoadOnEnable: 1
+  m_MaxZoomFactor: 8
+  m_MaxZoomFactorTextureQuality: 4
+  m_MinZoomFactor: 0.5
+  m_PageFitting: 2
+  m_Password: 
+  m_PDFAsset: {fileID: 0}
+  m_ZoomFactor: 1
+  m_ZoomStep: 0.25
+  m_ZoomToGo: 1
+  m_VerticalMarginBetweenPages: 20
+  m_UnloadOnDisable: 0
+  m_ShowVerticalScrollBar: 1
+  m_ShowBookmarksViewer: 1
+  m_ShowHorizontalScrollBar: 1
+  m_ShowThumbnailsViewer: 1
+  m_ShowTopBar: 1
+  m_ScrollSensitivity: 75
+  m_SearchResultColor: {r: 0, g: 0.4509804, b: 0.9019608, a: 0.49019608}
+  m_SearchResultPadding: {x: 2, y: 4}
+  m_SearchTimeBudgetPerFrame: 0.6
+  m_RenderSettings:
+    disableSmoothPath: 0
+    disableSmoothText: 0
+    grayscale: 0
+    optimizeTextForLCDDisplay: 0
+    renderAnnotations: 0
+    renderForPrinting: 0
+  m_DelayAfterZoomingBeforeUpdate: 0.005
+  m_ParagraphZoomFactor: 2
+  m_ParagraphZoomingEnable: 1
+  m_ParagraphDetectionThreshold: 12
+  m_PageTileTexture: {fileID: 0}
+  m_PageColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!222 &22250432
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150432}
+--- !u!224 &22450432
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150432}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 150432}
+  m_IsPrefabParent: 1
