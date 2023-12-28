@@ -28,6 +28,7 @@ public class AntidiastoleManager : MonoBehaviour
 	public Text 天棚工程_Amount;
 	public Text 油漆涂料_Amount;
 	public Text 其他装饰_Amount;
+
 	public Text 总金额_Amount;//由老师设定，后台发送
 
 	private float 总金额_Cache=0;//和总金额比较
@@ -111,14 +112,14 @@ public class AntidiastoleManager : MonoBehaviour
 				number++;
 			}
 
-			if (number == amountList.Count)
-			{
-				Debug.Log("过关");
+		}
 
-				isAmount = true;
+		if (number == amountList.Count)
+		{
+			Debug.Log("过关");
 
-			
-			}
+			isAmount = true;
+
 
 		}
 		return isAmount;
@@ -165,7 +166,7 @@ public class AntidiastoleManager : MonoBehaviour
 			Unit.UnitDollarData.天棚工程_Amount = 天棚工程_Amount.text;
 			Unit.UnitDollarData.油漆涂料_Amount = 油漆涂料_Amount.text;
 			Unit.UnitDollarData.其他装饰_Amount = 其他装饰_Amount.text;
-			Debug.Log(Unit.UnitDollarData.其他装饰_Amount);
+
 		}
 		if (proportion > 1)
 		{
