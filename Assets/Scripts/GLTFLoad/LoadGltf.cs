@@ -9,18 +9,18 @@ using UnityEngine;
 
 namespace PlanesWalker
 {
-    public class LoadGltf : MonoBehaviour
-    {
+	public class LoadGltf : MonoBehaviour
+	{
 		public Camera BackRoundCamera;
 		public Transform ZeroParent;
 
 		private void Start()
-        {
+		{
 
-            GLTFUtilityScript.Instance.ImportGLTFAsync(Application.streamingAssetsPath + "/NewProject.gltf", asd);
-        }
-        public void asd(GameObject result, AnimationClip[] clip)
-        {
+			GLTFUtilityScript.Instance.ImportGLTFAsync(Application.streamingAssetsPath + "/NewProject.gltf", asd);
+		}
+		public void asd(GameObject result, AnimationClip[] clip)
+		{
 			result.transform.position = ZeroParent.position;
 			result.transform.localScale=Vector3.one;
 			result.transform.SetParent(ZeroParent);
@@ -37,5 +37,5 @@ namespace PlanesWalker
 			
 
 		}
-    }
+	}
 }

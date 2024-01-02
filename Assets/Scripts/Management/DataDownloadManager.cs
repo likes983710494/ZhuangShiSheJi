@@ -6,29 +6,38 @@ using UnityEngine.Networking;
 using System;
 using UnityEngine.UI;
 using Paroxe.PdfRenderer;
+using Unit;
+/// <summary>
+// 任务设计书 
+/// </summary>
 
 public class DataDownloadManager : MonoBehaviour
 {
 	private string pdfurl= "http://127.0.0.1/Texture.pdf";//pdf网络下载地址
-	private string modelurl;//模型网络下载地址
+	private string modelurl= "https://speedtest.dallas.linode.com/100MB-dallas.bin";//模型网络下载地址
 	//private string savePath;//保存地址
 
-	public string PDFName;//pdf名字
-	public string ObjName;//模型名字
+	private string PDFName;//pdf名字
+	private string ObjName;//模型名字
+	private Button PDF关闭button;
 
 	public Button loadPdfButton;//下载文档按钮
 	public Button loadModelButton;//下载模型按钮
 
 	public GameObject LoadPlane;//下载面板
 	public Slider LoadSlider;
-    public  List<GameObject> openPlanes;//打开确认弹窗
+	public  List<GameObject> openPlanes;//打开确认弹窗
 
 	public PDFViewer PDFViewer_;//PDF预览器
 
 	public Scrollbar VerticalScrollbar;//PDF预览器的右侧滑动条
 	public Toggle 已完成Toggle;
+	
 	void Start()
-    {
+	{
+
+		PDF关闭button= PDFViewer_.transform.GetChild(1).GetComponent<Button>();
+		
 		//下载文档按钮添加事件
 		loadPdfButton.onClick.AddListener(() =>
 		{
@@ -51,6 +60,7 @@ public class DataDownloadManager : MonoBehaviour
 			}
 			
 		});
+		//文档 取消按钮
 		openPlanes[0].transform.GetChild(2).GetComponent<Button>().onClick.AddListener(() => {
 
 			PDFViewer_.gameObject.SetActive(false);
@@ -63,18 +73,56 @@ public class DataDownloadManager : MonoBehaviour
 		//模型下载确认按钮
 		openPlanes[1].transform.GetChild(1).GetComponent<Button>().onClick.AddListener(() => {
 
-			
-			
+
+			LoadPlane.SetActive(false);
+			openPlanes[1].SetActive(false);
+			//将下载模型完成的状态储存
+			Unit.UnitDollarData.isDataObj = true;
+			if(Unit.UnitDollarData.isDataObj&& Unit.UnitDollarData.isDataPDF){
+
+				//设计任务书模块的状态
+				Unit.UnitDollarData.isFinishDataDownload = true;
+			}
+			if (Unit.UnitDollarData.isFinishDataDownload== true)
+			{
+				//开启投资估算状态
+				HomePageManager.Instance_.Button_投资估算.interactable = true;
+			}
 
 		});
+		//监控pdf VerticalScrollbar 滚动条
+		VerticalScrollbar.onValueChanged.AddListener((value) =>
+		{
+			PDFScrollbarChange(value);
+		});
+
+		//关闭pdf面板
+		PDF关闭button.onClick.AddListener(() =>
+		{
+			PDFViewer_.gameObject.SetActive(false);
+			
+		});
+		已完成Toggle.onValueChanged.AddListener((value) =>
+		{
+
+			if(value==true)
+			{
+				//开启模型下载
+				loadModelButton.interactable = true;
+				//将pdf状态储存
+				Unit.UnitDollarData.isDataPDF = true;
+			}
+
+		});
+		
 
 	}
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	// Update is called once per frame
+	void Update()
+	{
+		
+	}
 	/// <summary>
 	///调用下载资源 到StreamingAssets文件夹
 	/// </summary>
@@ -141,6 +189,7 @@ public class DataDownloadManager : MonoBehaviour
 			if (type == 0)
 			{
 				PDFName = downloadFileName;
+				Unit.UnitDollarData.PDFName = PDFName;
 				openPlanes[0].SetActive(true);
 				using (FileStream fs = new FileStream(Application.streamingAssetsPath + "/PDF/" + downloadFileName, FileMode.Create))
 				{
@@ -151,6 +200,7 @@ public class DataDownloadManager : MonoBehaviour
 			else if (type == 1)
 			{
 				ObjName = downloadFileName;
+				Unit.UnitDollarData.ObjName = ObjName;
 				openPlanes[1].SetActive(true);
 				using (FileStream fs = new FileStream(Application.streamingAssetsPath + "/Model/" + downloadFileName, FileMode.Create))
 				{
@@ -167,4 +217,21 @@ public class DataDownloadManager : MonoBehaviour
 		}
 	}
 
+
+
+	/// <summary>
+	/// 监控pdf VerticalScrollbar 滚动条
+	/// </summary>
+	/// <param name="value"></param>
+	private void PDFScrollbarChange(float value)
+	{
+		if(VerticalScrollbar.gameObject!=null)
+		{
+			if(VerticalScrollbar.value == 0.0f){
+				//显示
+				已完成Toggle.gameObject.SetActive(true);
+			}
+			
+		}
+	}
 }

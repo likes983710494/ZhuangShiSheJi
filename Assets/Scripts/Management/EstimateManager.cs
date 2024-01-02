@@ -9,7 +9,7 @@ using Random = System.Random;
 /// </summary>
 public class EstimateManager : MonoBehaviour
 {
-    public List<Transform> ParentTrms = new List<Transform>();//填入块
+	public List<Transform> ParentTrms = new List<Transform>();//填入块
 
 	public List<Transform> SonTrms = new List<Transform>();//选择块
 
@@ -23,9 +23,9 @@ public class EstimateManager : MonoBehaviour
 	public Text promptContentText;//提示内容
 
 
-
+	private int number = 0;
 	void Start()
-    {
+	{
 
 		submitButton.onClick.AddListener(SetParentAndTransform);
 		affirmButton.onClick.AddListener(PromptContentAffirm);
@@ -34,9 +34,9 @@ public class EstimateManager : MonoBehaviour
 
 	}
 
-    // Update is called once per frame
-    void Update()
-    {
+	// Update is called once per frame
+	void Update()
+	{
 		if (ParentTrms[6].childCount > 0 && ParentTrms[5].childCount > 0 && ParentTrms[4].childCount > 0 && ParentTrms[3].childCount > 0 && ParentTrms[2].childCount > 0 && ParentTrms[1].childCount > 0 && ParentTrms[0].childCount > 0)
 		{
 			submitButton.interactable = true;
@@ -53,7 +53,7 @@ public class EstimateManager : MonoBehaviour
 	public void SetParentAndTransform()
 	{
 		isSet.Clear();//清空
-		int number = 0;
+		 number = 0;
 		if (ParentTrms[0].GetChild(0) != null && ParentTrms[0].GetChild(0).name == ParentTrms[0].name && ParentTrms[1].childCount > 0)
 		{
 			// 建筑工程费用判断是对的
@@ -176,8 +176,16 @@ public class EstimateManager : MonoBehaviour
 	///
 	public void PromptContentAffirm()
 	{
-	   //隐藏模块
-	   //提交完成信息
+		//隐藏模块
+		//提交完成信息
+
+		//解锁限额分解
+		if (number == 7) {
+			//投资估算完成 ， 开启额分解
+			Unit.UnitDollarData.isFinishEstimate = true;
+			HomePageManager.Instance_.Button_限额分解.interactable = true;
+		}
+		
 	}
 	/// <summary>
 	/// 首页进入投资估算之前调用 ，选择区选择模块位置打乱

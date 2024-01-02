@@ -555,6 +555,59 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 15267820}
   m_CullTransparentMesh: 1
+--- !u!1 &22688941
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 22688942}
+  - component: {fileID: 22688943}
+  m_Layer: 5
+  m_Name: "---------\u9996\u9875--------"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &22688942
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22688941}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 631091895}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &22688943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22688941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1051a8ec797436648b7af2cd3086a97d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  "Button_\u8BBE\u8BA1\u4EFB\u52A1\u4E66": {fileID: 1874835044}
+  "Button_\u6295\u8D44\u4F30\u7B97": {fileID: 837598325}
+  "Button_\u9650\u989D\u5206\u89E3": {fileID: 837598325}
+  "Button_\u88C5\u9970\u8BBE\u8BA1": {fileID: 1305276560}
+  "Button_\u88C5\u9970\u6548\u679C\u5C55\u793A": {fileID: 705637584}
 --- !u!1 &23030331
 GameObject:
   m_ObjectHideFlags: 0
@@ -4992,7 +5045,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u6295\u8D44\u4F30\u7B97"
+  m_Text: "2.\u6295\u8D44\u4F30\u7B97"
 --- !u!222 &217701167
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8165,7 +8218,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u88C5\u9970\u6548\u679C\u5C55\u793A"
+  m_Text: "5.\u88C5\u9970\u6548\u679C\u5C55\u793A"
 --- !u!222 &309916801
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11317,7 +11370,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u88C5\u9970\u8BBE\u8BA1"
+  m_Text: "4.\u88C5\u9970\u8BBE\u8BA1"
 --- !u!222 &415382767
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13624,8 +13677,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b30568333b1eefb43b98c40e6d373365, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PDFName: 
-  ObjName: 
   loadPdfButton: {fileID: 1094334106}
   loadModelButton: {fileID: 1624044251}
   LoadPlane: {fileID: 304303500}
@@ -17904,9 +17955,11 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 22688942}
   - {fileID: 290750951}
   - {fileID: 483675487}
   - {fileID: 1977273262}
+  - {fileID: 2052726714}
   - {fileID: 1738901836}
   - {fileID: 714406337}
   - {fileID: 830530862}
@@ -44114,7 +44167,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1624044252}
   m_OnClick:
     m_PersistentCalls:
@@ -49888,7 +49941,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u8BBE\u8BA1\u4EFB\u52A1\u4E66"
+  m_Text: "1.\u8BBE\u8BA1\u4EFB\u52A1\u4E66"
 --- !u!222 &1830553336
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -53964,7 +54017,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1977273262
 RectTransform:
   m_ObjectHideFlags: 0
@@ -53982,7 +54035,6 @@ RectTransform:
   - {fileID: 304303501}
   - {fileID: 550082155}
   - {fileID: 14676038}
-  - {fileID: 2052726714}
   m_Father: {fileID: 631091895}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -55311,7 +55363,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u9650\u989D\u5206\u89E3"
+  m_Text: "3.\u9650\u989D\u5206\u89E3"
 --- !u!222 &2019081745
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -56086,7 +56138,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1977273262}
+  m_Father: {fileID: 631091895}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

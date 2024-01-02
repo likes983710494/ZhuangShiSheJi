@@ -34,7 +34,7 @@ public class AntidiastoleManager : MonoBehaviour
 	private float proportion = 0;//cache占总金额比例
 	private bool is楼地面装饰, is墙柱面装饰, is天棚工程, is油漆涂料, is其他装饰, isAmount;
 	void Start()
-    {
+	{
 		affirmButton.gameObject.SetActive(false);
 		affirmButton.onClick.AddListener(PromptContentAffirm);
 		submitButton.onClick.AddListener(SubmitEachAmount);
@@ -86,8 +86,8 @@ public class AntidiastoleManager : MonoBehaviour
 	}
 
 	// Update is called once per frame
-    void Update()
-    {
+	void Update()
+	{
 		//
 		if (is楼地面装饰 == true && is墙柱面装饰 == true && is天棚工程 == true && is油漆涂料 == true && is其他装饰 == true&& isAmount==true)
 		{
@@ -234,6 +234,10 @@ public class AntidiastoleManager : MonoBehaviour
 		Unit.UnitDollarData.天棚工程_Amount = Amount_InputField[2].text;
 		Unit.UnitDollarData.油漆涂料_Amount = Amount_InputField[3].text;
 		Unit.UnitDollarData.其他装饰_Amount = Amount_InputField[4].text;
+
+		//限额分解完成 ， 开启装饰设计
+		Unit.UnitDollarData.isFinishAntidiastole = true;
+		HomePageManager.Instance_.Button_装饰设计.interactable = true;
 	}
 
 }
