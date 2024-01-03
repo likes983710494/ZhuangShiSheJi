@@ -509,7 +509,6 @@ RectTransform:
   - {fileID: 781064862}
   - {fileID: 1397355853}
   - {fileID: 1683445840}
-  - {fileID: 1347815234}
   m_Father: {fileID: 631091895}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -13776,7 +13775,7 @@ GameObject:
   m_Component:
   - component: {fileID: 495691112}
   m_Layer: 5
-  m_Name: "----------\u6807\u9898-------- "
+  m_Name: "----------\u901A\u7528-------- "
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17965,6 +17964,7 @@ RectTransform:
   - {fileID: 830530862}
   - {fileID: 508143074}
   - {fileID: 15267821}
+  - {fileID: 1347815234}
   - {fileID: 1563386118}
   - {fileID: 495691112}
   - {fileID: 1010695884}
@@ -37325,7 +37325,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 15267821}
+  m_Father: {fileID: 631091895}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

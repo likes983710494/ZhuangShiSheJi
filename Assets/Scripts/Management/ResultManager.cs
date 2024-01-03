@@ -59,60 +59,60 @@ public class ResultManager : MonoBehaviour
 		ChangePlane[objNum].SetActive(true);
 	}
 
-    public void OpenFileImage()
-    {
-        
-            OpenFileName ofn = new OpenFileName();
-            ofn.structSize = Marshal.SizeOf(ofn);
-            ofn.filter = "图片文件(*.jpg*.png)\0*.jpg;*.png";
-            ofn.file = new string(new char[256]);
-            ofn.maxFile = ofn.file.Length;
-            ofn.fileTitle = new string(new char[64]);
-            ofn.maxFileTitle = ofn.fileTitle.Length;
-            //默认路径
-            string path = Application.streamingAssetsPath;
-            path = path.Replace('/', '\\');
-            //默认路径
-            //ofn.initialDir = "G:\\wenshuxin\\test\\HuntingGame_Test\\Assets\\StreamingAssets";
-            ofn.initialDir = path;
-            ofn.title = "Open Project";
-            ofn.defExt = "JPG";//显示文件的类型
-            //注意 一下项目不一定要全选 但是0x00000008项不要缺少
-            ofn.flags = 0x00080000 | 0x00001000 | 0x00000800 | 0x00000200 | 0x00000008;//OFN_EXPLORER|OFN_FILEMUSTEXIST|OFN_PATHMUSTEXIST| OFN_ALLOWMULTISELECT|OFN_NOCHANGEDIR
-            //点击Windows窗口时开始加载选中的图片
-            if (WindowDll.GetOpenFileName(ofn))
-            {
-                Debug.Log("Selected file with full path: " + ofn.file);
-                StartCoroutine(Load(ofn.file));
-            }
-        
-    }
+	public void OpenFileImage()
+	{
+		
+			OpenFileName ofn = new OpenFileName();
+			ofn.structSize = Marshal.SizeOf(ofn);
+			ofn.filter = "图片文件(*.jpg*.png)\0*.jpg;*.png";
+			ofn.file = new string(new char[256]);
+			ofn.maxFile = ofn.file.Length;
+			ofn.fileTitle = new string(new char[64]);
+			ofn.maxFileTitle = ofn.fileTitle.Length;
+			//默认路径
+			string path = Application.streamingAssetsPath;
+			path = path.Replace('/', '\\');
+			//默认路径
+			//ofn.initialDir = "G:\\wenshuxin\\test\\HuntingGame_Test\\Assets\\StreamingAssets";
+			ofn.initialDir = path;
+			ofn.title = "Open Project";
+			ofn.defExt = "JPG";//显示文件的类型
+			//注意 一下项目不一定要全选 但是0x00000008项不要缺少
+			ofn.flags = 0x00080000 | 0x00001000 | 0x00000800 | 0x00000200 | 0x00000008;//OFN_EXPLORER|OFN_FILEMUSTEXIST|OFN_PATHMUSTEXIST| OFN_ALLOWMULTISELECT|OFN_NOCHANGEDIR
+			//点击Windows窗口时开始加载选中的图片
+			if (WindowDll.GetOpenFileName(ofn))
+			{
+				Debug.Log("Selected file with full path: " + ofn.file);
+				StartCoroutine(Load(ofn.file));
+			}
+		
+	}
 
 
-    /// <summary>
-    /// 加载本地图片
-    /// </summary>
-    /// <param name="path">本地文件路径</param>
-    /// <returns></returns>
-    IEnumerator Load(string path)
-    {   //计算加载用时    
-        double startTime = (double)Time.time;
+	/// <summary>
+	/// 加载本地图片
+	/// </summary>
+	/// <param name="path">本地文件路径</param>
+	/// <returns></returns>
+	IEnumerator Load(string path)
+	{   //计算加载用时    
+		double startTime = (double)Time.time;
 
 
-        WWW www = new WWW("file:///" + path);
-        yield return www;
-        if (www != null && string.IsNullOrEmpty(www.error))
-        {
-            //获取Texture
-            Texture2D texture = www.texture;
-       
-            //直接将选择图保存
-            byte[] bytes = texture.EncodeToJPG();
-            //测试地址
-            //string filename = @"G:\wenshuxin\BackGround\6.jpg";
-            System.IO.File.WriteAllBytes(path, bytes);
-            //根据获取的Texture创建一个sprite
-            Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
+		WWW www = new WWW("file:///" + path);
+		yield return www;
+		if (www != null && string.IsNullOrEmpty(www.error))
+		{
+			//获取Texture
+			Texture2D texture = www.texture;
+	   
+			//直接将选择图保存
+			byte[] bytes = texture.EncodeToJPG();
+			//测试地址
+			//string filename = @"G:\wenshuxin\BackGround\6.jpg";
+			System.IO.File.WriteAllBytes(path, bytes);
+			//根据获取的Texture创建一个sprite
+			Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
 			//生成预制体
 			GameObject prefab = Resources.Load<GameObject>("prefab/Resul/Image_已上传BG");
 			Transform instance_Parent = GameObject.Find("Image_已上传").transform;
@@ -121,15 +121,15 @@ public class ResultManager : MonoBehaviour
 			instance_.transform.GetChild(0).GetComponent<UnityEngine.UI.Image>().sprite = sprite;
 			//将sprite显示在图片上
 			//image.sprite = sprite;
-            //图片设置为原始尺寸
-            //image.SetNativeSize();
+			//图片设置为原始尺寸
+			//image.SetNativeSize();
 
 
-            //计算加载用时
-           // startTime = (double)Time.time - startTime;
-           // Debug.Log("加载用时:" + startTime);
-        }
-    }
+			//计算加载用时
+		   // startTime = (double)Time.time - startTime;
+		   // Debug.Log("加载用时:" + startTime);
+		}
+	}
 	/// <summary>
 	/// 删除
 	/// </summary>
