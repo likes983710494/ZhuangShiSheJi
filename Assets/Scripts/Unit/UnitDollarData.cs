@@ -4,7 +4,7 @@ using UnityEngine;
 //储存个单元 的数据
 namespace Unit
 {
-	public static class UnitDollarData 
+	public static class UnitDollarData
 	{
 		//学生的分配额度
 		public static string 楼地面装饰_Amount;
@@ -26,9 +26,10 @@ namespace Unit
 
 
 		//投资估算所有状态-******-------------
-
-		public static bool isFinishEstimate;
-		//限额分解所有状态-******---------------
+		public static int DeductionNumber;//减分
+		public static int EstimateNumber;//得分
+		public static bool isFinishEstimate;//完成估算
+											//限额分解所有状态-******---------------
 		public static bool isFinishAntidiastole;
 
 

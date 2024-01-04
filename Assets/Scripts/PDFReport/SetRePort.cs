@@ -1,8 +1,4 @@
 
-
-
-
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -14,115 +10,88 @@ using iTextSharp.text.pdf;
 
 public class SetRePort : MonoBehaviour
 {
-    public static SetRePort Instance_;
-    public static PDFReport pdf;
-    private void Awake()
-    {
-        Instance_ = this;
-       
-    }
+    string fileText1path = @"Assets\StreamingAssets\iamge\你好测试截图0.7817451.png";
+
+
 
     void Start()
     {
 
-       
     }
-    string fileText1path = @"Assets\StreamingAssets\图片.png";
-    public IEnumerator 创建Pdf(string pdfName)//test.pdf
-    {
-      
-  
-        string path = Application.persistentDataPath + "/"+pdfName+".pdf";
-        Debug.Log("地址："+path);
 
-        using (pdf = new PDFReport())
+    public IEnumerator 创建Pdf()
+    {
+
+        string[] Columns = new string[] { "序号", "分项工程", "所属分部工程", "分项金额" };
+        DataTable 限额分解dt = new DataTable();
+        foreach (string item in Columns)
+        {
+            限额分解dt.Columns.Add(item);
+        }
+        for (int i = 0; i < 6; i++) //将数据储存到list
+        {
+            DataRow dr = 限额分解dt.NewRow();
+            object[] objs = { i + 1, "贴镶面", "楼地面装饰工程", "10" };
+            dr.ItemArray = objs;
+            限额分解dt.Rows.Add(dr);
+        }
+        DataRow dr1 = 限额分解dt.NewRow();
+        object[] objs1 = { "分项累计金额", "10" };
+        dr1.ItemArray = objs1;
+        限额分解dt.Rows.Add(dr1);
+
+
+
+        string[] 装饰设计Columns = new string[] { "分项名称/属性信息", "所属分部", "单价", "工程量", "合价" };
+        DataTable 装饰设计dt = new DataTable();
+        foreach (string item in 装饰设计Columns)
+        {
+            装饰设计dt.Columns.Add(item);
+        }
+        for (int i = 0; i < 10; i++) //将数据储存到list
+        {
+            DataRow xedr = 装饰设计dt.NewRow();
+            object[] xeobjs = { "贴镶面", "楼地面装饰工程", "10", "贴镶面", "楼地面装饰工程" };
+            xedr.ItemArray = xeobjs;
+            装饰设计dt.Rows.Add(xedr);
+        }
+
+
+        string path = Application.persistentDataPath + "/装饰设计实验报告.pdf";
+        using (PDFReport pdf = new PDFReport())
         {
             yield return pdf.初始化(path);
-            //添加内容
-            AddTitle(pdfName);
-            AddContent(pdfName);
-            AddImage(@"Assets\StreamingAssets\图片.png");
-            AddForm(new string[] { "编号", "名称", "产品", "系列2222222222222222222222222222222", "建筑面积", "用漆量", "数量", "详情" });
+            pdf.AddTitle("装饰设计实验报告");
+            pdf.AddFirstTitle("一、投资估算");
+            pdf.AddNullLine();
+            pdf.AddImage(fileText1path);
+            pdf.AddContent("投资估算模块满分100分，共扣9分，得分91分。");
+            pdf.AddSecondTitle("二、限额分解");
+            pdf.AddNullLine();
+            pdf.添加PDF表格(限额分解dt);
+            pdf.AddSecondTitle("三、装饰设计");
+            pdf.AddNullLine();
+            pdf.添加PDF表格(装饰设计dt);
+            pdf.AddSecondTitle("四、装饰效果展示");
+            pdf.AddNullLine();
+            pdf.AddImage(fileText1path);
+            pdf.AddImage(fileText1path);
+            pdf.AddImage(fileText1path);
+            pdf.AddImage(fileText1path);
+
+
+
+
         }
-       
+        Debug.Log("创建成功打开文件:" + path);
+        Application.OpenURL(path);
     }
 
-    /// <summary>
-    /// 创建pdf
-    /// </summary>
-    /// <param name="pdfName"> 文件名</param>
-    /// <returns></returns>
-    public void CreatPDF(string pdfName)
-    {
-        StartCoroutine(创建Pdf(pdfName));
-    }
-    /// <summary>
-    /// 打开文档
-    /// </summary>
-    /// <param name="pdfName"></param>
+
     public void OpenPDF(string pdfName)
     {
         string path = Application.persistentDataPath + "/" + pdfName + ".pdf";
         Debug.Log("创建成功打开文件:" + path);
         Application.OpenURL(path);
     }
-    /// <summary>
-    /// 添加文字标题
-    /// </summary>
-    /// <param name="content"></param>
-    public void AddTitle(string content)
-    {
-        if (content != null)
-            pdf.AddTitle(content);
-    }
-    /// <summary>
-    /// 添加文字内容
-    /// </summary>
-    /// <param name="content"></param>
-    public void AddContent(string content)
-    {
-        if (content != null)
-            pdf.AddContent(content);
-    }
-
-    /// <summary>
-    /// 添加图片
-    /// </summary>
-    /// <param name="imgPath"> 
-    ///  string imgPath = @"Assets\StreamingAssets\图片.png";
-    /// param>
-    public  void AddImage(string imgPath, int width = 475, int height = 325)
-    {
-        if (imgPath != null)
-            pdf.AddImage(imgPath, width, height);
-    }
-    /// <summary>
-    /// 添加表格 
-    /// </summary>
-    /// <param name="Columns"> 表格头
-    ///  Columns = new string[] { "编号", "名称", "产品", "系列2222222222222222222222222222222", "建筑面积", "用漆量", "数量", "详情" };
-    /// </param> 
-    public void AddForm(string[] Columns)
-    {
-         DataTable dt = new DataTable();
-        if (Columns != null)
-        {
-            foreach (string item in Columns)
-            {
-                dt.Columns.Add(item);
-            }
-        }
-    
-       //表格一行内容 鱼表格头对应
-            DataRow dr = dt.NewRow();
-       object[] objs = { 9991111, "这是名称", "这是产品", "系列门窗",
-                "建筑面积6666", "用漆量111", "数量33.3333", "详情啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊" };
-        dr.ItemArray = objs;
-            dt.Rows.Add(dr);
-            pdf.添加PDF表格(dt);
-    }
-
-
-
 }
-

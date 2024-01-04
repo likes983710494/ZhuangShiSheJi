@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = System.Random;
-
+using Unit;
 /// <summary>
 /// 投资估算
 /// </summary>
@@ -24,11 +24,13 @@ public class EstimateManager : MonoBehaviour
 
 
 	private int number = 0;
+	private int DeductionNumber = 0;//减分
 	void Start()
 	{
 
 		submitButton.onClick.AddListener(SetParentAndTransform);
 		affirmButton.onClick.AddListener(PromptContentAffirm);
+		affirmButton.gameObject.SetActive(false);
 
 		ChangeParentPos();
 
@@ -53,7 +55,7 @@ public class EstimateManager : MonoBehaviour
 	public void SetParentAndTransform()
 	{
 		isSet.Clear();//清空
-		 number = 0;
+		number = 0;
 		if (ParentTrms[0].GetChild(0) != null && ParentTrms[0].GetChild(0).name == ParentTrms[0].name && ParentTrms[1].childCount > 0)
 		{
 			// 建筑工程费用判断是对的
@@ -63,9 +65,9 @@ public class EstimateManager : MonoBehaviour
 		{
 			isSet.Add(false);
 		}
-		if( ParentTrms[1].childCount>0)
+		if (ParentTrms[1].childCount > 0)
 		{
-			if(ParentTrms[1].GetChild(0).name== "设备工器具购置费及安装费" || ParentTrms[1].GetChild(0).name == "流动资金" || ParentTrms[1].GetChild(0).name == "其他费用")
+			if (ParentTrms[1].GetChild(0).name == "设备工器具购置费及安装费" || ParentTrms[1].GetChild(0).name == "流动资金" || ParentTrms[1].GetChild(0).name == "其他费用")
 			{
 				//设备工器具购置费及安装费 判断是对的
 				isSet.Add(true);
@@ -76,7 +78,7 @@ public class EstimateManager : MonoBehaviour
 			}
 		}
 
-		if ( ParentTrms[2].childCount > 0)
+		if (ParentTrms[2].childCount > 0)
 		{
 			if (ParentTrms[2].GetChild(0).name == "设备工器具购置费及安装费" || ParentTrms[2].GetChild(0).name == "流动资金" || ParentTrms[2].GetChild(0).name == "其他费用")
 			{
@@ -88,7 +90,7 @@ public class EstimateManager : MonoBehaviour
 				isSet.Add(false);
 			}
 		}
-		if ( ParentTrms[3].childCount > 0)
+		if (ParentTrms[3].childCount > 0)
 		{
 			if (ParentTrms[3].GetChild(0).name == "设备工器具购置费及安装费" || ParentTrms[3].GetChild(0).name == "流动资金" || ParentTrms[3].GetChild(0).name == "其他费用")
 			{
@@ -139,9 +141,9 @@ public class EstimateManager : MonoBehaviour
 			}
 		}
 
-		if(ParentTrms[6].childCount > 0&& ParentTrms[5].childCount > 0 && ParentTrms[4].childCount > 0 && ParentTrms[3].childCount > 0 && ParentTrms[2].childCount > 0 && ParentTrms[1].childCount > 0 && ParentTrms[0].childCount > 0)
+		if (ParentTrms[6].childCount > 0 && ParentTrms[5].childCount > 0 && ParentTrms[4].childCount > 0 && ParentTrms[3].childCount > 0 && ParentTrms[2].childCount > 0 && ParentTrms[1].childCount > 0 && ParentTrms[0].childCount > 0)
 		{
-			
+
 			//提交查看是否合格
 			for (int i = 0; i < isSet.Count; i++)
 			{
@@ -149,6 +151,9 @@ public class EstimateManager : MonoBehaviour
 				{
 					//减分
 					Debug.Log("减分");
+					DeductionNumber++;
+					promptContentPlane.SetActive(true);
+					promptContentText.text = "答题错误！-1分，请拖至正确位置。";
 					break;
 				}
 
@@ -160,18 +165,21 @@ public class EstimateManager : MonoBehaviour
 				if (number == 7)
 				{
 					Debug.Log("过关");
-					
+
 					submitButton.interactable = false;
 					promptContentPlane.SetActive(true);
+					affirmButton.gameObject.SetActive(true);
 					promptContentText.text = "投资估算正确，请开始限额分解";
-
-
+					//保存状态
+					Unit.UnitDollarData.DeductionNumber = DeductionNumber;
+					Unit.UnitDollarData.EstimateNumber = 100 - DeductionNumber;
+					Unit.UnitDollarData.isFinishEstimate = true;
 				}
 
 			}
 		}
-	
-		
+
+
 	}
 	///
 	public void PromptContentAffirm()
@@ -180,37 +188,34 @@ public class EstimateManager : MonoBehaviour
 		//提交完成信息
 
 		//解锁限额分解
-		if (number == 7) {
+		if (number == 7)
+		{
 			//投资估算完成 ， 开启额分解
 			Unit.UnitDollarData.isFinishEstimate = true;
 			HomePageManager.Instance_.Button_限额分解.interactable = true;
 		}
-		
+
 	}
 	/// <summary>
 	/// 首页进入投资估算之前调用 ，选择区选择模块位置打乱
 	/// </summary>
 	public void ChangeParentPos()
 	{
-		SonTrms =Outoforder(SonTrms);
+		SonTrms = Outoforder(SonTrms);
 		for (int i = 0; i < SonTrms.Count; i++)
 		{
 
 			int x = i;
 			//SonTrms[x].localPosition = SonTrmsTrmsPos[x];
-			SonTrms[x].GetComponent<RectTransform>().anchoredPosition= SonTrmsTrmsPos[x];
+			SonTrms[x].GetComponent<RectTransform>().anchoredPosition = SonTrmsTrmsPos[x];
 		}
-		
-		
+
+
 	}
 
-
-
-
-
-/// <summary>
-/// 打乱排序
-/// </summary>
+	/// <summary>
+	/// 打乱排序
+	/// </summary>
 
 	public List<T> Outoforder<T>(List<T> pos)
 	{

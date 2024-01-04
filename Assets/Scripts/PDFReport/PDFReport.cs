@@ -19,7 +19,7 @@ public class PDFReport : IDisposable
     public Document document;//文档
     string newFontPath;
 
-   public static  IEnumerator 拷贝资源到读写路径(string Oldpath, string newPath)
+    public static IEnumerator 拷贝资源到读写路径(string Oldpath, string newPath)
     {
         if (File.Exists(newPath))
         {
@@ -36,11 +36,11 @@ public class PDFReport : IDisposable
             else
             {
                 Debug.LogError(request.error);
-            }           
-        }      
+            }
+        }
     }
 
-   public IEnumerator 初始化(string filePath)
+    public IEnumerator 初始化(string filePath)
     {
         document = new Document(PageSize.A4);
         string dirPath = Path.GetDirectoryName(filePath);
@@ -51,14 +51,14 @@ public class PDFReport : IDisposable
         //打开文档
         document.Open();
         string oldPath = Application.streamingAssetsPath + "/SourceHanSansSC-Medium.otf";
-        newFontPath = Application.persistentDataPath  + "/SourceHanSansSC-Medium.otf";
+        newFontPath = Application.persistentDataPath + "/SourceHanSansSC-Medium.otf";
         yield return 拷贝资源到读写路径(oldPath, newFontPath);
         //创建字体
         heiBaseFont = BaseFont.CreateFont(newFontPath, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
         titleFont = new Font(heiBaseFont, 26, 1);
         firstTitleFont = new Font(heiBaseFont, 20, 1);
         secondTitleFont = new Font(heiBaseFont, 13, 1);
-        contentFont = new Font(heiBaseFont, 11, Font.NORMAL);
+        contentFont = new Font(heiBaseFont, 8, Font.NORMAL);
     }
 
     public void 添加PDF表格(DataTable dt)
@@ -70,7 +70,7 @@ public class PDFReport : IDisposable
         }
         添加PDF表格(dt, columns.ToArray());
     }
-    public void  添加PDF表格(DataTable dt, float[] columnW)
+    public void 添加PDF表格(DataTable dt, float[] columnW)
     {
 
         List<string> list = new List<string>();
@@ -105,7 +105,7 @@ public class PDFReport : IDisposable
             PdfPCell cell = new PdfPCell(new Phrase(content[i], contentFont));
             cell.HorizontalAlignment = Element.ALIGN_CENTER;
             cell.VerticalAlignment = Element.ALIGN_MIDDLE;
-            
+
             table.AddCell(cell);
         }
         document.Add(table);
@@ -118,9 +118,9 @@ public class PDFReport : IDisposable
     /// </summary>
     public void AddNullLine()
     {
-        Paragraph nullLine = new Paragraph(" ",secondTitleFont);
+        Paragraph nullLine = new Paragraph(" ", secondTitleFont);
         nullLine.Leading = 5;
-        document.Add(nullLine); 
+        document.Add(nullLine);
     }
 
     /// <summary>
@@ -136,6 +136,29 @@ public class PDFReport : IDisposable
         document.Add(contentP);
     }
 
+    /// <summary>
+    /// 大标题
+    /// </summary>
+    /// <param name="titleStr"></param>
+    /// <param name="alignmentType"></param>
+    public void AddFirstTitle(string titleStr, int alignmentType = 0)
+    {
+        Paragraph contentP = new Paragraph(new Chunk(titleStr, firstTitleFont));
+        contentP.Alignment = alignmentType;
+        document.Add(contentP);
+    }
+
+    /// <summary>
+    /// 小标题
+    /// </summary>
+    /// <param name="titleStr"></param>
+    /// <param name="alignmentType"></param>
+    public void AddSecondTitle(string titleStr, int alignmentType = 0)
+    {
+        Paragraph contentP = new Paragraph(new Chunk(titleStr, secondTitleFont));
+        contentP.Alignment = alignmentType;
+        document.Add(contentP);
+    }
     /// <summary>
     /// 插入文字内容
     /// </summary>
@@ -153,7 +176,7 @@ public class PDFReport : IDisposable
     /// </summary>
     /// <param name="imagePath"></param>
     /// <param name="scale"></param>
-    public void AddImage(string imagePath,int width = 475,int height =325)
+    public void AddImage(string imagePath, int width = 475, int height = 325)
     {
         if (!File.Exists(imagePath))
         {
