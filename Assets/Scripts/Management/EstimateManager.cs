@@ -165,6 +165,9 @@ public class EstimateManager : MonoBehaviour
 				if (number == 7)
 				{
 					Debug.Log("过关");
+					//保存截图
+					StopAllCoroutines();
+					StartCoroutine(ScreenCaptureExample.instance_.ScreenCapture2(Application.streamingAssetsPath + "/ScreenShot/" + "/tzgs/" + "/投资估算" + ".png"));
 
 					submitButton.interactable = false;
 					promptContentPlane.SetActive(true);
@@ -174,6 +177,7 @@ public class EstimateManager : MonoBehaviour
 					Unit.UnitDollarData.DeductionNumber = DeductionNumber;
 					Unit.UnitDollarData.EstimateNumber = 100 - DeductionNumber;
 					Unit.UnitDollarData.isFinishEstimate = true;
+
 				}
 
 			}

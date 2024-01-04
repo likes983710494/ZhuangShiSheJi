@@ -7,10 +7,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
 using iTextSharp.text.pdf;
-
+using Unit;
+//生成pdf
 public class SetRePort : MonoBehaviour
 {
-    string fileText1path = @"Assets\StreamingAssets\iamge\你好测试截图0.7817451.png";
+
+    private string tzgsfilepath = @"Assets\StreamingAssets\ScreenShot\tzgs\投资估算.png";//投资估算地址
 
 
 
@@ -18,7 +20,6 @@ public class SetRePort : MonoBehaviour
     {
 
     }
-
     public IEnumerator 创建Pdf()
     {
 
@@ -61,11 +62,11 @@ public class SetRePort : MonoBehaviour
         using (PDFReport pdf = new PDFReport())
         {
             yield return pdf.初始化(path);
-            pdf.AddTitle("装饰设计实验报告");
+            pdf.AddTitle("装饰设计阶段造价实验报告");
             pdf.AddFirstTitle("一、投资估算");
             pdf.AddNullLine();
-            pdf.AddImage(fileText1path);
-            pdf.AddContent("投资估算模块满分100分，共扣9分，得分91分。");
+            pdf.AddImage(tzgsfilepath);
+            pdf.AddContent("投资估算模块满分100分，共扣" + Unit.UnitDollarData.DeductionNumber + "分" + "，得分" + Unit.UnitDollarData.EstimateNumber + "分。");
             pdf.AddSecondTitle("二、限额分解");
             pdf.AddNullLine();
             pdf.添加PDF表格(限额分解dt);
@@ -74,10 +75,10 @@ public class SetRePort : MonoBehaviour
             pdf.添加PDF表格(装饰设计dt);
             pdf.AddSecondTitle("四、装饰效果展示");
             pdf.AddNullLine();
-            pdf.AddImage(fileText1path);
-            pdf.AddImage(fileText1path);
-            pdf.AddImage(fileText1path);
-            pdf.AddImage(fileText1path);
+            pdf.AddImage(tzgsfilepath);
+            pdf.AddImage(tzgsfilepath);
+            pdf.AddImage(tzgsfilepath);
+            pdf.AddImage(tzgsfilepath);
 
 
 

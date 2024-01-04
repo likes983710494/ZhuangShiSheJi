@@ -19,7 +19,7 @@ public class HomePageManager : MonoBehaviour
 
 	private void Awake()
 	{
-		if(Instance_==null)
+		if (Instance_ == null)
 		{
 			Instance_ = this;
 		}
@@ -39,8 +39,5 @@ public class HomePageManager : MonoBehaviour
 	}
 
 	// Update is called once per frame
-	void Update()
-	{
-		
-	}
+
 }

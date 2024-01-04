@@ -29,7 +29,8 @@ namespace Unit
 		public static int DeductionNumber;//减分
 		public static int EstimateNumber;//得分
 		public static bool isFinishEstimate;//完成估算
-											//限额分解所有状态-******---------------
+	    //限额分解所有状态-******---------------
+		
 		public static bool isFinishAntidiastole;
 
 
