@@ -23,23 +23,9 @@ public class SetRePort : MonoBehaviour
     public IEnumerator 创建Pdf()
     {
 
-        string[] Columns = new string[] { "序号", "分项工程", "所属分部工程", "分项金额" };
-        DataTable 限额分解dt = new DataTable();
-        foreach (string item in Columns)
-        {
-            限额分解dt.Columns.Add(item);
-        }
-        for (int i = 0; i < 6; i++) //将数据储存到list
-        {
-            DataRow dr = 限额分解dt.NewRow();
-            object[] objs = { i + 1, "贴镶面", "楼地面装饰工程", "10" };
-            dr.ItemArray = objs;
-            限额分解dt.Rows.Add(dr);
-        }
-        DataRow dr1 = 限额分解dt.NewRow();
-        object[] objs1 = { "分项累计金额", "10" };
-        dr1.ItemArray = objs1;
-        限额分解dt.Rows.Add(dr1);
+
+
+
 
 
 
@@ -67,9 +53,35 @@ public class SetRePort : MonoBehaviour
             pdf.AddNullLine();
             pdf.AddImage(tzgsfilepath);
             pdf.AddContent("投资估算模块满分100分，共扣" + Unit.UnitDollarData.DeductionNumber + "分" + "，得分" + Unit.UnitDollarData.EstimateNumber + "分。");
+
             pdf.AddSecondTitle("二、限额分解");
             pdf.AddNullLine();
-            pdf.添加PDF表格(限额分解dt);
+            for (int i = 0; i < Unit.UnitDollarData.CombineList.Count; i++)
+            {
+                string[] Columns = new string[] { "序号", "分项工程", "所属分部工程", "分项金额" };
+                DataTable 限额分解dt = new DataTable();
+                foreach (string item in Columns)
+                {
+                    限额分解dt.Columns.Add(item);
+                }
+                for (int j = 0; j < Unit.UnitDollarData.CombineList[i].antidiastoleList.Count; j++) //将数据储存到list
+                {
+                    DataRow dr = 限额分解dt.NewRow();
+                    object[] objs = Unit.UnitDollarData.CombineList[i].antidiastoleList.ToArray();
+                    dr.ItemArray = objs;
+                    限额分解dt.Rows.Add(dr);
+                }
+                DataRow dr_hj = 限额分解dt.NewRow();
+                object[] objs1 = { "分项累计金额", "10" };
+                dr_hj.ItemArray = objs1;
+                限额分解dt.Rows.Add(dr_hj);
+
+                pdf.添加PDF表格(限额分解dt);
+                pdf.AddNullLine();
+
+            }
+
+
             pdf.AddSecondTitle("三、装饰设计");
             pdf.AddNullLine();
             pdf.添加PDF表格(装饰设计dt);

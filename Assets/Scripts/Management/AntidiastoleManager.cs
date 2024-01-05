@@ -26,11 +26,13 @@ public class AntidiastoleManager : MonoBehaviour
 	public List<InputField> Amount_InputField = new List<InputField>();//第二列 分部 
 
 
+	private Antidiastole m_Antidiastole = new Antidiastole();
 
+	private Combine combine = new Combine();
 
-	public Text 总金额_Amount;//由老师设定，后台发送
+	 public Text 总金额_Amount;//由老师设定，后台发送
 
-	private float 总金额_Cache=0;//和总金额比较
+	private float 总金额_Cache = 0;//和总金额比较
 	private float proportion = 0;//cache占总金额比例
 	private bool is楼地面装饰, is墙柱面装饰, is天棚工程, is油漆涂料, is其他装饰, isAmount;
 	void Start()
@@ -41,45 +43,51 @@ public class AntidiastoleManager : MonoBehaviour
 
 		for (int i = 0; i < Amount_InputField.Count; i++)
 		{
-			Amount_InputField[i].onValueChanged.AddListener((string value) => {
-				
+			Amount_InputField[i].onValueChanged.AddListener((string value) =>
+			{
+
 				isAmount = SetIsSubmit(Amount_InputField, is楼地面装饰);
 			});
 		}
 
 		for (int i = 0; i < 楼地面装饰InputField.Count; i++)
 		{
-			楼地面装饰InputField[i].onValueChanged.AddListener((string value) => {
-				
+			楼地面装饰InputField[i].onValueChanged.AddListener((string value) =>
+			{
+
 				is楼地面装饰 = SetIsSubmit(楼地面装饰InputField, is楼地面装饰);
 
 			});
 		}
 		for (int i = 0; i < 墙柱面装饰InputField.Count; i++)
 		{
-			墙柱面装饰InputField[i].onValueChanged.AddListener((string value) => {
-				
+			墙柱面装饰InputField[i].onValueChanged.AddListener((string value) =>
+			{
+
 				is墙柱面装饰 = SetIsSubmit(墙柱面装饰InputField, is墙柱面装饰);
 			});
 		}
 		for (int i = 0; i < 天棚工程InputField.Count; i++)
 		{
-			天棚工程InputField[i].onValueChanged.AddListener((string value) => {
-				
+			天棚工程InputField[i].onValueChanged.AddListener((string value) =>
+			{
+
 				is天棚工程 = SetIsSubmit(天棚工程InputField, is天棚工程);
 			});
 		}
 		for (int i = 0; i < 油漆涂料InputField.Count; i++)
 		{
-			油漆涂料InputField[i].onValueChanged.AddListener((string value) => {
-				
+			油漆涂料InputField[i].onValueChanged.AddListener((string value) =>
+			{
+
 				is油漆涂料 = SetIsSubmit(油漆涂料InputField, is油漆涂料);
 			});
 		}
 		for (int i = 0; i < 其他装饰InputField.Count; i++)
 		{
-			其他装饰InputField[i].onValueChanged.AddListener((string value) => {
-				
+			其他装饰InputField[i].onValueChanged.AddListener((string value) =>
+			{
+
 				is其他装饰 = SetIsSubmit(其他装饰InputField, is其他装饰);
 			});
 		}
@@ -89,7 +97,7 @@ public class AntidiastoleManager : MonoBehaviour
 	void Update()
 	{
 		//
-		if (is楼地面装饰 == true && is墙柱面装饰 == true && is天棚工程 == true && is油漆涂料 == true && is其他装饰 == true&& isAmount==true)
+		if (is楼地面装饰 == true && is墙柱面装饰 == true && is天棚工程 == true && is油漆涂料 == true && is其他装饰 == true && isAmount == true)
 		{
 			submitButton.interactable = true;
 		}
@@ -105,7 +113,8 @@ public class AntidiastoleManager : MonoBehaviour
 	/// <param name="amountList"></param>
 	/// <param name="isAmount"></param>
 	/// <returns></returns>
-	public bool SetIsSubmit(List<InputField> amountList, bool isAmount) {
+	public bool SetIsSubmit(List<InputField> amountList, bool isAmount)
+	{
 		int number = 0;
 		//是否全输入了符合提交
 		for (int i = 0; i < amountList.Count; i++)
@@ -144,11 +153,11 @@ public class AntidiastoleManager : MonoBehaviour
 
 		for (int i = 0; i < amountList.Count; i++)
 		{
-			if (amountList[i].text!=null&& amountList[i].text != "")
-			{  
+			if (amountList[i].text != null && amountList[i].text != "")
+			{
 				num = num + float.Parse(amountList[i].text);
 			}
-			
+
 		}
 		return num;
 	}
@@ -168,7 +177,7 @@ public class AntidiastoleManager : MonoBehaviour
 		}
 		if (proportion > 0.6 && proportion <= 1)
 		{
-			
+
 
 			//分部金额和分项金额要相等 否则提示
 
@@ -179,13 +188,13 @@ public class AntidiastoleManager : MonoBehaviour
 				promptContentText.text = "金额错误，请调整楼地面装饰的分部和分项的金额。";
 				affirmButton.gameObject.SetActive(false);
 			}
-			 else if (float.Parse(Amount_InputField[1].text) != EachAmount(墙柱面装饰InputField))
+			else if (float.Parse(Amount_InputField[1].text) != EachAmount(墙柱面装饰InputField))
 			{
 				Debug.Log("金额错误，请调整楼地面装饰的分部和分项的金额。");
 				promptContentText.text = "金额错误，请调整楼墙、柱面装饰与隔断、幕墙工程的分部和分项的金额。";
 				affirmButton.gameObject.SetActive(false);
 			}
-			else if(float.Parse(Amount_InputField[2].text) != EachAmount(天棚工程InputField))
+			else if (float.Parse(Amount_InputField[2].text) != EachAmount(天棚工程InputField))
 			{
 				Debug.Log("金额错误，请调整楼地面装饰的分部和分项的金额。");
 				promptContentText.text = "金额错误，请调整楼天棚工程的分部和分项的金额。";
@@ -208,7 +217,7 @@ public class AntidiastoleManager : MonoBehaviour
 				Debug.Log("工程金额符合,请点击确认进行下一项");
 				promptContentText.text = "工程金额符合,请点击确认进行下一项。";
 				affirmButton.gameObject.SetActive(true);
-				
+
 			}
 
 		}
@@ -217,7 +226,7 @@ public class AntidiastoleManager : MonoBehaviour
 			Debug.Log("分部工程的汇总金额太高，请重新调整");
 			promptContentText.text = "分部工程的汇总金额太高，请重新调整";
 		}
-		
+
 	}
 
 	/// <summary>
@@ -238,6 +247,18 @@ public class AntidiastoleManager : MonoBehaviour
 		//限额分解完成 ， 开启装饰设计
 		Unit.UnitDollarData.isFinishAntidiastole = true;
 		HomePageManager.Instance_.Button_装饰设计.interactable = true;
+		//储存数据
+		combine.antidiastoleList = Unit.UnitDollarData.GetntiAdiastole(楼地面装饰InputField, m_Antidiastole);
+		Unit.UnitDollarData.CombineList.Add(combine);
+		combine.antidiastoleList = Unit.UnitDollarData.GetntiAdiastole(墙柱面装饰InputField, m_Antidiastole);
+		Unit.UnitDollarData.CombineList.Add(combine);
+		combine.antidiastoleList = Unit.UnitDollarData.GetntiAdiastole(天棚工程InputField, m_Antidiastole);
+		Unit.UnitDollarData.CombineList.Add(combine);
+		combine.antidiastoleList = Unit.UnitDollarData.GetntiAdiastole(油漆涂料InputField, m_Antidiastole);
+		Unit.UnitDollarData.CombineList.Add(combine);
+		combine.antidiastoleList = Unit.UnitDollarData.GetntiAdiastole(其他装饰InputField, m_Antidiastole);
+		Unit.UnitDollarData.CombineList.Add(combine);
+
 	}
 
 }

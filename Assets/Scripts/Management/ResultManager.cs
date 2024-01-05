@@ -5,15 +5,16 @@ using System.Reflection;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using UnityEngine.UIElements;
+using NPOI.SS.Formula.Functions;
 /// <summary>
 /// 装饰效果管理
 /// </summary>
 public class ResultManager : MonoBehaviour
 {
 	public UnityEngine.UI.Button submitButton;
-	public List<GameObject> ChangePlane= new List<GameObject>();//image切换
+	public List<GameObject> ChangePlane = new List<GameObject>();//image切换
 	public List<UnityEngine.UI.Toggle> ChangePlaneButtons = new List<UnityEngine.UI.Toggle>();//按钮
-	public  List<UnityEngine.UI.Button> AddImageButtons = new List<UnityEngine.UI.Button>();//选取本地图片 按钮
+	public List<UnityEngine.UI.Button> AddImageButtons = new List<UnityEngine.UI.Button>();//选取本地图片 按钮
 	public Transform PlaneParent0, PlaneParent1, PlaneParent2, PlaneParent3, PlaneParent4;//父节点
 
 	void Start()
@@ -33,21 +34,24 @@ public class ResultManager : MonoBehaviour
 		{
 			int x = i;
 
-			AddImageButtons[x].onClick.AddListener(OpenFileImage);
+			AddImageButtons[x].onClick.AddListener(() =>
+			{
+				OpenFileImage(x + 1);
+			});
 		}
-		
+
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
-		
-			if(PlaneParent0.childCount > 2&& PlaneParent1.childCount > 2 && PlaneParent2.childCount > 2 && PlaneParent3.childCount > 2 && PlaneParent4.childCount > 2)
-			{
+
+		if (PlaneParent0.childCount > 2 && PlaneParent1.childCount > 2 && PlaneParent2.childCount > 2 && PlaneParent3.childCount > 2 && PlaneParent4.childCount > 2)
+		{
 			//
-				submitButton.interactable = true;
-			}
-		
+			submitButton.interactable = true;
+		}
+
 	}
 	public void ChangeLaodPlane(int objNum)
 	{
@@ -59,33 +63,40 @@ public class ResultManager : MonoBehaviour
 		ChangePlane[objNum].SetActive(true);
 	}
 
-	public void OpenFileImage()
+	public void OpenFileImage(int index)
 	{
-		
-			OpenFileName ofn = new OpenFileName();
-			ofn.structSize = Marshal.SizeOf(ofn);
-			ofn.filter = "图片文件(*.jpg*.png)\0*.jpg;*.png";
-			ofn.file = new string(new char[256]);
-			ofn.maxFile = ofn.file.Length;
-			ofn.fileTitle = new string(new char[64]);
-			ofn.maxFileTitle = ofn.fileTitle.Length;
-			//默认路径
-			string path = Application.streamingAssetsPath;
-			path = path.Replace('/', '\\');
-			//默认路径
-			//ofn.initialDir = "G:\\wenshuxin\\test\\HuntingGame_Test\\Assets\\StreamingAssets";
-			ofn.initialDir = path;
-			ofn.title = "Open Project";
-			ofn.defExt = "JPG";//显示文件的类型
-			//注意 一下项目不一定要全选 但是0x00000008项不要缺少
-			ofn.flags = 0x00080000 | 0x00001000 | 0x00000800 | 0x00000200 | 0x00000008;//OFN_EXPLORER|OFN_FILEMUSTEXIST|OFN_PATHMUSTEXIST| OFN_ALLOWMULTISELECT|OFN_NOCHANGEDIR
-			//点击Windows窗口时开始加载选中的图片
-			if (WindowDll.GetOpenFileName(ofn))
-			{
-				Debug.Log("Selected file with full path: " + ofn.file);
-				StartCoroutine(Load(ofn.file));
-			}
-		
+
+		OpenFileName ofn = new OpenFileName();
+		ofn.structSize = Marshal.SizeOf(ofn);
+		ofn.filter = "图片文件(*.jpg*.png)\0*.jpg;*.png";
+		ofn.file = new string(new char[256]);
+		ofn.maxFile = ofn.file.Length;
+		ofn.fileTitle = new string(new char[64]);
+		ofn.maxFileTitle = ofn.fileTitle.Length;
+
+		//默认路径
+		string path = Application.streamingAssetsPath + "/ScreenShot" + "/decorate";
+		path = path.Replace('/', '\\');
+		//默认路径
+		//ofn.initialDir = "G:\\wenshuxin\\test\\HuntingGame_Test\\Assets\\StreamingAssets";
+		ofn.initialDir = path;
+		Debug.Log(ofn.initialDir);
+		ofn.title = "Open Project";
+		ofn.defExt = "JPG";//显示文件的类型
+
+		//注意 一下项目不一定要全选 但是0x00000008项不要缺少
+		ofn.flags = 0x00080000 | 0x00001000 | 0x00000800 | 0x00000200 | 0x00000008;//OFN_EXPLORER|OFN_FILEMUSTEXIST|OFN_PATHMUSTEXIST| OFN_ALLOWMULTISELECT|OFN_NOCHANGEDIR
+
+
+
+		//点击Windows窗口时开始加载选中的图片
+		if (WindowDll.GetOpenFileName(ofn))
+		{
+			Debug.Log("Selected file with full path: " + ofn.file);
+			StopAllCoroutines();
+			StartCoroutine(Load(ofn.file, index));
+		}
+
 	}
 
 
@@ -94,23 +105,32 @@ public class ResultManager : MonoBehaviour
 	/// </summary>
 	/// <param name="path">本地文件路径</param>
 	/// <returns></returns>
-	IEnumerator Load(string path)
+	IEnumerator Load(string path, int index)
 	{   //计算加载用时    
-		double startTime = (double)Time.time;
+		//double startTime = (double)Time.time;
 
-
+		int lastIndex = path.LastIndexOf('\\') + 1;
+		string lastPart = path.Substring(lastIndex);
+		Debug.Log("选取" + path + "----------name：" + lastPart);
+		//保存路径
+		string savePath = Application.streamingAssetsPath + "/ScreenShot" + "/decorate" + "/" + lastPart;
+		switch(index)
+		{
+			case 1:
+				break;
+		}
 		WWW www = new WWW("file:///" + path);
 		yield return www;
 		if (www != null && string.IsNullOrEmpty(www.error))
 		{
 			//获取Texture
 			Texture2D texture = www.texture;
-	   
+			texture.Apply();
 			//直接将选择图保存
-			byte[] bytes = texture.EncodeToJPG();
+			byte[] bytes = texture.EncodeToPNG();
 			//测试地址
 			//string filename = @"G:\wenshuxin\BackGround\6.jpg";
-			System.IO.File.WriteAllBytes(path, bytes);
+			System.IO.File.WriteAllBytes(savePath, bytes);
 			//根据获取的Texture创建一个sprite
 			Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
 			//生成预制体
@@ -126,8 +146,8 @@ public class ResultManager : MonoBehaviour
 
 
 			//计算加载用时
-		   // startTime = (double)Time.time - startTime;
-		   // Debug.Log("加载用时:" + startTime);
+			// startTime = (double)Time.time - startTime;
+			// Debug.Log("加载用时:" + startTime);
 		}
 	}
 	/// <summary>
@@ -135,7 +155,7 @@ public class ResultManager : MonoBehaviour
 	/// </summary>
 	public void DestroyLoadPane()
 	{
-		
+
 	}
 	/// <summary>
 	/// 提交
