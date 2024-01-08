@@ -17,6 +17,12 @@ public class HomePageManager : MonoBehaviour
 	public Button Button_装饰设计;
 	public Button Button_装饰效果展示;
 
+
+	// public DataDownloadManager dataDownloadManager;//任务设计书
+	// public EstimateManager estimateManager;//投资估算
+	// public AntidiastoleManager antidiastoleManager;//限额分解
+	// public ResultManager resultManager;//装饰效果
+
 	private void Awake()
 	{
 		if (Instance_ == null)

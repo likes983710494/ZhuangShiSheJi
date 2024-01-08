@@ -62,7 +62,8 @@ namespace Unit
 
 
 		//装饰效果所有状态-******---------------
-
+		public static List<ImagePath> ImagePathList = new List<ImagePath>();//图片路径
+		public static bool isFinishResult;//完成装饰效果
 
 	}
 }

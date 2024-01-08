@@ -237,10 +237,10 @@ RectTransform:
   - {fileID: 826922731}
   m_Father: {fileID: 221186207}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 91, y: -98}
+  m_SizeDelta: {x: 182, y: 196}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &14182665
 MonoBehaviour:
@@ -2038,7 +2038,7 @@ GameObject:
   - component: {fileID: 80181855}
   - component: {fileID: 80181854}
   m_Layer: 5
-  m_Name: "\u5899\u67F1\u9762\u88C5\u9970\u88C5\u9970\u4E0A\u4F20"
+  m_Name: "\u5899\u67F1\u9762\u88C5\u9970\u88C5\u9970\u4E0A\u4F20/0"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5170,7 +5170,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.8275788, y: 23.715973}
-  m_SizeDelta: {x: 818, y: 0}
+  m_SizeDelta: {x: 818, y: 196}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &221186208
 MonoBehaviour:
@@ -7235,7 +7235,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &290750951
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11702,7 +11702,7 @@ GameObject:
   - component: {fileID: 422814617}
   - component: {fileID: 422814616}
   m_Layer: 5
-  m_Name: "\u697C\u5730\u9762\u88C5\u9970\u4E0A\u4F20"
+  m_Name: "\u697C\u5730\u9762\u88C5\u9970\u4E0A\u4F20/0"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13331,7 +13331,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &478663966
 GameObject:
   m_ObjectHideFlags: 0
@@ -29035,7 +29035,7 @@ GameObject:
   - component: {fileID: 1026607176}
   - component: {fileID: 1026607175}
   m_Layer: 5
-  m_Name: "\u5176\u4ED6\u88C5\u9970\u5DE5\u7A0B"
+  m_Name: "\u5176\u4ED6\u88C5\u9970\u5DE5\u7A0B/0"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31762,7 +31762,7 @@ GameObject:
   - component: {fileID: 1113148228}
   - component: {fileID: 1113148227}
   m_Layer: 5
-  m_Name: "\u5929\u68DA\u5DE5\u7A0B"
+  m_Name: "\u5929\u68DA\u5DE5\u7A0B/0"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35557,7 +35557,7 @@ GameObject:
   - component: {fileID: 1260088502}
   - component: {fileID: 1260088501}
   m_Layer: 5
-  m_Name: "\u6CB9\u6F06\u3001\u6D82\u6599\u53CA\u88F1\u7CCA"
+  m_Name: "\u6CB9\u6F06\u3001\u6D82\u6599\u53CA\u88F1\u7CCA/0"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42895,7 +42895,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1563386118
 RectTransform:
   m_ObjectHideFlags: 0
