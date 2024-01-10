@@ -46,7 +46,6 @@ public class SetRePort : MonoBehaviour
         {
             DataTable 限额分解dt = new DataTable();
             string[] Columns = new string[] { "序号", "分项工程", "所属分部工程", "分项金额" };
-
             foreach (string item in Columns)
             {
                 限额分解dt.Columns.Add(item);
@@ -54,21 +53,21 @@ public class SetRePort : MonoBehaviour
 
             for (int j = 0; j < Unit.UnitDollarData.CombineList[i].antidiastoleList.Count; j++) //将数据储存到list
             {
-                Debug.Log("gg" + ">>>>" + Unit.UnitDollarData.CombineList[i].antidiastoleList[j].name);
                 DataRow dr = 限额分解dt.NewRow();
                 object[] objs = Unit.UnitDollarData.CombineList[i].antidiastoleList[j].GetType().GetProperties().Select(p => p.GetValue(Unit.UnitDollarData.CombineList[i].antidiastoleList[j])).ToArray();
-                foreach (var item in objs)
-                {
-                    Debug.Log("反应：" + item);
-                }
+
                 //  Debug.Log(  Unit.UnitDollarData.CombineList[i].antidiastoleList[i].departmentName);
                 dr.ItemArray = objs;
                 限额分解dt.Rows.Add(dr);
             }
-            DataRow dr_hj = 限额分解dt.NewRow();
-            object[] objs1 = { "分项累计金额", "10" };
-            dr_hj.ItemArray = objs1;
-            限额分解dt.Rows.Add(dr_hj);
+            for (int index = 0; index < Unit.UnitDollarData.AmountArray.Length; index++)
+            {
+                DataRow dr_hj = 限额分解dt.NewRow();
+                object[] objs1 = { "分项累计金额", Unit.UnitDollarData.AmountArray[index] };
+                dr_hj.ItemArray = objs1;
+                限额分解dt.Rows.Add(dr_hj);
+            }
+
             DataTable_List.Add(限额分解dt);
 
 
@@ -92,6 +91,7 @@ public class SetRePort : MonoBehaviour
             {
                 pdf.添加PDF表格(DataTable_List[i]);
                 pdf.AddNullLine();
+                pdf.AddNullLine();
             }
 
 
@@ -107,6 +107,7 @@ public class SetRePort : MonoBehaviour
             pdf.AddNullLine();
             for (int i = 0; i < Unit.UnitDollarData.ImagePathList.Count; i++)
             {
+                pdf.AddContent(Unit.UnitDollarData.ImagePathList[i].name);
                 for (int j = 0; j < Unit.UnitDollarData.ImagePathList[i].imagePathList.Count; j++)
                 {
                     string filepath = Unit.UnitDollarData.ImagePathList[i].imagePathList[j];

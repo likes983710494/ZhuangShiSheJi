@@ -112,7 +112,7 @@ public class ResultManager : MonoBehaviour
 		ofn.maxFileTitle = ofn.fileTitle.Length;
 
 		//默认路径
-		string path = Application.streamingAssetsPath + "/ScreenShot" + "/decorate";
+		string path = Application.streamingAssetsPath + "/ScreenShot" + "/decorat";
 		path = path.Replace('/', '\\');
 		//默认路径
 		//ofn.initialDir = "G:\\wenshuxin\\test\\HuntingGame_Test\\Assets\\StreamingAssets";
@@ -155,7 +155,7 @@ public class ResultManager : MonoBehaviour
 		string lastPart = path.Substring(lastIndex);
 
 		//根据选择 上传类型，文件夹分类 保存路径
-		string savePath = Application.streamingAssetsPath + "/ScreenShot" + "/decorate/" + index + "/" + lastPart;
+		string savePath = Application.streamingAssetsPath + "/ScreenShot" + "/decorat/" + index + "/" + lastPart;
 		Debug.Log("选取" + path + "----------name：" + lastPart + "地址:" + savePath);
 		WWW www = new WWW("file:///" + path);
 		yield return www;
@@ -215,7 +215,7 @@ public class ResultManager : MonoBehaviour
 		objects_save.Clear();
 		Transform instance_Parent = GameObject.Find("Image_已上传").transform;
 		//选取时，先加载里面文件夹里的图片进行 展示
-		string path1 = Path.Combine(Application.streamingAssetsPath + "/ScreenShot/decorate/" + x + "/");
+		string path1 = Path.Combine(Application.streamingAssetsPath + "/ScreenShot/decorat/" + x + "/");
 		string[] files = Directory.GetFiles(path1);
 		foreach (string file in files)
 		{
@@ -282,15 +282,32 @@ public class ResultManager : MonoBehaviour
 		for (int i = 1; i < 6; i++)
 		{
 			ImagePath imagePath_ = new ImagePath();
-			string path = Path.Combine(Application.streamingAssetsPath + "/ScreenShot/decorate/" + i.ToString() + "/");
-			Debug.Log(path);
+			string path = Path.Combine(Application.streamingAssetsPath + "/ScreenShot/decorat/" + i.ToString() + "/");
 			string[] files = Directory.GetFiles(path);
 			foreach (string file in files)
 			{
 				if (Path.GetExtension(file) == ".png" || Path.GetExtension(file) == ".jpg")
 				{
-
-					imagePath_.name = i.ToString();
+					string PathName = "";
+					switch (i)
+					{
+						case 1:
+							PathName = "1.楼地面装饰：";
+							break;
+						case 2:
+							PathName = "2.楼地面装饰：";
+							break;
+						case 3:
+							PathName = "3.楼地面装饰：";
+							break;
+						case 4:
+							PathName = "4.楼地面装饰：";
+							break;
+						case 5:
+							PathName = "5.楼地面装饰：";
+							break;
+					}
+					imagePath_.name = PathName;
 					imagePath_.imagePathList.Add(file);
 				}
 

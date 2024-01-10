@@ -8,12 +8,7 @@ namespace Unit
 {
 	public static class UnitDollarData
 	{
-		//学生的分配额度
-		public static string 楼地面装饰_Amount;
-		public static string 墙柱面装饰_Amount;
-		public static string 天棚工程_Amount;
-		public static string 油漆涂料_Amount;
-		public static string 其他装饰_Amount;
+
 
 		//设计书下载文件名字段
 		public static string PDFName;//pdf名
@@ -56,6 +51,13 @@ namespace Unit
 			return antidiastoleList;
 		}
 
+		// 装饰设计-底部-装饰设计概算学生的分配额度
+		public static string 楼地面装饰_Amount;
+		public static string 墙柱面装饰_Amount;
+		public static string 天棚工程_Amount;
+		public static string 油漆涂料_Amount;
+		public static string 其他装饰_Amount;
+		public static string[] AmountArray = new string[] { };
 		public static bool isFinishAntidiastole;//完成限额分解
 
 

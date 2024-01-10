@@ -243,6 +243,8 @@ public class AntidiastoleManager : MonoBehaviour
 		Unit.UnitDollarData.天棚工程_Amount = Amount_InputField[2].text;
 		Unit.UnitDollarData.油漆涂料_Amount = Amount_InputField[3].text;
 		Unit.UnitDollarData.其他装饰_Amount = Amount_InputField[4].text;
+		Unit.UnitDollarData.AmountArray = new string[] { Unit.UnitDollarData.楼地面装饰_Amount, Unit.UnitDollarData.墙柱面装饰_Amount, Unit.UnitDollarData.天棚工程_Amount,
+		 Unit.UnitDollarData.油漆涂料_Amount, Unit.UnitDollarData.其他装饰_Amount };
 
 		//限额分解完成 ， 开启装饰设计
 		Unit.UnitDollarData.isFinishAntidiastole = true;
