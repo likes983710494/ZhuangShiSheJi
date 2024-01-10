@@ -69,6 +69,11 @@ namespace Unit
 		public static List<ImagePath> ImagePathList = new List<ImagePath>();//图片路径
 		public static bool isFinishResult;//完成装饰效果
 
+
+
+		//实验报告路径----------
+		public static string ReportPath;//实验报告路径
+
 	}
 }
 
