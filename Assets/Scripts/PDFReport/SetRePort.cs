@@ -60,13 +60,13 @@ public class SetRePort : MonoBehaviour
                 dr.ItemArray = objs;
                 限额分解dt.Rows.Add(dr);
             }
-            for (int index = 0; index < Unit.UnitDollarData.AmountArray.Length; index++)
-            {
-                DataRow dr_hj = 限额分解dt.NewRow();
-                object[] objs1 = { "分项累计金额", Unit.UnitDollarData.AmountArray[index] };
-                dr_hj.ItemArray = objs1;
-                限额分解dt.Rows.Add(dr_hj);
-            }
+
+
+            DataRow dr_hj = 限额分解dt.NewRow();
+            object[] objs1 = { "分项累计金额", Unit.UnitDollarData.AmountArray[i] };
+            dr_hj.ItemArray = objs1;
+            限额分解dt.Rows.Add(dr_hj);
+
 
             DataTable_List.Add(限额分解dt);
 
@@ -80,6 +80,7 @@ public class SetRePort : MonoBehaviour
         {
             yield return pdf.初始化(path);
             pdf.AddTitle("装饰设计阶段造价实验报告");
+            pdf.AddSecondTitle("姓名：xxx   班级：2024级1班", 1);
             pdf.AddSecondTitle("一、投资估算");
             pdf.AddNullLine();
             pdf.AddImage(tzgsfilepath);
@@ -107,12 +108,17 @@ public class SetRePort : MonoBehaviour
             pdf.AddNullLine();
             for (int i = 0; i < Unit.UnitDollarData.ImagePathList.Count; i++)
             {
+
                 pdf.AddContent(Unit.UnitDollarData.ImagePathList[i].name);
+                pdf.AddNullLine();
+                Debug.Log(1);
                 for (int j = 0; j < Unit.UnitDollarData.ImagePathList[i].imagePathList.Count; j++)
                 {
+
                     string filepath = Unit.UnitDollarData.ImagePathList[i].imagePathList[j];
                     pdf.AddImage(filepath);
                 }
+                yield return new WaitForSeconds(0.3f);
 
             }
         }

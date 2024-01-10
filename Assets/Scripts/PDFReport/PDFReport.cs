@@ -176,7 +176,7 @@ public class PDFReport : IDisposable
     /// </summary>
     /// <param name="imagePath"></param>
     /// <param name="scale"></param>
-    public void AddImage(string imagePath, int width = 475, int height = 325)
+    public void AddImage(string imagePath, int width = 475, int height = 325)//int width = 475, int height = 325
     {
         if (!File.Exists(imagePath))
         {

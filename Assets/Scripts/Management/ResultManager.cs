@@ -295,20 +295,21 @@ public class ResultManager : MonoBehaviour
 							PathName = "1.楼地面装饰：";
 							break;
 						case 2:
-							PathName = "2.楼地面装饰：";
+							PathName = "2.墙、柱面装饰与隔断、幕墙：";
 							break;
 						case 3:
-							PathName = "3.楼地面装饰：";
+							PathName = "3.天棚工程：";
 							break;
 						case 4:
-							PathName = "4.楼地面装饰：";
+							PathName = "4.油漆、涂料及裱糊：";
 							break;
 						case 5:
-							PathName = "5.楼地面装饰：";
+							PathName = "5.其他装饰工程：";
 							break;
 					}
 					imagePath_.name = PathName;
 					imagePath_.imagePathList.Add(file);
+
 				}
 
 			}
