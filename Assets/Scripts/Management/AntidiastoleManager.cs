@@ -30,7 +30,7 @@ public class AntidiastoleManager : MonoBehaviour
 
 	private Combine combine = new Combine();
 
-	 public Text 总金额_Amount;//由老师设定，后台发送
+	public Text 总金额_Amount;//由老师设定，后台发送
 
 	private float 总金额_Cache = 0;//和总金额比较
 	private float proportion = 0;//cache占总金额比例
@@ -248,16 +248,26 @@ public class AntidiastoleManager : MonoBehaviour
 		Unit.UnitDollarData.isFinishAntidiastole = true;
 		HomePageManager.Instance_.Button_装饰设计.interactable = true;
 		//储存数据
-		combine.antidiastoleList = Unit.UnitDollarData.GetntiAdiastole(楼地面装饰InputField, m_Antidiastole);
+		Unit.UnitDollarData.CombineList.Clear();
+		combine.antidiastoleList = Unit.UnitDollarData.GetntiAdiastole(楼地面装饰InputField);
 		Unit.UnitDollarData.CombineList.Add(combine);
-		combine.antidiastoleList = Unit.UnitDollarData.GetntiAdiastole(墙柱面装饰InputField, m_Antidiastole);
-		Unit.UnitDollarData.CombineList.Add(combine);
-		combine.antidiastoleList = Unit.UnitDollarData.GetntiAdiastole(天棚工程InputField, m_Antidiastole);
-		Unit.UnitDollarData.CombineList.Add(combine);
-		combine.antidiastoleList = Unit.UnitDollarData.GetntiAdiastole(油漆涂料InputField, m_Antidiastole);
-		Unit.UnitDollarData.CombineList.Add(combine);
-		combine.antidiastoleList = Unit.UnitDollarData.GetntiAdiastole(其他装饰InputField, m_Antidiastole);
-		Unit.UnitDollarData.CombineList.Add(combine);
+		Combine combine2 = new Combine();
+
+		combine2.antidiastoleList = Unit.UnitDollarData.GetntiAdiastole(墙柱面装饰InputField);
+		Unit.UnitDollarData.CombineList.Add(combine2);
+		Combine combine3 = new Combine();
+
+		combine3.antidiastoleList = Unit.UnitDollarData.GetntiAdiastole(天棚工程InputField);
+		Unit.UnitDollarData.CombineList.Add(combine3);
+		Combine combine4 = new Combine();
+
+		combine4.antidiastoleList = Unit.UnitDollarData.GetntiAdiastole(油漆涂料InputField);
+		Unit.UnitDollarData.CombineList.Add(combine4);
+		Combine combine5 = new Combine();
+
+		combine5.antidiastoleList = Unit.UnitDollarData.GetntiAdiastole(其他装饰InputField);
+		Unit.UnitDollarData.CombineList.Add(combine5);
+
 
 	}
 

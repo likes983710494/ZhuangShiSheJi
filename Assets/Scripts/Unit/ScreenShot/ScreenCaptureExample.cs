@@ -4,7 +4,9 @@ using UnityEngine;
 using System.IO;
 using UnityEngine.UI;
 using NPOI.SS.Formula.Functions;
-
+/// <summary>
+/// ½ØÍ¼ ¹¦ÄÜ
+/// </summary>
 public class ScreenCaptureExample : MonoBehaviour
 {
     public static ScreenCaptureExample instance_;

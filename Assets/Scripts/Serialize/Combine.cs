@@ -5,5 +5,5 @@ using UnityEngine;
 [System.Serializable]
 public class Combine
 {
-    public List<Antidiastole> antidiastoleList;
+    public List<Antidiastole> antidiastoleList = new List<Antidiastole>();
 }

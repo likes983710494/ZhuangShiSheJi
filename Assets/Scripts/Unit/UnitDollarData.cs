@@ -39,11 +39,13 @@ namespace Unit
 		//限额分解所有状态-******---------------
 		public static List<Combine> CombineList = new List<Combine>();//pdf-限额分解列表
 
-		public static List<Antidiastole> GetntiAdiastole(List<InputField> InputFieldList, Antidiastole antidiastole_)
+		public static List<Antidiastole> GetntiAdiastole(List<InputField> InputFieldList)
 		{
+
 			List<Antidiastole> antidiastoleList = new List<Antidiastole>();
 			for (int i = 0; i < InputFieldList.Count; i++)
 			{
+				Antidiastole antidiastole_ = new Antidiastole();
 				antidiastole_.index = i;
 				antidiastole_.name = InputFieldList[i].transform.parent.name;
 				antidiastole_.departmentName = InputFieldList[i].transform.parent.parent.parent.name;

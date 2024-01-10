@@ -7,9 +7,9 @@ using UnityEngine;
 public class Antidiastole
 {
 
-    public int index;//序号
-    public string name;//分项名字
-    public string departmentName;//所属分部名字
+    public int index { get; set; }//序号
+    public string name { get; set; }//分项名字
+    public string departmentName { get; set; }//所属分部名字
 
-    public float amount;//金额
+    public float amount { get; set; }//金额
 }

@@ -178,6 +178,14 @@ public class ResultManager : MonoBehaviour
 			objects_save.Add(instance_);
 			instance_.transform.SetParent(instance_Parent);
 			instance_.transform.GetChild(0).GetComponent<UnityEngine.UI.Image>().sprite = sprite;
+			instance_.transform.GetChild(1).GetComponent<UnityEngine.UI.Button>().onClick.AddListener(() =>
+			{
+
+				DestroyLoadPane(instance_, savePath);
+
+
+			});
+
 			//将sprite显示在图片上
 			//image.sprite = sprite;
 			//图片设置为原始尺寸
@@ -221,11 +229,16 @@ public class ResultManager : MonoBehaviour
 				Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
 				//生成预制体
 				GameObject prefab = Resources.Load<GameObject>("prefab/Resul/Image_已上传BG");
-
 				GameObject instance_ = Instantiate(prefab);
 				objects.Add(instance_);
 				instance_.transform.SetParent(instance_Parent);
 				instance_.transform.GetChild(0).GetComponent<UnityEngine.UI.Image>().sprite = sprite;
+
+				instance_.transform.GetChild(1).GetComponent<UnityEngine.UI.Button>().onClick.AddListener(() =>
+				{
+					DestroyLoadPane(instance_, file);
+
+				});
 
 			}
 
@@ -238,13 +251,29 @@ public class ResultManager : MonoBehaviour
 		instance_Parent.parent.parent.parent.name = afterPart + "/" + instance_Parent.childCount;
 	}
 	/// <summary>
-	/// 删除
+	/// 
 	/// </summary>
-	public void DestroyLoadPane()
-	{
+	/// <param name="instance_"> 删除当前物体</param>
+	/// <param name="path"></param> 当前被删除的地址<summary>
+	/// 
+	/// </summary>
 
+	public void DestroyLoadPane(Object instance_, string file)
+	{
+		Destroy(instance_);
+		// string path = Path.Combine(Application.streamingAssetsPath, "你的图片名称.jpg");
+		string path = Path.Combine(file);
+		if (File.Exists(path))
+		{
+			File.Delete(path);
+			Debug.Log("文件已删除");
+		}
+		else
+		{
+			Debug.Log("文件不存在");
+		}
 	}
-	/// <summary>
+	/// <summary> 
 	/// 提交
 	/// </summary>
 	public void SubmitLaodPlane()
@@ -268,7 +297,7 @@ public class ResultManager : MonoBehaviour
 			}
 			Unit.UnitDollarData.ImagePathList.Add(imagePath_);
 		}
-		Debug.Log("地址:" + Unit.UnitDollarData.ImagePathList[0].imagePathList[0]);
+
 
 
 

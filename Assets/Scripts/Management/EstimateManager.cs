@@ -175,7 +175,9 @@ public class EstimateManager : MonoBehaviour
 					promptContentText.text = "投资估算正确，请开始限额分解";
 					//保存状态
 					Unit.UnitDollarData.DeductionNumber = DeductionNumber;
+
 					Unit.UnitDollarData.EstimateNumber = 100 - DeductionNumber;
+					Debug.Log(100 - DeductionNumber + "和" + Unit.UnitDollarData.EstimateNumber);
 					Unit.UnitDollarData.isFinishEstimate = true;
 
 				}
