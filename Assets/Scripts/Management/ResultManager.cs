@@ -13,9 +13,12 @@ using System.IO;
 public class ResultManager : MonoBehaviour
 {
 	public UnityEngine.UI.Button submitButton;
+	public UnityEngine.UI.Button OKButton; //button_真棒
 	public List<GameObject> ChangePlane = new List<GameObject>();//image切换
 	public List<UnityEngine.UI.Toggle> ChangePlaneButtons = new List<UnityEngine.UI.Toggle>();//按钮
 	public List<UnityEngine.UI.Button> AddImageButtons = new List<UnityEngine.UI.Button>();//选取本地图片 按钮
+	public GameObject OKPlane;//--BG
+
 	public Transform PlaneParent0, PlaneParent1, PlaneParent2, PlaneParent3, PlaneParent4;//父节点
 
 	private List<Object> objects = new List<Object>();
@@ -25,7 +28,18 @@ public class ResultManager : MonoBehaviour
 	{
 
 		submitButton.onClick.AddListener(SubmitLaodPlane);
+		OKButton.onClick.AddListener(()=>{
+			OKPlane.SetActive(false);
+			//状态完成   首页显示生成报告按钮
+			Unit.UnitDollarData.isFinishResult = true;
+			if (Unit.UnitDollarData.isFinishResult && Unit.UnitDollarData.isFinishDesign && Unit.UnitDollarData.isFinishAntidiastole
+			&& Unit.UnitDollarData.isFinishEstimate && Unit.UnitDollarData.isFinishDataDownload)
+			{
+				HomePageManager.Instance_.Button_装饰效果展示.gameObject.SetActive(true);
+			}
 
+			HomePageManager.Instance_.Button_装饰效果展示.gameObject.SetActive(true);
+		});
 
 
 		for (int i = 0; i < ChangePlaneButtons.Count; i++)
@@ -316,8 +330,7 @@ public class ResultManager : MonoBehaviour
 			Unit.UnitDollarData.ImagePathList.Add(imagePath_);
 		}
 
-
-
+		
 
 	}
 

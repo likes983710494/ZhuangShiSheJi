@@ -13,9 +13,9 @@ using Unit;
 
 public class DataDownloadManager : MonoBehaviour
 {
-	private string pdfurl= "http://127.0.0.1/Texture.pdf";//pdf网络下载地址
-	private string modelurl= "https://speedtest.dallas.linode.com/100MB-dallas.bin";//模型网络下载地址
-	//private string savePath;//保存地址
+	private string pdfurl = "http://127.0.0.1/Texture.pdf";//pdf网络下载地址
+	private string modelurl = "http://127.0.0.1/Texture.pdf";//模型网络下载地址
+
 
 	private string PDFName;//pdf名字
 	private string ObjName;//模型名字
@@ -26,42 +26,44 @@ public class DataDownloadManager : MonoBehaviour
 
 	public GameObject LoadPlane;//下载面板
 	public Slider LoadSlider;
-	public  List<GameObject> openPlanes;//打开确认弹窗
+	public List<GameObject> openPlanes;//打开确认弹窗
 
 	public PDFViewer PDFViewer_;//PDF预览器
 
 	public Scrollbar VerticalScrollbar;//PDF预览器的右侧滑动条
 	public Toggle 已完成Toggle;
-	
+
 	void Start()
 	{
 
-		PDF关闭button= PDFViewer_.transform.GetChild(1).GetComponent<Button>();
-		
+		PDF关闭button = PDFViewer_.transform.GetChild(1).GetComponent<Button>();
+
 		//下载文档按钮添加事件
 		loadPdfButton.onClick.AddListener(() =>
 		{
 			LoadPlane.SetActive(true);
-			OnDownloadAssets(pdfurl,0);
+			OnDownloadAssets(pdfurl, 0);
 		});
 		//下载模型按钮添加事件
 		loadModelButton.onClick.AddListener(() =>
 		{
 			LoadPlane.SetActive(true);
-			OnDownloadAssets(modelurl,1);
+			OnDownloadAssets(modelurl, 1);
 		});
 		//文档下载按钮
-		openPlanes[0].transform.GetChild(1).GetComponent<Button>().onClick.AddListener(() => {
+		openPlanes[0].transform.GetChild(1).GetComponent<Button>().onClick.AddListener(() =>
+		{
 
 			PDFViewer_.gameObject.SetActive(true);
-			if(PDFName!=""&& PDFName != null)
+			if (PDFName != "" && PDFName != null)
 			{
 				PDFViewer_.FileName = PDFName;
 			}
-			
+
 		});
 		//文档 取消按钮
-		openPlanes[0].transform.GetChild(2).GetComponent<Button>().onClick.AddListener(() => {
+		openPlanes[0].transform.GetChild(2).GetComponent<Button>().onClick.AddListener(() =>
+		{
 
 			PDFViewer_.gameObject.SetActive(false);
 			LoadPlane.SetActive(false);
@@ -71,21 +73,23 @@ public class DataDownloadManager : MonoBehaviour
 
 		});
 		//模型下载确认按钮
-		openPlanes[1].transform.GetChild(1).GetComponent<Button>().onClick.AddListener(() => {
+		openPlanes[1].transform.GetChild(1).GetComponent<Button>().onClick.AddListener(() =>
+		{
 
 
 			LoadPlane.SetActive(false);
 			openPlanes[1].SetActive(false);
 			//将下载模型完成的状态储存
 			Unit.UnitDollarData.isDataObj = true;
-			if(Unit.UnitDollarData.isDataObj&& Unit.UnitDollarData.isDataPDF){
+			if (Unit.UnitDollarData.isDataObj && Unit.UnitDollarData.isDataPDF)
+			{
 
 				//设计任务书模块的状态
 				Unit.UnitDollarData.isFinishDataDownload = true;
 			}
-			if (Unit.UnitDollarData.isFinishDataDownload== true)
+			if (Unit.UnitDollarData.isFinishDataDownload == true)
 			{
-				//开启投资估算状态
+				//开启首页的投资估算按钮状态
 				HomePageManager.Instance_.Button_投资估算.interactable = true;
 			}
 
@@ -100,12 +104,15 @@ public class DataDownloadManager : MonoBehaviour
 		PDF关闭button.onClick.AddListener(() =>
 		{
 			PDFViewer_.gameObject.SetActive(false);
-			
+			PDFViewer_.gameObject.SetActive(false);
+			LoadPlane.SetActive(false);
+			openPlanes[0].SetActive(false);
+
 		});
 		已完成Toggle.onValueChanged.AddListener((value) =>
 		{
 
-			if(value==true)
+			if (value == true)
 			{
 				//开启模型下载
 				loadModelButton.interactable = true;
@@ -114,24 +121,24 @@ public class DataDownloadManager : MonoBehaviour
 			}
 
 		});
-		
+
 
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
-		
+
 	}
 	/// <summary>
 	///调用下载资源 到StreamingAssets文件夹
 	/// </summary>
 	/// <param name="url">网络资源下载地址</param>
 	/// /// <param int="type">类型  0是pdf 1是模型</param>
-	private void OnDownloadAssets(string url,int type)//下载资源
+	private void OnDownloadAssets(string url, int type)//下载资源
 	{
 		StartCoroutine(DownloadFormServer_IE(url, type));
-		
+
 	}
 
 
@@ -225,13 +232,14 @@ public class DataDownloadManager : MonoBehaviour
 	/// <param name="value"></param>
 	private void PDFScrollbarChange(float value)
 	{
-		if(VerticalScrollbar.gameObject!=null)
+		if (VerticalScrollbar.gameObject != null)
 		{
-			if(VerticalScrollbar.value == 0.0f){
+			if (VerticalScrollbar.value == 0.0f)
+			{
 				//显示
 				已完成Toggle.gameObject.SetActive(true);
 			}
-			
+
 		}
 	}
 }

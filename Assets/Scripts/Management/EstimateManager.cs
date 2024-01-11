@@ -192,7 +192,7 @@ public class EstimateManager : MonoBehaviour
 	{
 		//隐藏模块
 		//提交完成信息
-
+		Debug.Log("q" + number);
 		//解锁限额分解
 		if (number == 7)
 		{

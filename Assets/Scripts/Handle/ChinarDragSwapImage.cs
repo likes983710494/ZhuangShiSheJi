@@ -7,9 +7,9 @@ namespace QmDreamer.UI
 	/// <summary>
 	/// 管理UI元素排序：使UI可通过拖动进行位置互换
 	/// </summary>
-    public class ChinarDragSwapImage : Button, IDragHandler, IBeginDragHandler, IEndDragHandler
-    {
-        private Transform beginParentTransform; //记录开始拖动时的父级对象        
+	public class ChinarDragSwapImage : Button, IDragHandler, IBeginDragHandler, IEndDragHandler
+	{
+		private Transform beginParentTransform; //记录开始拖动时的父级对象        
 		/// <summary>
 		/// UI界面的顶层，这里我用的是 填入区
 		/// (这个变量在开发中设置到单例中较好，不然每一个物品都会初始化查找
@@ -26,54 +26,54 @@ namespace QmDreamer.UI
 
 
 		protected override void Start()
-        {
-            base.Start();
-            topOfUiT = GameObject.Find("填入区").transform;
+		{
+			base.Start();
+			topOfUiT = GameObject.Find("填入区").transform;
 			BottomOfUiT = GameObject.Find("选择区").transform;
 
 		}
 
 
-        public void OnBeginDrag(PointerEventData _)
-        {
-			Debug.Log("OnBeginDrag");
+		public void OnBeginDrag(PointerEventData _)
+		{
+			//Debug.Log("OnBeginDrag");
 			zeroPos = transform.position;
 
 			if (transform.parent == topOfUiT) return;
-            beginParentTransform = transform.parent;
-            transform.SetParent(topOfUiT);
-        }
+			beginParentTransform = transform.parent;
+			transform.SetParent(topOfUiT);
+		}
 
 
-        public void OnDrag(PointerEventData _)
-        {
-			
+		public void OnDrag(PointerEventData _)
+		{
+
 			transform.position = Input.mousePosition;
-            if (transform.GetComponent<Image>().raycastTarget) transform.GetComponent<Image>().raycastTarget = false;
-        }
+			if (transform.GetComponent<Image>().raycastTarget) transform.GetComponent<Image>().raycastTarget = false;
+		}
 
 
-        public void OnEndDrag(PointerEventData _)
-        {
-            GameObject go = _.pointerCurrentRaycast.gameObject;
+		public void OnEndDrag(PointerEventData _)
+		{
+			GameObject go = _.pointerCurrentRaycast.gameObject;
 			if (go.tag == "Grid") //如果当前拖动物体下是：格子时
-            {
-				
-				SetPosAndParent(transform, go.transform); 
-            }
-            else if (go.tag == "Good") //如果是交换的“答案”
-            {
+			{
+
+				SetPosAndParent(transform, go.transform);
+			}
+			else if (go.tag == "Good") //如果是交换的“答案”
+			{
 
 				//	SetPosAndParent(transform, go.transform.parent);   
 				// go.transform.SetParent(topOfUiT);   //目标物品设置到 UI 顶层
-				
+
 				SetPosExchange(transform, go.transform);
-				
+
 			}
-            else //其他任何情况，物体回归原始位置
-            {
+			else //其他任何情况，物体回归原始位置
+			{
 				//SetOtherPosExchange(transform, go.transform);
-			    SetPosAndParent(transform, beginParentTransform);
+				SetPosAndParent(transform, beginParentTransform);
 				transform.position = zeroPos;
 
 
@@ -82,16 +82,16 @@ namespace QmDreamer.UI
 		}
 
 
-        /// <summary>
-        /// 设置父物体，UI位置归正
-        /// </summary>
-        /// <param name="t">对象Transform</param>
-        /// <param name="parent">要设置到的父级</param>
-        private void SetPosAndParent(Transform t, Transform parent)
-        {
-            t.SetParent(parent);
-            t.position = parent.position;
-        }
+		/// <summary>
+		/// 设置父物体，UI位置归正
+		/// </summary>
+		/// <param name="t">对象Transform</param>
+		/// <param name="parent">要设置到的父级</param>
+		private void SetPosAndParent(Transform t, Transform parent)
+		{
+			t.SetParent(parent);
+			t.position = parent.position;
+		}
 		/// <summary>
 		/// 如果是物体就互换
 		/// </summary>
@@ -107,7 +107,7 @@ namespace QmDreamer.UI
 			t2.position = parentTr.position;
 		}
 
-	
+
 
 
 	}

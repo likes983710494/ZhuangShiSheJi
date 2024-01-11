@@ -63,7 +63,7 @@ namespace Unit
 
 
 		//装饰设计所有状态-******---------------
-
+		public static bool isFinishDesign;//完成装饰设计
 
 		//装饰效果所有状态-******---------------
 		public static List<ImagePath> ImagePathList = new List<ImagePath>();//图片路径
