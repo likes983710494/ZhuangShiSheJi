@@ -8,8 +8,24 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Menu;
 /// </summary>
 public class DecorativeDesignRight : MonoBehaviour
 {
+	public static DecorativeDesignRight Instance_ { get; private set; }
 	public Dropdown DropdownBranch;//分部
 	public Dropdown DropdownSubentry;//分项
+	public Button  ButtonModus;//做法说明按钮
+
+
+	private void Awake()
+	{
+		if (Instance_ == null)
+		{
+			Instance_ = this;
+			DontDestroyOnLoad(gameObject);
+		}
+		else
+		{
+			Destroy(gameObject);
+		}
+	}
 	void Start()
 	{
 		DropdownBranch.onValueChanged.AddListener(BranchDropdownChange);
@@ -35,7 +51,7 @@ public class DecorativeDesignRight : MonoBehaviour
 		switch (index)
 		{
 			case 0:
-				DropdownSubentry.AddOptions(new List<string> { "找平层", "整体面层", "块料面层", "其他面层", "其他项目" });
+				DropdownSubentry.AddOptions(new List<string> { "找平层", "整体面层", "块料面层", "其他面层", "其他面层" });
 				break;
 			case 1:
 				DropdownSubentry.AddOptions(new List<string> { "墙、柱面抹灰", "镶贴块料面层", "墙、装饰面", "隔断、幕墙", "墙、柱面吸音" });
@@ -60,6 +76,6 @@ public class DecorativeDesignRight : MonoBehaviour
 	public void SubentryDropdownChange(int index)
 	{
 		//设置关联模型
-		
+
 	}
 }
