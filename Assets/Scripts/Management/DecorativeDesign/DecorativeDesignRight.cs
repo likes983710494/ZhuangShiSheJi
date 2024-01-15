@@ -11,7 +11,7 @@ public class DecorativeDesignRight : MonoBehaviour
 	public static DecorativeDesignRight Instance_ { get; private set; }
 	public Dropdown DropdownBranch;//分部
 	public Dropdown DropdownSubentry;//分项
-	public Button  ButtonModus;//做法说明按钮
+	public Button ButtonModu;//做法说明按钮
 
 
 	private void Awake()
@@ -32,6 +32,11 @@ public class DecorativeDesignRight : MonoBehaviour
 		DropdownSubentry.onValueChanged.AddListener(SubentryDropdownChange);
 
 		DropdownSubentry.interactable = false;
+		ButtonModu.onClick.AddListener(() =>
+		{
+			DecorativeDesignModus.Instance_.LeftMakerUnfoldButton.interactable = true;
+			DecorativeDesignModus.Instance_.LeftMakerPlan.transform.GetComponent<RectTransform>().sizeDelta = new Vector2(320, 630);
+		});
 	}
 
 
@@ -75,7 +80,9 @@ public class DecorativeDesignRight : MonoBehaviour
 	/// <param name="index"></param>
 	public void SubentryDropdownChange(int index)
 	{
-		//设置关联模型
+		ButtonModu.interactable = true;
+		//改变宽度展开面板
+		///
 
 	}
 }

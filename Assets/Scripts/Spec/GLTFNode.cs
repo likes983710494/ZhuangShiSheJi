@@ -152,7 +152,8 @@ namespace Siccity.GLTFUtility
 							MeshRenderer mr = Result[i].transform.gameObject.AddComponent<MeshRenderer>();
 							MeshFilter mf = Result[i].transform.gameObject.AddComponent<MeshFilter>();
 							Result[i].transform.gameObject.AddComponent<MeshCollider>();
-							//Result[i].transform.gameObject.GetComponent<MeshCollider>().sharedMesh=mesh;
+							Result[i].transform.gameObject.GetComponent<MeshCollider>().convex = true;
+							Result[i].transform.gameObject.GetComponent<MeshCollider>().sharedMesh = mesh;
 							//Result[i].transform.gameObject.AddComponent<Rigidbody>();
 							//Result[i].transform.gameObject.GetComponent<Rigidbody>().useGravity = false;
 							renderer = mr;

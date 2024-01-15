@@ -22,19 +22,26 @@ namespace PlanesWalker
 		public void asd(GameObject result, AnimationClip[] clip)
 		{
 			result.transform.position = ZeroParent.position;
-			result.transform.localScale=Vector3.one;
+			result.transform.localScale = Vector3.one;
 			result.transform.SetParent(ZeroParent);
-			foreach (Transform child in result.transform)
+
+			foreach (Transform child in result.transform.GetComponentsInChildren<Transform>(true))
 			{
-				if(child.GetComponent<Camera>()!=null)
+				if (child.GetComponent<Camera>() != null)
 				{
 					Debug.Log(child.name);
 					child.GetComponent<Camera>().enabled = false;
 				}
-			}		
+				//创建点击事件 点击建筑部件
+				if (child.GetComponent<MeshRenderer>() != null)
+				{
+					//	Debug.Log(child.name + "fu:" + child.parent.name);
+					child.gameObject.AddComponent<GltfMouseDown>();
+				}
+			}
 			//创建一个新的相机
-				//BackRoundCamera.gameObject.SetActive(true);
-			
+			//BackRoundCamera.gameObject.SetActive(true);
+
 
 		}
 	}

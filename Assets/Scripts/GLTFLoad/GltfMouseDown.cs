@@ -1,7 +1,4 @@
-/* ========================================
-*  Author：PlanesWalker Liu
-*  Copyright Owner © PlanesWalker Liu.
-* =========================================*/
+
 using LitJson;
 using Siccity.GLTFUtility;
 using System.Collections;
@@ -14,7 +11,7 @@ namespace PlanesWalker
     {
         private void OnMouseDown()
         {
-            Debug.Log(123);
+            Debug.Log(gameObject.name);
         }
     }
 }
