@@ -11,7 +11,7 @@ namespace PlanesWalker
     {
         private void OnMouseDown()
         {
-            Debug.Log(gameObject.name);
+            //   Debug.Log(gameObject.name);
         }
     }
 }
