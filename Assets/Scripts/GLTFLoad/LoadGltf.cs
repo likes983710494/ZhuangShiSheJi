@@ -32,12 +32,6 @@ namespace PlanesWalker
 					Debug.Log(child.name);
 					child.GetComponent<Camera>().enabled = false;
 				}
-				//创建点击事件 点击建筑部件
-				if (child.GetComponent<MeshRenderer>() != null)
-				{
-					//	Debug.Log(child.name + "fu:" + child.parent.name);
-					child.gameObject.AddComponent<GltfMouseDown>();
-				}
 			}
 			//创建一个新的相机
 			//BackRoundCamera.gameObject.SetActive(true);

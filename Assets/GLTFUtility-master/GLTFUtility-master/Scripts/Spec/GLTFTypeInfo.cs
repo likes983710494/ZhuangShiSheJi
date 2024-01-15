@@ -14,6 +14,7 @@ namespace Siccity.GLTFUtility
 			{
 				string data = JsonMapper.ToJson(m_extrasA);
 				extrasA extrasAData = m_extrasA;
+				//改进 用递归查找
 				if (m_extrasA.ElementID == 0 || m_extrasA.UniqueId == null || m_extrasA.Parameters == null)
 				{
 					if (this.transform.parent != null)
