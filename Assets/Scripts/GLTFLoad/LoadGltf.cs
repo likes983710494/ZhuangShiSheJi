@@ -1,11 +1,9 @@
-/* ========================================
-*  Author：PlanesWalker Liu
-*  Copyright Owner © PlanesWalker Liu.
-* =========================================*/
+
 using LitJson;
 using Siccity.GLTFUtility;
 using System.Collections.Generic;
 using UnityEngine;
+
 
 namespace PlanesWalker
 {
@@ -33,8 +31,8 @@ namespace PlanesWalker
 					child.GetComponent<Camera>().enabled = false;
 				}
 			}
-			//创建一个新的相机
-			//BackRoundCamera.gameObject.SetActive(true);
+			//模型加载完毕 关闭模型加载进度条
+			DecorativeDesignModus.Instance_.模型等待进度条.SetActive(false);
 
 
 		}

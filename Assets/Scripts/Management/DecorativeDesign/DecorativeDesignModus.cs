@@ -9,6 +9,7 @@ public class DecorativeDesignModus : MonoBehaviour
     public static DecorativeDesignModus Instance_ { get; private set; }
     public GameObject LeftMakerPlan;//左侧做法面板- 调整width控制显示
     public Button LeftMakerUnfoldButton; //展开面板 -抽屉按钮 
+    public GameObject 模型等待进度条;
 
     void Awake()
     {
