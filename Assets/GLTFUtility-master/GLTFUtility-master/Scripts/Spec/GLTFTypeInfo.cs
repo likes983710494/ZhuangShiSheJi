@@ -1,6 +1,7 @@
 ﻿using LitJson;
 using NPOI.SS.Formula.Functions;
 using UnityEngine;
+using Unit.DecorativeDesign;
 
 namespace Siccity.GLTFUtility
 {
@@ -10,6 +11,16 @@ namespace Siccity.GLTFUtility
 		public extrasA m_extrasA;
 		public void OnMouseDown()
 		{
+			//储存上一个 高亮的物体 并关闭
+			if (DecorativeDesignSaveDate.HighligObject != null)
+			{
+				DecorativeDesignSaveDate.HighligObject.GetComponent<HighlightableObject>().ConstantOff();
+			}
+			GetComponent<HighlightableObject>().ConstantOn(Color.cyan);//此方法打开边缘发光，参数可以控制发光的颜色
+			DecorativeDesignSaveDate.HighligObject = this.gameObject;
+
+
+			//获取数据
 			if (m_extrasA != null)
 			{
 				string data = JsonMapper.ToJson(m_extrasA);

@@ -96,6 +96,7 @@ namespace Siccity.GLTFUtility
 					Result[i].transform.name = nodes[i].name;
 					Result[i].transform.gameObject.AddComponent<GLTFTypeInfo>();
 
+
 					//Rigidbody rigidbody= Result[i].transform.gameObject.GetComponent<Rigidbody>();
 					if (nodes[i].extras != null)
 					{
@@ -154,6 +155,11 @@ namespace Siccity.GLTFUtility
 							Result[i].transform.gameObject.AddComponent<MeshCollider>();
 							Result[i].transform.gameObject.GetComponent<MeshCollider>().convex = true;
 							Result[i].transform.gameObject.GetComponent<MeshCollider>().sharedMesh = mesh;
+							//添加高亮  like
+							if (Result[i].transform.gameObject.GetComponent<MeshCollider>() != null)
+							{
+								Result[i].transform.gameObject.AddComponent<HighlightableObject>();
+							}
 							//Result[i].transform.gameObject.AddComponent<Rigidbody>();
 							//Result[i].transform.gameObject.GetComponent<Rigidbody>().useGravity = false;
 							renderer = mr;

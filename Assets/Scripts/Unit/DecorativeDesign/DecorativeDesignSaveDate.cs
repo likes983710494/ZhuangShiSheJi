@@ -8,7 +8,7 @@ namespace Unit.DecorativeDesign
 {
     public static class DecorativeDesignSaveDate
     {
-
+        public  static GameObject HighligObject;//
     }
 }
 
