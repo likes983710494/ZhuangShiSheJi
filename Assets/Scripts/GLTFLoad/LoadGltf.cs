@@ -15,9 +15,11 @@ namespace PlanesWalker
 		private void Start()
 		{
 
-			GLTFUtilityScript.Instance.ImportGLTFAsync(Application.streamingAssetsPath + "/NewProject.gltf", asd);
+			//GLTFUtilityScript.Instance.ImportGLTFAsync(Application.streamingAssetsPath + "/NewProject.gltf", asd);
+
+			GLTFUtilityScript.Instance.ImportGLTFAsync(Application.streamingAssetsPath + "/Model" + "/装饰设计01.gltf", Initial);
 		}
-		public void asd(GameObject result, AnimationClip[] clip)
+		public void Initial(GameObject result, AnimationClip[] clip)
 		{
 			result.transform.position = ZeroParent.position;
 			result.transform.localScale = Vector3.one;
