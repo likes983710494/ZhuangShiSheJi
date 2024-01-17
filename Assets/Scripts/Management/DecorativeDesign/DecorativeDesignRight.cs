@@ -20,6 +20,8 @@ public class DecorativeDesignRight : MonoBehaviour
 	public GameObject Content_做法说明_01选择做法;// 做法说明工程设计图片  父节点
 	public GameObject Content_做法说明_02选择材质;//做法说明工程设计材质  父节点
 	public UnityEngine.UI.Text Text_目录;
+	public UnityEngine.UI.Text Text_左侧名称;
+	public UnityEngine.UI.Button Button_上一步;//上一步按钮 当选择做法时隐藏  
 
 
 	/*************以上做法说明相关按钮*****************/
@@ -52,8 +54,9 @@ public class DecorativeDesignRight : MonoBehaviour
 			DecorativeDesignModus.Instance_.LeftMakerPlan.transform.GetComponent<RectTransform>().sizeDelta = new Vector2(320, 630);
 			Text_目录.text = DecorativeDesignSaveDate.departmentName + "->" + DecorativeDesignSaveDate.subentryName;
 		});
-
-		//LoadGLTF.SetActive(false);
+		Button_上一步.gameObject.SetActive(false);
+		Button_上一步.onClick.AddListener(() => { });
+		LoadGLTF.SetActive(false);
 	}
 
 
@@ -136,6 +139,11 @@ public class DecorativeDesignRight : MonoBehaviour
 				{
 					Content_做法说明_02选择材质.SetActive(true);
 					Content_做法说明_01选择做法.SetActive(false);
+					Button_上一步.gameObject.SetActive(true);
+					GameObject.Find("Scroll View视图_做法说明").GetComponent<UnityEngine.UI.ScrollRect>().content =
+					Content_做法说明_02选择材质.GetComponent<RectTransform>();
+					//改变左侧名称  选择工程设计   选择工程材质   工程补充说明
+					Text_左侧名称.text = "选择工程材质";
 				});
 				int dotPosition = fileName.IndexOf('.');
 				string beforeDot = fileName.Substring(0, dotPosition);
@@ -145,4 +153,13 @@ public class DecorativeDesignRight : MonoBehaviour
 		}
 
 	}
+   
+
+    private void  SetNextButton(){
+     
+
+	 List<string> strings = new List<string>(){ "Content_做法说明_01选择做法", "Content_做法说明_02选择材质", "Content_做法说明_03补充说明" };
+
+	}
+
 }
