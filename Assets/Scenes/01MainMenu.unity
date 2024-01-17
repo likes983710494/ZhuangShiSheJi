@@ -886,7 +886,6 @@ MonoBehaviour:
   "Button_\u9650\u989D\u5206\u89E3": {fileID: 1974786530}
   "Button_\u88C5\u9970\u8BBE\u8BA1": {fileID: 1305276560}
   "Button_\u88C5\u9970\u6548\u679C\u5C55\u793A": {fileID: 705637584}
-  "Animator_\u8D44\u6E90\u8FDB\u5EA6": {fileID: 60007127}
 --- !u!1 &23030331
 GameObject:
   m_ObjectHideFlags: 0
@@ -17038,6 +17037,7 @@ MonoBehaviour:
   DropdownBranch: {fileID: 415380639}
   DropdownSubentry: {fileID: 376304501}
   ButtonModu: {fileID: 1757210231}
+  LoadGLTF: {fileID: 0}
 --- !u!114 &508143077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17053,6 +17053,7 @@ MonoBehaviour:
   DecorativeDesignLeft_: {fileID: 508143075}
   DecorativeDesignRight_: {fileID: 508143076}
   "Button_\u88C5\u9970\u8BBE\u8BA1": {fileID: 1305276560}
+  LoadGLTF: {fileID: 1683445839}
 --- !u!114 &508143078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52431,7 +52432,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1683445840
 Transform:
   m_ObjectHideFlags: 0

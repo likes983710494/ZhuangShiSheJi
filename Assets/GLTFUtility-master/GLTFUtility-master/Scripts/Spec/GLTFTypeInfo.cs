@@ -25,14 +25,19 @@ namespace Siccity.GLTFUtility
 			{
 				string data = JsonMapper.ToJson(m_extrasA);
 				extrasA extrasAData = m_extrasA;
-				//改进 用递归查找
+				//查找父节点数据
 				if (m_extrasA.ElementID == 0 || m_extrasA.UniqueId == null || m_extrasA.Parameters == null)
 				{
-					if (this.transform.parent != null)
+					while (this.transform.parent)
 					{
-						data = JsonMapper.ToJson(this.transform.parent.GetComponent<GLTFTypeInfo>().m_extrasA);
-						extrasAData = this.transform.parent.GetComponent<GLTFTypeInfo>().m_extrasA;
+						if (this.transform.parent != null)
+						{
+							data = JsonMapper.ToJson(this.transform.parent.GetComponent<GLTFTypeInfo>().m_extrasA);
+							extrasAData = this.transform.parent.GetComponent<GLTFTypeInfo>().m_extrasA;
+							break;
+						}
 					}
+
 
 				}
 				//在标准数据下
@@ -46,6 +51,7 @@ namespace Siccity.GLTFUtility
 							if (t2.name == "面积")
 							{
 								Debug.Log("面积:" + t2.value);
+								DecorativeDesignSaveDate.Acreage = t2.value;
 
 							}
 						}
@@ -54,6 +60,7 @@ namespace Siccity.GLTFUtility
 					else
 					{
 						Debug.Log("无尺寸信息");
+						DecorativeDesignSaveDate.Acreage = "无尺寸信息";
 					}
 
 				}

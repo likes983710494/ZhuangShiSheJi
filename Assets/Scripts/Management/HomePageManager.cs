@@ -18,7 +18,7 @@ public class HomePageManager : MonoBehaviour
 	public Button Button_装饰效果展示;
 
 	//资源进度条
-	public Animator Animator_资源进度;
+	//public Animator Animator_资源进度;
 
 
 	// public DataDownloadManager dataDownloadManager;//任务设计书
@@ -44,6 +44,7 @@ public class HomePageManager : MonoBehaviour
 		//Button_限额分解.interactable = false;
 		//Button_装饰设计.interactable = false;
 		//Button_装饰效果展示.interactable = false;
+
 
 	}
 

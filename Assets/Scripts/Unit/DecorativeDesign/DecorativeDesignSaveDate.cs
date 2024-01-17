@@ -8,7 +8,8 @@ namespace Unit.DecorativeDesign
 {
     public static class DecorativeDesignSaveDate
     {
-        public  static GameObject HighligObject;//
+        public static GameObject HighligObject;//保存点击的模型部件 用于取消高亮
+        public static string Acreage;//面积
     }
 }
 

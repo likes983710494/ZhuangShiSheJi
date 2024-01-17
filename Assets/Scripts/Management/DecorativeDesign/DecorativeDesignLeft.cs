@@ -10,24 +10,24 @@ using UnityEngine.UI;
 public class DecorativeDesignLeft : MonoBehaviour
 {
 	//UnitDollarData
-	 public List<Text> AllocationList = new List<Text>();//分配
+	public List<Text> AllocationList = new List<Text>();//分配
 	public List<Text> CollectList = new List<Text>();//汇总
 	void Start()
-    {
-		
+	{
+
 	}
 
 
 	void Update()
-    {
-        
-    }
+	{
+
+	}
 	/// <summary>
 	/// 设置分配金额
 	/// </summary>
 	public void SetAllocationMoney()
 	{
-		if(Unit.UnitDollarData.楼地面装饰_Amount!=null)
+		if (Unit.UnitDollarData.楼地面装饰_Amount != null)
 			AllocationList[0].text = Unit.UnitDollarData.楼地面装饰_Amount;
 		if (Unit.UnitDollarData.墙柱面装饰_Amount != null)
 			AllocationList[1].text = Unit.UnitDollarData.墙柱面装饰_Amount;
