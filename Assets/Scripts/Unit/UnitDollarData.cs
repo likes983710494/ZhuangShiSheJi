@@ -63,6 +63,7 @@ namespace Unit
 
 
 		//装饰设计所有状态-******---------------
+		public static List<Design> DesignsList = new List<Design>();//pdf-装饰设计列表
 		public static bool isFinishDesign;//完成装饰设计
 
 		//装饰效果所有状态-******---------------
