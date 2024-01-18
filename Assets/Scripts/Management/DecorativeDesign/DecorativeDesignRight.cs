@@ -201,7 +201,7 @@ public class DecorativeDesignRight : MonoBehaviour
 					Button_上一步.gameObject.SetActive(false);
 					Button_完成.gameObject.SetActive(false);
 					GameObject.Find("Scroll View视图_做法说明").GetComponent<UnityEngine.UI.ScrollRect>().content =
-					Content_做法说明_01选择做法 .GetComponent<RectTransform>();
+					Content_做法说明_01选择做法.GetComponent<RectTransform>();
 				}
 				if (i == 2)
 				{
