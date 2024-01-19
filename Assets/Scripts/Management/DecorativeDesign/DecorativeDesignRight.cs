@@ -18,6 +18,9 @@ public class DecorativeDesignRight : MonoBehaviour
 	public Dropdown DropdownBranch;//分部 数据
 	public Dropdown DropdownSubentry;//分项 数据
 	public Button ButtonModu;//做法说明按钮
+	public InputField InputFielArea;// 输入框 工程量  点击模型后自动获取到工程量并显示
+	public InputField InputFielPrice;// 输入框 单价
+	public InputField InputFielTotal;// 输入框 合价
 	public GameObject Content_做法说明_01选择做法;// 做法说明工程设计图片  父节点
 	public GameObject Content_做法说明_02选择材质;//做法说明工程设计材质  父节点
 	public GameObject Content_做法说明_03补充说明;//做法说明工程设计文字补充  父节点
@@ -50,6 +53,8 @@ public class DecorativeDesignRight : MonoBehaviour
 		});
 
 		DropdownSubentry.interactable = false;
+		Button_上一步.gameObject.SetActive(false);
+		Button_完成.gameObject.SetActive(false);
 		ButtonModu.onClick.AddListener(() =>
 		{
 			DecorativeDesignModus.Instance_.LeftMakerUnfoldButton.interactable = true;
@@ -57,14 +62,23 @@ public class DecorativeDesignRight : MonoBehaviour
 			Text_目录.text = DecorativeDesignSaveDate.departmentName + "->" + DecorativeDesignSaveDate.subentryName;
 			Text_左侧名称.text = "选择工程设计";
 		});
-		Button_上一步.gameObject.SetActive(false);
-		Button_完成.gameObject.SetActive(false);
+
 		Button_上一步.onClick.AddListener(() =>
 		{
 
 			SetLastButton();
 
 		});
+		Button_完成.onClick.AddListener(() =>
+		{
+			SetFnishButton();
+		});
+
+		//onEndEdit
+		InputFielPrice.onValueChanged.AddListener((string Price) =>
+				{
+					PriceOnEndEditTotal(Price);
+				});
 		LoadGLTF.SetActive(false);
 	}
 
@@ -221,12 +235,22 @@ public class DecorativeDesignRight : MonoBehaviour
 	//做法说明-完成按钮
 	private void SetFnishButton()
 	{
-		//保存pdf数据
-		//打开下一个的左侧步骤
+		//保存pdf 做法说明数据
 
+
+
+		//打开下一个的左侧步骤 打开单价
+		InputFielPrice.interactable = true;
+		//恢复弹窗原来状态 
+		DecorativeDesignModus.Instance_.LeftMakerPlan.transform.GetComponent<RectTransform>().sizeDelta = new Vector2(0, 630);
+		DecorativeDesignModus.Instance_.LeftMakerUnfoldButton.interactable = false;
 	}
 
-
+	/// <summary>
+	/// 选择材质面板的材质按钮调用方法
+	/// </summary> <summary>
+	/// 
+	/// </summary>
 	public void MaterialButtonChange()
 	{
 		Text_左侧名称.text = "文字补充说明";
@@ -237,7 +261,29 @@ public class DecorativeDesignRight : MonoBehaviour
 		Content_做法说明_03补充说明.SetActive(true);
 		Button_完成.gameObject.SetActive(true);
 		GameObject.Find("Scroll View视图_做法说明").GetComponent<UnityEngine.UI.ScrollRect>().content =
-					Content_做法说明_03补充说明.GetComponent<RectTransform>();
+		Content_做法说明_03补充说明.GetComponent<RectTransform>();
+
+	}
+
+	/// <summary>
+	///  单价输入完后-调用此事件
+	///  单价*工程量=合价
+	/// </summary> <summary>
+	/// 
+	/// </summary>
+	public void PriceOnEndEditTotal(string Price)
+	{
+		Debug.Log("单价输入调用" + Price);
+
+		//  单价*工程量=合价
+		if (InputFielArea.text != "" && InputFielArea.text != null)
+		{
+			InputFielTotal.interactable = true;
+			InputFielTotal.text = (float.Parse(Price) * float.Parse(InputFielArea.text)).ToString();
+
+		}
+
+
 
 	}
 }

@@ -13620,13 +13620,13 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 431496070}
   m_TextComponent: {fileID: 1632526342}
   m_Placeholder: {fileID: 712269908}
-  m_ContentType: 0
+  m_ContentType: 3
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 2
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 0
+  m_CharacterValidation: 2
   m_CharacterLimit: 0
   m_OnSubmit:
     m_PersistentCalls:
@@ -16077,6 +16077,9 @@ MonoBehaviour:
   DropdownBranch: {fileID: 415380639}
   DropdownSubentry: {fileID: 376304501}
   ButtonModu: {fileID: 1757210231}
+  InputFielArea: {fileID: 1179004423}
+  InputFielPrice: {fileID: 1080422987}
+  InputFielTotal: {fileID: 431496069}
   "Content_\u505A\u6CD5\u8BF4\u660E_01\u9009\u62E9\u505A\u6CD5": {fileID: 7371186379782064122}
   "Content_\u505A\u6CD5\u8BF4\u660E_02\u9009\u62E9\u6750\u8D28": {fileID: 53192327}
   "Content_\u505A\u6CD5\u8BF4\u660E_03\u8865\u5145\u8BF4\u660E": {fileID: 9109571298555529526}
@@ -33051,13 +33054,13 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1080422988}
   m_TextComponent: {fileID: 766680525}
   m_Placeholder: {fileID: 1129331398}
-  m_ContentType: 0
+  m_ContentType: 3
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 2
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 0
+  m_CharacterValidation: 2
   m_CharacterLimit: 0
   m_OnSubmit:
     m_PersistentCalls:
@@ -36699,7 +36702,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 1179004424}
   m_TextComponent: {fileID: 303748367}
   m_Placeholder: {fileID: 1019515091}
