@@ -16100,10 +16100,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DecorativeDesignLeft_: {fileID: 508143075}
-  DecorativeDesignRight_: {fileID: 508143076}
   "Button_\u88C5\u9970\u8BBE\u8BA1": {fileID: 1305276560}
-  "Button_\u786E\u8BA4": {fileID: 0}
-  "Button_\u63D0\u4EA4": {fileID: 0}
+  "Button_\u786E\u8BA4": {fileID: 366620423}
+  "Button_\u63D0\u4EA4": {fileID: 2028566932}
 --- !u!114 &508143078
 MonoBehaviour:
   m_ObjectHideFlags: 0
