@@ -2373,7 +2373,7 @@ GameObject:
   - component: {fileID: 77200661}
   - component: {fileID: 77200660}
   m_Layer: 5
-  m_Name: "Image\u906E\u6321\u677F"
+  m_Name: "Image\u5408\u4EF7\u906E\u6321\u677F"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2386,16 +2386,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 77200658}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 431496068}
+  m_Father: {fileID: 781064862}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000078201, y: 0.60001}
+  m_AnchoredPosition: {x: -162.15984, y: -148.80002}
   m_SizeDelta: {x: 182.32, y: 31.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &77200660
@@ -12956,7 +12956,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 415380640}
   m_Template: {fileID: 724934851}
   m_CaptionText: {fileID: 1917418177}
@@ -13569,7 +13569,6 @@ RectTransform:
   - {fileID: 1632526341}
   - {fileID: 2025317868}
   - {fileID: 217571599}
-  - {fileID: 77200659}
   m_Father: {fileID: 626784873}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -16103,6 +16102,8 @@ MonoBehaviour:
   DecorativeDesignLeft_: {fileID: 508143075}
   DecorativeDesignRight_: {fileID: 508143076}
   "Button_\u88C5\u9970\u8BBE\u8BA1": {fileID: 1305276560}
+  "Button_\u786E\u8BA4": {fileID: 0}
+  "Button_\u63D0\u4EA4": {fileID: 0}
 --- !u!114 &508143078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25168,6 +25169,7 @@ RectTransform:
   m_Children:
   - {fileID: 1225773087}
   - {fileID: 626784873}
+  - {fileID: 77200659}
   m_Father: {fileID: 15267821}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
@@ -33050,7 +33052,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 1080422988}
   m_TextComponent: {fileID: 766680525}
   m_Placeholder: {fileID: 1129331398}
@@ -36702,7 +36704,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1179004424}
   m_TextComponent: {fileID: 303748367}
   m_Placeholder: {fileID: 1019515091}

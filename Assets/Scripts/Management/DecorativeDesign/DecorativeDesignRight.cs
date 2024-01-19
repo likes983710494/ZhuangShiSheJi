@@ -46,13 +46,23 @@ public class DecorativeDesignRight : MonoBehaviour
 	}
 	void Start()
 	{
+		//储存 用于点击模型调用状态
+		DecorativeDesignSaveDate.DropdownBranch = DropdownBranch;
+		DecorativeDesignSaveDate.DropdownSubentry = DropdownSubentry;
+		DecorativeDesignSaveDate.ButtonModu = ButtonModu;
+		DecorativeDesignSaveDate.InputFielArea = InputFielArea;
+		DecorativeDesignSaveDate.InputFielPrice = InputFielPrice;
+		DecorativeDesignSaveDate.InputFielTotal = InputFielTotal;
+
+
+
 		DropdownBranch.onValueChanged.AddListener(BranchDropdownChange);
 		DropdownSubentry.onValueChanged.AddListener(delegate
 		{
 			SubentryDropdownChange(DropdownSubentry);
 		});
 
-		DropdownSubentry.interactable = false;
+		//DropdownSubentry.interactable = false;
 		Button_上一步.gameObject.SetActive(false);
 		Button_完成.gameObject.SetActive(false);
 		ButtonModu.onClick.AddListener(() =>
@@ -61,6 +71,10 @@ public class DecorativeDesignRight : MonoBehaviour
 			DecorativeDesignModus.Instance_.LeftMakerPlan.transform.GetComponent<RectTransform>().sizeDelta = new Vector2(320, 630);
 			Text_目录.text = DecorativeDesignSaveDate.departmentName + "->" + DecorativeDesignSaveDate.subentryName;
 			Text_左侧名称.text = "选择工程设计";
+			Content_做法说明_01选择做法.SetActive(true);
+			Content_做法说明_02选择材质.SetActive(false);
+			Content_做法说明_03补充说明.SetActive(false);
+
 		});
 
 		Button_上一步.onClick.AddListener(() =>
@@ -94,12 +108,20 @@ public class DecorativeDesignRight : MonoBehaviour
 	public void BranchDropdownChange(int index)
 	{
 		//清空数组
+
 		DropdownSubentry.ClearOptions();
-		DropdownSubentry.interactable = true;
+		if (index != 0)
+		{
+			DropdownSubentry.interactable = true;
+		}
+
+
+
 		switch (index)
 		{
 			case 0:
 				Debug.Log("未选择");
+				DropdownSubentry.AddOptions(new List<string> { "请选择" });
 				break;
 			case 1:
 				DropdownSubentry.AddOptions(new List<string> { "找平层", "整体面层", "块料面层", "其他面层", "其他面层" });
@@ -276,11 +298,20 @@ public class DecorativeDesignRight : MonoBehaviour
 		Debug.Log("单价输入调用" + Price);
 
 		//  单价*工程量=合价
-		if (InputFielArea.text != "" && InputFielArea.text != null)
+		if (InputFielArea.text != "" && InputFielArea.text != null && InputFielArea.text != "无尺寸信息")
 		{
 			InputFielTotal.interactable = true;
 			InputFielTotal.text = (float.Parse(Price) * float.Parse(InputFielArea.text)).ToString();
 
+		}
+		//现实状态
+		if (InputFielTotal.interactable == true && InputFielTotal.text != "")
+		{
+			GameObject.Find("----------装饰设计--------").GetComponent<DecorativeDesignManager>().Button_确认.interactable = true;
+		}
+		else
+		{
+			GameObject.Find("----------装饰设计--------").GetComponent<DecorativeDesignManager>().Button_确认.interactable = false;
 		}
 
 

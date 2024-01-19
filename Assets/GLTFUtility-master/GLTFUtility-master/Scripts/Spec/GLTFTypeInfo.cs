@@ -19,6 +19,9 @@ namespace Siccity.GLTFUtility
 			GetComponent<HighlightableObject>().ConstantOn(Color.cyan);//此方法打开边缘发光，参数可以控制发光的颜色
 			DecorativeDesignSaveDate.HighligObject = this.gameObject;
 
+			//关闭所有步骤状态 开启步骤初始状态
+			DecorativeDesignSaveDate.InitProcedure();
+
 
 			//获取数据
 			if (m_extrasA != null)
@@ -52,6 +55,7 @@ namespace Siccity.GLTFUtility
 							{
 								Debug.Log("面积:" + t2.value);
 								DecorativeDesignSaveDate.Acreage = t2.value;
+								DecorativeDesignRight.Instance_.InputFielArea.text = t2.value;
 
 							}
 						}
@@ -61,6 +65,7 @@ namespace Siccity.GLTFUtility
 					{
 						Debug.Log("无尺寸信息");
 						DecorativeDesignSaveDate.Acreage = "无尺寸信息";
+						DecorativeDesignRight.Instance_.InputFielArea.text = "无尺寸信息";
 					}
 
 				}
