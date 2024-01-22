@@ -80,8 +80,7 @@ public class SetRePort : MonoBehaviour
         for (int i = 0; i < 10; i++) //将数据储存到list
         {
             DataRow xedr = 装饰设计dt.NewRow();
-            iTextSharp.text.Image img = iTextSharp.text.Image.GetInstance(tzgsfilepath);
-            object[] xeobjs = { "贴镶面", "楼地面装饰工程", img, "贴镶面", "楼地面装饰工程", "楼地面装饰工程", "楼地面装饰工程", "楼地面装饰工程" };
+            object[] xeobjs = { "贴镶面", "楼地面装饰工程", tzgsfilepath, "贴镶面", "楼地面装饰工程", "楼地面装饰工程", "楼地面装饰工程", "楼地面装饰工程" };
             xedr.ItemArray = xeobjs;
             装饰设计dt.Rows.Add(xedr);
         }
@@ -116,7 +115,8 @@ public class SetRePort : MonoBehaviour
 
                 pdf.AddSecondTitle("三、装饰设计");
                 pdf.AddNullLine();
-                pdf.添加PDF表格(装饰设计dt);
+                // pdf.添加PDF表格(装饰设计dt);
+                pdf.添加PDF表格图片(装饰设计dt);
 
 
 

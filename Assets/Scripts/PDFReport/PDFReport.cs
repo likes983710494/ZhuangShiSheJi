@@ -61,6 +61,75 @@ public class PDFReport : IDisposable
         contentFont = new Font(heiBaseFont, 8, Font.NORMAL);
     }
 
+
+    /*添加表格+表格图片*/
+    public void 添加PDF表格图片(DataTable dt)
+    {
+        List<float> columns = new List<float>();
+        for (int i = 0; i < dt.Columns.Count; i++)
+        {
+            columns.Add(1);
+        }
+        添加PDF表格图片(dt, columns.ToArray());
+    }
+    public void 添加PDF表格图片(DataTable dt, float[] columnW)
+    {
+        List<string> list = new List<string>();
+        for (int i = 0; i < dt.Columns.Count; i++)
+        {
+            string s = dt.Columns[i].ColumnName;
+            list.Add(s);
+        }
+        //数据
+        foreach (DataRow row in dt.Rows)
+        {
+            for (int i = 0; i < dt.Columns.Count; i++)
+            {
+                string s = row[i].ToString();
+                list.Add(s);
+            }
+        }
+        AddTableImage(columnW, list.ToArray());
+    }
+
+    public void AddTableImage(float[] columns, string[] content)
+    {
+        PdfPTable table = new PdfPTable(columns);
+        table.WidthPercentage = 100; //宽度
+        table.SetTotalWidth(new float[] { 10, 10, 20, 10, 20, 10, 10, 10 });
+        for (int i = 0; i < content.Length; i++)
+        {
+            Debug.Log("i" + "------" + content[i]);
+            if (content[i].Contains("StreamingAssets"))
+            {
+                PdfPCell cell = new PdfPCell();
+                //图片
+                iTextSharp.text.Image img = iTextSharp.text.Image.GetInstance(content[i]);
+                // 设置图片的大小
+                img.ScaleToFit(90f, 90f);
+                cell = new PdfPCell(img);
+                cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                cell.VerticalAlignment = Element.ALIGN_MIDDLE;
+                cell.FixedHeight = 100f;
+                table.AddCell(cell);
+            }
+            else
+            {
+                //文字
+
+                PdfPCell cell = new PdfPCell(new Phrase(content[i], contentFont));
+                cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                cell.VerticalAlignment = Element.ALIGN_MIDDLE;
+                table.AddCell(cell);
+            }
+
+
+
+        }
+        document.Add(table);
+    }
+
+    /***************************/
     public void 添加PDF表格(DataTable dt)
     {
         List<float> columns = new List<float>();
