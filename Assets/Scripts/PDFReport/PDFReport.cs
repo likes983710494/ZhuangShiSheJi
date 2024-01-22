@@ -99,7 +99,7 @@ public class PDFReport : IDisposable
         table.SetTotalWidth(new float[] { 10, 10, 20, 10, 20, 10, 10, 10 });
         for (int i = 0; i < content.Length; i++)
         {
-            Debug.Log("i" + "------" + content[i]);
+
             if (content[i].Contains("StreamingAssets"))
             {
                 PdfPCell cell = new PdfPCell();
