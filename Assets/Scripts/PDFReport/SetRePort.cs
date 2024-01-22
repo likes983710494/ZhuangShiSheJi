@@ -33,20 +33,7 @@ public class SetRePort : MonoBehaviour
     }
     public IEnumerator 创建Pdf()
     {
-        //  装饰设计
-        string[] 装饰设计Columns = new string[] { "分项名称/属性信息", "所属分部", "单价", "工程量", "合价" };
-        DataTable 装饰设计dt = new DataTable();
-        foreach (string item in 装饰设计Columns)
-        {
-            装饰设计dt.Columns.Add(item);
-        }
-        for (int i = 0; i < 10; i++) //将数据储存到list
-        {
-            DataRow xedr = 装饰设计dt.NewRow();
-            object[] xeobjs = { "贴镶面", "楼地面装饰工程", "10", "贴镶面", "楼地面装饰工程" };
-            xedr.ItemArray = xeobjs;
-            装饰设计dt.Rows.Add(xedr);
-        }
+
         //限额分解
         DataTable_List.Clear();
         for (int i = 0; i < Unit.UnitDollarData.CombineList.Count; i++)
@@ -80,6 +67,25 @@ public class SetRePort : MonoBehaviour
 
 
         }
+
+
+
+        //  装饰设计
+        string[] 装饰设计Columns = new string[] { "分项名称/属性信息", "所属分部", "做法说明-工程设计", "做法说明-工程材质", "文字说明", "单价", "工程量", "合价" };
+        DataTable 装饰设计dt = new DataTable();
+        foreach (string item in 装饰设计Columns)
+        {
+            装饰设计dt.Columns.Add(item);
+        }
+        for (int i = 0; i < 10; i++) //将数据储存到list
+        {
+            DataRow xedr = 装饰设计dt.NewRow();
+            iTextSharp.text.Image img = iTextSharp.text.Image.GetInstance(tzgsfilepath);
+            object[] xeobjs = { "贴镶面", "楼地面装饰工程", img, "贴镶面", "楼地面装饰工程", "楼地面装饰工程", "楼地面装饰工程", "楼地面装饰工程" };
+            xedr.ItemArray = xeobjs;
+            装饰设计dt.Rows.Add(xedr);
+        }
+
 
 
         string path = Application.persistentDataPath + "/装饰设计实验报告.pdf";

@@ -38,8 +38,10 @@ public class DecorativeDesignManager : MonoBehaviour
 	public void VerifyOneProcess()
 	{
 		//pdf储存
+
 		//恢复全部初始状态
 		DecorativeDesignSaveDate.InitAllProcedure();
+
 		Button_确认.interactable = false;
 		//左侧抽屉按钮  关闭
 		DecorativeDesignModus.Instance_.LeftMakerUnfoldButton.interactable = false;
