@@ -295,7 +295,7 @@ public class DecorativeDesignRight : MonoBehaviour
 	/// </summary>
 	public void PriceOnEndEditTotal(string Price)
 	{
-		Debug.Log("单价输入调用" + Price);
+		Debug.Log("单价输入调用金额" + Price);
 
 		//  单价*工程量=合价
 		if (InputFielArea.text != "" && InputFielArea.text != null && InputFielArea.text != "无尺寸信息")

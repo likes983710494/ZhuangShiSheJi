@@ -36,7 +36,7 @@ namespace Unit.DecorativeDesign
             DropdownSubentry.interactable = false;
             ButtonModu.interactable = false;
             InputFielArea.interactable = false;
-            InputFielPrice.interactable = true;
+            InputFielPrice.interactable = false;
             InputFielTotal.interactable = false;
             //初始化步骤显示
             DropdownBranch.value = 0;
@@ -50,6 +50,39 @@ namespace Unit.DecorativeDesign
             GameObject.Find("----------装饰设计--------").GetComponent<DecorativeDesignManager>().Button_确认.interactable = false;
 
         }
+        public static void InitAllProcedure()
+        {
+            //关闭高亮状态
+            if (DecorativeDesignSaveDate.HighligObject != null)
+            {
+                DecorativeDesignSaveDate.HighligObject.GetComponent<HighlightableObject>().ConstantOff();
+            }
+
+            //显示状态
+            DropdownBranch.interactable = true;
+            DropdownSubentry.interactable = false;
+            ButtonModu.interactable = false;
+            InputFielArea.interactable = false;
+            InputFielPrice.interactable = false;
+            InputFielTotal.interactable = false;
+            //初始化步骤显示
+            DropdownBranch.value = 0;
+            DropdownSubentry.value = 0;
+            InputFielArea.placeholder.GetComponent<Text>().text = "请选择模型";
+            InputFielArea.text = "";
+            InputFielPrice.placeholder.GetComponent<Text>().text = "请输入金额";
+            InputFielPrice.text = "";
+            InputFielTotal.placeholder.GetComponent<Text>().text = "";
+            InputFielTotal.text = "";
+            DecorativeDesignModus.Instance_.LeftMakerPlan.GetComponent<RectTransform>().sizeDelta = new Vector2(0, 630f);
+            //抽屉
+            DecorativeDesignModus.Instance_.LeftMakerUnfoldButton.interactable = false;
+            //  单个步骤确认按钮
+            GameObject.Find("----------装饰设计--------").GetComponent<DecorativeDesignManager>().Button_确认.interactable = false;
+
+        }
+
     }
 }
+
 
