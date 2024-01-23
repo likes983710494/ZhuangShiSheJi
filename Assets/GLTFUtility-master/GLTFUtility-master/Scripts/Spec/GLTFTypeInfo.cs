@@ -69,7 +69,7 @@ namespace Siccity.GLTFUtility
 					}
 
 				}
-				Debug.Log(data);
+				Debug.Log(data + this.gameObject.name);
 
 			}
 

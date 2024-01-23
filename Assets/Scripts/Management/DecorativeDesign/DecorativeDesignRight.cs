@@ -96,6 +96,10 @@ public class DecorativeDesignRight : MonoBehaviour
 				{
 					PriceOnEndEditTotal(Price);
 				});
+
+		// 初始化面板Content_做法说明_02选择材质-- 下的按钮
+		StartCoroutine(MaterialButtonChange());
+
 		LoadGLTF.SetActive(false);
 	}
 
@@ -148,6 +152,8 @@ public class DecorativeDesignRight : MonoBehaviour
 				break;
 
 		}
+		//pdf 数据分部
+		UnitDollarData.design.departmentName = DropdownBranch.options[index].text;//分部
 
 	}
 	/// <summary>
@@ -157,10 +163,13 @@ public class DecorativeDesignRight : MonoBehaviour
 	public void SubentryDropdownChange(Dropdown change)
 	{
 		ButtonModu.interactable = true;
+		StopAllCoroutines();
 		//获取分项文件夹路径 生成工程设计按钮
 		StartCoroutine(BeforloadImage(change.value, change.options[change.value].text));
 
 		DecorativeDesignSaveDate.subentryName = change.options[change.value].text;
+		//pdf数据 分项
+		UnitDollarData.design.subentryName = change.options[change.value].text;
 	}
 	/// <summary>
 	/// 生成工程设计按钮
@@ -206,6 +215,9 @@ public class DecorativeDesignRight : MonoBehaviour
 					Content_做法说明_02选择材质.GetComponent<RectTransform>();
 					//改变左侧名称  选择工程设计   选择工程材质   工程补充说明
 					Text_左侧名称.text = "选择工程材质";
+
+					//pdf数据： 获取图片地址 file
+					UnitDollarData.design.designImagePath = file;
 				});
 				int dotPosition = fileName.IndexOf('.');
 				string beforeDot = fileName.Substring(0, dotPosition);
@@ -229,7 +241,7 @@ public class DecorativeDesignRight : MonoBehaviour
 			{
 				if (i != 0)
 				{
-					Debug.Log(Objs[i - 1].name);
+
 					Objs[i - 1].SetActive(true);
 					Objs[i].SetActive(false);
 					Button_上一步.gameObject.SetActive(true);
@@ -260,8 +272,8 @@ public class DecorativeDesignRight : MonoBehaviour
 	//做法说明-完成按钮
 	private void SetFnishButton()
 	{
-		//保存pdf 做法说明数据
-
+		//保存pdf 做法说明 补充说明
+		UnitDollarData.design.designDesc = Content_做法说明_03补充说明.transform.GetChild(0).GetChild(0).GetComponent<UnityEngine.UI.Text>().text;
 
 
 		//打开下一个的左侧步骤 打开单价
@@ -276,17 +288,65 @@ public class DecorativeDesignRight : MonoBehaviour
 	/// </summary> <summary>
 	/// 
 	/// </summary>
-	public void MaterialButtonChange()
+	public IEnumerator MaterialButtonChange()
 	{
-		Text_左侧名称.text = "文字补充说明";
-		//改变模型材质 
-		//DecorativeDesignSaveDate.HighligObject.GetComponent<MeshRenderer>().material.color = newColor;
-		//切换03补充说明面板
-		Content_做法说明_02选择材质.SetActive(false);
-		Content_做法说明_03补充说明.SetActive(true);
-		Button_完成.gameObject.SetActive(true);
-		GameObject.Find("Scroll View视图_做法说明").GetComponent<UnityEngine.UI.ScrollRect>().content =
-		Content_做法说明_03补充说明.GetComponent<RectTransform>();
+
+
+		/*------------*/
+		string path1 = Path.Combine(Application.streamingAssetsPath + "/做法分类02-选择材质/");
+		string[] files = Directory.GetFiles(path1);
+		foreach (string file in files)
+		{
+			if (Path.GetExtension(file) == ".png" || Path.GetExtension(file) == ".jpg")
+			{
+				string fileName = Path.GetFileName(file);
+				WWW www = new WWW("file:///" + file);
+				yield return www;
+				//获取Texture
+				Texture2D texture = www.texture;
+				//根据获取的Texture创建一个sprite
+				Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
+				//生成预制体
+				GameObject prefab = Resources.Load<GameObject>("prefab/Decorative/Image_做法说明BG");
+				GameObject instance_ = Instantiate(prefab);
+				instance_.transform.SetParent(Content_做法说明_02选择材质.transform);
+				instance_.transform.localScale = new Vector3(1, 1, 1);
+				instance_.name = fileName;
+				instance_.transform.GetChild(0).GetComponent<UnityEngine.UI.Image>().sprite = sprite;
+				//进行02面板选择材质 功能添加
+				instance_.transform.GetChild(0).GetComponent<UnityEngine.UI.Button>().onClick.AddListener(() =>
+				{
+					Text_左侧名称.text = "文字补充说明";
+					//改变模型材质 // 加载材质
+					DecorativeDesignSaveDate.HighligObject.GetComponent<HighlightableObject>().enabled = false;//会锁住材质无法替换所以先关闭
+					Material material_ = new Material(Shader.Find("Unlit/Texture"));
+					material_.SetTexture("_MainTex", texture);
+					DecorativeDesignSaveDate.HighligObject.GetComponent<MeshRenderer>().material = material_;
+					DecorativeDesignSaveDate.HighligObject.GetComponent<HighlightableObject>().enabled = true;//换完材质再打开
+					DecorativeDesignSaveDate.HighligObject.GetComponent<HighlightableObject>().ConstantOn(Color.cyan);//此方法打开边缘发光，参数可以控制发光的颜色
+
+					//切换03补充说明面板
+					Content_做法说明_02选择材质.SetActive(false);
+					Content_做法说明_03补充说明.SetActive(true);
+					Button_完成.gameObject.SetActive(true);
+					GameObject.Find("Scroll View视图_做法说明").GetComponent<UnityEngine.UI.ScrollRect>().content =
+					Content_做法说明_03补充说明.GetComponent<RectTransform>();
+
+					//pdf数据： 获取材质地址 file
+					UnitDollarData.design.designMaterialPath = file;
+				});
+				int dotPosition = fileName.IndexOf('.');
+				string beforeDot = fileName.Substring(0, dotPosition);
+				instance_.transform.GetChild(1).GetComponent<UnityEngine.UI.Text>().text = beforeDot;
+			}
+
+		}
+
+
+
+
+
+
 
 	}
 
@@ -299,13 +359,21 @@ public class DecorativeDesignRight : MonoBehaviour
 	public void PriceOnEndEditTotal(string Price)
 	{
 		Debug.Log("单价输入调用金额" + Price);
-
+		//保存pdf数据  单价
+		UnitDollarData.design.Price = Price;
 		//  单价*工程量=合价
-		if (InputFielArea.text != "" && InputFielArea.text != null && InputFielArea.text != "无尺寸信息")
+		if (Price != "" && InputFielArea.text != null && InputFielArea.text != "无尺寸信息")
 		{
 			InputFielTotal.interactable = true;
 			InputFielTotal.text = (float.Parse(Price) * float.Parse(InputFielArea.text)).ToString();
-
+			//保存pdf数据  合价
+			UnitDollarData.design.Total = InputFielTotal.text;
+			//保存pdf数据  面积
+			UnitDollarData.design.Acreage = InputFielArea.text;
+		}
+		if (Price == "")
+		{
+			InputFielTotal.text = "";
 		}
 		//现实状态
 		if (InputFielTotal.interactable == true && InputFielTotal.text != "")
@@ -325,14 +393,14 @@ public class DecorativeDesignRight : MonoBehaviour
 	public Design SetDesignConvertPdf(Design design_)
 	{
 
-		design_.departmentName = DropdownBranch.options[DropdownBranch.value].text;//分部
-		design_.subentryName = DropdownSubentry.options[DropdownSubentry.value].text;//分项
-		design_.designImagePath = "";//图地址 未做
-		design_.designMaterialPath = "";//材质地址 未做
+
+		design_.subentryName = UnitDollarData.design.departmentName;//分项
+		design_.designImagePath = UnitDollarData.design.designImagePath;//图地址 
+		design_.designMaterialPath = UnitDollarData.design.designMaterialPath;//材质地址 
 		design_.designDesc = "";//描述 未做
-		design_.Acreage = float.Parse(InputFielArea.text).ToString();//面积
-		design_.Price = float.Parse(InputFielPrice.text).ToString();//单价
-		design_.Total = float.Parse(InputFielTotal.text).ToString();//金额 
+		design_.Acreage = UnitDollarData.design.Acreage;//面积
+		design_.Price = UnitDollarData.design.Price;//单价
+		design_.Total = UnitDollarData.design.Total;//金额 
 
 
 		return design_;

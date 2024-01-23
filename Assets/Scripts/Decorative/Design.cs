@@ -8,8 +8,9 @@ using UnityEngine;
 
 public class Design
 {
-    public string subentryName;//分项名字
     public string departmentName;//所属分部名字
+    public string subentryName;//分项名字
+
     public string designImagePath;//工程设计
     public string designMaterialPath;//工程材料
     public string designDesc;//工程设计说明 
