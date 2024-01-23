@@ -8,6 +8,7 @@ using System.Runtime.InteropServices;
 using System.Reflection;
 using NPOI.SS.Formula.Functions;
 using System.IO;
+using Unit;
 
 /// <summary>
 /// 左侧脚本
@@ -31,6 +32,8 @@ public class DecorativeDesignRight : MonoBehaviour
 
 	/*************以上做法说明相关按钮*****************/
 	public GameObject LoadGLTF;//加载gltf模型
+
+
 
 	private void Awake()
 	{
@@ -316,5 +319,22 @@ public class DecorativeDesignRight : MonoBehaviour
 
 
 
+	}
+
+	//将状态转换为pdf用的数据   确认按钮调用
+	public Design SetDesignConvertPdf(Design design_)
+	{
+
+		design_.departmentName = DropdownBranch.options[DropdownBranch.value].text;//分部
+		design_.subentryName = DropdownSubentry.options[DropdownSubentry.value].text;//分项
+		design_.designImagePath = "";//图地址 未做
+		design_.designMaterialPath = "";//材质地址 未做
+		design_.designDesc = "";//描述 未做
+		design_.Acreage = float.Parse(InputFielArea.text).ToString();//面积
+		design_.Price = float.Parse(InputFielPrice.text).ToString();//单价
+		design_.Total = float.Parse(InputFielTotal.text).ToString();//金额 
+
+
+		return design_;
 	}
 }

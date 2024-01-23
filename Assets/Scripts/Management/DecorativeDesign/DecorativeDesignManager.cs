@@ -45,6 +45,8 @@ public class DecorativeDesignManager : MonoBehaviour
 		Button_确认.interactable = false;
 		//左侧抽屉按钮  关闭
 		DecorativeDesignModus.Instance_.LeftMakerUnfoldButton.interactable = false;
+		Design design_ = new Design();
+		UnitDollarData.DesignsList.Add(DecorativeDesignRight.Instance_.SetDesignConvertPdf(design_));
 	}
 
 	/// <summary>
@@ -52,7 +54,8 @@ public class DecorativeDesignManager : MonoBehaviour
 	/// </summary>
 	public void SubmitDecorativeDesign()
 	{
-
+		//清除DesignsList
+		UnitDollarData.DesignsList.Clear();
 	}
 
 

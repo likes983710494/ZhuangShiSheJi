@@ -10,8 +10,8 @@ public class Design
 {
     public string subentryName;//分项名字
     public string departmentName;//所属分部名字
-    public Image designImage;//工程设计
-    public Material designMaterial;//工程材料
+    public string designImagePath;//工程设计
+    public string designMaterialPath;//工程材料
     public string designDesc;//工程设计说明 
     public string Acreage;//面积 工程量
     public string Price;//单价
