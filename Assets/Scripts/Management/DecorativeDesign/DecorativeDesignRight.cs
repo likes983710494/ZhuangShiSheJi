@@ -253,6 +253,7 @@ public class DecorativeDesignRight : MonoBehaviour
 					Button_完成.gameObject.SetActive(false);
 					GameObject.Find("Scroll View视图_做法说明").GetComponent<UnityEngine.UI.ScrollRect>().content =
 					Content_做法说明_01选择做法.GetComponent<RectTransform>();
+					Text_左侧名称.text = "选择工程设计";
 				}
 				if (i == 2)
 				{
@@ -260,6 +261,7 @@ public class DecorativeDesignRight : MonoBehaviour
 					Button_完成.gameObject.SetActive(false);
 					GameObject.Find("Scroll View视图_做法说明").GetComponent<UnityEngine.UI.ScrollRect>().content =
 					Content_做法说明_02选择材质.GetComponent<RectTransform>();
+					Text_左侧名称.text = "选择工程材质";
 				}
 
 
