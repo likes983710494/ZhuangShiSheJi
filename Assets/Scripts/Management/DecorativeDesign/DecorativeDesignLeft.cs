@@ -9,9 +9,22 @@ using UnityEngine.UI;
 /// </summary>
 public class DecorativeDesignLeft : MonoBehaviour
 {
-	//UnitDollarData
+	public static DecorativeDesignLeft Instance_ { get; private set; }
 	public List<Text> AllocationList = new List<Text>();//·ÖÅä
 	public List<Text> CollectList = new List<Text>();//»ã×Ü
+
+	private void Awake()
+	{
+		if (Instance_ == null)
+		{
+			Instance_ = this;
+			DontDestroyOnLoad(gameObject);
+		}
+		else
+		{
+			Destroy(gameObject);
+		}
+	}
 	void Start()
 	{
 

@@ -127,7 +127,7 @@ public class DecorativeDesignRight : MonoBehaviour
 		switch (index)
 		{
 			case 0:
-				Debug.Log("未选择");
+
 				DropdownSubentry.AddOptions(new List<string> { "请选择" });
 				break;
 			case 1:
@@ -360,7 +360,7 @@ public class DecorativeDesignRight : MonoBehaviour
 	/// </summary>
 	public void PriceOnEndEditTotal(string Price)
 	{
-		Debug.Log("单价输入调用金额" + Price);
+
 		//保存pdf数据  单价
 		UnitDollarData.design.Price = Price;
 		//  单价*工程量=合价

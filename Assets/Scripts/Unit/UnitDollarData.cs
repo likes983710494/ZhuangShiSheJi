@@ -63,8 +63,20 @@ namespace Unit
 
 
 		//装饰设计所有状态-******---------------
-		public static List<Design> DesignsList = new List<Design>();//pdf-装饰设计列表
+		public static List<Design> 楼地面_DesignsList = new List<Design>();//pdf-楼地面装饰设计列表
+		public static List<Design> 墙柱面_DesignsList = new List<Design>();
+		public static List<Design> 天棚工程_DesignsList = new List<Design>();
+		public static List<Design> 油漆涂料_DesignsList = new List<Design>();
+		public static List<Design> 其他装饰_DesignsList = new List<Design>();
+
 		public static Design design = new Design();
+
+		//汇总金额
+		public static float 楼地面_汇总金额 = 0;
+		public static float 墙柱面_汇总金额 = 0;
+		public static float 天棚工程_汇总金额 = 0;
+		public static float 油漆涂料_汇总金额 = 0;
+		public static float 其他装饰_汇总金额 = 0;
 		public static bool isFinishDesign;//完成装饰设计
 
 		//装饰效果所有状态-******---------------

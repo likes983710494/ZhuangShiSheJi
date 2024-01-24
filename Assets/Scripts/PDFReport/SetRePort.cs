@@ -77,10 +77,11 @@ public class SetRePort : MonoBehaviour
         {
             装饰设计dt.Columns.Add(item);
         }
-        for (int i = 0; i < 10; i++) //将数据储存到list
+        for (int i = 0; i < UnitDollarData.墙柱面_DesignsList.Count; i++) //将数据储存到list
         {
             DataRow xedr = 装饰设计dt.NewRow();
-            object[] xeobjs = { "贴镶面", "楼地面装饰工程", tzgsfilepath, "贴镶面", "楼地面装饰工程", "楼地面装饰工程", "楼地面装饰工程", "楼地面装饰工程" };
+            object[] xeobjs = UnitDollarData.墙柱面_DesignsList[i].GetType().GetProperties().Select(p => p.GetValue(UnitDollarData.墙柱面_DesignsList[i])).ToArray();
+            //object[] xeobjs = { "贴镶面", "楼地面装饰工程", tzgsfilepath, "贴镶面", "楼地面装饰工程", "楼地面装饰工程", "楼地面装饰工程", "楼地面装饰工程" };
             xedr.ItemArray = xeobjs;
             装饰设计dt.Rows.Add(xedr);
         }
