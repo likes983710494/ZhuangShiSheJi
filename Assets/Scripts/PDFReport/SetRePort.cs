@@ -10,6 +10,7 @@ using iTextSharp.text.pdf;
 using Unit;
 using System.Linq;
 using System.IO;
+using System.Reflection;
 //生成pdf
 public class SetRePort : MonoBehaviour
 {
@@ -50,7 +51,7 @@ public class SetRePort : MonoBehaviour
                 DataRow dr = 限额分解dt.NewRow();
                 object[] objs = Unit.UnitDollarData.CombineList[i].antidiastoleList[j].GetType().GetProperties().Select(p => p.GetValue(Unit.UnitDollarData.CombineList[i].antidiastoleList[j])).ToArray();
 
-                //  Debug.Log(  Unit.UnitDollarData.CombineList[i].antidiastoleList[i].departmentName);
+                Debug.Log("fenjie" + Unit.UnitDollarData.CombineList[i].antidiastoleList[j]);
                 dr.ItemArray = objs;
                 限额分解dt.Rows.Add(dr);
             }
@@ -71,7 +72,7 @@ public class SetRePort : MonoBehaviour
 
 
         //  装饰设计
-        string[] 装饰设计Columns = new string[] { "分项名称/属性信息", "所属分部", "做法说明-工程设计", "做法说明-工程材质", "文字说明", "单价", "工程量", "合价" };
+        string[] 装饰设计Columns = new string[] { "分项名称/属性信息", "所属分部", "位置", "做法说明-工程设计", "做法说明-工程材质", "文字说明", "单价", "工程量", "合价" };
         DataTable 装饰设计dt = new DataTable();
         foreach (string item in 装饰设计Columns)
         {
@@ -80,8 +81,19 @@ public class SetRePort : MonoBehaviour
         for (int i = 0; i < UnitDollarData.墙柱面_DesignsList.Count; i++) //将数据储存到list
         {
             DataRow xedr = 装饰设计dt.NewRow();
+
             object[] xeobjs = UnitDollarData.墙柱面_DesignsList[i].GetType().GetProperties().Select(p => p.GetValue(UnitDollarData.墙柱面_DesignsList[i])).ToArray();
-            //object[] xeobjs = { "贴镶面", "楼地面装饰工程", tzgsfilepath, "贴镶面", "楼地面装饰工程", "楼地面装饰工程", "楼地面装饰工程", "楼地面装饰工程" };
+
+            //object[] xeobjs = { "贴镶面", "楼地面装饰工程", tzgsfilepath, tzgsfilepath, "楼地面装饰工程", "楼地面装饰工程", "楼地面装饰工程", "楼地面装饰工程" };
+
+            Debug.Log("PDF" + UnitDollarData.墙柱面_DesignsList[i].departmentName + "----路径：" + UnitDollarData.墙柱面_DesignsList[i].designImagePath + "||");
+            Debug.Log("长度" + xeobjs.Length);
+            Debug.Log("设计" + UnitDollarData.墙柱面_DesignsList[i]);
+            foreach (var obj in xeobjs)
+            {
+                Debug.Log("示例：" + obj);
+            }
+
             xedr.ItemArray = xeobjs;
             装饰设计dt.Rows.Add(xedr);
         }
@@ -97,7 +109,7 @@ public class SetRePort : MonoBehaviour
 
             if (File.Exists(path))
             {
-                Debug.Log("PDF file was created successfully.");
+                Debug.Log("PDF创建成功");
                 pdf.AddTitle("装饰设计阶段造价实验报告");
                 pdf.AddSecondTitle("姓名：xxx   班级：2024级1班", 1);
                 pdf.AddSecondTitle("一、投资估算");
@@ -113,6 +125,10 @@ public class SetRePort : MonoBehaviour
                     pdf.AddNullLine();
                     pdf.AddNullLine();
                 }
+
+
+
+
 
                 pdf.AddSecondTitle("三、装饰设计");
                 pdf.AddNullLine();

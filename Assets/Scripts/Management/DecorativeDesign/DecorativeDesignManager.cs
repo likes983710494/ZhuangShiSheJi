@@ -17,7 +17,7 @@ public class DecorativeDesignManager : MonoBehaviour
 	private List<Design> 墙柱面_DesignsList = new List<Design>();
 	private List<Design> 天棚工程_DesignsList = new List<Design>();
 	private List<Design> 油漆涂料_DesignsList = new List<Design>();
-	public List<Design> 其他装饰_DesignsList = new List<Design>();
+	private List<Design> 其他装饰_DesignsList = new List<Design>();
 	//汇总金额
 	private float 楼地面_汇总金额 = 0;
 	private float 墙柱面_汇总金额 = 0;

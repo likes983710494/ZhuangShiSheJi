@@ -315,6 +315,10 @@ public class DecorativeDesignRight : MonoBehaviour
 				instance_.transform.localScale = new Vector3(1, 1, 1);
 				instance_.name = fileName;
 				instance_.transform.GetChild(0).GetComponent<UnityEngine.UI.Image>().sprite = sprite;
+
+				int dotPosition = fileName.IndexOf('.');
+				string beforeDot = fileName.Substring(0, dotPosition);
+				instance_.transform.GetChild(1).GetComponent<UnityEngine.UI.Text>().text = beforeDot;
 				//进行02面板选择材质 功能添加
 				instance_.transform.GetChild(0).GetComponent<UnityEngine.UI.Button>().onClick.AddListener(() =>
 				{
@@ -335,11 +339,10 @@ public class DecorativeDesignRight : MonoBehaviour
 					Content_做法说明_03补充说明.GetComponent<RectTransform>();
 
 					//pdf数据： 获取材质地址 file
-					UnitDollarData.design.designMaterialPath = file;
+					//UnitDollarData.design.designMaterialPath = file;
+					UnitDollarData.design.designMaterialPath = beforeDot;
 				});
-				int dotPosition = fileName.IndexOf('.');
-				string beforeDot = fileName.Substring(0, dotPosition);
-				instance_.transform.GetChild(1).GetComponent<UnityEngine.UI.Text>().text = beforeDot;
+
 			}
 
 		}
@@ -395,8 +398,8 @@ public class DecorativeDesignRight : MonoBehaviour
 	public Design SetDesignConvertPdf(Design design_)
 	{
 
-
-		design_.subentryName = UnitDollarData.design.departmentName;//分项
+		design_.departmentName = UnitDollarData.design.departmentName;//分部名称
+		design_.subentryName = UnitDollarData.design.subentryName;//分项
 		design_.designImagePath = UnitDollarData.design.designImagePath;//图地址 
 		design_.designMaterialPath = UnitDollarData.design.designMaterialPath;//材质地址 
 		design_.designDesc = "";//描述 未做
