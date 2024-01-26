@@ -7,23 +7,38 @@ using Unit;
 using Unit.DecorativeDesign;
 public class DecorativeDesignManager : MonoBehaviour
 {
-
+	public static DecorativeDesignManager Instance_ { get; private set; }
 	public Button Button_装饰设计;
 
 	public Button Button_确认;
 	public Button Button_提交;
 
-	private List<Design> 楼地面_DesignsList = new List<Design>();
-	private List<Design> 墙柱面_DesignsList = new List<Design>();
-	private List<Design> 天棚工程_DesignsList = new List<Design>();
-	private List<Design> 油漆涂料_DesignsList = new List<Design>();
-	private List<Design> 其他装饰_DesignsList = new List<Design>();
-	//汇总金额
+	//在确认后 中间 更多面板也会用到
+	public List<Design> 楼地面_DesignsList = new List<Design>();
+	public List<Design> 墙柱面_DesignsList = new List<Design>();
+	public List<Design> 天棚工程_DesignsList = new List<Design>();
+	public List<Design> 油漆涂料_DesignsList = new List<Design>();
+	public List<Design> 其他装饰_DesignsList = new List<Design>();
+
+
 	private float 楼地面_汇总金额 = 0;
 	private float 墙柱面_汇总金额 = 0;
 	private float 天棚工程_汇总金额 = 0;
 	private float 油漆涂料_汇总金额 = 0;
 	private float 其他装饰_汇总金额 = 0;
+
+	void Awake()
+	{
+		if (Instance_ == null)
+		{
+			Instance_ = this;
+			DontDestroyOnLoad(gameObject);
+		}
+		else
+		{
+			Destroy(gameObject);
+		}
+	}
 	void Start()
 	{
 		Button_装饰设计.onClick.AddListener(() =>
