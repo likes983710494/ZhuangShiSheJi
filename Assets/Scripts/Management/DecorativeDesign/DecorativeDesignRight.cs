@@ -402,7 +402,7 @@ public class DecorativeDesignRight : MonoBehaviour
 		design_.subentryName = UnitDollarData.design.subentryName;//分项
 		design_.designImagePath = UnitDollarData.design.designImagePath;//图地址 
 		design_.designMaterialPath = UnitDollarData.design.designMaterialPath;//材质地址 
-		design_.designDesc = "";//描述 未做
+		design_.designDesc = UnitDollarData.design.designDesc;//描述
 		design_.Acreage = UnitDollarData.design.Acreage;//面积
 		design_.Price = UnitDollarData.design.Price;//单价
 		design_.Total = UnitDollarData.design.Total;//金额 

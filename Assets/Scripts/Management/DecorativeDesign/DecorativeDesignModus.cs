@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using UnityEngine;
 using Unit;
 using System.Linq;
+using System.IO;
 //装饰设计-中间展示
 public class DecorativeDesignModus : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class DecorativeDesignModus : MonoBehaviour
     public GameObject 分部列表_Plane;//分部列表面板
 
     public GameObject 分部列表_Content_分部列表;//父节点
+
+    public GameObject 工程设计_Plane;//分部列表-工程设计面板
 
     void Awake()
     {
@@ -112,12 +115,31 @@ public class DecorativeDesignModus : MonoBehaviour
                         }
                         else
                         {
+                            int num = j;
 
-                            Debug.Log("列表里的按钮");
-                            instance_.transform.GetChild(j + 1).GetComponent<Button>().onClick.AddListener(() =>
+                            if (instance_.transform.GetChild(j + 1).name == "Button (Legacy)_查看设计图 (4)")
                             {
-                                //value[j].ToString(); 获取地址展示图片
-                            });
+                                instance_.transform.GetChild(j + 1).GetComponent<Button>().onClick.AddListener(() =>
+                                                           {
+                                                               //value[j].ToString(); 获取地址展示图片
+                                                               工程设计_Plane.SetActive(true);
+                                                               StopAllCoroutines();
+                                                               StartCoroutine(ExamineDesignImage(value[num].ToString(), 0));
+                                                           });
+                            }
+                            if (instance_.transform.GetChild(j + 1).name == "Button (Legacy)_编辑说明 (6)")
+                            {
+                                instance_.transform.GetChild(j + 1).GetComponent<Button>().onClick.AddListener(() =>
+                                {
+                                    //value[j].ToString(); 获取地址展示文字
+                                    工程设计_Plane.SetActive(true);
+                                    StopAllCoroutines();
+                                    StartCoroutine(ExamineDesignImage(value[num].ToString(), 1));
+                                });
+
+                            }
+
+
                         }
                     }
 
@@ -133,6 +155,60 @@ public class DecorativeDesignModus : MonoBehaviour
         // public List<Design> 油漆涂料_DesignsList = new List<Design>();
         // public List<Design> 其他装饰_DesignsList = new List<Design>();
     }
+    /// <summary>
+    /// 列表-查看设计详情
+    /// </summary>
+    /// <param name="path_"></param>
+    /// <returns></returns> <summary>
+    /// 
+    /// </summary>
+    /// <param index="0">0 是工程设计 1是文字描述</param>
+    /// <returns></returns>
+    public IEnumerator ExamineDesignImage(string path_, int index)
+    {
 
+        switch (index)
+        {
+            case 0:
+                if (Path.GetExtension(path_) == ".png" || Path.GetExtension(path_) == ".jpg")
+                {
+                    string fileName = Path.GetFileName(path_);
+                    WWW www = new WWW("file:///" + path_);
+                    yield return www;
+                    //获取Texture
+                    Texture2D texture = www.texture;
+                    //根据获取的Texture创建一个sprite
+                    Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
+                    工程设计_Plane.name = fileName;
+                    工程设计_Plane.transform.GetChild(1).gameObject.SetActive(false);
+                    工程设计_Plane.transform.GetChild(0).gameObject.SetActive(true);
+                    工程设计_Plane.transform.GetChild(0).GetComponent<UnityEngine.UI.Image>().sprite = sprite;
+
+                    // int dotPosition = fileName.IndexOf('.');
+                    // string beforeDot = fileName.Substring(0, dotPosition);
+
+
+                }
+                break;
+            case 1:
+                工程设计_Plane.transform.GetChild(0).gameObject.SetActive(false);
+                工程设计_Plane.transform.GetChild(1).gameObject.SetActive(true);
+                工程设计_Plane.transform.GetChild(1).GetComponent<UnityEngine.UI.InputField>().text = path_;
+                //编辑完成按钮
+
+                break;
+        }
+
+
+
+
+
+
+
+
+
+
+
+    }
 
 }
