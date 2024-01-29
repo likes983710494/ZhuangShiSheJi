@@ -64,7 +64,6 @@ public class DecorativeDesignModus : MonoBehaviour
     {
 
         DecorativeDesignModus.Instance_.分部列表_Plane.SetActive(true);
-        Debug.Log(index);
         switch (index)
         {
             case 0:
@@ -100,15 +99,25 @@ public class DecorativeDesignModus : MonoBehaviour
                     instance_.transform.localScale = new Vector3(1, 1, 1);
                     object[] value = DecorativeDesignManager.Instance_.墙柱面_DesignsList[i].GetType().GetProperties().Select(
                         p => p.GetValue(DecorativeDesignManager.Instance_.墙柱面_DesignsList[i])).ToArray();
+                    if (instance_.transform.GetChild(0).GetComponent<Text>() != null)
+                    {
+                        instance_.transform.GetChild(0).GetComponent<Text>().text = i.ToString();
+                    }
+
                     for (int j = 0; j < value.Length; j++)
                     {
-                        if (instance_.transform.GetChild(j).GetComponent<Text>() != null)
+                        if (instance_.transform.GetChild(j + 1).GetComponent<Text>() != null)
                         {
-                            instance_.transform.GetChild(j).GetComponent<Text>().text = value[j].ToString();
+                            instance_.transform.GetChild(j + 1).GetComponent<Text>().text = value[j].ToString();
                         }
                         else
                         {
+
                             Debug.Log("列表里的按钮");
+                            instance_.transform.GetChild(j + 1).GetComponent<Button>().onClick.AddListener(() =>
+                            {
+                                //value[j].ToString(); 获取地址展示图片
+                            });
                         }
                     }
 
@@ -118,7 +127,7 @@ public class DecorativeDesignModus : MonoBehaviour
 
 
 
-        //      public List<Design> 楼地面_DesignsList = new List<Design>();
+        // public List<Design> 楼地面_DesignsList = new List<Design>();
         // public List<Design> 墙柱面_DesignsList = new List<Design>();
         // public List<Design> 天棚工程_DesignsList = new List<Design>();
         // public List<Design> 油漆涂料_DesignsList = new List<Design>();

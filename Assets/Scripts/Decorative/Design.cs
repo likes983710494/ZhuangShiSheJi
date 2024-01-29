@@ -18,4 +18,10 @@ public class Design
     public string Price { get; set; }//单价
     public string Total { get; set; }//合价
 
+    //没有位置信息就暂时暂无数据
+    public Design()
+    {
+        location = "暂无位置信息";
+    }
+
 }
