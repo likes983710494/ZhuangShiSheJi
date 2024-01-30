@@ -2,14 +2,14 @@
 using NPOI.SS.Formula.Functions;
 using UnityEngine;
 using Unit.DecorativeDesign;
-
+using UnityEngine.EventSystems;
 namespace Siccity.GLTFUtility
 {
-	public class GLTFTypeInfo : MonoBehaviour
+	public class GLTFTypeInfo : MonoBehaviour, IPointerClickHandler
 	{
 		public string mesg;
 		public extrasA m_extrasA;
-		public void OnMouseDown()
+		public void OnPointerClick(PointerEventData eventData)//OnMouseDown()
 		{
 			//储存上一个 高亮的物体 并关闭
 			if (DecorativeDesignSaveDate.HighligObject != null)

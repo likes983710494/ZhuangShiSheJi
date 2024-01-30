@@ -191,12 +191,9 @@ public class DecorativeDesignModus : MonoBehaviour
                 }
                 break;
             case 1:
-                Debug.Log(path_);
                 工程设计_Plane.transform.GetChild(0).gameObject.SetActive(false);
                 工程设计_Plane.transform.GetChild(1).gameObject.SetActive(true);
                 工程设计_Plane.transform.GetChild(1).GetComponentInChildren<UnityEngine.UI.InputField>().text = path_;
-
-
                 break;
         }
 
