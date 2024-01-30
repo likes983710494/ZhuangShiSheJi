@@ -162,10 +162,11 @@ public class DecorativeDesignRight : MonoBehaviour
 	/// <param name="index"></param>
 	public void SubentryDropdownChange(Dropdown change)
 	{
+
 		ButtonModu.interactable = true;
 		StopAllCoroutines();
 		//获取分项文件夹路径 生成工程设计按钮
-		StartCoroutine(BeforloadImage(change.value, change.options[change.value].text));
+		StartCoroutine(BeforloadImage(DropdownBranch.value, change.options[change.value].text));
 
 		DecorativeDesignSaveDate.subentryName = change.options[change.value].text;
 		//pdf数据 分项
@@ -186,46 +187,55 @@ public class DecorativeDesignRight : MonoBehaviour
 	{
 
 		string path1 = Path.Combine(Application.streamingAssetsPath + "/做法分类/" + index + "/" + "/" + value + "/");
-		string[] files = Directory.GetFiles(path1);
-		foreach (string file in files)
+
+		if (Directory.Exists(path1))
 		{
-			if (Path.GetExtension(file) == ".png" || Path.GetExtension(file) == ".jpg")
+
+			string[] files = Directory.GetFiles(path1);
+
+			foreach (string file in files)
 			{
-				string fileName = Path.GetFileName(file);
-				WWW www = new WWW("file:///" + file);
-				yield return www;
-				//获取Texture
-				Texture2D texture = www.texture;
-				//根据获取的Texture创建一个sprite
-				Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
-				//生成预制体
-				GameObject prefab = Resources.Load<GameObject>("prefab/Decorative/Image_做法说明BG");
-				GameObject instance_ = Instantiate(prefab);
-				instance_.transform.SetParent(Content_做法说明_01选择做法.transform);
-				instance_.transform.localScale = new Vector3(1, 1, 1);
-				instance_.name = fileName;
-				instance_.transform.GetChild(0).GetComponent<UnityEngine.UI.Image>().sprite = sprite;
-				//进行02面板选择材质 功能添加
-				instance_.transform.GetChild(0).GetComponent<UnityEngine.UI.Button>().onClick.AddListener(() =>
+				if (Path.GetExtension(file) == ".png" || Path.GetExtension(file) == ".jpg")
 				{
-					Content_做法说明_02选择材质.SetActive(true);
-					Content_做法说明_01选择做法.SetActive(false);
-					Button_上一步.gameObject.SetActive(true);
-					GameObject.Find("Scroll View视图_做法说明").GetComponent<UnityEngine.UI.ScrollRect>().content =
-					Content_做法说明_02选择材质.GetComponent<RectTransform>();
-					//改变左侧名称  选择工程设计   选择工程材质   工程补充说明
-					Text_左侧名称.text = "选择工程材质";
+					string fileName = Path.GetFileName(file);
+					WWW www = new WWW("file:///" + file);
+					yield return www;
+					//获取Texture
+					Texture2D texture = www.texture;
+					//根据获取的Texture创建一个sprite
+					Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
+					//生成预制体
+					GameObject prefab = Resources.Load<GameObject>("prefab/Decorative/Image_做法说明BG");
+					GameObject instance_ = Instantiate(prefab);
+					instance_.transform.SetParent(Content_做法说明_01选择做法.transform);
+					instance_.transform.localScale = new Vector3(1, 1, 1);
+					instance_.name = fileName;
+					instance_.transform.GetChild(0).GetComponent<UnityEngine.UI.Image>().sprite = sprite;
+					//进行02面板选择材质 功能添加
+					instance_.transform.GetChild(0).GetComponent<UnityEngine.UI.Button>().onClick.AddListener(() =>
+					{
+						Content_做法说明_02选择材质.SetActive(true);
+						Content_做法说明_01选择做法.SetActive(false);
+						Button_上一步.gameObject.SetActive(true);
+						GameObject.Find("Scroll View视图_做法说明").GetComponent<UnityEngine.UI.ScrollRect>().content =
+						Content_做法说明_02选择材质.GetComponent<RectTransform>();
+						//改变左侧名称  选择工程设计   选择工程材质   工程补充说明
+						Text_左侧名称.text = "选择工程材质";
 
-					//pdf数据： 获取图片地址 file
-					UnitDollarData.design.designImagePath = file;
-				});
-				int dotPosition = fileName.IndexOf('.');
-				string beforeDot = fileName.Substring(0, dotPosition);
-				instance_.transform.GetChild(1).GetComponent<UnityEngine.UI.Text>().text = beforeDot;
+						//pdf数据： 获取图片地址 file
+						UnitDollarData.design.designImagePath = file;
+					});
+					int dotPosition = fileName.IndexOf('.');
+					string beforeDot = fileName.Substring(0, dotPosition);
+					instance_.transform.GetChild(1).GetComponent<UnityEngine.UI.Text>().text = beforeDot;
+				}
+
 			}
-
 		}
-
+		else
+		{
+			Debug.Log("没有找到文件夹");
+		}
 	}
 
 	// 做法说明 --上一步按钮
