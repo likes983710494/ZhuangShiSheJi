@@ -70,6 +70,11 @@ public class DecorativeDesignModus : MonoBehaviour
         switch (index)
         {
             case 0:
+                for (int i = 0; i < 分部列表_Content_分部列表.transform.childCount; i++)
+                {
+                    int x = i;
+                    Destroy(transform.GetChild(x).gameObject);
+                }
                 for (int i = 0; i < DecorativeDesignManager.Instance_.楼地面_DesignsList.Count; i++)
                 {
                     GameObject prefab = Resources.Load<GameObject>("prefab/Decorative/button_分部列表");
