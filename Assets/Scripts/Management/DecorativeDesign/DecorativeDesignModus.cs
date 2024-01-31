@@ -67,99 +67,91 @@ public class DecorativeDesignModus : MonoBehaviour
     {
 
         DecorativeDesignModus.Instance_.分部列表_Plane.SetActive(true);
+
+        for (int i = 0; i < 分部列表_Content_分部列表.transform.childCount; i++)
+        {
+            int x = i;
+            Destroy(分部列表_Content_分部列表.transform.GetChild(x).gameObject);
+        }
         switch (index)
         {
             case 0:
-                for (int i = 0; i < 分部列表_Content_分部列表.transform.childCount; i++)
-                {
-                    int x = i;
-                    Destroy(transform.GetChild(x).gameObject);
-                }
-                for (int i = 0; i < DecorativeDesignManager.Instance_.楼地面_DesignsList.Count; i++)
-                {
-                    GameObject prefab = Resources.Load<GameObject>("prefab/Decorative/button_分部列表");
-                    GameObject instance_ = Instantiate(prefab);
-                    instance_.transform.SetParent(分部列表_Content_分部列表.transform);
-                    instance_.transform.localScale = new Vector3(1, 1, 1);
-                    object[] value = DecorativeDesignManager.Instance_.楼地面_DesignsList[i].GetType().GetProperties().Select(p => p.GetValue(DecorativeDesignManager.Instance_.楼地面_DesignsList[i])).ToArray();
-                    for (int j = 0; j < value.Length; j++)
-                    {
-                        if (instance_.transform.GetChild(j).GetComponent<Text>() != null)
-                        {
-                            instance_.transform.GetChild(j).GetComponent<Text>().text = value[j].ToString();
-                        }
-                        else
-                        {
-                            Debug.Log("列表里的按钮");
-                        }
-                    }
-
-                }
+                AddGenerateData(DecorativeDesignManager.Instance_.楼地面_DesignsList);
                 break;
 
             case 1:
-
-                for (int i = 0; i < DecorativeDesignManager.Instance_.墙柱面_DesignsList.Count; i++)
-                {
-                    GameObject prefab = Resources.Load<GameObject>("prefab/Decorative/button_分部列表");
-                    GameObject instance_ = Instantiate(prefab);
-                    instance_.transform.SetParent(分部列表_Content_分部列表.transform);
-                    instance_.transform.localScale = new Vector3(1, 1, 1);
-                    object[] value = DecorativeDesignManager.Instance_.墙柱面_DesignsList[i].GetType().GetProperties().Select(
-                        p => p.GetValue(DecorativeDesignManager.Instance_.墙柱面_DesignsList[i])).ToArray();
-                    if (instance_.transform.GetChild(0).GetComponent<Text>() != null)
-                    {
-                        instance_.transform.GetChild(0).GetComponent<Text>().text = i.ToString();
-                    }
-
-                    for (int j = 0; j < value.Length; j++)
-                    {
-                        if (instance_.transform.GetChild(j + 1).GetComponent<Text>() != null)
-                        {
-                            instance_.transform.GetChild(j + 1).GetComponent<Text>().text = value[j].ToString();
-                        }
-                        else
-                        {
-                            int num = j;
-
-                            if (instance_.transform.GetChild(j + 1).name == "Button (Legacy)_查看设计图 (4)")
-                            {
-                                instance_.transform.GetChild(j + 1).GetComponent<Button>().onClick.AddListener(() =>
-                                                           {
-                                                               //value[j].ToString(); 获取地址展示图片
-                                                               工程设计_Plane.SetActive(true);
-                                                               StopAllCoroutines();
-                                                               StartCoroutine(ExamineDesignImage(value[num].ToString(), 0));
-                                                           });
-                            }
-                            if (instance_.transform.GetChild(j + 1).name == "Button (Legacy)_编辑说明 (6)")
-                            {
-                                instance_.transform.GetChild(j + 1).GetComponent<Button>().onClick.AddListener(() =>
-                                {
-                                    //value[j].ToString(); 获取地址展示文字
-                                    工程设计_Plane.SetActive(true);
-                                    StopAllCoroutines();
-                                    StartCoroutine(ExamineDesignImage(value[num].ToString(), 1));
-                                });
-
-                            }
-
-
-                        }
-                    }
-
-                }
+                AddGenerateData(DecorativeDesignManager.Instance_.墙柱面_DesignsList);
+                break;
+            case 2:
+                AddGenerateData(DecorativeDesignManager.Instance_.天棚工程_DesignsList);
+                break;
+            case 3:
+                AddGenerateData(DecorativeDesignManager.Instance_.油漆涂料_DesignsList);
+                break;
+            case 4:
+                AddGenerateData(DecorativeDesignManager.Instance_.其他装饰_DesignsList);
                 break;
         }
-
-
-
-        // public List<Design> 楼地面_DesignsList = new List<Design>();
-        // public List<Design> 墙柱面_DesignsList = new List<Design>();
-        // public List<Design> 天棚工程_DesignsList = new List<Design>();
-        // public List<Design> 油漆涂料_DesignsList = new List<Design>();
-        // public List<Design> 其他装饰_DesignsList = new List<Design>();
     }
+
+
+    /// <summary>
+    /// 生成分部列表数据
+    /// </summary>
+    public void AddGenerateData(List<Design> DesignsList)
+    {
+        for (int i = 0; i < DesignsList.Count; i++)
+        {
+            GameObject prefab = Resources.Load<GameObject>("prefab/Decorative/button_分部列表");
+            GameObject instance_ = Instantiate(prefab);
+            instance_.transform.SetParent(分部列表_Content_分部列表.transform);
+            instance_.transform.localScale = new Vector3(1, 1, 1);
+            object[] value = DesignsList[i].GetType().GetProperties().Select(
+                p => p.GetValue(DesignsList[i])).ToArray();
+            if (instance_.transform.GetChild(0).GetComponent<Text>() != null)
+            {
+                instance_.transform.GetChild(0).GetComponent<Text>().text = i.ToString();
+            }
+
+            for (int j = 0; j < value.Length; j++)
+            {
+                if (instance_.transform.GetChild(j + 1).GetComponent<Text>() != null)
+                {
+                    instance_.transform.GetChild(j + 1).GetComponent<Text>().text = value[j].ToString();
+                }
+                else
+                {
+                    int num = j;
+
+                    if (instance_.transform.GetChild(j + 1).name == "Button (Legacy)_查看设计图 (4)")
+                    {
+                        instance_.transform.GetChild(j + 1).GetComponent<Button>().onClick.AddListener(() =>
+                                                   {
+                                                       //value[j].ToString(); 获取地址展示图片
+                                                       工程设计_Plane.SetActive(true);
+                                                       StopAllCoroutines();
+                                                       StartCoroutine(ExamineDesignImage(value[num].ToString(), 0));
+                                                   });
+                    }
+                    if (instance_.transform.GetChild(j + 1).name == "Button (Legacy)_编辑说明 (6)")
+                    {
+                        instance_.transform.GetChild(j + 1).GetComponent<Button>().onClick.AddListener(() =>
+                        {
+                            //value[j].ToString(); 获取地址展示文字
+                            工程设计_Plane.SetActive(true);
+                            StopAllCoroutines();
+                            StartCoroutine(ExamineDesignImage(value[num].ToString(), 1));
+                        });
+
+                    }
+
+
+                }
+            }
+
+        }
+    }
+
     /// <summary>
     /// 列表-查看设计详情
     /// </summary>
