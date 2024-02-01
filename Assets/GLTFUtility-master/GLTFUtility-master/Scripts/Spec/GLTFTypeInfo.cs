@@ -16,8 +16,21 @@ namespace Siccity.GLTFUtility
 			{
 				DecorativeDesignSaveDate.HighligObject.GetComponent<HighlightableObject>().ConstantOff();
 			}
+			if (DecorativeDesignSaveDate.HighligObjectMaterial != null)
+			{
+				Debug.Log("材质名字" + DecorativeDesignSaveDate.HighligObjectMaterial.name + "-----m模型材质：--" + DecorativeDesignSaveDate.HighligObject.GetComponent<MeshRenderer>().material);
+				if (DecorativeDesignSaveDate.HighligObjectMaterial != DecorativeDesignSaveDate.HighligObject.GetComponent<MeshRenderer>().material)
+				{
+					DecorativeDesignSaveDate.HighligObject.GetComponent<HighlightableObject>().enabled = false;//会锁住材质无法替换所以先关闭
+					DecorativeDesignSaveDate.HighligObject.GetComponent<MeshRenderer>().material = DecorativeDesignSaveDate.HighligObjectMaterial;
+					DecorativeDesignSaveDate.HighligObject.GetComponent<HighlightableObject>().enabled = true;//在开启
+				}
+			}
+
 			GetComponent<HighlightableObject>().ConstantOn(Color.cyan);//此方法打开边缘发光，参数可以控制发光的颜色
 			DecorativeDesignSaveDate.HighligObject = this.gameObject;
+			DecorativeDesignSaveDate.HighligObjectMaterial = this.gameObject.GetComponent<MeshRenderer>().material;
+
 			//删除做法设计的图
 			for (int i = 0; i < DecorativeDesignRight.Instance_.Content_做法说明_01选择做法.transform.childCount; i++)
 			{

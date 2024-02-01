@@ -336,6 +336,7 @@ public class DecorativeDesignRight : MonoBehaviour
 					//改变模型材质 // 加载材质
 					DecorativeDesignSaveDate.HighligObject.GetComponent<HighlightableObject>().enabled = false;//会锁住材质无法替换所以先关闭
 					Material material_ = new Material(Shader.Find("Unlit/Texture"));
+					material_.name = beforeDot;
 					material_.SetTexture("_MainTex", texture);
 					DecorativeDesignSaveDate.HighligObject.GetComponent<MeshRenderer>().material = material_;
 					DecorativeDesignSaveDate.HighligObject.GetComponent<HighlightableObject>().enabled = true;//换完材质再打开

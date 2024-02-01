@@ -119,6 +119,9 @@ public class DecorativeDesignManager : MonoBehaviour
 		//恢复全部初始状态
 		DecorativeDesignSaveDate.InitAllProcedure();
 
+		//确定 模型材质，鼠标再点击模型时不会被清除掉
+		DecorativeDesignSaveDate.HighligObjectMaterial = DecorativeDesignSaveDate.HighligObject.GetComponent<MeshRenderer>().material;
+
 		Button_确认.interactable = false;
 		//左侧抽屉按钮  关闭
 		DecorativeDesignModus.Instance_.LeftMakerUnfoldButton.interactable = false;
@@ -154,6 +157,8 @@ public class DecorativeDesignManager : MonoBehaviour
 		// UnitDollarData.天棚工程_DesignsList.Clear();
 		// UnitDollarData.油漆涂料_DesignsList.Clear();
 		// UnitDollarData.其他装饰_DesignsList.Clear();
+
+
 
 	}
 
