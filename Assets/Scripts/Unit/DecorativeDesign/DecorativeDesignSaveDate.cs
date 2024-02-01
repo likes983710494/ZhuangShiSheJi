@@ -49,6 +49,7 @@ namespace Unit.DecorativeDesign
             //  单个步骤确认按钮
             GameObject.Find("----------装饰设计--------").GetComponent<DecorativeDesignManager>().Button_确认.interactable = false;
 
+
         }
         public static void InitAllProcedure()
         {

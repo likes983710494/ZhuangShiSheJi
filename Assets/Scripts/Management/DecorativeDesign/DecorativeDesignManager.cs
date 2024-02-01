@@ -109,8 +109,13 @@ public class DecorativeDesignManager : MonoBehaviour
 				break;
 
 		}
-		Debug.Log("墙柱面_DesignsList.Count:" + 墙柱面_DesignsList.Count);
-
+		//删除做法设计的图
+		for (int i = 0; i < DecorativeDesignRight.Instance_.Content_做法说明_01选择做法.transform.childCount; i++)
+		{
+			int x = i;
+			GameObject child = DecorativeDesignRight.Instance_.Content_做法说明_01选择做法.transform.GetChild(x).gameObject;
+			Destroy(child);
+		}
 		//恢复全部初始状态
 		DecorativeDesignSaveDate.InitAllProcedure();
 
