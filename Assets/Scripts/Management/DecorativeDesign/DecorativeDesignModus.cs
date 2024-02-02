@@ -19,6 +19,8 @@ public class DecorativeDesignModus : MonoBehaviour
 
     public GameObject 工程设计_Plane;//分部列表-工程设计面板
 
+    public GameObject Image_通知提示框;
+
     void Awake()
     {
         if (Instance_ == null)
@@ -54,7 +56,29 @@ public class DecorativeDesignModus : MonoBehaviour
             }
 
         });
+        //默认隐藏 等待模型 在出现提示
+        Image_通知提示框.SetActive(false);
 
+    }
+
+    /// <summary>
+    /// 设置弹窗显示以及文本内容
+    /// </summary>
+    /// <param name="enabled"> 状态</param>
+    /// <param name="text">弹窗文本内容</param> <summary>
+    /// <param name="type"> 是否修改当前文本内容0为否 1为是</param>
+    /// </summary>
+    public void SetImage_通知提示框(bool enabled, string text, int type = 0)
+    {
+        Image_通知提示框.SetActive(enabled);
+        if (enabled == true && type == 1)
+        {
+            if (Image_通知提示框.transform.GetChild(1) != null)
+            {
+                Image_通知提示框.transform.GetChild(1).GetComponent<Text>().text = text;
+            }
+
+        }
     }
     /// <summary>
     /// 生成中间弹窗 数据

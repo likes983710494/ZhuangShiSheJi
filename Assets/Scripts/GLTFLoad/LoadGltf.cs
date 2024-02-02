@@ -35,7 +35,8 @@ namespace PlanesWalker
 			}
 			//模型加载完毕 关闭模型加载进度条
 			DecorativeDesignModus.Instance_.模型等待进度条.SetActive(false);
-
+			//装饰设计提示窗
+			DecorativeDesignModus.Instance_.Image_通知提示框.SetActive(true);
 
 		}
 	}

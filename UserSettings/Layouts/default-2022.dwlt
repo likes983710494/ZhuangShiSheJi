@@ -14,17 +14,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PixelRect:
     serializedVersion: 2
-    x: 1021
-    y: 688
+    x: 0
+    y: 0
+    width: 1920
+    height: 1050
+  m_ShowMode: 0
+  m_Title: Game
+  m_RootView: {fileID: 5}
+  m_MinSize: {x: 100, y: 121}
+  m_MaxSize: {x: 4000, y: 4021}
+  m_Maximized: 1
+--- !u!114 &2
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 12004, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PixelRect:
+    serializedVersion: 2
+    x: 340
+    y: 677
     width: 650
     height: 319
   m_ShowMode: 0
   m_Title: Console Pro
-  m_RootView: {fileID: 4}
+  m_RootView: {fileID: 7}
   m_MinSize: {x: 200, y: 141}
   m_MaxSize: {x: 4000, y: 4021}
   m_Maximized: 0
---- !u!114 &2
+--- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -38,17 +62,67 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PixelRect:
     serializedVersion: 2
-    x: 0
+    x: 1920
     y: 43
     width: 1920
     height: 1007
   m_ShowMode: 4
-  m_Title: Game
-  m_RootView: {fileID: 5}
+  m_Title: Scene
+  m_RootView: {fileID: 8}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
---- !u!114 &3
+--- !u!114 &4
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: GameView
+  m_EditorClassIdentifier: 
+  m_Children: []
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1920
+    height: 1050
+  m_MinSize: {x: 100, y: 121}
+  m_MaxSize: {x: 4000, y: 4021}
+  m_ActualView: {fileID: 19}
+  m_Panes:
+  - {fileID: 19}
+  m_Selected: 0
+  m_LastSelected: 0
+--- !u!114 &5
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children:
+  - {fileID: 4}
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1920
+    height: 1050
+  m_MinSize: {x: 100, y: 121}
+  m_MaxSize: {x: 4000, y: 4021}
+  vertical: 0
+  controlID: 6692
+--- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -69,12 +143,12 @@ MonoBehaviour:
     height: 319
   m_MinSize: {x: 200, y: 141}
   m_MaxSize: {x: 4000, y: 4021}
-  m_ActualView: {fileID: 17}
+  m_ActualView: {fileID: 20}
   m_Panes:
-  - {fileID: 17}
+  - {fileID: 20}
   m_Selected: 0
   m_LastSelected: 0
---- !u!114 &4
+--- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -87,7 +161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
-  - {fileID: 3}
+  - {fileID: 6}
   m_Position:
     serializedVersion: 2
     x: 0
@@ -98,7 +172,7 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4021}
   vertical: 0
   controlID: 17
---- !u!114 &5
+--- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,9 +185,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
-  - {fileID: 6}
-  - {fileID: 8}
-  - {fileID: 7}
+  - {fileID: 9}
+  - {fileID: 11}
+  - {fileID: 10}
   m_Position:
     serializedVersion: 2
     x: 0
@@ -126,7 +200,7 @@ MonoBehaviour:
   m_TopViewHeight: 30
   m_UseBottomView: 1
   m_BottomViewHeight: 20
---- !u!114 &6
+--- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,7 +222,7 @@ MonoBehaviour:
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
   m_LastLoadedLayoutName: 
---- !u!114 &7
+--- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,83 +243,6 @@ MonoBehaviour:
     height: 20
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
---- !u!114 &8
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 1
-  m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Children:
-  - {fileID: 9}
-  - {fileID: 12}
-  - {fileID: 15}
-  m_Position:
-    serializedVersion: 2
-    x: 0
-    y: 30
-    width: 1920
-    height: 957
-  m_MinSize: {x: 300, y: 100}
-  m_MaxSize: {x: 24288, y: 16192}
-  vertical: 0
-  controlID: 6250
---- !u!114 &9
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Children:
-  - {fileID: 10}
-  - {fileID: 11}
-  m_Position:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1005
-    height: 957
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 8096, y: 16192}
-  vertical: 1
-  controlID: 6205
---- !u!114 &10
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: SceneView
-  m_EditorClassIdentifier: 
-  m_Children: []
-  m_Position:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1005
-    height: 213
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 18}
-  m_Panes:
-  - {fileID: 18}
-  m_Selected: 0
-  m_LastSelected: 0
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -255,25 +252,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 1
-  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: GameView
+  m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
   m_EditorClassIdentifier: 
-  m_Children: []
+  m_Children:
+  - {fileID: 12}
+  - {fileID: 15}
+  - {fileID: 18}
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 213
-    width: 1005
-    height: 744
-  m_MinSize: {x: 101, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 16}
-  m_Panes:
-  - {fileID: 16}
-  - {fileID: 19}
-  - {fileID: 20}
-  m_Selected: 0
-  m_LastSelected: 0
+    y: 30
+    width: 1920
+    height: 957
+  m_MinSize: {x: 300, y: 100}
+  m_MaxSize: {x: 24288, y: 16192}
+  vertical: 0
+  controlID: 5802
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -291,15 +286,93 @@ MonoBehaviour:
   - {fileID: 14}
   m_Position:
     serializedVersion: 2
-    x: 1005
+    x: 0
     y: 0
-    width: 620
+    width: 942
     height: 957
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 6251
+  controlID: 5803
 --- !u!114 &13
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: SceneView
+  m_EditorClassIdentifier: 
+  m_Children: []
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 942
+    height: 612
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 21}
+  m_Panes:
+  - {fileID: 21}
+  m_Selected: 0
+  m_LastSelected: 0
+--- !u!114 &14
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: AnimationWindow
+  m_EditorClassIdentifier: 
+  m_Children: []
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 612
+    width: 942
+    height: 345
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 22}
+  m_Panes:
+  - {fileID: 22}
+  - {fileID: 23}
+  m_Selected: 0
+  m_LastSelected: 0
+--- !u!114 &15
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children:
+  - {fileID: 16}
+  - {fileID: 17}
+  m_Position:
+    serializedVersion: 2
+    x: 942
+    y: 0
+    width: 635
+    height: 957
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 8096, y: 16192}
+  vertical: 1
+  controlID: 5892
+--- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -316,16 +389,16 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 620
+    width: 635
     height: 499
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 21}
+  m_ActualView: {fileID: 24}
   m_Panes:
-  - {fileID: 21}
+  - {fileID: 24}
   m_Selected: 0
   m_LastSelected: 0
---- !u!114 &14
+--- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -342,16 +415,16 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 499
-    width: 620
+    width: 635
     height: 458
   m_MinSize: {x: 232, y: 271}
   m_MaxSize: {x: 10002, y: 10021}
-  m_ActualView: {fileID: 22}
+  m_ActualView: {fileID: 25}
   m_Panes:
-  - {fileID: 22}
+  - {fileID: 25}
   m_Selected: 0
   m_LastSelected: 0
---- !u!114 &15
+--- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -366,18 +439,18 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1625
+    x: 1577
     y: 0
-    width: 295
+    width: 343
     height: 957
   m_MinSize: {x: 275, y: 50}
   m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 23}
+  m_ActualView: {fileID: 26}
   m_Panes:
-  - {fileID: 23}
+  - {fileID: 26}
   m_Selected: 0
   m_LastSelected: 0
---- !u!114 &16
+--- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -398,9 +471,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 286
-    width: 1004
-    height: 723
+    y: 0
+    width: 1920
+    height: 1029
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -417,7 +490,7 @@ MonoBehaviour:
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 1004, y: 702}
+  m_TargetSize: {x: 1792, y: 1008}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -426,16 +499,16 @@ MonoBehaviour:
   m_VSyncEnabled: 0
   m_Gizmos: 0
   m_Stats: 0
-  m_SelectedSizes: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  m_SelectedSizes: 01000000000000000000000000000000000000000000000000000000000000000000000000000000
   m_ZoomArea:
     m_HRangeLocked: 0
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -502
-    m_HBaseRangeMax: 502
-    m_VBaseRangeMin: -351
-    m_VBaseRangeMax: 351
+    m_HBaseRangeMin: -896
+    m_HBaseRangeMax: 896
+    m_VBaseRangeMin: -504
+    m_VBaseRangeMax: 504
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -453,29 +526,29 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 1004
-      height: 702
+      width: 1920
+      height: 1008
     m_Scale: {x: 1, y: 1}
-    m_Translation: {x: 502, y: 351}
+    m_Translation: {x: 960, y: 504}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -502
-      y: -351
-      width: 1004
-      height: 702
+      x: -960
+      y: -504
+      width: 1920
+      height: 1008
     m_MinimalGUI: 1
   m_defaultScale: 1
-  m_LastWindowPixelSize: {x: 1004, y: 723}
+  m_LastWindowPixelSize: {x: 1920, y: 1029}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
   m_XRRenderMode: 0
   m_RenderTexture: {fileID: 0}
---- !u!114 &17
+--- !u!114 &20
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -495,8 +568,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1021
-    y: 688
+    x: 340
+    y: 677
     width: 650
     height: 298
   m_SerializedDataModeController:
@@ -509,13 +582,13 @@ MonoBehaviour:
     m_LastAppliedPresetName: Default
     m_SaveData: []
     m_OverlaysVisible: 1
-  logPanelScroll: {x: 0, y: -215}
+  logPanelScroll: {x: 0, y: 0}
   logPanelSelectedIndex: -1
   logPanelAutoScroll: 1
-  currentFrame: 1508121
+  currentFrame: 1527828
   logs:
-    lastGrabbedIndex: 4
-    lastGrabbedCount: 5
+    lastGrabbedIndex: 3
+    lastGrabbedCount: 4
     proEntries:
     - logType: 2
       ignore: 0
@@ -553,9 +626,9 @@ MonoBehaviour:
       namespaceName: 
       lineCount: 1
       hasSourceCode: 0
-      timeStamp: 16:40:41.094
+      timeStamp: 16:43:13.294
       timeFrame: 2
-      timeStampDateTimeNow: 16:40:41.094
+      timeStampDateTimeNow: 16:43:13.294
       instanceID: 0
       collapsedCount: 0
       cachedHeight: -1
@@ -1015,9 +1088,9 @@ MonoBehaviour:
       namespaceName: 
       lineCount: 1
       hasSourceCode: 0
-      timeStamp: 16:40:41.100
+      timeStamp: 16:43:13.301
       timeFrame: 2
-      timeStampDateTimeNow: 16:40:41.100
+      timeStampDateTimeNow: 16:43:13.301
       instanceID: 0
       collapsedCount: 0
       cachedHeight: -1
@@ -1477,9 +1550,9 @@ MonoBehaviour:
       namespaceName: 
       lineCount: 1
       hasSourceCode: 0
-      timeStamp: 16:40:41.100
+      timeStamp: 16:43:13.301
       timeFrame: 2
-      timeStampDateTimeNow: 16:40:41.100
+      timeStampDateTimeNow: 16:43:13.301
       instanceID: 0
       collapsedCount: 0
       cachedHeight: -1
@@ -1939,9 +2012,9 @@ MonoBehaviour:
       namespaceName: 
       lineCount: 1
       hasSourceCode: 0
-      timeStamp: 16:40:41.100
+      timeStamp: 16:43:13.301
       timeFrame: 2
-      timeStampDateTimeNow: 16:40:41.100
+      timeStampDateTimeNow: 16:43:13.301
       instanceID: 0
       collapsedCount: 0
       cachedHeight: -1
@@ -2365,1062 +2438,12 @@ MonoBehaviour:
         showInToolbar: 1
         hideLabelInToolbar: 0
         hideWhenNoMatches: 0
-    - logType: 1
-      ignore: 0
-      processed: 1
-      tempFilterProcessed: 1
-      remoteEndPoint: Local
-      logPanelVisible: 1
-      logPanelIndex: 0
-      logOutputHeight: 27
-      listIndex: 4
-      nativeIndex: 4
-      nativeIdentifier: 0
-      originalLog: revit_camera
-      originalStackTrace: 'revit_camera
-
-        UnityEngine.Debug:Log (object)
-
-        PlanesWalker.LoadGltf:Initial
-        (UnityEngine.GameObject,UnityEngine.AnimationClip[]) (at Assets/Scripts/GLTFLoad/LoadGltf.cs:32)
-
-        Siccity.GLTFUtility.Importer/<LoadAsync>d__16:MoveNext
-        () (at Assets/Scripts/Importer.cs:369)
-
-        UnityEngine.SetupCoroutine:InvokeMoveNext
-        (System.Collections.IEnumerator,intptr)
-
-'
-      nativeFileName: Assets/Scripts/GLTFLoad/LoadGltf.cs
-      nativeFileNamePretty: 
-      nativeLineNumber: 32
-      watchName: 
-      logText: revit_camera
-      logTruncatedText: revit_camera
-      logColumnText: revit_camera
-      fileName: 
-      className: 
-      namespaceName: 
-      lineCount: 1
-      hasSourceCode: 1
-      timeStamp: 16:42:51.483
-      timeFrame: 54077
-      timeStampDateTimeNow: 16:42:51.483
-      instanceID: 0
-      collapsedCount: 0
-      cachedHeight: 19
-      cachedHeightLogWidth: 606
-      stackEntries:
-      - fileName: Assets/Scripts/GLTFLoad/LoadGltf.cs
-        fileNameWithoutAssets: Scripts/GLTFLoad/LoadGltf.cs
-        fileNameWithoutAssetsPlusLineNumber: Scripts/GLTFLoad/LoadGltf.cs:32
-        fileNameWithoutPath: LoadGltf.cs
-        fileNameWithoutPathPlusLineNumber: LoadGltf.cs:32
-        fileNamePretty: LoadGltf
-        instanceID: -1
-        className: LoadGltf
-        methodName: Initial
-        namespaceName: PlanesWalker
-        lineNumberString: 32
-        charNumber: 0
-        stackLabel: LoadGltf.Initial()
-        stackLabel2: ' at /Scripts/GLTFLoad/LoadGltf.cs:32'
-        stackLabel1Content:
-          m_Text: LoadGltf.Initial()
-          m_Image: {fileID: 0}
-          m_Tooltip: 
-        stackLabel1Width: 95
-        stackLabel1Height: 25
-        stackLabel2Content:
-          m_Text: ' at /Scripts/GLTFLoad/LoadGltf.cs:32'
-          m_Image: {fileID: 0}
-          m_Tooltip: 
-        stackLabel2Width: 222
-        stackLabel2Height: 25
-        stackSourceLineHeight: 17
-        sourceCode:
-        - '30:   if (child.GetComponent<Camera>() != null)'
-        - '31:   {'
-        - '32:       Debug.Log(child.name);'
-        - '33:       child.GetComponent<Camera>().enabled = false;'
-        - '34:   }'
-        sourceCodeUpdated: 1
-        showSource: 1
-      - fileName: Assets/Scripts/Importer.cs
-        fileNameWithoutAssets: Scripts/Importer.cs
-        fileNameWithoutAssetsPlusLineNumber: Scripts/Importer.cs:369
-        fileNameWithoutPath: Importer.cs
-        fileNameWithoutPathPlusLineNumber: Importer.cs:369
-        fileNamePretty: Importer
-        instanceID: -1
-        className: Importer/<LoadAsync>d__16
-        methodName: MoveNext
-        namespaceName: Siccity.GLTFUtility
-        lineNumberString: 369
-        charNumber: 0
-        stackLabel: Importer/<LoadAsync>d__16.MoveNext()
-        stackLabel2: ' at /Scripts/Importer.cs:369'
-        stackLabel1Content:
-          m_Text: Importer/<LoadAsync>d__16.MoveNext()
-          m_Image: {fileID: 0}
-          m_Tooltip: 
-        stackLabel1Width: 245
-        stackLabel1Height: 25
-        stackLabel2Content:
-          m_Text: ' at /Scripts/Importer.cs:369'
-          m_Image: {fileID: 0}
-          m_Tooltip: 
-        stackLabel2Width: 166
-        stackLabel2Height: 25
-        stackSourceLineHeight: 17
-        sourceCode:
-        - '367:   AnimationClip[] animations = new AnimationClip[0];'
-        - '368:   if (animationResult != null) animations = animationResult.Select(x
-          => x.clip).ToArray();'
-        - '369:   if (onFinished != null) onFinished(nodeTask.Result.GetRoot(), animations);'
-        - '370:   // Close file streams'
-        - '371:   foreach (var item in bufferTask.Result)'
-        sourceCodeUpdated: 1
-        showSource: 1
-      - fileName: None
-        fileNameWithoutAssets: None
-        fileNameWithoutAssetsPlusLineNumber: None
-        fileNameWithoutPath: None
-        fileNameWithoutPathPlusLineNumber: None
-        fileNamePretty: None
-        instanceID: -1
-        className: SetupCoroutine
-        methodName: InvokeMoveNext
-        namespaceName: UnityEngine
-        lineNumberString: 0
-        charNumber: 0
-        stackLabel: SetupCoroutine.InvokeMoveNext()
-        stackLabel2: 
-        stackLabel1Content:
-          m_Text: SetupCoroutine.InvokeMoveNext()
-          m_Image: {fileID: 0}
-          m_Tooltip: 
-        stackLabel1Width: 203
-        stackLabel1Height: 25
-        stackLabel2Content:
-          m_Text: 
-          m_Image: {fileID: 0}
-          m_Tooltip: 
-        stackLabel2Width: 0
-        stackLabel2Height: 25
-        stackSourceLineHeight: 17
-        sourceCode: []
-        sourceCodeUpdated: 1
-        showSource: 1
-      ignoredStackEntries: []
-      lastMatchedCount: 1
-      belongsToFilters:
-      - name: Log
-        isEnabled: 1
-        collapsed: 1
-        itemGUID: 3b5ba751-b762-44af-ba06-d9a0add88eec
-        filterName: 
-        mainColor: {r: 1, g: 1, b: 1, a: 1}
-        isStandardFilter: 1
-        isTempFilter: 0
-        filterOnly: 0
-        useAdvancedColors: 0
-        customTextColor: {r: 1, g: 1, b: 1, a: 1}
-        customBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
-        swallowStandard: 1
-        standardCanSwallow: 0
-        overrideStandardColors: 1
-        overrideStandardIcon: 1
-        collapseIconBackground: 0
-        collapseIconSymbol: 0
-        collapseIconLetter: 0
-        collapseIconTexture: 0
-        useIconBackground: 1
-        useIconSymbol: 0
-        useIconLetter: 0
-        useIconTexture: 0
-        filterFormatVersion: 1
-        iconColorize: 0
-        useAndOpForSearchList: 0
-        searchList:
-          list:
-          - name: 
-            isEnabled: 1
-            collapsed: 0
-            itemGUID: e45b566e-6628-4251-ab20-e95b7ba6c483
-            searchString: <Any>
-            searchType: 1
-            removeSearchStringFromLog: 0
-            logTypeList:
-              list:
-              - name: 
-                isEnabled: 1
-                collapsed: 0
-                itemGUID: 125eb2e8-ca71-4c7c-8325-eaa2151997c2
-                logType: 1
-              selectionList: 0
-              collapsable: 1
-              collapsed: 0
-            columnTypeList:
-              list:
-              - name: 
-                isEnabled: 1
-                collapsed: 0
-                itemGUID: 4671daf4-8f2c-4983-9cc9-8909b327c79c
-                columnType: 1
-              selectionList: 0
-              collapsable: 1
-              collapsed: 0
-            sourceCodeList:
-              list: []
-              selectionList: 0
-              collapsable: 1
-              collapsed: 0
-          selectionList: 0
-          collapsable: 1
-          collapsed: 0
-        iconLetter:
-          name: 
-          isEnabled: 1
-          collapsed: 0
-          itemGUID: 
-          iconType: 1
-          iconType2: 1
-          iconText: A
-          useIconTextFirstLetter: 1
-          useIconLogColor: 1
-          iconColor: {r: 1, g: 1, b: 1, a: 1}
-          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
-          iconTextureGUID: 
-          useIconShadow: 1
-          iconOffset: {x: 0, y: 0}
-          iconShadowOffset: {x: 0.5, y: 0.5}
-          iconSize: 13
-        iconSymbol:
-          name: 
-          isEnabled: 1
-          collapsed: 0
-          itemGUID: 
-          iconType: 1
-          iconType2: 1
-          iconText: A
-          useIconTextFirstLetter: 1
-          useIconLogColor: 1
-          iconColor: {r: 1, g: 1, b: 1, a: 1}
-          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
-          iconTextureGUID: 
-          useIconShadow: 1
-          iconOffset: {x: 0, y: 0}
-          iconShadowOffset: {x: 0.5, y: 0.5}
-          iconSize: 13
-        iconBackground:
-          name: 
-          isEnabled: 1
-          collapsed: 0
-          itemGUID: 
-          iconType: 1
-          iconType2: 1
-          iconText: A
-          useIconTextFirstLetter: 1
-          useIconLogColor: 1
-          iconColor: {r: 1, g: 1, b: 1, a: 1}
-          iconBuiltInID: BACKGROUNDS_ECPLOGICON
-          iconTextureGUID: 
-          useIconShadow: 1
-          iconOffset: {x: 0, y: 0}
-          iconShadowOffset: {x: 0.5, y: 0.5}
-          iconSize: 13
-        iconTexture:
-          name: 
-          isEnabled: 1
-          collapsed: 0
-          itemGUID: 
-          iconType: 1
-          iconType2: 1
-          iconText: A
-          useIconTextFirstLetter: 1
-          useIconLogColor: 1
-          iconColor: {r: 1, g: 1, b: 1, a: 1}
-          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
-          iconTextureGUID: 
-          useIconShadow: 1
-          iconOffset: {x: 0, y: 0}
-          iconShadowOffset: {x: 0.5, y: 0.5}
-          iconSize: 13
-        showInToolbar: 1
-        hideLabelInToolbar: 0
-        hideWhenNoMatches: 0
-      belongsToStandardFilters:
-      - name: Log
-        isEnabled: 1
-        collapsed: 1
-        itemGUID: 3b5ba751-b762-44af-ba06-d9a0add88eec
-        filterName: 
-        mainColor: {r: 1, g: 1, b: 1, a: 1}
-        isStandardFilter: 1
-        isTempFilter: 0
-        filterOnly: 0
-        useAdvancedColors: 0
-        customTextColor: {r: 1, g: 1, b: 1, a: 1}
-        customBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
-        swallowStandard: 1
-        standardCanSwallow: 0
-        overrideStandardColors: 1
-        overrideStandardIcon: 1
-        collapseIconBackground: 0
-        collapseIconSymbol: 0
-        collapseIconLetter: 0
-        collapseIconTexture: 0
-        useIconBackground: 1
-        useIconSymbol: 0
-        useIconLetter: 0
-        useIconTexture: 0
-        filterFormatVersion: 1
-        iconColorize: 0
-        useAndOpForSearchList: 0
-        searchList:
-          list:
-          - name: 
-            isEnabled: 1
-            collapsed: 0
-            itemGUID: e45b566e-6628-4251-ab20-e95b7ba6c483
-            searchString: <Any>
-            searchType: 1
-            removeSearchStringFromLog: 0
-            logTypeList:
-              list:
-              - name: 
-                isEnabled: 1
-                collapsed: 0
-                itemGUID: 125eb2e8-ca71-4c7c-8325-eaa2151997c2
-                logType: 1
-              selectionList: 0
-              collapsable: 1
-              collapsed: 0
-            columnTypeList:
-              list:
-              - name: 
-                isEnabled: 1
-                collapsed: 0
-                itemGUID: 4671daf4-8f2c-4983-9cc9-8909b327c79c
-                columnType: 1
-              selectionList: 0
-              collapsable: 1
-              collapsed: 0
-            sourceCodeList:
-              list: []
-              selectionList: 0
-              collapsable: 1
-              collapsed: 0
-          selectionList: 0
-          collapsable: 1
-          collapsed: 0
-        iconLetter:
-          name: 
-          isEnabled: 1
-          collapsed: 0
-          itemGUID: 
-          iconType: 1
-          iconType2: 1
-          iconText: A
-          useIconTextFirstLetter: 1
-          useIconLogColor: 1
-          iconColor: {r: 1, g: 1, b: 1, a: 1}
-          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
-          iconTextureGUID: 
-          useIconShadow: 1
-          iconOffset: {x: 0, y: 0}
-          iconShadowOffset: {x: 0.5, y: 0.5}
-          iconSize: 13
-        iconSymbol:
-          name: 
-          isEnabled: 1
-          collapsed: 0
-          itemGUID: 
-          iconType: 1
-          iconType2: 1
-          iconText: A
-          useIconTextFirstLetter: 1
-          useIconLogColor: 1
-          iconColor: {r: 1, g: 1, b: 1, a: 1}
-          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
-          iconTextureGUID: 
-          useIconShadow: 1
-          iconOffset: {x: 0, y: 0}
-          iconShadowOffset: {x: 0.5, y: 0.5}
-          iconSize: 13
-        iconBackground:
-          name: 
-          isEnabled: 1
-          collapsed: 0
-          itemGUID: 
-          iconType: 1
-          iconType2: 1
-          iconText: A
-          useIconTextFirstLetter: 1
-          useIconLogColor: 1
-          iconColor: {r: 1, g: 1, b: 1, a: 1}
-          iconBuiltInID: BACKGROUNDS_ECPLOGICON
-          iconTextureGUID: 
-          useIconShadow: 1
-          iconOffset: {x: 0, y: 0}
-          iconShadowOffset: {x: 0.5, y: 0.5}
-          iconSize: 13
-        iconTexture:
-          name: 
-          isEnabled: 1
-          collapsed: 0
-          itemGUID: 
-          iconType: 1
-          iconType2: 1
-          iconText: A
-          useIconTextFirstLetter: 1
-          useIconLogColor: 1
-          iconColor: {r: 1, g: 1, b: 1, a: 1}
-          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
-          iconTextureGUID: 
-          useIconShadow: 1
-          iconOffset: {x: 0, y: 0}
-          iconShadowOffset: {x: 0.5, y: 0.5}
-          iconSize: 13
-        showInToolbar: 1
-        hideLabelInToolbar: 0
-        hideWhenNoMatches: 0
-      assignedTempFilter:
-        name: 
-        isEnabled: 1
-        collapsed: 0
-        itemGUID: 
-        filterName: 
-        mainColor: {r: 1, g: 1, b: 1, a: 1}
-        isStandardFilter: 0
-        isTempFilter: 0
-        filterOnly: 0
-        useAdvancedColors: 0
-        customTextColor: {r: 1, g: 1, b: 1, a: 1}
-        customBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
-        swallowStandard: 1
-        standardCanSwallow: 0
-        overrideStandardColors: 1
-        overrideStandardIcon: 1
-        collapseIconBackground: 0
-        collapseIconSymbol: 0
-        collapseIconLetter: 0
-        collapseIconTexture: 0
-        useIconBackground: 1
-        useIconSymbol: 0
-        useIconLetter: 0
-        useIconTexture: 0
-        filterFormatVersion: -1
-        iconColorize: 0
-        useAndOpForSearchList: 0
-        searchList:
-          list: []
-          selectionList: 0
-          collapsable: 1
-          collapsed: 0
-        iconLetter:
-          name: 
-          isEnabled: 1
-          collapsed: 0
-          itemGUID: 
-          iconType: 1
-          iconType2: 1
-          iconText: A
-          useIconTextFirstLetter: 1
-          useIconLogColor: 1
-          iconColor: {r: 1, g: 1, b: 1, a: 1}
-          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
-          iconTextureGUID: 
-          useIconShadow: 1
-          iconOffset: {x: 0, y: 0}
-          iconShadowOffset: {x: 0.5, y: 0.5}
-          iconSize: 13
-        iconSymbol:
-          name: 
-          isEnabled: 1
-          collapsed: 0
-          itemGUID: 
-          iconType: 1
-          iconType2: 1
-          iconText: A
-          useIconTextFirstLetter: 1
-          useIconLogColor: 1
-          iconColor: {r: 1, g: 1, b: 1, a: 1}
-          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
-          iconTextureGUID: 
-          useIconShadow: 1
-          iconOffset: {x: 0, y: 0}
-          iconShadowOffset: {x: 0.5, y: 0.5}
-          iconSize: 13
-        iconBackground:
-          name: 
-          isEnabled: 1
-          collapsed: 0
-          itemGUID: 
-          iconType: 1
-          iconType2: 1
-          iconText: A
-          useIconTextFirstLetter: 1
-          useIconLogColor: 1
-          iconColor: {r: 1, g: 1, b: 1, a: 1}
-          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
-          iconTextureGUID: 
-          useIconShadow: 1
-          iconOffset: {x: 0, y: 0}
-          iconShadowOffset: {x: 0.5, y: 0.5}
-          iconSize: 13
-        iconTexture:
-          name: 
-          isEnabled: 1
-          collapsed: 0
-          itemGUID: 
-          iconType: 1
-          iconType2: 1
-          iconText: A
-          useIconTextFirstLetter: 1
-          useIconLogColor: 1
-          iconColor: {r: 1, g: 1, b: 1, a: 1}
-          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
-          iconTextureGUID: 
-          useIconShadow: 1
-          iconOffset: {x: 0, y: 0}
-          iconShadowOffset: {x: 0.5, y: 0.5}
-          iconSize: 13
-        showInToolbar: 1
-        hideLabelInToolbar: 0
-        hideWhenNoMatches: 0
     newEntries: []
     resetCompilerErrorEntries: 1
     compilerErrorEntries: []
     timeFrames: 
-    _filteredEntries:
-    - logType: 1
-      ignore: 0
-      processed: 1
-      tempFilterProcessed: 1
-      remoteEndPoint: Local
-      logPanelVisible: 1
-      logPanelIndex: 0
-      logOutputHeight: 27
-      listIndex: 4
-      nativeIndex: 4
-      nativeIdentifier: 0
-      originalLog: revit_camera
-      originalStackTrace: 'revit_camera
-
-        UnityEngine.Debug:Log (object)
-
-        PlanesWalker.LoadGltf:Initial
-        (UnityEngine.GameObject,UnityEngine.AnimationClip[]) (at Assets/Scripts/GLTFLoad/LoadGltf.cs:32)
-
-        Siccity.GLTFUtility.Importer/<LoadAsync>d__16:MoveNext
-        () (at Assets/Scripts/Importer.cs:369)
-
-        UnityEngine.SetupCoroutine:InvokeMoveNext
-        (System.Collections.IEnumerator,intptr)
-
-'
-      nativeFileName: Assets/Scripts/GLTFLoad/LoadGltf.cs
-      nativeFileNamePretty: 
-      nativeLineNumber: 32
-      watchName: 
-      logText: revit_camera
-      logTruncatedText: revit_camera
-      logColumnText: revit_camera
-      fileName: 
-      className: 
-      namespaceName: 
-      lineCount: 1
-      hasSourceCode: 1
-      timeStamp: 16:42:51.483
-      timeFrame: 54077
-      timeStampDateTimeNow: 16:42:51.483
-      instanceID: 0
-      collapsedCount: 0
-      cachedHeight: 19
-      cachedHeightLogWidth: 606
-      stackEntries:
-      - fileName: Assets/Scripts/GLTFLoad/LoadGltf.cs
-        fileNameWithoutAssets: Scripts/GLTFLoad/LoadGltf.cs
-        fileNameWithoutAssetsPlusLineNumber: Scripts/GLTFLoad/LoadGltf.cs:32
-        fileNameWithoutPath: LoadGltf.cs
-        fileNameWithoutPathPlusLineNumber: LoadGltf.cs:32
-        fileNamePretty: LoadGltf
-        instanceID: -1
-        className: LoadGltf
-        methodName: Initial
-        namespaceName: PlanesWalker
-        lineNumberString: 32
-        charNumber: 0
-        stackLabel: LoadGltf.Initial()
-        stackLabel2: ' at /Scripts/GLTFLoad/LoadGltf.cs:32'
-        stackLabel1Content:
-          m_Text: LoadGltf.Initial()
-          m_Image: {fileID: 0}
-          m_Tooltip: 
-        stackLabel1Width: 95
-        stackLabel1Height: 25
-        stackLabel2Content:
-          m_Text: ' at /Scripts/GLTFLoad/LoadGltf.cs:32'
-          m_Image: {fileID: 0}
-          m_Tooltip: 
-        stackLabel2Width: 222
-        stackLabel2Height: 25
-        stackSourceLineHeight: 17
-        sourceCode:
-        - '30:   if (child.GetComponent<Camera>() != null)'
-        - '31:   {'
-        - '32:       Debug.Log(child.name);'
-        - '33:       child.GetComponent<Camera>().enabled = false;'
-        - '34:   }'
-        sourceCodeUpdated: 1
-        showSource: 1
-      - fileName: Assets/Scripts/Importer.cs
-        fileNameWithoutAssets: Scripts/Importer.cs
-        fileNameWithoutAssetsPlusLineNumber: Scripts/Importer.cs:369
-        fileNameWithoutPath: Importer.cs
-        fileNameWithoutPathPlusLineNumber: Importer.cs:369
-        fileNamePretty: Importer
-        instanceID: -1
-        className: Importer/<LoadAsync>d__16
-        methodName: MoveNext
-        namespaceName: Siccity.GLTFUtility
-        lineNumberString: 369
-        charNumber: 0
-        stackLabel: Importer/<LoadAsync>d__16.MoveNext()
-        stackLabel2: ' at /Scripts/Importer.cs:369'
-        stackLabel1Content:
-          m_Text: Importer/<LoadAsync>d__16.MoveNext()
-          m_Image: {fileID: 0}
-          m_Tooltip: 
-        stackLabel1Width: 245
-        stackLabel1Height: 25
-        stackLabel2Content:
-          m_Text: ' at /Scripts/Importer.cs:369'
-          m_Image: {fileID: 0}
-          m_Tooltip: 
-        stackLabel2Width: 166
-        stackLabel2Height: 25
-        stackSourceLineHeight: 17
-        sourceCode:
-        - '367:   AnimationClip[] animations = new AnimationClip[0];'
-        - '368:   if (animationResult != null) animations = animationResult.Select(x
-          => x.clip).ToArray();'
-        - '369:   if (onFinished != null) onFinished(nodeTask.Result.GetRoot(), animations);'
-        - '370:   // Close file streams'
-        - '371:   foreach (var item in bufferTask.Result)'
-        sourceCodeUpdated: 1
-        showSource: 1
-      - fileName: None
-        fileNameWithoutAssets: None
-        fileNameWithoutAssetsPlusLineNumber: None
-        fileNameWithoutPath: None
-        fileNameWithoutPathPlusLineNumber: None
-        fileNamePretty: None
-        instanceID: -1
-        className: SetupCoroutine
-        methodName: InvokeMoveNext
-        namespaceName: UnityEngine
-        lineNumberString: 0
-        charNumber: 0
-        stackLabel: SetupCoroutine.InvokeMoveNext()
-        stackLabel2: 
-        stackLabel1Content:
-          m_Text: SetupCoroutine.InvokeMoveNext()
-          m_Image: {fileID: 0}
-          m_Tooltip: 
-        stackLabel1Width: 203
-        stackLabel1Height: 25
-        stackLabel2Content:
-          m_Text: 
-          m_Image: {fileID: 0}
-          m_Tooltip: 
-        stackLabel2Width: 0
-        stackLabel2Height: 25
-        stackSourceLineHeight: 17
-        sourceCode: []
-        sourceCodeUpdated: 1
-        showSource: 1
-      ignoredStackEntries: []
-      lastMatchedCount: 1
-      belongsToFilters:
-      - name: Log
-        isEnabled: 1
-        collapsed: 1
-        itemGUID: 3b5ba751-b762-44af-ba06-d9a0add88eec
-        filterName: 
-        mainColor: {r: 1, g: 1, b: 1, a: 1}
-        isStandardFilter: 1
-        isTempFilter: 0
-        filterOnly: 0
-        useAdvancedColors: 0
-        customTextColor: {r: 1, g: 1, b: 1, a: 1}
-        customBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
-        swallowStandard: 1
-        standardCanSwallow: 0
-        overrideStandardColors: 1
-        overrideStandardIcon: 1
-        collapseIconBackground: 0
-        collapseIconSymbol: 0
-        collapseIconLetter: 0
-        collapseIconTexture: 0
-        useIconBackground: 1
-        useIconSymbol: 0
-        useIconLetter: 0
-        useIconTexture: 0
-        filterFormatVersion: 1
-        iconColorize: 0
-        useAndOpForSearchList: 0
-        searchList:
-          list:
-          - name: 
-            isEnabled: 1
-            collapsed: 0
-            itemGUID: e45b566e-6628-4251-ab20-e95b7ba6c483
-            searchString: <Any>
-            searchType: 1
-            removeSearchStringFromLog: 0
-            logTypeList:
-              list:
-              - name: 
-                isEnabled: 1
-                collapsed: 0
-                itemGUID: 125eb2e8-ca71-4c7c-8325-eaa2151997c2
-                logType: 1
-              selectionList: 0
-              collapsable: 1
-              collapsed: 0
-            columnTypeList:
-              list:
-              - name: 
-                isEnabled: 1
-                collapsed: 0
-                itemGUID: 4671daf4-8f2c-4983-9cc9-8909b327c79c
-                columnType: 1
-              selectionList: 0
-              collapsable: 1
-              collapsed: 0
-            sourceCodeList:
-              list: []
-              selectionList: 0
-              collapsable: 1
-              collapsed: 0
-          selectionList: 0
-          collapsable: 1
-          collapsed: 0
-        iconLetter:
-          name: 
-          isEnabled: 1
-          collapsed: 0
-          itemGUID: 
-          iconType: 1
-          iconType2: 1
-          iconText: A
-          useIconTextFirstLetter: 1
-          useIconLogColor: 1
-          iconColor: {r: 1, g: 1, b: 1, a: 1}
-          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
-          iconTextureGUID: 
-          useIconShadow: 1
-          iconOffset: {x: 0, y: 0}
-          iconShadowOffset: {x: 0.5, y: 0.5}
-          iconSize: 13
-        iconSymbol:
-          name: 
-          isEnabled: 1
-          collapsed: 0
-          itemGUID: 
-          iconType: 1
-          iconType2: 1
-          iconText: A
-          useIconTextFirstLetter: 1
-          useIconLogColor: 1
-          iconColor: {r: 1, g: 1, b: 1, a: 1}
-          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
-          iconTextureGUID: 
-          useIconShadow: 1
-          iconOffset: {x: 0, y: 0}
-          iconShadowOffset: {x: 0.5, y: 0.5}
-          iconSize: 13
-        iconBackground:
-          name: 
-          isEnabled: 1
-          collapsed: 0
-          itemGUID: 
-          iconType: 1
-          iconType2: 1
-          iconText: A
-          useIconTextFirstLetter: 1
-          useIconLogColor: 1
-          iconColor: {r: 1, g: 1, b: 1, a: 1}
-          iconBuiltInID: BACKGROUNDS_ECPLOGICON
-          iconTextureGUID: 
-          useIconShadow: 1
-          iconOffset: {x: 0, y: 0}
-          iconShadowOffset: {x: 0.5, y: 0.5}
-          iconSize: 13
-        iconTexture:
-          name: 
-          isEnabled: 1
-          collapsed: 0
-          itemGUID: 
-          iconType: 1
-          iconType2: 1
-          iconText: A
-          useIconTextFirstLetter: 1
-          useIconLogColor: 1
-          iconColor: {r: 1, g: 1, b: 1, a: 1}
-          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
-          iconTextureGUID: 
-          useIconShadow: 1
-          iconOffset: {x: 0, y: 0}
-          iconShadowOffset: {x: 0.5, y: 0.5}
-          iconSize: 13
-        showInToolbar: 1
-        hideLabelInToolbar: 0
-        hideWhenNoMatches: 0
-      belongsToStandardFilters:
-      - name: Log
-        isEnabled: 1
-        collapsed: 1
-        itemGUID: 3b5ba751-b762-44af-ba06-d9a0add88eec
-        filterName: 
-        mainColor: {r: 1, g: 1, b: 1, a: 1}
-        isStandardFilter: 1
-        isTempFilter: 0
-        filterOnly: 0
-        useAdvancedColors: 0
-        customTextColor: {r: 1, g: 1, b: 1, a: 1}
-        customBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
-        swallowStandard: 1
-        standardCanSwallow: 0
-        overrideStandardColors: 1
-        overrideStandardIcon: 1
-        collapseIconBackground: 0
-        collapseIconSymbol: 0
-        collapseIconLetter: 0
-        collapseIconTexture: 0
-        useIconBackground: 1
-        useIconSymbol: 0
-        useIconLetter: 0
-        useIconTexture: 0
-        filterFormatVersion: 1
-        iconColorize: 0
-        useAndOpForSearchList: 0
-        searchList:
-          list:
-          - name: 
-            isEnabled: 1
-            collapsed: 0
-            itemGUID: e45b566e-6628-4251-ab20-e95b7ba6c483
-            searchString: <Any>
-            searchType: 1
-            removeSearchStringFromLog: 0
-            logTypeList:
-              list:
-              - name: 
-                isEnabled: 1
-                collapsed: 0
-                itemGUID: 125eb2e8-ca71-4c7c-8325-eaa2151997c2
-                logType: 1
-              selectionList: 0
-              collapsable: 1
-              collapsed: 0
-            columnTypeList:
-              list:
-              - name: 
-                isEnabled: 1
-                collapsed: 0
-                itemGUID: 4671daf4-8f2c-4983-9cc9-8909b327c79c
-                columnType: 1
-              selectionList: 0
-              collapsable: 1
-              collapsed: 0
-            sourceCodeList:
-              list: []
-              selectionList: 0
-              collapsable: 1
-              collapsed: 0
-          selectionList: 0
-          collapsable: 1
-          collapsed: 0
-        iconLetter:
-          name: 
-          isEnabled: 1
-          collapsed: 0
-          itemGUID: 
-          iconType: 1
-          iconType2: 1
-          iconText: A
-          useIconTextFirstLetter: 1
-          useIconLogColor: 1
-          iconColor: {r: 1, g: 1, b: 1, a: 1}
-          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
-          iconTextureGUID: 
-          useIconShadow: 1
-          iconOffset: {x: 0, y: 0}
-          iconShadowOffset: {x: 0.5, y: 0.5}
-          iconSize: 13
-        iconSymbol:
-          name: 
-          isEnabled: 1
-          collapsed: 0
-          itemGUID: 
-          iconType: 1
-          iconType2: 1
-          iconText: A
-          useIconTextFirstLetter: 1
-          useIconLogColor: 1
-          iconColor: {r: 1, g: 1, b: 1, a: 1}
-          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
-          iconTextureGUID: 
-          useIconShadow: 1
-          iconOffset: {x: 0, y: 0}
-          iconShadowOffset: {x: 0.5, y: 0.5}
-          iconSize: 13
-        iconBackground:
-          name: 
-          isEnabled: 1
-          collapsed: 0
-          itemGUID: 
-          iconType: 1
-          iconType2: 1
-          iconText: A
-          useIconTextFirstLetter: 1
-          useIconLogColor: 1
-          iconColor: {r: 1, g: 1, b: 1, a: 1}
-          iconBuiltInID: BACKGROUNDS_ECPLOGICON
-          iconTextureGUID: 
-          useIconShadow: 1
-          iconOffset: {x: 0, y: 0}
-          iconShadowOffset: {x: 0.5, y: 0.5}
-          iconSize: 13
-        iconTexture:
-          name: 
-          isEnabled: 1
-          collapsed: 0
-          itemGUID: 
-          iconType: 1
-          iconType2: 1
-          iconText: A
-          useIconTextFirstLetter: 1
-          useIconLogColor: 1
-          iconColor: {r: 1, g: 1, b: 1, a: 1}
-          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
-          iconTextureGUID: 
-          useIconShadow: 1
-          iconOffset: {x: 0, y: 0}
-          iconShadowOffset: {x: 0.5, y: 0.5}
-          iconSize: 13
-        showInToolbar: 1
-        hideLabelInToolbar: 0
-        hideWhenNoMatches: 0
-      assignedTempFilter:
-        name: 
-        isEnabled: 1
-        collapsed: 0
-        itemGUID: 
-        filterName: 
-        mainColor: {r: 1, g: 1, b: 1, a: 1}
-        isStandardFilter: 0
-        isTempFilter: 0
-        filterOnly: 0
-        useAdvancedColors: 0
-        customTextColor: {r: 1, g: 1, b: 1, a: 1}
-        customBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
-        swallowStandard: 1
-        standardCanSwallow: 0
-        overrideStandardColors: 1
-        overrideStandardIcon: 1
-        collapseIconBackground: 0
-        collapseIconSymbol: 0
-        collapseIconLetter: 0
-        collapseIconTexture: 0
-        useIconBackground: 1
-        useIconSymbol: 0
-        useIconLetter: 0
-        useIconTexture: 0
-        filterFormatVersion: -1
-        iconColorize: 0
-        useAndOpForSearchList: 0
-        searchList:
-          list: []
-          selectionList: 0
-          collapsable: 1
-          collapsed: 0
-        iconLetter:
-          name: 
-          isEnabled: 1
-          collapsed: 0
-          itemGUID: 
-          iconType: 1
-          iconType2: 1
-          iconText: A
-          useIconTextFirstLetter: 1
-          useIconLogColor: 1
-          iconColor: {r: 1, g: 1, b: 1, a: 1}
-          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
-          iconTextureGUID: 
-          useIconShadow: 1
-          iconOffset: {x: 0, y: 0}
-          iconShadowOffset: {x: 0.5, y: 0.5}
-          iconSize: 13
-        iconSymbol:
-          name: 
-          isEnabled: 1
-          collapsed: 0
-          itemGUID: 
-          iconType: 1
-          iconType2: 1
-          iconText: A
-          useIconTextFirstLetter: 1
-          useIconLogColor: 1
-          iconColor: {r: 1, g: 1, b: 1, a: 1}
-          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
-          iconTextureGUID: 
-          useIconShadow: 1
-          iconOffset: {x: 0, y: 0}
-          iconShadowOffset: {x: 0.5, y: 0.5}
-          iconSize: 13
-        iconBackground:
-          name: 
-          isEnabled: 1
-          collapsed: 0
-          itemGUID: 
-          iconType: 1
-          iconType2: 1
-          iconText: A
-          useIconTextFirstLetter: 1
-          useIconLogColor: 1
-          iconColor: {r: 1, g: 1, b: 1, a: 1}
-          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
-          iconTextureGUID: 
-          useIconShadow: 1
-          iconOffset: {x: 0, y: 0}
-          iconShadowOffset: {x: 0.5, y: 0.5}
-          iconSize: 13
-        iconTexture:
-          name: 
-          isEnabled: 1
-          collapsed: 0
-          itemGUID: 
-          iconType: 1
-          iconType2: 1
-          iconText: A
-          useIconTextFirstLetter: 1
-          useIconLogColor: 1
-          iconColor: {r: 1, g: 1, b: 1, a: 1}
-          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
-          iconTextureGUID: 
-          useIconShadow: 1
-          iconOffset: {x: 0, y: 0}
-          iconShadowOffset: {x: 0.5, y: 0.5}
-          iconSize: 13
-        showInToolbar: 1
-        hideLabelInToolbar: 0
-        hideWhenNoMatches: 0
---- !u!114 &18
+    _filteredEntries: []
+--- !u!114 &21
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3440,10 +2463,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 0
+    x: 1920
     y: 73
-    width: 1004
-    height: 192
+    width: 941
+    height: 591
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -3750,9 +2773,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 591.48315, y: 518.9346, z: 2.6986327}
+    m_Target: {x: 314.25436, y: 56.513306, z: 0}
     speed: 2
-    m_Value: {x: 591.48315, y: 518.9346, z: 2.6986327}
+    m_Value: {x: 314.25436, y: 56.513306, z: 0}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -3802,9 +2825,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 123.494576
+    m_Target: 32.377766
     speed: 2
-    m_Value: 123.494576
+    m_Value: 32.377766
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -3829,7 +2852,7 @@ MonoBehaviour:
   m_SceneVisActive: 1
   m_LastLockedObject: {fileID: 0}
   m_ViewIsLockedToObject: 0
---- !u!114 &19
+--- !u!114 &22
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3850,9 +2873,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 1920
-    y: 438
-    width: 898
-    height: 571
+    y: 685
+    width: 941
+    height: 324
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -3865,8 +2888,8 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 30092
---- !u!114 &20
+  m_LastSelectedObjectID: 26724
+--- !u!114 &23
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3886,10 +2909,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1920
-    y: 438
-    width: 898
-    height: 571
+    x: 0
+    y: 286
+    width: 941
+    height: 723
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -3906,14 +2929,14 @@ MonoBehaviour:
     - {fileID: 8266717426809375286, guid: 5dc10f12976f16f49a36e373064f8405, type: 2}
     - {fileID: -3319424297814029040, guid: 95f55bb58b85d344684df51bac018be8, type: 2}
     m_ValueSerializationHelper:
-    - e00: 0.50109893
+    - e00: 0.5158318
       e01: 0
       e02: 0
-      e03: -10.054977
+      e03: 90.04285
       e10: 0
-      e11: 0.50109893
+      e11: 0.5158318
       e12: 0
-      e13: 115.5912
+      e13: 96.57071
       e20: 0
       e21: 0
       e22: 1
@@ -3970,7 +2993,7 @@ MonoBehaviour:
   m_CurrentEditor: 1
   m_LayerEditor:
     m_SelectedLayerIndex: 0
---- !u!114 &21
+--- !u!114 &24
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3990,9 +3013,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1005
+    x: 2862
     y: 73
-    width: 618
+    width: 633
     height: 478
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -4006,26 +3029,26 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 135}
-      m_SelectedIDs: 8c750000
-      m_LastClickedID: 30092
-      m_ExpandedIDs: 30fbffff3c5e000080600000d6650000dc650000146600008e6600009a680000346a000078720000
+      scrollPos: {x: 0, y: 74.06387}
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 30fbffff3c5e000084600000e2620000fc6500001466000068660000806600001268000076680000ae6e0000f26f00001c700000a2760000627b0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: "Button_\u66F4\u591A"
+        m_OriginalName: "Button_\u66F4\u591A"
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: 24078
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 13}
+        m_ClientGUIView: {fileID: 16}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -4033,7 +3056,7 @@ MonoBehaviour:
       m_IsLocked: 0
     m_CurrentSortingName: TransformSorting
   m_WindowGUID: a5803e335b90fd4489f9e61398055d49
---- !u!114 &22
+--- !u!114 &25
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4053,9 +3076,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1005
+    x: 2862
     y: 572
-    width: 618
+    width: 633
     height: 437
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -4078,7 +3101,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Unit/ScreenShot
+    - Assets/Scripts/Management/DecorativeDesign
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -4086,16 +3109,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scripts/Unit/ScreenShot
+  - Assets/Scripts/Management/DecorativeDesign
   m_LastFoldersGridSize: 16
   m_LastProjectPath: E:\UnityProject\GLTFUtilityTest
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 538.1038}
-    m_SelectedIDs: c6da0000
-    m_LastClickedID: 56006
-    m_ExpandedIDs: 00000000ee7d0000f27d0000f47d0000f67d0000f87d0000fa7d0000fc7d0000007e0000067e0000087e00000a7e00000c7e00000e7e0000107e0000127e0000147e00004c7e0000827e000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 333.694}
+    m_SelectedIDs: 947e0000
+    m_LastClickedID: 32404
+    m_ExpandedIDs: 00000000ee7d0000f07d0000f27d0000f47d0000f67d0000f87d0000fa7d0000fc7d0000fe7d0000007e0000027e0000047e0000067e0000087e00000c7e0000587e000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -4111,7 +3134,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 14}
+      m_ClientGUIView: {fileID: 17}
     m_SearchString: 
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
@@ -4123,7 +3146,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000ee7d0000f27d0000f47d0000f67d0000f87d0000fa7d0000fc7d0000007e0000087e00000a7e00000c7e00000e7e0000107e0000127e0000147e00004c7e000000ca9a3bffffff7f
+    m_ExpandedIDs: 00000000ee7d0000f07d0000f27d0000f47d0000f67d0000f87d0000fa7d0000fe7d0000007e0000027e0000047e0000067e0000087e00000c7e0000587e000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -4150,7 +3173,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 9c3d0400246e0000526e00003a6e0000266f0000f06f0000fc6f0000463d090030250100fe700000d2e70400c2780000f07800000c790000fe990f00f6790000b4e004009c6b0500d6790000c4bb020020730c005e8501009c8a010032850100847b0000667b0000867b0000ac7b000006b80000707b0000da7b0000d27b0000087c000000000000e08a0400cce504008e7c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -4167,7 +3190,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 14}
+      m_ClientGUIView: {fileID: 17}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -4179,7 +3202,7 @@ MonoBehaviour:
     m_GridSize: 16
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 271
---- !u!114 &23
+--- !u!114 &26
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4199,9 +3222,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1625
+    x: 3497
     y: 73
-    width: 294
+    width: 342
     height: 936
   m_SerializedDataModeController:
     m_DataMode: 0
