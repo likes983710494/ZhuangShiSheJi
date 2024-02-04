@@ -45,8 +45,6 @@ public class CameraRotateAround : MonoBehaviour
     private void Start()
     {
         mainCamera = Camera.main.transform;
-
-
     }
     private void LateUpdate()
     {
@@ -121,6 +119,7 @@ public class CameraRotateAround : MonoBehaviour
             mainCamera.DOMove(end, durtion).OnComplete(() =>
             {
                 SetCamera(Rotation, end);
+                ;
             });
         }
         else
