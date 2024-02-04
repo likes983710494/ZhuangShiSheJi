@@ -90,6 +90,7 @@ public class DecorativeDesignModus : MonoBehaviour
     public void GenerateDataList(int index)
     {
 
+
         DecorativeDesignModus.Instance_.分部列表_Plane.SetActive(true);
 
         for (int i = 0; i < 分部列表_Content_分部列表.transform.childCount; i++)
@@ -101,19 +102,24 @@ public class DecorativeDesignModus : MonoBehaviour
         {
             case 0:
                 AddGenerateData(DecorativeDesignManager.Instance_.楼地面_DesignsList);
+
                 break;
 
             case 1:
                 AddGenerateData(DecorativeDesignManager.Instance_.墙柱面_DesignsList);
+
                 break;
             case 2:
                 AddGenerateData(DecorativeDesignManager.Instance_.天棚工程_DesignsList);
+
                 break;
             case 3:
                 AddGenerateData(DecorativeDesignManager.Instance_.油漆涂料_DesignsList);
+
                 break;
             case 4:
                 AddGenerateData(DecorativeDesignManager.Instance_.其他装饰_DesignsList);
+
                 break;
         }
     }
@@ -134,7 +140,7 @@ public class DecorativeDesignModus : MonoBehaviour
                 p => p.GetValue(DesignsList[i])).ToArray();
             if (instance_.transform.GetChild(0).GetComponent<Text>() != null)
             {
-                instance_.transform.GetChild(0).GetComponent<Text>().text = i.ToString();
+                instance_.transform.GetChild(0).GetComponent<Text>().text = (i + 1).ToString();
             }
 
             for (int j = 0; j < value.Length; j++)

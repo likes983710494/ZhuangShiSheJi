@@ -76,6 +76,9 @@ public class DecorativeDesignManager : MonoBehaviour
 				楼地面_汇总金额 = 楼地面_汇总金额 + float.Parse(DecorativeDesignRight.Instance_.SetDesignConvertPdf(design_).Total);
 				//给汇总金额赋值
 				DecorativeDesignLeft.Instance_.CollectList[0].text = 楼地面_汇总金额.ToString();
+				//给底部显示增加的设计数
+				DecorativeDesignLeft.Instance_.BottomButtonMoreLsit[0].gameObject.transform.GetChild(0).GetComponent<Text>().text =
+				DecorativeDesignManager.Instance_.楼地面_DesignsList.Count + "条";
 
 				break;
 			case "墙、柱面装饰与隔断、幕墙":
@@ -84,6 +87,8 @@ public class DecorativeDesignManager : MonoBehaviour
 				//给汇总金额赋值
 				DecorativeDesignLeft.Instance_.CollectList[1].text = 墙柱面_汇总金额.ToString();
 				Debug.Log("所用金额:" + 墙柱面_汇总金额);
+				DecorativeDesignLeft.Instance_.BottomButtonMoreLsit[1].gameObject.transform.GetChild(0).GetComponent<Text>().text =
+			DecorativeDesignManager.Instance_.墙柱面_DesignsList.Count + "条";
 
 				break;
 			case "天棚":
@@ -91,6 +96,8 @@ public class DecorativeDesignManager : MonoBehaviour
 				天棚工程_汇总金额 = 天棚工程_汇总金额 + float.Parse(DecorativeDesignRight.Instance_.SetDesignConvertPdf(design_).Total);
 				//给汇总金额赋值
 				DecorativeDesignLeft.Instance_.CollectList[2].text = 天棚工程_汇总金额.ToString();
+				DecorativeDesignLeft.Instance_.BottomButtonMoreLsit[2].gameObject.transform.GetChild(0).GetComponent<Text>().text =
+			DecorativeDesignManager.Instance_.天棚工程_DesignsList.Count + "条";
 
 				break;
 			case "油漆、涂料及裱糊":
@@ -98,6 +105,8 @@ public class DecorativeDesignManager : MonoBehaviour
 				油漆涂料_汇总金额 = 油漆涂料_汇总金额 + float.Parse(DecorativeDesignRight.Instance_.SetDesignConvertPdf(design_).Total);
 				//给汇总金额赋值
 				DecorativeDesignLeft.Instance_.CollectList[3].text = 油漆涂料_汇总金额.ToString();
+				DecorativeDesignLeft.Instance_.BottomButtonMoreLsit[3].gameObject.transform.GetChild(0).GetComponent<Text>().text =
+			   DecorativeDesignManager.Instance_.油漆涂料_DesignsList.Count + "条";
 				break;
 			case "其他装饰":
 				//添加列表
@@ -106,6 +115,8 @@ public class DecorativeDesignManager : MonoBehaviour
 				其他装饰_汇总金额 = 其他装饰_汇总金额 + float.Parse(DecorativeDesignRight.Instance_.SetDesignConvertPdf(design_).Total);
 				//给汇总金额赋值
 				DecorativeDesignLeft.Instance_.CollectList[4].text = 其他装饰_汇总金额.ToString();
+				DecorativeDesignLeft.Instance_.BottomButtonMoreLsit[4].gameObject.transform.GetChild(0).GetComponent<Text>().text =
+			DecorativeDesignManager.Instance_.其他装饰_DesignsList.Count + "条";
 				break;
 
 		}

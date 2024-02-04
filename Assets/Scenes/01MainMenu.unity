@@ -239,7 +239,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 105.7, y: -13.5}
-  m_SizeDelta: {x: 50, y: 24}
+  m_SizeDelta: {x: 60, y: 24}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3511079
 MonoBehaviour:
@@ -1523,7 +1523,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u66F4 \u591A"
+  m_Text: "0\u6761"
 --- !u!222 &46952719
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1569,7 +1569,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 105.7, y: -13.5}
-  m_SizeDelta: {x: 50, y: 24}
+  m_SizeDelta: {x: 60, y: 24}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &47975869
 MonoBehaviour:
@@ -5363,7 +5363,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 105.7, y: -13.5}
-  m_SizeDelta: {x: 50, y: 24}
+  m_SizeDelta: {x: 60, y: 24}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &177817502
 MonoBehaviour:
@@ -16457,7 +16457,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u66F4 \u591A"
+  m_Text: "0\u6761"
 --- !u!222 &486172763
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -20340,7 +20340,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 105.7, y: -13.5}
-  m_SizeDelta: {x: 50, y: 24}
+  m_SizeDelta: {x: 60, y: 24}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &589055659
 MonoBehaviour:
@@ -31347,7 +31347,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u66F4 \u591A"
+  m_Text: "0\u6761"
 --- !u!222 &935160426
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -45834,7 +45834,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u66F4 \u591A"
+  m_Text: "0\u6761"
 --- !u!222 &1415056803
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -46221,7 +46221,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 105.7, y: -13.5}
-  m_SizeDelta: {x: 50, y: 24}
+  m_SizeDelta: {x: 60, y: 24}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1433274624
 MonoBehaviour:
@@ -53010,7 +53010,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u66F4 \u591A"
+  m_Text: "0\u6761"
 --- !u!222 &1668892928
 CanvasRenderer:
   m_ObjectHideFlags: 0
