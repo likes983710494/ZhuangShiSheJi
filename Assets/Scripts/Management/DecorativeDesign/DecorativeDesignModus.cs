@@ -76,6 +76,7 @@ public class DecorativeDesignModus : MonoBehaviour
     {
         if (isOn)
         {
+            Camera.main.transform.GetComponent<SimpleCameraController>().enabled = false;
             GameObject.Find("三维模型展示").transform.GetChild(0).GetComponent<CameraRotateAround>().enabled = true;
             GameObject.Find("三维模型展示").transform.GetChild(0).GetComponent<CameraRotateAround>().InitCameraRotateAround();
         }
@@ -92,11 +93,12 @@ public class DecorativeDesignModus : MonoBehaviour
     {
         if (isOn)
         {
-
+            GameObject.Find("三维模型展示").transform.GetChild(0).GetComponent<CameraRotateAround>().enabled = false;
+            Camera.main.transform.GetComponent<SimpleCameraController>().enabled = true;
         }
         else
         {
-
+            Camera.main.transform.GetComponent<SimpleCameraController>().enabled = false;
         }
     }
     /// <summary>
