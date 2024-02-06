@@ -782,12 +782,12 @@ RectTransform:
   - {fileID: 366620422}
   - {fileID: 2028566931}
   - {fileID: 51943008}
-  - {fileID: 1483413981}
   - {fileID: 88507917}
   - {fileID: 678243533}
   - {fileID: 781064862}
   - {fileID: 1530833051}
   - {fileID: 612428075}
+  - {fileID: 1483413981}
   - {fileID: 1397355853}
   - {fileID: 1683445840}
   m_Father: {fileID: 631091895}
@@ -17347,6 +17347,8 @@ MonoBehaviour:
   "\u5206\u90E8\u5217\u8868_Content_\u5206\u90E8\u5217\u8868": {fileID: 1711734699}
   "\u5DE5\u7A0B\u8BBE\u8BA1_Plane": {fileID: 685808851}
   "Image_\u901A\u77E5\u63D0\u793A\u6846": {fileID: 1814837839}
+  ToggleModel_browse: {fileID: 911344100}
+  ToggleModel_free: {fileID: 699816653}
 --- !u!1 &512443959
 GameObject:
   m_ObjectHideFlags: 0
@@ -23243,7 +23245,7 @@ GameObject:
   - component: {fileID: 699816652}
   - component: {fileID: 699816653}
   m_Layer: 5
-  m_Name: "Toggle-\u53F3"
+  m_Name: "Toggle-\u81EA\u7531\u6A21\u5F0F"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26216,7 +26218,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 150651902}
   m_HandleRect: {fileID: 150651901}
   m_Direction: 0
-  m_Value: 0.5
+  m_Value: 0.49999997
   m_Size: 0
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -30909,7 +30911,7 @@ GameObject:
   - component: {fileID: 911344099}
   - component: {fileID: 911344100}
   m_Layer: 5
-  m_Name: "Toggle-\u5DE6"
+  m_Name: "Toggle-\u6D4F\u89C8\u6A21\u5F0F"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

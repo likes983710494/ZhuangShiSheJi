@@ -30,8 +30,6 @@ namespace PlanesWalker
 			result.GetComponent<CameraRotateAround>().AutoR = true;
 			result.GetComponent<CameraRotateAround>().CursorEnable = true;
 
-			// result.transform.parent.position = new Vector3(result.transform.parent.position.x, result.transform.parent.position.y - 50,
-			// result.transform.parent.position.z);
 
 			foreach (Transform child in result.transform.GetComponentsInChildren<Transform>(true))
 			{
