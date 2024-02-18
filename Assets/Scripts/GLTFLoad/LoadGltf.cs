@@ -11,13 +11,16 @@ namespace PlanesWalker
 	{
 		public Camera BackRoundCamera;
 		public Transform ZeroParent;
-
+		//视角 模型功能菜单
+		public GameObject ModelMenu_UI;
 		private void Start()
 		{
 
 			//GLTFUtilityScript.Instance.ImportGLTFAsync(Application.streamingAssetsPath + "/NewProject.gltf", asd);
 
 			GLTFUtilityScript.Instance.ImportGLTFAsync(Application.streamingAssetsPath + "/Model" + "/装饰设计01.gltf", Initial);
+
+			ModelMenu_UI.SetActive(false);
 		}
 		public void Initial(GameObject result, AnimationClip[] clip)
 		{
@@ -43,7 +46,8 @@ namespace PlanesWalker
 			DecorativeDesignModus.Instance_.模型等待进度条.SetActive(false);
 			//装饰设计提示窗
 			DecorativeDesignModus.Instance_.Image_通知提示框.SetActive(true);
-
+			//模型出来 展示菜单
+			ModelMenu_UI.SetActive(true);
 
 		}
 	}

@@ -30985,7 +30985,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &911811932
 GameObject:
   m_ObjectHideFlags: 0
@@ -32556,7 +32556,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ff7bfd9bde45f64eacd0701ec76ca66, type: 3}
   m_Name: 
@@ -54351,6 +54351,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackRoundCamera: {fileID: 1744278120}
   ZeroParent: {fileID: 253830229}
+  ModelMenu_UI: {fileID: 1687560233}
 --- !u!1 &1687560233
 GameObject:
   m_ObjectHideFlags: 0
@@ -54369,7 +54370,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1687560234
 RectTransform:
   m_ObjectHideFlags: 0
@@ -54387,9 +54388,9 @@ RectTransform:
   - {fileID: 699816652}
   m_Father: {fileID: 612428075}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 360, y: 258}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -7, y: -326}
   m_SizeDelta: {x: 200, y: 86}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1687560235
@@ -54442,7 +54443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fafe2cfe61f6974895a912c3755e8f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AllowSwitchOff: 0
+  m_AllowSwitchOff: 1
 --- !u!1 &1687853645
 GameObject:
   m_ObjectHideFlags: 0

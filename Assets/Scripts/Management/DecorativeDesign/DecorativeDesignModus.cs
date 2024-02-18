@@ -65,6 +65,7 @@ public class DecorativeDesignModus : MonoBehaviour
         ToggleModel_browse.onValueChanged.AddListener(OnToggleModelBrowseValueChanged);
         // 为ToggleModel_free添加自由模式事件
         ToggleModel_free.onValueChanged.AddListener(OnToggleModelFreeValueChanged);
+        Camera.main.transform.GetComponent<SimpleCameraController>().enabled = false;
 
     }
 
@@ -72,7 +73,7 @@ public class DecorativeDesignModus : MonoBehaviour
     /// 浏览模式
     /// </summary>
     /// <param name="isOn"></param>
-    public void OnToggleModelBrowseValueChanged(bool isOn)
+    public void OnToggleModelBrowseValueChanged(bool isOn = true)
     {
         if (isOn)
         {
