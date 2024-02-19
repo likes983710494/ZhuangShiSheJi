@@ -92,6 +92,8 @@ public class DecorativeDesignModus : MonoBehaviour
         else
         {
             GameObject.Find("三维模型展示").transform.GetChild(0).GetComponent<CameraRotateAround>().enabled = false;
+            ToggleModel_browseImage.gameObject.SetActive(false);
+            ToggleModel_freeImage.gameObject.SetActive(false);
 
         }
     }
@@ -111,6 +113,8 @@ public class DecorativeDesignModus : MonoBehaviour
         else
         {
             Camera.main.transform.GetComponent<SimpleCameraController>().enabled = false;
+            ToggleModel_browseImage.gameObject.SetActive(false);
+            ToggleModel_freeImage.gameObject.SetActive(false);
 
         }
     }
