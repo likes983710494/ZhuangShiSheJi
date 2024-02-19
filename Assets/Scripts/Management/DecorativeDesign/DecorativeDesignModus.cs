@@ -23,6 +23,9 @@ public class DecorativeDesignModus : MonoBehaviour
 
     public Toggle ToggleModel_browse;//模型 浏览模式
     public Toggle ToggleModel_free;//模型 自由模式
+
+    public Transform ToggleModel_browseImage;//浏览模式 指示图片
+    public Transform ToggleModel_freeImage;//自由模式 指示图片
     void Awake()
     {
         if (Instance_ == null)
@@ -67,6 +70,9 @@ public class DecorativeDesignModus : MonoBehaviour
         ToggleModel_free.onValueChanged.AddListener(OnToggleModelFreeValueChanged);
         Camera.main.transform.GetComponent<SimpleCameraController>().enabled = false;
 
+        ToggleModel_browseImage.gameObject.SetActive(false);
+        ToggleModel_freeImage.gameObject.SetActive(false);
+
     }
 
     /// <summary>
@@ -80,10 +86,13 @@ public class DecorativeDesignModus : MonoBehaviour
             Camera.main.transform.GetComponent<SimpleCameraController>().enabled = false;
             GameObject.Find("三维模型展示").transform.GetChild(0).GetComponent<CameraRotateAround>().enabled = true;
             GameObject.Find("三维模型展示").transform.GetChild(0).GetComponent<CameraRotateAround>().InitCameraRotateAround();
+            ToggleModel_browseImage.gameObject.SetActive(true);
+            ToggleModel_freeImage.gameObject.SetActive(false);
         }
         else
         {
             GameObject.Find("三维模型展示").transform.GetChild(0).GetComponent<CameraRotateAround>().enabled = false;
+
         }
     }
     /// <summary>
@@ -96,10 +105,13 @@ public class DecorativeDesignModus : MonoBehaviour
         {
             GameObject.Find("三维模型展示").transform.GetChild(0).GetComponent<CameraRotateAround>().enabled = false;
             Camera.main.transform.GetComponent<SimpleCameraController>().enabled = true;
+            ToggleModel_freeImage.gameObject.SetActive(true);
+            ToggleModel_browseImage.gameObject.SetActive(false);
         }
         else
         {
             Camera.main.transform.GetComponent<SimpleCameraController>().enabled = false;
+
         }
     }
     /// <summary>
