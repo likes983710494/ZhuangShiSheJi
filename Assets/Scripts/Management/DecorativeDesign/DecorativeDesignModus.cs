@@ -21,6 +21,9 @@ public class DecorativeDesignModus : MonoBehaviour
 
     public GameObject Image_通知提示框;
 
+
+    //视角 模型功能菜单
+    public GameObject ModelMenu_UI;
     public Toggle ToggleModel_browse;//模型 浏览模式
     public Toggle ToggleModel_free;//模型 自由模式
 
@@ -64,6 +67,8 @@ public class DecorativeDesignModus : MonoBehaviour
         //默认隐藏 等待模型 在出现提示
         Image_通知提示框.SetActive(false);
 
+        //默认隐藏
+        ModelMenu_UI.SetActive(false);
         // 为ToggleModel_browse添加浏览模式事件
         ToggleModel_browse.onValueChanged.AddListener(OnToggleModelBrowseValueChanged);
         // 为ToggleModel_free添加自由模式事件

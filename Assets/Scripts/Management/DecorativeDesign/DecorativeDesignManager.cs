@@ -12,6 +12,7 @@ public class DecorativeDesignManager : MonoBehaviour
 
 	public Button Button_确认;
 	public Button Button_提交;
+	public Button Button_返回;
 
 	//在确认后 中间 更多面板也会用到
 	public List<Design> 楼地面_DesignsList = new List<Design>();
@@ -56,6 +57,11 @@ public class DecorativeDesignManager : MonoBehaviour
 		Button_提交.onClick.AddListener(() =>
 		{
 			SubmitDecorativeDesign();
+		});
+		Button_返回.onClick.AddListener(() =>
+		{
+
+			DecorativeDesignToButton_返回();
 		});
 
 	}
@@ -173,7 +179,21 @@ public class DecorativeDesignManager : MonoBehaviour
 
 	}
 
+	//装饰设计返回按钮  事件
+	public void DecorativeDesignToButton_返回()
+	{
 
+		if (GameObject.Find("三维模型展示").transform.childCount > 0)
+		{
+
+			GameObject.Find("三维模型展示").transform.GetChild(0).gameObject.SetActive(false);
+		}
+
+		//关闭模型模式菜单
+		DecorativeDesignModus.Instance_.ModelMenu_UI.SetActive(false);
+
+
+	}
 
 
 }

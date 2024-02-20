@@ -44,7 +44,22 @@ public class HomePageManager : MonoBehaviour
 		//Button_限额分解.interactable = false;
 		//Button_装饰设计.interactable = false;
 		//Button_装饰效果展示.interactable = false;
+		Button_装饰设计.onClick.AddListener(delegate
+		{
+			//显示模型
+			if (GameObject.Find("三维模型展示").transform.childCount > 0)
+			{
 
+				GameObject.Find("三维模型展示").transform.GetChild(0).gameObject.SetActive(true);
+				//显示模型模式菜单
+				DecorativeDesignModus.Instance_.ModelMenu_UI.SetActive(true);
+				//关闭模型进度条
+				DecorativeDesignModus.Instance_.模型等待进度条.gameObject.SetActive(false);
+			}
+
+
+
+		});
 
 	}
 
