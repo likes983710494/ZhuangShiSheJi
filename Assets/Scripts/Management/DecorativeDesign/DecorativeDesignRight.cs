@@ -77,6 +77,8 @@ public class DecorativeDesignRight : MonoBehaviour
 			Content_做法说明_01选择做法.SetActive(true);
 			Content_做法说明_02选择材质.SetActive(false);
 			Content_做法说明_03补充说明.SetActive(false);
+			//做法说明输入文字时 会按到 wasdqe 按键 所以这里关闭模型模式脚本
+			Camera.main.transform.GetComponent<SimpleCameraController>().enabled = false;
 
 		});
 
@@ -89,6 +91,8 @@ public class DecorativeDesignRight : MonoBehaviour
 		Button_完成.onClick.AddListener(() =>
 		{
 			SetFnishButton();
+			//做法说明输入文字时 会按到按键 所以这里再开启模型模式脚本
+			Camera.main.transform.GetComponent<SimpleCameraController>().enabled = true;
 		});
 
 		//onEndEdit
