@@ -104,7 +104,7 @@ public class DecorativeDesignRight : MonoBehaviour
 		// 初始化面板Content_做法说明_02选择材质-- 下的按钮
 		StartCoroutine(MaterialButtonChange());
 
-		LoadGLTF.SetActive(false);
+		//LoadGLTF.SetActive(false);
 	}
 
 
