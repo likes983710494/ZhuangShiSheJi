@@ -42,12 +42,12 @@ public class CreateAsset : Editor
     static void GetAsset()
     {
         //读取 .asset 文件, 直接转换为 类  InfoDataStorage
-        InfoDataStorage bullet = AssetDatabase.LoadAssetAtPath<InfoDataStorage>("Assets/Scripts/Unit/UnitAsset/DataStorage.asset");
+        InfoDataStorage infoDataStorage_ = AssetDatabase.LoadAssetAtPath<InfoDataStorage>("Assets/Scripts/Unit/UnitAsset/DataStorage.asset");
 
         // 打印保存的数据
-        Debug.Log("BulletType  :" + Enum.GetName(typeof(BulletType), bullet.bulletType));
-        Debug.Log("Speed       :" + bullet.speed);
-        Debug.Log("damage      :" + bullet.damage);
+        // Debug.Log("BulletType  :" + Enum.GetName(typeof(BulletType), bullet.bulletType));
+        // Debug.Log("Speed       :" + bullet.speed);
+        // Debug.Log("damage      :" + bullet.damage);
 
     }
 }

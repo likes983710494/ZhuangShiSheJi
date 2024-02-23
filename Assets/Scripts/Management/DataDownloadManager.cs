@@ -13,14 +13,16 @@ using Unit;
 
 public class DataDownloadManager : MonoBehaviour
 {
-	private string pdfurl = "http://127.0.0.1/Texture.pdf";//pdf网络下载地址
-	private string modelurl = "http://127.0.0.1/Texture.pdf";//模型网络下载地址
+
 
 
 	private string PDFName;//pdf名字
 	private string ObjName;//模型名字
 	private Button PDF关闭button;
 
+
+	public string pdfurl = "http://127.0.0.1/Texture.pdf";//pdf网络下载地址
+	public string modelurl = "http://127.0.0.1/Texture.pdf";//模型网络下载地址
 	public Button loadPdfButton;//下载文档按钮
 	public Button loadModelButton;//下载模型按钮
 
@@ -94,6 +96,14 @@ public class DataDownloadManager : MonoBehaviour
 			}
 
 		});
+		//下载报错弹窗 提示
+		openPlanes[2].transform.GetChild(1).GetComponent<Button>().onClick.AddListener(() =>
+		{
+
+			LoadPlane.SetActive(false);
+			openPlanes[2].SetActive(false);
+		});
+
 		//监控pdf VerticalScrollbar 滚动条
 		VerticalScrollbar.onValueChanged.AddListener((value) =>
 		{
@@ -185,36 +195,52 @@ public class DataDownloadManager : MonoBehaviour
 			}
 
 			DownloadHandler downloadHandler = request.downloadHandler;
-			Debug.Log("下载完成");
-
 			//using (FileStream fs = new FileStream(path, FileMode.Create))
 			//{
 			//	fs.Write(data, 0, data.Length);
 			//}
-			byte[] data = request.downloadHandler.data;
-			string downloadFileName = url.Substring(url.LastIndexOf('/') + 1);
-			if (type == 0)
-			{
-				PDFName = downloadFileName;
-				Unit.UnitDollarData.PDFName = PDFName;
-				openPlanes[0].SetActive(true);
-				using (FileStream fs = new FileStream(Application.streamingAssetsPath + "/PDF/" + downloadFileName, FileMode.Create))
-				{
+			// 检查是否有错误发生
 
-					fs.Write(data, 0, data.Length);
+			if (request.result != UnityWebRequest.Result.Success)
+			{
+				Debug.Log(request.error + "无法连接到目标主机，请检查地址是否正确");
+				openPlanes[2].SetActive(true);
+			}
+			else
+			{
+				byte[] data = request.downloadHandler.data;
+				string downloadFileName = url.Substring(url.LastIndexOf('/') + 1);
+				if (type == 0)
+				{
+					PDFName = downloadFileName;
+					Unit.UnitDollarData.PDFName = PDFName;
+					openPlanes[0].SetActive(true);
+					using (FileStream fs = new FileStream(Application.streamingAssetsPath + "/PDF/" + downloadFileName, FileMode.Create))
+					{
+						if (fs != null && data != null)
+						{
+							fs.Write(data, 0, data.Length);
+						}
+						else
+						{
+							Debug.Log("文件流为空");
+						}
+
+					}
+				}
+				else if (type == 1)
+				{
+					ObjName = downloadFileName;
+					Unit.UnitDollarData.ObjName = ObjName;
+					openPlanes[1].SetActive(true);
+					using (FileStream fs = new FileStream(Application.streamingAssetsPath + "/Model/" + downloadFileName, FileMode.Create))
+					{
+
+						fs.Write(data, 0, data.Length);
+					}
 				}
 			}
-			else if (type == 1)
-			{
-				ObjName = downloadFileName;
-				Unit.UnitDollarData.ObjName = ObjName;
-				openPlanes[1].SetActive(true);
-				using (FileStream fs = new FileStream(Application.streamingAssetsPath + "/Model/" + downloadFileName, FileMode.Create))
-				{
 
-					fs.Write(data, 0, data.Length);
-				}
-			}
 
 
 		}
