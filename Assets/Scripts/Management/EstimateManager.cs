@@ -179,6 +179,10 @@ public class EstimateManager : MonoBehaviour
 					Unit.UnitDollarData.EstimateNumber = 100 - DeductionNumber;
 					Debug.Log(100 - DeductionNumber + "和" + Unit.UnitDollarData.EstimateNumber);
 					Unit.UnitDollarData.isFinishEstimate = true;
+					//投资估算-本地数据缓存
+					InvokInfoDataStorage.Instance_.infoDataStorage_.estimateManagerData.DeductionNumber = DeductionNumber.ToString();
+					InvokInfoDataStorage.Instance_.infoDataStorage_.estimateManagerData.EstimateNumber = (100 - DeductionNumber).ToString();
+					InvokInfoDataStorage.Instance_.infoDataStorage_.estimateManagerData.isFinishEstimate = true;
 
 				}
 

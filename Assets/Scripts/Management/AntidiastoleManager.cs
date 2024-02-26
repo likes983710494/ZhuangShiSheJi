@@ -5,6 +5,7 @@ using Unity.VisualScripting.YamlDotNet.Core.Tokens;
 using UnityEditor.AnimatedValues;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 using Unit;
 /// <summary>
 /// //限额分解
@@ -245,6 +246,16 @@ public class AntidiastoleManager : MonoBehaviour
 		Unit.UnitDollarData.其他装饰_Amount = Amount_InputField[4].text;
 		Unit.UnitDollarData.AmountArray = new string[] { Unit.UnitDollarData.楼地面装饰_Amount, Unit.UnitDollarData.墙柱面装饰_Amount, Unit.UnitDollarData.天棚工程_Amount,
 		 Unit.UnitDollarData.油漆涂料_Amount, Unit.UnitDollarData.其他装饰_Amount };
+
+		//限额分解 本地数据缓存
+		InvokInfoDataStorage.Instance_.infoDataStorage_.antidiastoleManagerData.AmountInputField = new string[] { Unit.UnitDollarData.楼地面装饰_Amount, Unit.UnitDollarData.墙柱面装饰_Amount, Unit.UnitDollarData.天棚工程_Amount,
+		 Unit.UnitDollarData.油漆涂料_Amount, Unit.UnitDollarData.其他装饰_Amount };
+		InvokInfoDataStorage.Instance_.infoDataStorage_.antidiastoleManagerData.楼地面装饰InputField = 楼地面装饰InputField.Select(inputField => inputField.text).ToList();
+		InvokInfoDataStorage.Instance_.infoDataStorage_.antidiastoleManagerData.墙柱面装饰InputField = 墙柱面装饰InputField.Select(inputField => inputField.text).ToList();
+		InvokInfoDataStorage.Instance_.infoDataStorage_.antidiastoleManagerData.天棚工程InputField = 天棚工程InputField.Select(inputField => inputField.text).ToList();
+		InvokInfoDataStorage.Instance_.infoDataStorage_.antidiastoleManagerData.油漆涂料InputField = 油漆涂料InputField.Select(inputField => inputField.text).ToList();
+		InvokInfoDataStorage.Instance_.infoDataStorage_.antidiastoleManagerData.其他装饰InputField = 其他装饰InputField.Select(inputField => inputField.text).ToList();
+		InvokInfoDataStorage.Instance_.infoDataStorage_.antidiastoleManagerData.isFinishAntidiastole = true;
 
 		//限额分解完成 ， 开启装饰设计
 		Unit.UnitDollarData.isFinishAntidiastole = true;

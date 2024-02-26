@@ -12,7 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14cc9d1867978774fb225699afacccaa, type: 3}
   m_Name: InfoDataStorage
   m_EditorClassIdentifier: 
-  bulletType: 0
-  speed: 10
-  damage: 5
-  Obj: []
+  LoginTime: 0
+  LoginDuration: 
+  dataDownloadManagerData:
+    isDataPDF: 0
+    isDataObj: 0
+    isFinishDataDownload: 0
+  estimateManagerData:
+    DeductionNumber: 0
+    EstimateNumber: 0
+    isFinishEstimate: 0
+  antidiastoleManagerData:
+    AmountInputField:
+    - 
+    - 
+    - 
+    - 
+    - 
+    isFinishDesign: 0

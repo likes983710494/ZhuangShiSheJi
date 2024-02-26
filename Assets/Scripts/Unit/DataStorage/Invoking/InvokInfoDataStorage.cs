@@ -21,7 +21,7 @@ public class InvokInfoDataStorage : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        infoDataStorage_ = AssetDatabase.LoadAssetAtPath<InfoDataStorage>("Assets/Scripts/Unit/UnitAsset/DataStorage.asset");
+        infoDataStorage_ = AssetDatabase.LoadAssetAtPath<InfoDataStorage>("Assets/Scripts/Unit/UnitAsset/InfoDataStorage.asset");
 
         //本地初始化缓存 先调用一次
     }

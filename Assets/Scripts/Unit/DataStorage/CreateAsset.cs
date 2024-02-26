@@ -10,11 +10,11 @@ public class CreateAsset : Editor
     [MenuItem("CreateAsset/Asset")]
     static void Create()
     {
-        // 实例化类  InfoDataStorage
-        ScriptableObject bullet = ScriptableObject.CreateInstance<InfoDataStorage>();
+        // 实例化类  InfoDataStorage  ScriptableObject
+        InfoDataStorage asset = ScriptableObject.CreateInstance<InfoDataStorage>();
 
         // 如果实例化 InfoDataStorage 类为空，返回
-        if (!bullet)
+        if (!asset)
         {
             Debug.LogWarning("InfoDataStorage not found");
             return;
@@ -34,7 +34,11 @@ public class CreateAsset : Editor
         path = string.Format("Assets/Scripts/Unit/UnitAsset/{0}.asset", (typeof(InfoDataStorage).ToString()));
 
         // 生成自定义资源到指定路径
-        AssetDatabase.CreateAsset(bullet, path);
+        AssetDatabase.CreateAsset(asset, path);
+        AssetDatabase.SaveAssets();
+        EditorUtility.FocusProjectWindow();
+
+        Selection.activeObject = asset;
     }
 
 
@@ -42,12 +46,12 @@ public class CreateAsset : Editor
     static void GetAsset()
     {
         //读取 .asset 文件, 直接转换为 类  InfoDataStorage
-        InfoDataStorage infoDataStorage_ = AssetDatabase.LoadAssetAtPath<InfoDataStorage>("Assets/Scripts/Unit/UnitAsset/DataStorage.asset");
+        InfoDataStorage infoDataStorage_ = AssetDatabase.LoadAssetAtPath<InfoDataStorage>("Assets/Scripts/Unit/UnitAsset/InfoDataStorage.asset");
 
         // 打印保存的数据
-        // Debug.Log("BulletType  :" + Enum.GetName(typeof(BulletType), bullet.bulletType));
-        // Debug.Log("Speed       :" + bullet.speed);
-        // Debug.Log("damage      :" + bullet.damage);
+        // Debug.Log("asset Type  :" + Enum.GetName(typeof(asset Type), asset .asset Type));
+        // Debug.Log("Speed       :" + asset .speed);
+        // Debug.Log("damage      :" + asset .damage);
 
     }
 }

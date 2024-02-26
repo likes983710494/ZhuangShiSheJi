@@ -901,7 +901,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d195fdf76d45344bb4b1212e56cd8ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  infoDataStorage_: {fileID: 11400000, guid: 27f0cc865ad9f6042a1909cf84c70790, type: 2}
+  infoDataStorage_: {fileID: 0}
 --- !u!1 &23030331
 GameObject:
   m_ObjectHideFlags: 0
@@ -5843,7 +5843,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 202205560}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 290750950}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1977273261}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &202205560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16546,7 +16570,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b30568333b1eefb43b98c40e6d373365, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pdfurl: http://127.0.0.1/Texture.pdf
+  pdfurl: https://a.data96.com/pdf_preview/upload/%E4%B8%AD%E6%96%87.pdf
   modelurl: http://127.0.0.1/Texture.pdf
   loadPdfButton: {fileID: 1094334106}
   loadModelButton: {fileID: 1624044251}
@@ -28884,7 +28908,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 837598326}
   m_OnClick:
     m_PersistentCalls:
@@ -28900,6 +28924,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1061496651}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &837598326
 MonoBehaviour:
@@ -29989,7 +30025,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 500
+  m_Text: 600
 --- !u!222 &862455524
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -64429,7 +64465,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 1974786531}
   m_OnClick:
     m_PersistentCalls:
@@ -64588,11 +64624,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 14676038}
   - {fileID: 1094334105}
   - {fileID: 1624044250}
   - {fileID: 304303501}
   - {fileID: 550082155}
-  - {fileID: 14676038}
   m_Father: {fileID: 631091895}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -80621,7 +80657,7 @@ MonoBehaviour:
   m_BytesSupplierComponent: {fileID: 0}
   m_BytesSupplierFunctionName: 
   m_BytesSupplierObject: {fileID: 0}
-  m_FileName: "\u5E73\u9762.pdf"
+  m_FileName: Texture.pdf
   m_FilePath: 
   m_FileSource: 2
   m_FileURL: http://www.pdf995.com/samples/pdf.pdf
