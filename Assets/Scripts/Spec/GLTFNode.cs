@@ -7,8 +7,6 @@ using Newtonsoft.Json;
 using Siccity.GLTFUtility.Converters;
 using UnityEngine;
 using UnityEngine.Scripting;
-using static PlasticGui.LaunchDiffParameters;
-using static Siccity.GLTFUtility.GLTFMesh;
 
 namespace Siccity.GLTFUtility
 {

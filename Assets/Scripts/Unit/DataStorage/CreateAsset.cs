@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEditor;
 using System.IO;
 using System;
-
+#if UNITY_EDITOR
 public class CreateAsset : Editor
 {
 
@@ -55,3 +55,4 @@ public class CreateAsset : Editor
 
     }
 }
+#endif
