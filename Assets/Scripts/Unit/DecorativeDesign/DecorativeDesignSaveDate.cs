@@ -13,6 +13,8 @@ namespace Unit.DecorativeDesign
 
 
 
+        public static string ElementID;//部件id
+        public static string UniqueId;//部件唯一id
         public static string departmentName;//所属分部名字
         public static string subentryName;//分项名字
 

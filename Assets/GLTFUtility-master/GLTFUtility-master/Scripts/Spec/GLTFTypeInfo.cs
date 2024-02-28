@@ -62,7 +62,12 @@ namespace Siccity.GLTFUtility
 
 
 				}
+
+
+
 				//在标准数据下
+				DecorativeDesignSaveDate.ElementID = extrasAData.ElementID.ToString();
+				DecorativeDesignSaveDate.UniqueId = extrasAData.UniqueId;
 				foreach (var t in extrasAData.Parameters)
 				{
 					if (t.GroupName == "尺寸标注")

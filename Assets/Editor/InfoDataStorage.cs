@@ -36,6 +36,8 @@ public class InfoDataStorage : ScriptableObject
     public EstimateManagerData estimateManagerData;
     //限额分解
     public AntidiastoleManagerData antidiastoleManagerData;
+    //装饰设计
+    public DecorativeDesignManagerData decorativeDesignManagerData;
 
 }
 
@@ -69,4 +71,18 @@ public class AntidiastoleManagerData
     public List<string> 其他装饰InputField;//分数从左到右
 
     public bool isFinishAntidiastole;//完成限额分解
+
+}
+
+//----*装饰设计 数据缓存
+[Serializable]
+public class DecorativeDesignManagerData
+{
+
+    public List<Design> 楼地面_DesignsList = new List<Design>();
+    public List<Design> 墙柱面_DesignsList = new List<Design>();
+    public List<Design> 天棚工程_DesignsList = new List<Design>();
+    public List<Design> 油漆涂料_DesignsList = new List<Design>();
+    public List<Design> 其他装饰_DesignsList = new List<Design>();
+    public bool isFinishDesign;//完成装饰设计
 }

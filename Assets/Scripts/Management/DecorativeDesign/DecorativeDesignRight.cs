@@ -412,7 +412,8 @@ public class DecorativeDesignRight : MonoBehaviour
 	//将状态转换为pdf用的数据   确认按钮调用
 	public Design SetDesignConvertPdf(Design design_)
 	{
-
+		design_.ElementID = DecorativeDesignSaveDate.ElementID; //部件id
+		design_.UniqueId = DecorativeDesignSaveDate.UniqueId; //唯一id
 		design_.departmentName = UnitDollarData.design.departmentName;//分部名称
 		design_.subentryName = UnitDollarData.design.subentryName;//分项
 		design_.designImagePath = UnitDollarData.design.designImagePath;//图地址 

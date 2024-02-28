@@ -8,6 +8,9 @@ using UnityEngine;
 
 public class Design
 {
+
+    public string ElementID { get; set; }//所属部件id
+    public string UniqueId { get; set; }//所属部件唯一id
     public string departmentName { get; set; }//所属分部名字
     public string subentryName { get; set; }//分项名字
     public string location { get; set; }//位置
