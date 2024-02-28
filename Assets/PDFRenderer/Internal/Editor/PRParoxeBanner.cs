@@ -15,7 +15,7 @@ U should buy the asset from home store if u use it in your project!
 using UnityEngine;
 using System.Collections;
 using UnityEditor;
-
+#if UNITY_EDITOR
 public class PRParoxeBanner
 {
     Texture2D m_ParoxeIcon;
@@ -148,3 +148,4 @@ public class PRParoxeBanner
         return isOpened;
     }
 }
+#endif

@@ -18,6 +18,7 @@ using UnityEngine;
 
 namespace Paroxe.PdfRenderer.Internal
 {
+#if UNITY_EDITOR
     [CustomEditor(typeof (PDFAsset), true)]
     public class PDFAssetEditor : Editor
     {
@@ -94,4 +95,5 @@ namespace Paroxe.PdfRenderer.Internal
             return result;
         }
     }
+#endif
 }

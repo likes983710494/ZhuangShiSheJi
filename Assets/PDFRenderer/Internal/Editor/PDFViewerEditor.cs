@@ -22,6 +22,7 @@ using UnityEngine.UI;
 
 namespace Paroxe.PdfRenderer.Internal.Viewer
 {
+#if UNITY_EDITOR
     [CustomEditor(typeof (PDFViewer), true)]
     public class PDFViewerEditor : Editor
     {
@@ -729,4 +730,5 @@ namespace Paroxe.PdfRenderer.Internal.Viewer
             }
         }
     }
+#endif
 }

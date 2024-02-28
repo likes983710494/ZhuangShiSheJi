@@ -22,7 +22,7 @@ namespace Paroxe.PdfRenderer.Internal
     {
         static string extension = ".pdf";
         static string newExtension = ".asset";
-
+#if UNITY_EDITOR
         [MenuItem("Assets/PDF Renderer/Convert to .asset")]
         public static void ConvertPDFToAsset()
         {
@@ -64,5 +64,7 @@ namespace Paroxe.PdfRenderer.Internal
             string path = AssetDatabase.GetAssetPath(Selection.activeObject);
             return HasExtension(path);
         }
+#endif
     }
+
 }
