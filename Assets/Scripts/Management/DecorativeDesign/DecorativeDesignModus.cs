@@ -204,9 +204,10 @@ public class DecorativeDesignModus : MonoBehaviour
             {
                 instance_.transform.GetChild(0).GetComponent<Text>().text = (i + 1).ToString();
             }
-
-            for (int j = 0; j < value.Length; j++)
+            //此处在最大长度为9 因为Designs有11个对象 的 两个id属性不展示
+            for (int j = 0; j < value.Length - 2; j++)
             {
+                Debug.Log("海子--" + instance_.transform.childCount + "-对比：" + value.Length);
                 if (instance_.transform.GetChild(j + 1).GetComponent<Text>() != null)
                 {
                     instance_.transform.GetChild(j + 1).GetComponent<Text>().text = value[j].ToString();

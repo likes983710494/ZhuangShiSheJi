@@ -9,8 +9,7 @@ using UnityEngine;
 public class Design
 {
 
-    public string ElementID { get; set; }//所属部件id
-    public string UniqueId { get; set; }//所属部件唯一id
+
     public string departmentName { get; set; }//所属分部名字
     public string subentryName { get; set; }//分项名字
     public string location { get; set; }//位置
@@ -20,6 +19,9 @@ public class Design
     public string Acreage { get; set; }//面积 工程量
     public string Price { get; set; }//单价
     public string Total { get; set; }//合价
+
+    public string ElementID { get; set; }//所属部件id
+    public string UniqueId { get; set; }//所属部件唯一id
 
     //没有位置信息就暂时暂无数据
     public Design()
