@@ -29,4 +29,16 @@ MonoBehaviour:
     - 
     - 
     - 
+    "\u697C\u5730\u9762\u88C5\u9970InputField": []
+    "\u5899\u67F1\u9762\u88C5\u9970InputField": []
+    "\u5929\u68DA\u5DE5\u7A0BInputField": []
+    "\u6CB9\u6F06\u6D82\u6599InputField": []
+    "\u5176\u4ED6\u88C5\u9970InputField": []
+    isFinishAntidiastole: 0
+  decorativeDesignManagerData:
+    "\u697C\u5730\u9762_DesignsList": []
+    "\u5899\u67F1\u9762_DesignsList": []
+    "\u5929\u68DA\u5DE5\u7A0B_DesignsList": []
+    "\u6CB9\u6F06\u6D82\u6599_DesignsList": []
+    "\u5176\u4ED6\u88C5\u9970_DesignsList": []
     isFinishDesign: 0

@@ -1,7 +1,4 @@
-/* ========================================
-*  Author：PlanesWalker Liu
-*  Copyright Owner © PlanesWalker Liu.
-* =========================================*/
+
 using System;
 using UnityEngine;
 namespace PlanesWalker
