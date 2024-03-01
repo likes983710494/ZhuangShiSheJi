@@ -38,6 +38,8 @@ public class InfoDataStorage : ScriptableObject
     public AntidiastoleManagerData antidiastoleManagerData;
     //装饰设计
     public DecorativeDesignManagerData decorativeDesignManagerData;
+    //装饰效果展示
+    public ResultManagerData resultManagerData;
 
 }
 
@@ -92,4 +94,11 @@ public class DecorativeDesignManagerData
     public string 油漆涂料_汇总金额;//油漆涂料汇总金额
     public string 其他装饰_汇总金额;//其他装饰汇总金额
     public bool isFinishDesign;//完成装饰设计
+}
+//----装饰效果战术 数据缓存
+[Serializable]
+public class ResultManagerData
+{
+    public static List<ImagePath> ImagePathList = new List<ImagePath>();//图片路径
+    public static bool isFinishResult;//完成装饰效果
 }
