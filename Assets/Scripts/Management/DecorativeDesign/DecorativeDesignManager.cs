@@ -169,13 +169,18 @@ public class DecorativeDesignManager : MonoBehaviour
 		UnitDollarData.油漆涂料_汇总金额 = 油漆涂料_汇总金额;
 		UnitDollarData.其他装饰_汇总金额 = 其他装饰_汇总金额;
 
-		//本地缓存
+		//本地缓存 模型数据
 		InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.楼地面_DesignsList = 楼地面_DesignsList;
 		InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.墙柱面_DesignsList = 墙柱面_DesignsList;
 		InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.天棚工程_DesignsList = 天棚工程_DesignsList;
 		InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.油漆涂料_DesignsList = 油漆涂料_DesignsList;
 		InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.其他装饰_DesignsList = 其他装饰_DesignsList;
-
+		//本地缓存 底部金额
+		InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.楼地面_汇总金额 = 楼地面_汇总金额.ToString();
+		InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.墙柱面_汇总金额 = 墙柱面_汇总金额.ToString();
+		InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.天棚工程_汇总金额 = 天棚工程_汇总金额.ToString();
+		InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.油漆涂料_汇总金额 = 油漆涂料_汇总金额.ToString();
+		InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.其他装饰_汇总金额 = 其他装饰_汇总金额.ToString();
 
 		//清除DesignsList
 		// UnitDollarData.楼地面_DesignsList.Clear();

@@ -79,10 +79,17 @@ public class AntidiastoleManagerData
 public class DecorativeDesignManagerData
 {
 
+    //模型材质
     public List<Design> 楼地面_DesignsList = new List<Design>();
     public List<Design> 墙柱面_DesignsList = new List<Design>();
     public List<Design> 天棚工程_DesignsList = new List<Design>();
     public List<Design> 油漆涂料_DesignsList = new List<Design>();
     public List<Design> 其他装饰_DesignsList = new List<Design>();
+    //底部 金额数据
+    public string 楼地面_汇总金额;//楼地面汇总金额
+    public string 墙柱面_汇总金额;//墙柱面汇总金额
+    public string 天棚工程_汇总金额;//天棚工程汇总金额
+    public string 油漆涂料_汇总金额;//油漆涂料汇总金额
+    public string 其他装饰_汇总金额;//其他装饰汇总金额
     public bool isFinishDesign;//完成装饰设计
 }
