@@ -14,6 +14,8 @@ public class DecorativeDesignManager : MonoBehaviour
 	public Button Button_提交;
 	public Button Button_返回;
 
+	public Button Button_截图;
+
 	//在确认后 中间 更多面板也会用到
 	public List<Design> 楼地面_DesignsList = new List<Design>();
 	public List<Design> 墙柱面_DesignsList = new List<Design>();
@@ -62,6 +64,10 @@ public class DecorativeDesignManager : MonoBehaviour
 		{
 
 			DecorativeDesignToButton_返回();
+		});
+		Button_截图.onClick.AddListener(() =>
+		{
+			GameObject.Find("----------通用-------- ").GetComponent<SelectScreenshot>().SetIsOpenShot();
 		});
 
 	}
