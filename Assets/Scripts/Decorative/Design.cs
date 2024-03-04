@@ -12,7 +12,7 @@ public class Design
 
     public string departmentName { get; set; }//所属分部名字
     public string subentryName { get; set; }//分项名字
-    public string location { get; set; }//位置
+    public GameObject location { get; set; }//位置
     public string designImagePath { get; set; }//工程设计
     public string designMaterialPath { get; set; }//工程材料
     public string designDesc { get; set; }//工程设计说明 
@@ -24,9 +24,9 @@ public class Design
     public string UniqueId { get; set; }//所属部件唯一id
 
     //没有位置信息就暂时暂无数据
-    public Design()
-    {
-        location = "暂无位置信息";
-    }
+    // public Design()
+    // {
+    //     location = "暂无位置信息";
+    // }
 
 }

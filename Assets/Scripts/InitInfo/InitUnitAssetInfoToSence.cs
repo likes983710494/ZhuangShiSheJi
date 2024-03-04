@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unit;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -50,6 +51,16 @@ public class InitUnitAssetInfoToSence : MonoBehaviour
         InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.油漆涂料_DesignsList.Count.ToString() + "条";
         DecorativeDesignLeft.Instance_.BottomButtonMoreLsit[4].transform.GetChild(0).GetComponent<Text>().text =
         InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.其他装饰_DesignsList.Count.ToString() + "条";
-
+        // 将本地数据也 赋值给 场景中的操作数据
+        UnitDollarData.楼地面_DesignsList = InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.楼地面_DesignsList;
+        UnitDollarData.墙柱面_DesignsList = InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.墙柱面_DesignsList;
+        UnitDollarData.天棚工程_DesignsList = InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.天棚工程_DesignsList;
+        UnitDollarData.油漆涂料_DesignsList = InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.油漆涂料_DesignsList;
+        UnitDollarData.其他装饰_DesignsList = InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.其他装饰_DesignsList;
+        DecorativeDesignManager.Instance_.楼地面_DesignsList = InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.楼地面_DesignsList;
+        DecorativeDesignManager.Instance_.墙柱面_DesignsList = InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.墙柱面_DesignsList;
+        DecorativeDesignManager.Instance_.天棚工程_DesignsList = InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.天棚工程_DesignsList;
+        DecorativeDesignManager.Instance_.油漆涂料_DesignsList = InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.油漆涂料_DesignsList;
+        DecorativeDesignManager.Instance_.其他装饰_DesignsList = InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.其他装饰_DesignsList;
     }
 }

@@ -421,8 +421,8 @@ public class DecorativeDesignRight : MonoBehaviour
 		design_.designDesc = UnitDollarData.design.designDesc;//描述
 		design_.Acreage = UnitDollarData.design.Acreage;//面积
 		design_.Price = UnitDollarData.design.Price;//单价
-		design_.Total = UnitDollarData.design.Total;//金额 
-
+		design_.Total = UnitDollarData.design.Total;//金额                   // Debug.Log("模型地址：" + DecorativeDesignSaveDate.HighligObject);
+		design_.location = DecorativeDesignSaveDate.HighligObject;//模型
 
 		return design_;
 	}

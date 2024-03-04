@@ -437,6 +437,85 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &5290586337891165933
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3868314757141628866}
+  - component: {fileID: 6064366994830958336}
+  - component: {fileID: 1115773017901033887}
+  m_Layer: 5
+  m_Name: Text (Legacy) (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3868314757141628866
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5290586337891165933}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6013516827897544688}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -223.64044, y: -0.2000618}
+  m_SizeDelta: {x: 100, y: 46}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &6064366994830958336
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5290586337891165933}
+  m_CullTransparentMesh: 1
+--- !u!114 &1115773017901033887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5290586337891165933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 15a5dbe439155044983a561dfad5dd0e, type: 3}
+    m_FontSize: 12
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "\u4F4D\u7F6E"
 --- !u!1 &5706105786784818434
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,7 +529,7 @@ GameObject:
   - component: {fileID: 2612725764114798765}
   - component: {fileID: 2782663753426456855}
   m_Layer: 5
-  m_Name: "Button (Legacy)_\u67E5\u770B\u6A21\u578B (3)"
+  m_Name: "Button (Legacy)_\u67E5\u770B\u6A21\u578B (10)"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -473,7 +552,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -224, y: 0}
+  m_AnchoredPosition: {x: -224.2, y: -1.3}
   m_SizeDelta: {x: 50, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1296422952194065094
@@ -650,7 +729,7 @@ GameObject:
   - component: {fileID: 8440143609097362830}
   - component: {fileID: 1821866055331481170}
   m_Layer: 5
-  m_Name: "button_\u5206\u90E8\u5217\u8868"
+  m_Name: "button_\u5206\u90E8\u5217\u8868 1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -671,13 +750,14 @@ RectTransform:
   - {fileID: 4198557838324700567}
   - {fileID: 229280698349449411}
   - {fileID: 2624512058884688630}
-  - {fileID: 7752090549796232493}
+  - {fileID: 3868314757141628866}
   - {fileID: 6296656263146144992}
   - {fileID: 6890388777248815997}
   - {fileID: 319042574182248921}
   - {fileID: 1516084828560682380}
   - {fileID: 7354254175120543283}
   - {fileID: 4766105529190898366}
+  - {fileID: 7752090549796232493}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -1016,7 +1096,7 @@ GameObject:
   - component: {fileID: 9197768064201527424}
   - component: {fileID: 1278714190041542548}
   m_Layer: 5
-  m_Name: Text (Legacy) (3)
+  m_Name: Text (Legacy) (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -204,10 +204,12 @@ public class DecorativeDesignModus : MonoBehaviour
             {
                 instance_.transform.GetChild(0).GetComponent<Text>().text = (i + 1).ToString();
             }
+
             //此处在最大长度为9 因为Designs有11个对象 的 两个id属性不展示
             for (int j = 0; j < value.Length - 2; j++)
             {
-                Debug.Log("海子--" + instance_.transform.childCount + "-对比：" + value.Length);
+                Debug.Log("value:" + value[j]);
+                //  Debug.Log("海子--" + instance_.transform.childCount + "-对比：" + value.Length);
                 if (instance_.transform.GetChild(j + 1).GetComponent<Text>() != null)
                 {
                     instance_.transform.GetChild(j + 1).GetComponent<Text>().text = value[j].ToString();
@@ -215,6 +217,22 @@ public class DecorativeDesignModus : MonoBehaviour
                 else
                 {
                     int num = j;
+                    if (instance_.transform.GetChild(j + 1).name == "Button (Legacy)_查看模型 (3)")
+                    {
+                        instance_.transform.GetChild(j + 1).GetComponent<Button>().onClick.AddListener(() =>
+                          {
+                              分部列表_Plane.SetActive(false);
+                              if (value[num] != null)
+                              {
+                                  GameObject myGameObject = (GameObject)value[num];
+                                  myGameObject.GetComponent<HighlightableObject>().ConstantOn(Color.red);//此方法打开边缘发光，参数可以控制发光的颜色
+                                  Unit.DecorativeDesign.DecorativeDesignSaveDate.HighligObject.
+                                  GetComponent<HighlightableObject>().ConstantOff();
+                              }
+
+                          });
+
+                    }
 
                     if (instance_.transform.GetChild(j + 1).name == "Button (Legacy)_查看设计图 (4)")
                     {
@@ -285,6 +303,7 @@ public class DecorativeDesignModus : MonoBehaviour
                 工程设计_Plane.transform.GetChild(1).gameObject.SetActive(true);
                 工程设计_Plane.transform.GetChild(1).GetComponentInChildren<UnityEngine.UI.InputField>().text = path_;
                 break;
+
         }
 
 
