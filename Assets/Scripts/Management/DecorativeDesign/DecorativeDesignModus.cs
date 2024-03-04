@@ -224,6 +224,7 @@ public class DecorativeDesignModus : MonoBehaviour
                               分部列表_Plane.SetActive(false);
                               if (value[num] != null)
                               {
+                                  // 模型总会丢失
                                   GameObject myGameObject = (GameObject)value[num];
                                   myGameObject.GetComponent<HighlightableObject>().ConstantOn(Color.red);//此方法打开边缘发光，参数可以控制发光的颜色
                                   Unit.DecorativeDesign.DecorativeDesignSaveDate.HighligObject.
