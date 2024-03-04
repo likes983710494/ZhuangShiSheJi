@@ -7,7 +7,7 @@ using UnityEngine.UI;
 using System.Linq;
 using Unit;
 /// <summary>
-/// //限额分解
+/// 限额分解
 /// </summary>
 public class AntidiastoleManager : MonoBehaviour
 {

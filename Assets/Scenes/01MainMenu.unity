@@ -846,8 +846,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 22688942}
-  - component: {fileID: 22688943}
+  - component: {fileID: 22688945}
   - component: {fileID: 22688944}
+  - component: {fileID: 22688943}
   m_Layer: 5
   m_Name: "---------\u9996\u9875--------"
   m_TagString: Untagged
@@ -904,6 +905,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   infoDataStorage_: {fileID: 11400000, guid: 27f0cc865ad9f6042a1909cf84c70790, type: 2}
+--- !u!114 &22688945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22688941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 623ffa816ff6f154885eecee1aee9c36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &23030331
 GameObject:
   m_ObjectHideFlags: 0

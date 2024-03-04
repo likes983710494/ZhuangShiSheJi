@@ -68,6 +68,7 @@ public class DecorativeDesignManager : MonoBehaviour
 
 	}
 
+
 	private void ScreenshotOnToggleClick(Toggle toggle, bool isOn)
 	{
 		if (toggle != null)

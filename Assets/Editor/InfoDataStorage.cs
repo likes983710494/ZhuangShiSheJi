@@ -1,4 +1,4 @@
-// 创建一个可序列化的子弹类 Bullet.CS
+// 创建一个可序列化的类 
 
 using UnityEngine;
 using System.Collections;
@@ -8,9 +8,9 @@ using System.Collections.Generic;
 
 // public enum BulletType
 // {
-//     DirectAttack = 0,  // 直接攻击
-//     Phony,             // 假子弹
-//     Real,              // 真子弹弹
+//     DirectAttack = 0,  
+//     Phony,             
+//     Real,              
 // }
 
 /// <summary>
@@ -20,10 +20,8 @@ using System.Collections.Generic;
 public class InfoDataStorage : ScriptableObject
 {
 
-    // Bullet 类直接继承自 ScriptableObject
+    // InfoDataStorage 类直接继承自 ScriptableObject
 
-    // 子弹类型
-    // public BulletType bulletType = BulletType.DirectAttack;
 
     //登录时间
     public string LoginTime;
@@ -87,6 +85,13 @@ public class DecorativeDesignManagerData
     public List<Design> 天棚工程_DesignsList = new List<Design>();
     public List<Design> 油漆涂料_DesignsList = new List<Design>();
     public List<Design> 其他装饰_DesignsList = new List<Design>();
+    //底部  配额数据
+    public string 楼地面_配额;//楼地面配额
+    public string 墙柱面_配额;//墙柱面配额
+    public string 天棚工程_配额;//天棚工程配额
+    public string 油漆涂料_配额;//油漆涂料配额
+    public string 其他装饰_配额;//其他装饰配额
+
     //底部 金额数据
     public string 楼地面_汇总金额;//楼地面汇总金额
     public string 墙柱面_汇总金额;//墙柱面汇总金额

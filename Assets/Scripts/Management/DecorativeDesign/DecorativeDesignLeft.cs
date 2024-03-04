@@ -50,15 +50,36 @@ public class DecorativeDesignLeft : MonoBehaviour
 	public void SetAllocationMoney()
 	{
 		if (Unit.UnitDollarData.楼地面装饰_Amount != null)
+		{
 			AllocationList[0].text = Unit.UnitDollarData.楼地面装饰_Amount;
+			InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.楼地面_配额 = Unit.UnitDollarData.楼地面装饰_Amount;
+		}
+
+
 		if (Unit.UnitDollarData.墙柱面装饰_Amount != null)
+		{
 			AllocationList[1].text = Unit.UnitDollarData.墙柱面装饰_Amount;
+			InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.墙柱面_配额 = Unit.UnitDollarData.墙柱面装饰_Amount;
+		}
+
 		if (Unit.UnitDollarData.天棚工程_Amount != null)
+		{
 			AllocationList[2].text = Unit.UnitDollarData.天棚工程_Amount;
+			InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.天棚工程_配额 = Unit.UnitDollarData.天棚工程_Amount;
+		}
+
 		if (Unit.UnitDollarData.油漆涂料_Amount != null)
+		{
 			AllocationList[3].text = Unit.UnitDollarData.油漆涂料_Amount;
+			InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.油漆涂料_配额 = Unit.UnitDollarData.油漆涂料_Amount;
+		}
+
 		if (Unit.UnitDollarData.其他装饰_Amount != null)
+		{
 			AllocationList[4].text = Unit.UnitDollarData.其他装饰_Amount;
+			InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.其他装饰_配额 = Unit.UnitDollarData.其他装饰_Amount;
+		}
+
 	}
 
 	/// <summary>
