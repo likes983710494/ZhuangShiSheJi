@@ -11,35 +11,60 @@ namespace Siccity.GLTFUtility
 		public extrasA m_extrasA;
 		public void OnPointerClick(PointerEventData eventData)//OnMouseDown()
 		{
-			//储存上一个 高亮的物体 并关闭
-			if (DecorativeDesignSaveDate.HighligObject != null)
+
+			if (m_extrasA != null)
 			{
-				DecorativeDesignSaveDate.HighligObject.GetComponent<HighlightableObject>().ConstantOff();
-			}
-			if (DecorativeDesignSaveDate.HighligObjectMaterial != null)
-			{
-				Debug.Log("材质名字" + DecorativeDesignSaveDate.HighligObjectMaterial.name + "-----m模型材质：--" + DecorativeDesignSaveDate.HighligObject.GetComponent<MeshRenderer>().material);
-				if (DecorativeDesignSaveDate.HighligObjectMaterial != DecorativeDesignSaveDate.HighligObject.GetComponent<MeshRenderer>().material)
+				string data = JsonMapper.ToJson(m_extrasA);
+				extrasA extrasAData = m_extrasA;
+				//查找父节点数据
+				if (m_extrasA.ElementID == 0 || m_extrasA.UniqueId == null || m_extrasA.Parameters == null)
 				{
-					DecorativeDesignSaveDate.HighligObject.GetComponent<HighlightableObject>().enabled = false;//会锁住材质无法替换所以先关闭
-					DecorativeDesignSaveDate.HighligObject.GetComponent<MeshRenderer>().material = DecorativeDesignSaveDate.HighligObjectMaterial;
-					DecorativeDesignSaveDate.HighligObject.GetComponent<HighlightableObject>().enabled = true;//在开启
+					while (this.transform.parent)
+					{
+						if (this.transform.parent != null)
+						{
+							data = JsonMapper.ToJson(this.transform.parent.GetComponent<GLTFTypeInfo>().m_extrasA);
+							extrasAData = this.transform.parent.GetComponent<GLTFTypeInfo>().m_extrasA;
+							break;
+						}
+					}
+
+
 				}
-			}
 
-			GetComponent<HighlightableObject>().ConstantOn(Color.cyan);//此方法打开边缘发光，参数可以控制发光的颜色
-			DecorativeDesignSaveDate.HighligObject = this.gameObject;
-			DecorativeDesignSaveDate.HighligObjectMaterial = this.gameObject.GetComponent<MeshRenderer>().material;
 
-			//删除做法设计的图
-			for (int i = 0; i < DecorativeDesignRight.Instance_.Content_做法说明_01选择做法.transform.childCount; i++)
-			{
-				int x = i;
-				GameObject child = DecorativeDesignRight.Instance_.Content_做法说明_01选择做法.transform.GetChild(x).gameObject;
-				Destroy(child);
+
+
+				//储存上一个 高亮的物体 并关闭
+				if (DecorativeDesignSaveDate.HighligObject != null)
+				{
+					DecorativeDesignSaveDate.HighligObject.GetComponent<HighlightableObject>().ConstantOff();
+				}
+				if (DecorativeDesignSaveDate.HighligObjectMaterial != null)
+				{
+					Debug.Log("材质名字" + DecorativeDesignSaveDate.HighligObjectMaterial.name + "-----m模型材质：--" + DecorativeDesignSaveDate.HighligObject.GetComponent<MeshRenderer>().material);
+					if (DecorativeDesignSaveDate.HighligObjectMaterial != DecorativeDesignSaveDate.HighligObject.GetComponent<MeshRenderer>().material)
+					{
+						DecorativeDesignSaveDate.HighligObject.GetComponent<HighlightableObject>().enabled = false;//会锁住材质无法替换所以先关闭
+						DecorativeDesignSaveDate.HighligObject.GetComponent<MeshRenderer>().material = DecorativeDesignSaveDate.HighligObjectMaterial;
+						DecorativeDesignSaveDate.HighligObject.GetComponent<HighlightableObject>().enabled = true;//在开启
+					}
+				}
+
+				GetComponent<HighlightableObject>().ConstantOn(Color.cyan);//此方法打开边缘发光，参数可以控制发光的颜色
+				DecorativeDesignSaveDate.HighligObject = this.gameObject;
+				DecorativeDesignSaveDate.HighligObjectMaterial = this.gameObject.GetComponent<MeshRenderer>().material;
+
+				//删除做法设计的图
+				for (int i = 0; i < DecorativeDesignRight.Instance_.Content_做法说明_01选择做法.transform.childCount; i++)
+				{
+					int x = i;
+					GameObject child = DecorativeDesignRight.Instance_.Content_做法说明_01选择做法.transform.GetChild(x).gameObject;
+					Destroy(child);
+				}
+				//关闭所有步骤状态 开启步骤初始状态
+				DecorativeDesignSaveDate.InitProcedure();
 			}
-			//关闭所有步骤状态 开启步骤初始状态
-			DecorativeDesignSaveDate.InitProcedure();
 
 
 			//获取数据
