@@ -11,7 +11,7 @@ namespace Unit.DecorativeDesign
         public static GameObject HighligObject;//保存点击的模型部件 1.用于取消高亮  2.也用来改变模型材质
         public static Material HighligObjectMaterial;//储存材质
 
-
+        public static GameObject GlintObject;//保存闪烁模型部件  用于取消闪烁
 
         public static string ElementID;//部件id
         public static string UniqueId;//部件唯一id

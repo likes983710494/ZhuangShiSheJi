@@ -5,6 +5,7 @@ using UnityEngine;
 using Unit;
 using System.Linq;
 using System.IO;
+using Siccity.GLTFUtility;
 //装饰设计-中间展示
 public class DecorativeDesignModus : MonoBehaviour
 {
@@ -142,6 +143,7 @@ public class DecorativeDesignModus : MonoBehaviour
 
         }
     }
+
     /// <summary>
     /// 生成中间弹窗 数据
     /// </summary>
@@ -208,7 +210,6 @@ public class DecorativeDesignModus : MonoBehaviour
             //此处在最大长度为9 因为Designs有11个对象 的 两个id属性不展示
             for (int j = 0; j < value.Length - 2; j++)
             {
-                Debug.Log("value:" + value[j]);
                 //  Debug.Log("海子--" + instance_.transform.childCount + "-对比：" + value.Length);
                 if (instance_.transform.GetChild(j + 1).GetComponent<Text>() != null)
                 {
@@ -224,11 +225,39 @@ public class DecorativeDesignModus : MonoBehaviour
                               分部列表_Plane.SetActive(false);
                               if (value[num] != null)
                               {
-                                  // 模型总会丢失
-                                  GameObject myGameObject = (GameObject)value[num];
-                                  myGameObject.GetComponent<HighlightableObject>().ConstantOn(Color.red);//此方法打开边缘发光，参数可以控制发光的颜色
-                                  Unit.DecorativeDesign.DecorativeDesignSaveDate.HighligObject.
-                                  GetComponent<HighlightableObject>().ConstantOff();
+                                  // 查模型id
+                                  foreach (Transform child in GameObject.Find("三维模型展示").transform.GetComponentsInChildren<Transform>(true))
+                                  {
+                                      if (child.GetComponent<GLTFTypeInfo>() != null)
+                                      {
+                                          if (child.GetComponent<GLTFTypeInfo>().m_extrasA != null)
+                                          {
+                                              if (child.GetComponent<GLTFTypeInfo>().m_extrasA.ElementID == int.Parse(value[num].ToString()))
+                                              {
+                                                  //   child.GetComponent<HighlightableObject>().enabled = false;
+                                                  //   child.GetComponent<HighlightableObject>().enabled = true;
+                                                  child.GetComponent<HighlightableObject>().ReinitMaterials();
+                                                  child.GetComponent<HighlightableObject>().FlashingSwitch();
+                                                  child.GetComponent<HighlightableObject>().FlashingParams(Color.red, Color.gray, 0.4f);//此方法打开边缘发光，参数可以控制发光的颜色
+                                                  Unit.DecorativeDesign.DecorativeDesignSaveDate.GlintObject = child.gameObject;
+                                                  if (Unit.DecorativeDesign.DecorativeDesignSaveDate.HighligObject != null)
+                                                  {
+                                                      Unit.DecorativeDesign.DecorativeDesignSaveDate.HighligObject.
+                                                        GetComponent<HighlightableObject>().ConstantOff();
+                                                  }
+
+                                              }
+
+                                          }
+
+
+
+                                      }
+                                  }
+                                  //   GameObject myGameObject = (GameObject)value[num];
+                                  //   myGameObject.GetComponent<HighlightableObject>().ConstantOn(Color.red);//此方法打开边缘发光，参数可以控制发光的颜色
+                                  //   Unit.DecorativeDesign.DecorativeDesignSaveDate.HighligObject.
+                                  //   GetComponent<HighlightableObject>().ConstantOff();
                               }
 
                           });

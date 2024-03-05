@@ -33,7 +33,11 @@ namespace Siccity.GLTFUtility
 				}
 
 
-
+				//查看模型有闪烁，鼠标选模型时候 关闭闪烁
+				if (DecorativeDesignSaveDate.GlintObject != null)
+				{
+					DecorativeDesignSaveDate.GlintObject.GetComponent<HighlightableObject>().FlashingOff();
+				}
 
 				//储存上一个 高亮的物体 并关闭
 				if (DecorativeDesignSaveDate.HighligObject != null)
