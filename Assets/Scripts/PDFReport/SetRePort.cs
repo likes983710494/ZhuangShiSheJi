@@ -34,13 +34,13 @@ public class SetRePort : MonoBehaviour
     }
     public IEnumerator 创建Pdf()
     {
-
+        string path = Application.persistentDataPath + "/装饰设计实验报告.pdf";
         //限额分解
         DataTable_List.Clear();
         for (int i = 0; i < Unit.UnitDollarData.CombineList.Count; i++)
         {
             DataTable 限额分解dt = new DataTable();
-            string[] Columns = new string[] { "序号", "分项工程", "所属分部工程", "分项金额" };
+            string[] Columns = new string[] { "序号", "所属分部工程", "所属分项工程", "分项金额" };
             foreach (string item in Columns)
             {
                 限额分解dt.Columns.Add(item);
@@ -71,8 +71,9 @@ public class SetRePort : MonoBehaviour
 
 
 
-        //  装饰设计
-        string[] 装饰设计Columns = new string[] { "分项名称/属性信息", "所属分部", "位置", "做法说明-工程设计", "做法说明-工程材质", "文字说明", "单价", "工程量", "合价" };
+        //装饰设计
+        string[] 装饰设计Columns = new string[] { "分部名称/属性信息", "所属分项", "当前部件编号", "做法说明-工程设计",
+        "做法说明-工程材质", "文字说明", "工程量(平方米)","单价(元)",  "合价","id", "部件id" };
         DataTable 装饰设计dt = new DataTable();
         foreach (string item in 装饰设计Columns)
         {
@@ -80,12 +81,13 @@ public class SetRePort : MonoBehaviour
         }
         for (int i = 0; i < UnitDollarData.墙柱面_DesignsList.Count; i++) //将数据储存到list
         {
+
             DataRow xedr = 装饰设计dt.NewRow();
 
             object[] xeobjs = UnitDollarData.墙柱面_DesignsList[i].GetType().GetProperties().Select(p => p.GetValue(UnitDollarData.墙柱面_DesignsList[i])).ToArray();
 
             //object[] xeobjs = { "贴镶面", "楼地面装饰工程", tzgsfilepath, tzgsfilepath, "楼地面装饰工程", "楼地面装饰工程", "楼地面装饰工程", "楼地面装饰工程" };
-
+            Debug.Log("墙柱面_DesignsList长度" + UnitDollarData.墙柱面_DesignsList.Count);
             Debug.Log("PDF" + UnitDollarData.墙柱面_DesignsList[i].departmentName + "----路径：" + UnitDollarData.墙柱面_DesignsList[i].designImagePath + "||");
             Debug.Log("长度" + xeobjs.Length);
             Debug.Log("设计" + UnitDollarData.墙柱面_DesignsList[i]);
@@ -100,7 +102,7 @@ public class SetRePort : MonoBehaviour
 
 
 
-        string path = Application.persistentDataPath + "/装饰设计实验报告.pdf";
+
         Unit.UnitDollarData.ReportPath = path;
         using (PDFReport pdf = new PDFReport())
         {
@@ -115,7 +117,7 @@ public class SetRePort : MonoBehaviour
                 pdf.AddSecondTitle("一、投资估算");
                 pdf.AddNullLine();
                 pdf.AddImage(tzgsfilepath);
-                pdf.AddContent("投资估算模块满分100分，共扣" + Unit.UnitDollarData.DeductionNumber + "分" + "，得分" + Unit.UnitDollarData.EstimateNumber + "分。");
+                pdf.AddContent("投资估算模块共扣" + Unit.UnitDollarData.DeductionNumber + "分。");
 
                 pdf.AddSecondTitle("二、限额分解");
                 pdf.AddNullLine();

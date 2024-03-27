@@ -21,7 +21,7 @@ public class DecorativeDesignManager : MonoBehaviour
 	public List<Design> 天棚工程_DesignsList = new List<Design>();
 	public List<Design> 油漆涂料_DesignsList = new List<Design>();
 	public List<Design> 其他装饰_DesignsList = new List<Design>();
-
+	public Material UIMaterial;//UI报警闪烁材质
 
 	private float 楼地面_汇总金额 = 0;
 	private float 墙柱面_汇总金额 = 0;
@@ -67,8 +67,74 @@ public class DecorativeDesignManager : MonoBehaviour
 		Toggle_截图.onValueChanged.AddListener((bool isOn) => { ScreenshotOnToggleClick(Toggle_截图, isOn); });
 
 	}
+	void Update()
+	{
 
+		AlarmImage();
+	}
+	//底部汇总金额 高亮闪烁警报
+	public void AlarmImage()
+	{
+		//汇总金额大于
+		if (float.Parse(DecorativeDesignLeft.Instance_.CollectList[0].text) > float.Parse(DecorativeDesignLeft.Instance_.AllocationList[0].text))
+		{
+			//高亮警示
+			DecorativeDesignLeft.Instance_.AllocationList[0].transform.parent.parent.GetComponent<Image>().material = UIMaterial;
+		}
+		else
+		{
+			//取消高亮
+			DecorativeDesignLeft.Instance_.AllocationList[0].transform.parent.parent.GetComponent<Image>().material = null;
+		}
+		//汇总金额大于
+		if (float.Parse(DecorativeDesignLeft.Instance_.CollectList[1].text) > float.Parse(DecorativeDesignLeft.Instance_.AllocationList[1].text))
+		{
 
+			//高亮警示
+			DecorativeDesignLeft.Instance_.AllocationList[1].transform.parent.parent.GetComponent<Image>().material = UIMaterial;
+		}
+		else
+		{
+			//取消高亮
+			DecorativeDesignLeft.Instance_.AllocationList[1].transform.parent.parent.GetComponent<Image>().material = null;
+		}
+		//汇总金额大于
+		if (float.Parse(DecorativeDesignLeft.Instance_.CollectList[2].text) > float.Parse(DecorativeDesignLeft.Instance_.AllocationList[2].text))
+		{
+
+			//高亮警示
+			DecorativeDesignLeft.Instance_.AllocationList[2].transform.parent.parent.GetComponent<Image>().material = UIMaterial;
+		}
+		else
+		{
+			//取消高亮
+			DecorativeDesignLeft.Instance_.AllocationList[2].transform.parent.parent.GetComponent<Image>().material = null;
+		}
+		//汇总金额大于
+		if (float.Parse(DecorativeDesignLeft.Instance_.CollectList[3].text) > float.Parse(DecorativeDesignLeft.Instance_.AllocationList[3].text))
+		{
+
+			//高亮警示
+			DecorativeDesignLeft.Instance_.AllocationList[3].transform.parent.parent.GetComponent<Image>().material = UIMaterial;
+		}
+		else
+		{
+			//取消高亮
+			DecorativeDesignLeft.Instance_.AllocationList[3].transform.parent.parent.GetComponent<Image>().material = null;
+		}
+		//汇总金额大于
+		if (float.Parse(DecorativeDesignLeft.Instance_.CollectList[4].text) > float.Parse(DecorativeDesignLeft.Instance_.AllocationList[4].text))
+		{
+
+			//高亮警示
+			DecorativeDesignLeft.Instance_.AllocationList[4].transform.parent.parent.GetComponent<Image>().material = UIMaterial;
+		}
+		else
+		{
+			//取消高亮
+			DecorativeDesignLeft.Instance_.AllocationList[4].transform.parent.parent.GetComponent<Image>().material = null;
+		}
+	}
 	private void ScreenshotOnToggleClick(Toggle toggle, bool isOn)
 	{
 		if (toggle != null)
@@ -102,6 +168,7 @@ public class DecorativeDesignManager : MonoBehaviour
 				楼地面_汇总金额 = 楼地面_汇总金额 + float.Parse(DecorativeDesignRight.Instance_.SetDesignConvertPdf(design_).Total);
 				//给汇总金额赋值
 				DecorativeDesignLeft.Instance_.CollectList[0].text = 楼地面_汇总金额.ToString();
+
 				//给底部显示增加的设计数
 				DecorativeDesignLeft.Instance_.BottomButtonMoreLsit[0].gameObject.transform.GetChild(0).GetComponent<Text>().text =
 				楼地面_DesignsList.Count + "条";
@@ -115,6 +182,8 @@ public class DecorativeDesignManager : MonoBehaviour
 				Debug.Log("所用金额:" + 墙柱面_汇总金额);
 				DecorativeDesignLeft.Instance_.BottomButtonMoreLsit[1].gameObject.transform.GetChild(0).GetComponent<Text>().text =
 			墙柱面_DesignsList.Count + "条";
+
+
 
 				break;
 			case "天棚":

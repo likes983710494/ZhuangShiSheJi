@@ -17,6 +17,8 @@ public class HomePageManager : MonoBehaviour
 	public Button Button_装饰设计;
 	public Button Button_装饰效果展示;
 
+	public Button Button_生成实验报告;
+
 	//资源进度条
 	//public Animator Animator_资源进度;
 
@@ -63,6 +65,19 @@ public class HomePageManager : MonoBehaviour
 
 	}
 
-	// Update is called once per frame
+	void Update()
+	{
+		//如果状态都是各模块状态都为 ture
+		if (InvokInfoDataStorage.Instance_.infoDataStorage_.dataDownloadManagerData.isFinishDataDownload == true &&
+			InvokInfoDataStorage.Instance_.infoDataStorage_.estimateManagerData.isFinishEstimate == true &&
+			InvokInfoDataStorage.Instance_.infoDataStorage_.antidiastoleManagerData.isFinishAntidiastole == true &&
+			InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.isFinishDesign == true &&
+			InvokInfoDataStorage.Instance_.infoDataStorage_.resultManagerData.isFinishResult == true
+		)
+		{
+			//展示按钮
+			Button_生成实验报告.gameObject.SetActive(true);
+		}
+	}
 
 }

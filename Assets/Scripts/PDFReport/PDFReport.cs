@@ -96,7 +96,8 @@ public class PDFReport : IDisposable
     {
         PdfPTable table = new PdfPTable(columns);
         table.WidthPercentage = 100; //宽度
-        table.SetTotalWidth(new float[] { 10, 10, 20, 10, 20, 10, 10, 10 });
+        //要和列数一致
+        table.SetTotalWidth(new float[] { 8, 8, 8, 16, 8, 8, 8, 8, 8, 0, 0 });
         for (int i = 0; i < content.Length; i++)
         {
 

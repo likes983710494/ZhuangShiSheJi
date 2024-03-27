@@ -28,7 +28,8 @@ public class ResultManager : MonoBehaviour
 	{
 
 		submitButton.onClick.AddListener(SubmitLaodPlane);
-		OKButton.onClick.AddListener(()=>{
+		OKButton.onClick.AddListener(() =>
+		{
 			OKPlane.SetActive(false);
 			//状态完成   首页显示生成报告按钮
 			Unit.UnitDollarData.isFinishResult = true;
@@ -329,8 +330,6 @@ public class ResultManager : MonoBehaviour
 			}
 			Unit.UnitDollarData.ImagePathList.Add(imagePath_);
 		}
-
-		
 
 	}
 
