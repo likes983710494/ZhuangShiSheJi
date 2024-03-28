@@ -9,15 +9,40 @@ public class InitUnitAssetInfoToSence : MonoBehaviour
 {// Start is called before the first frame update
     void Start()
     {
+        State();
         C();
         D();
     }
 
+    void State()
+    {
+        if (InvokInfoDataStorage.Instance_.infoDataStorage_.dataDownloadManagerData.isFinishDataDownload == true)
+        {
+            HomePageManager.Instance_.Button_设计任务书.interactable = true;
+        }
+        if (InvokInfoDataStorage.Instance_.infoDataStorage_.estimateManagerData.isFinishEstimate == true)
+        {
+            HomePageManager.Instance_.Button_投资估算.interactable = true;
+        }
+        if (InvokInfoDataStorage.Instance_.infoDataStorage_.antidiastoleManagerData.isFinishAntidiastole == true)
+        {
+            HomePageManager.Instance_.Button_限额分解.interactable = true;
+        }
+        if (InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.isFinishDesign == true)
+        {
+            HomePageManager.Instance_.Button_装饰设计.interactable = true;
+        }
+        if (InvokInfoDataStorage.Instance_.infoDataStorage_.resultManagerData.isFinishResult == true)
+        {
+            HomePageManager.Instance_.Button_装饰效果展示.interactable = true;
+        }
+    }
+    //任务设计书
     public void A()
     {
 
     }
-
+    //投资估算
     public void B()
     {
 
@@ -112,5 +137,10 @@ public class InitUnitAssetInfoToSence : MonoBehaviour
         DecorativeDesignManager.Instance_.天棚工程_DesignsList = InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.天棚工程_DesignsList;
         DecorativeDesignManager.Instance_.油漆涂料_DesignsList = InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.油漆涂料_DesignsList;
         DecorativeDesignManager.Instance_.其他装饰_DesignsList = InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.其他装饰_DesignsList;
+    }
+    //装饰效果展示
+    void E()
+    {
+
     }
 }
