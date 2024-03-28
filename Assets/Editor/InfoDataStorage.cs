@@ -104,6 +104,6 @@ public class DecorativeDesignManagerData
 [Serializable]
 public class ResultManagerData
 {
-    public  List<ImagePath> ImagePathList = new List<ImagePath>();//图片路径
-    public  bool isFinishResult;//完成装饰效果
+    public List<ImagePath> ImagePathList = new List<ImagePath>();//图片路径
+    public bool isFinishResult;//完成装饰效果
 }

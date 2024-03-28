@@ -11,6 +11,8 @@ using Unit;
 /// </summary>
 public class AntidiastoleManager : MonoBehaviour
 {
+
+	public static AntidiastoleManager Instance_ { get; private set; }
 	public Button submitButton;//提交
 	public Button affirmButton;//确认按钮
 	public GameObject promptContentPlane;//提示面板父节点
@@ -35,6 +37,19 @@ public class AntidiastoleManager : MonoBehaviour
 	private float 总金额_Cache = 0;//和总金额比较
 	private float proportion = 0;//cache占总金额比例
 	private bool is楼地面装饰, is墙柱面装饰, is天棚工程, is油漆涂料, is其他装饰, isAmount;
+
+	void Awake()
+	{
+		if (Instance_ == null)
+		{
+			Instance_ = this;
+			DontDestroyOnLoad(gameObject);
+		}
+		else
+		{
+			Destroy(gameObject);
+		}
+	}
 	void Start()
 	{
 		affirmButton.gameObject.SetActive(false);
@@ -46,7 +61,7 @@ public class AntidiastoleManager : MonoBehaviour
 			Amount_InputField[i].onValueChanged.AddListener((string value) =>
 			{
 
-				isAmount = SetIsSubmit(Amount_InputField, is楼地面装饰);
+				isAmount = SetIsSubmit(Amount_InputField, isAmount);
 			});
 		}
 
@@ -57,6 +72,7 @@ public class AntidiastoleManager : MonoBehaviour
 
 				is楼地面装饰 = SetIsSubmit(楼地面装饰InputField, is楼地面装饰);
 
+
 			});
 		}
 		for (int i = 0; i < 墙柱面装饰InputField.Count; i++)
@@ -65,6 +81,7 @@ public class AntidiastoleManager : MonoBehaviour
 			{
 
 				is墙柱面装饰 = SetIsSubmit(墙柱面装饰InputField, is墙柱面装饰);
+
 			});
 		}
 		for (int i = 0; i < 天棚工程InputField.Count; i++)
@@ -73,6 +90,7 @@ public class AntidiastoleManager : MonoBehaviour
 			{
 
 				is天棚工程 = SetIsSubmit(天棚工程InputField, is天棚工程);
+
 			});
 		}
 		for (int i = 0; i < 油漆涂料InputField.Count; i++)
@@ -81,6 +99,7 @@ public class AntidiastoleManager : MonoBehaviour
 			{
 
 				is油漆涂料 = SetIsSubmit(油漆涂料InputField, is油漆涂料);
+
 			});
 		}
 		for (int i = 0; i < 其他装饰InputField.Count; i++)
@@ -89,11 +108,12 @@ public class AntidiastoleManager : MonoBehaviour
 			{
 
 				is其他装饰 = SetIsSubmit(其他装饰InputField, is其他装饰);
+
 			});
 		}
 	}
 
-	// Update is called once per frame
+
 	void Update()
 	{
 		//
@@ -107,6 +127,18 @@ public class AntidiastoleManager : MonoBehaviour
 		}
 
 	}
+
+	//初始化数据 调用状态
+	public void InfoDataStorage_GetAntidiastoleState()
+	{
+		isAmount = SetIsSubmit(Amount_InputField, isAmount);
+		is楼地面装饰 = SetIsSubmit(楼地面装饰InputField, is楼地面装饰);
+		is墙柱面装饰 = SetIsSubmit(墙柱面装饰InputField, is墙柱面装饰);
+		is天棚工程 = SetIsSubmit(天棚工程InputField, is天棚工程);
+		is油漆涂料 = SetIsSubmit(油漆涂料InputField, is油漆涂料);
+		is其他装饰 = SetIsSubmit(其他装饰InputField, is其他装饰);
+	}
+
 	/// <summary>
 	/// 是否符合提交
 	/// </summary>

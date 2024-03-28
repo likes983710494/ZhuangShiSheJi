@@ -9,6 +9,7 @@ public class InitUnitAssetInfoToSence : MonoBehaviour
 {// Start is called before the first frame update
     void Start()
     {
+        C();
         D();
     }
 
@@ -21,14 +22,63 @@ public class InitUnitAssetInfoToSence : MonoBehaviour
     {
 
     }
+    //限额分解
     public void C()
     {
+        // AntidiastoleManager.Instance_.总金额_Amount="";
+
+        //分部金额
+        AntidiastoleManager.Instance_.Amount_InputField[0].text =
+        InvokInfoDataStorage.Instance_.infoDataStorage_.antidiastoleManagerData.AmountInputField[0].ToString();
+        AntidiastoleManager.Instance_.Amount_InputField[1].text =
+       InvokInfoDataStorage.Instance_.infoDataStorage_.antidiastoleManagerData.AmountInputField[1].ToString();
+        AntidiastoleManager.Instance_.Amount_InputField[2].text =
+        InvokInfoDataStorage.Instance_.infoDataStorage_.antidiastoleManagerData.AmountInputField[2].ToString();
+        AntidiastoleManager.Instance_.Amount_InputField[3].text =
+       InvokInfoDataStorage.Instance_.infoDataStorage_.antidiastoleManagerData.AmountInputField[3].ToString();
+        AntidiastoleManager.Instance_.Amount_InputField[4].text =
+        InvokInfoDataStorage.Instance_.infoDataStorage_.antidiastoleManagerData.AmountInputField[4].ToString();
+        //分项金额
+        for (int i = 0; i < AntidiastoleManager.Instance_.楼地面装饰InputField.Count; i++)
+        {
+            AntidiastoleManager.Instance_.楼地面装饰InputField[i].text =
+             InvokInfoDataStorage.Instance_.infoDataStorage_.antidiastoleManagerData.楼地面装饰InputField[i].ToString();
+        }
+
+        for (int i = 0; i < AntidiastoleManager.Instance_.墙柱面装饰InputField.Count; i++)
+        {
+            AntidiastoleManager.Instance_.墙柱面装饰InputField[i].text =
+             InvokInfoDataStorage.Instance_.infoDataStorage_.antidiastoleManagerData.墙柱面装饰InputField[i].ToString();
+        }
+
+        for (int i = 0; i < AntidiastoleManager.Instance_.天棚工程InputField.Count; i++)
+        {
+            AntidiastoleManager.Instance_.天棚工程InputField[i].text =
+             InvokInfoDataStorage.Instance_.infoDataStorage_.antidiastoleManagerData.天棚工程InputField[i].ToString();
+        }
+
+        for (int i = 0; i < AntidiastoleManager.Instance_.油漆涂料InputField.Count; i++)
+        {
+            AntidiastoleManager.Instance_.油漆涂料InputField[i].text =
+             InvokInfoDataStorage.Instance_.infoDataStorage_.antidiastoleManagerData.油漆涂料InputField[i].ToString();
+        }
+
+        for (int i = 0; i < AntidiastoleManager.Instance_.其他装饰InputField.Count; i++)
+        {
+            AntidiastoleManager.Instance_.其他装饰InputField[i].text =
+             InvokInfoDataStorage.Instance_.infoDataStorage_.antidiastoleManagerData.其他装饰InputField[i].ToString();
+        }
+
+        //提交按钮状态 
+        AntidiastoleManager.Instance_.InfoDataStorage_GetAntidiastoleState();
 
     }
     //装饰设计
     public void D()
     {
 
+
+        //装饰设计
         DecorativeDesignLeft.Instance_.CollectList[0].text = InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.楼地面_汇总金额;
         DecorativeDesignLeft.Instance_.CollectList[1].text = InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.墙柱面_汇总金额;
         DecorativeDesignLeft.Instance_.CollectList[2].text = InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.天棚工程_汇总金额;

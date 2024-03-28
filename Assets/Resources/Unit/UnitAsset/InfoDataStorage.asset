@@ -15,53 +15,53 @@ MonoBehaviour:
   LoginTime: 0
   LoginDuration: 
   dataDownloadManagerData:
-    isDataPDF: 0
-    isDataObj: 0
-    isFinishDataDownload: 0
+    isDataPDF: 1
+    isDataObj: 1
+    isFinishDataDownload: 1
   estimateManagerData:
     DeductionNumber: 1
     EstimateNumber: 99
     isFinishEstimate: 1
   antidiastoleManagerData:
     AmountInputField:
-    - 100
-    - 100
-    - 100
-    - 100
-    - 200
+    - 0
+    - 0
+    - 0
+    - 0
+    - 600
     "\u697C\u5730\u9762\u88C5\u9970InputField":
-    - 100
+    - 0
     - 0
     - 0
     - 0
     - 0
     "\u5899\u67F1\u9762\u88C5\u9970InputField":
-    - 100
+    - 0
     - 0
     - 0
     - 0
     - 0
     "\u5929\u68DA\u5DE5\u7A0BInputField":
-    - 100
+    - 0
     - 0
     - 0
     - 0
     "\u6CB9\u6F06\u6D82\u6599InputField":
-    - 100
+    - 0
     - 0
     - 0
     - 0
     - 0
     "\u5176\u4ED6\u88C5\u9970InputField":
-    - 100
-    - 0
-    - 0
-    - 0
-    - 0
-    - 100
-    - 0
-    - 0
-    - 0
+    - 10
+    - 20
+    - 70
+    - 80
+    - 240
+    - 60
+    - 30
+    - 40
+    - 50
     isFinishAntidiastole: 1
   decorativeDesignManagerData:
     "\u697C\u5730\u9762_DesignsList": []
