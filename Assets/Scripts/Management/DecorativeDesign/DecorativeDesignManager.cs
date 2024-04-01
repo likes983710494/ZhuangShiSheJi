@@ -5,6 +5,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using Unit;
 using Unit.DecorativeDesign;
+using System.Linq;
+using System.IO;
+using Siccity.GLTFUtility;
+using System;
 public class DecorativeDesignManager : MonoBehaviour
 {
 	public static DecorativeDesignManager Instance_ { get; private set; }
@@ -95,6 +99,7 @@ public class DecorativeDesignManager : MonoBehaviour
 		}
 		else
 		{
+
 			//取消高亮
 			DecorativeDesignLeft.Instance_.AllocationList[1].transform.parent.parent.GetComponent<Image>().material = null;
 		}
@@ -163,22 +168,25 @@ public class DecorativeDesignManager : MonoBehaviour
 		switch (UnitDollarData.design.departmentName)
 		{
 			case "楼地面装饰":
+				楼地面_汇总金额 = float.Parse(InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.楼地面_汇总金额);
 				楼地面_DesignsList.Add(DecorativeDesignRight.Instance_.SetDesignConvertPdf(design_));
 				// 改变汇总金额
 				楼地面_汇总金额 = 楼地面_汇总金额 + float.Parse(DecorativeDesignRight.Instance_.SetDesignConvertPdf(design_).Total);
 				//给汇总金额赋值
 				DecorativeDesignLeft.Instance_.CollectList[0].text = 楼地面_汇总金额.ToString();
-
-				//给底部显示增加的设计数
+				InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.楼地面_汇总金额 = 楼地面_汇总金额.ToString();
+				//给底部显示增加的设计数楼地面_汇总金额.ToString();
 				DecorativeDesignLeft.Instance_.BottomButtonMoreLsit[0].gameObject.transform.GetChild(0).GetComponent<Text>().text =
 				楼地面_DesignsList.Count + "条";
 
 				break;
 			case "墙、柱面装饰与隔断、幕墙":
+				墙柱面_汇总金额 = float.Parse(InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.墙柱面_汇总金额);
 				墙柱面_DesignsList.Add(DecorativeDesignRight.Instance_.SetDesignConvertPdf(design_));
 				墙柱面_汇总金额 = 墙柱面_汇总金额 + float.Parse(DecorativeDesignRight.Instance_.SetDesignConvertPdf(design_).Total);
 				//给汇总金额赋值
 				DecorativeDesignLeft.Instance_.CollectList[1].text = 墙柱面_汇总金额.ToString();
+				InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.墙柱面_汇总金额 = 墙柱面_汇总金额.ToString();
 				Debug.Log("所用金额:" + 墙柱面_汇总金额);
 				DecorativeDesignLeft.Instance_.BottomButtonMoreLsit[1].gameObject.transform.GetChild(0).GetComponent<Text>().text =
 			墙柱面_DesignsList.Count + "条";
@@ -187,29 +195,35 @@ public class DecorativeDesignManager : MonoBehaviour
 
 				break;
 			case "天棚":
+				天棚工程_汇总金额 = float.Parse(InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.天棚工程_汇总金额);
 				天棚工程_DesignsList.Add(DecorativeDesignRight.Instance_.SetDesignConvertPdf(design_));
 				天棚工程_汇总金额 = 天棚工程_汇总金额 + float.Parse(DecorativeDesignRight.Instance_.SetDesignConvertPdf(design_).Total);
 				//给汇总金额赋值
 				DecorativeDesignLeft.Instance_.CollectList[2].text = 天棚工程_汇总金额.ToString();
+				InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.天棚工程_汇总金额 = 天棚工程_汇总金额.ToString();
 				DecorativeDesignLeft.Instance_.BottomButtonMoreLsit[2].gameObject.transform.GetChild(0).GetComponent<Text>().text =
 			天棚工程_DesignsList.Count + "条";
 
 				break;
 			case "油漆、涂料及裱糊":
+				油漆涂料_汇总金额 = float.Parse(InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.油漆涂料_汇总金额);
 				油漆涂料_DesignsList.Add(DecorativeDesignRight.Instance_.SetDesignConvertPdf(design_));
 				油漆涂料_汇总金额 = 油漆涂料_汇总金额 + float.Parse(DecorativeDesignRight.Instance_.SetDesignConvertPdf(design_).Total);
 				//给汇总金额赋值
 				DecorativeDesignLeft.Instance_.CollectList[3].text = 油漆涂料_汇总金额.ToString();
+				InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.油漆涂料_汇总金额 = 油漆涂料_汇总金额.ToString();
 				DecorativeDesignLeft.Instance_.BottomButtonMoreLsit[3].gameObject.transform.GetChild(0).GetComponent<Text>().text =
 			   油漆涂料_DesignsList.Count + "条";
 				break;
 			case "其他装饰":
+				其他装饰_汇总金额 = float.Parse(InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.其他装饰_汇总金额);
 				//添加列表
 				其他装饰_DesignsList.Add(DecorativeDesignRight.Instance_.SetDesignConvertPdf(design_));
 				//汇总金额
 				其他装饰_汇总金额 = 其他装饰_汇总金额 + float.Parse(DecorativeDesignRight.Instance_.SetDesignConvertPdf(design_).Total);
 				//给汇总金额赋值
 				DecorativeDesignLeft.Instance_.CollectList[4].text = 其他装饰_汇总金额.ToString();
+				InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.其他装饰_汇总金额 = 其他装饰_汇总金额.ToString();
 				DecorativeDesignLeft.Instance_.BottomButtonMoreLsit[4].gameObject.transform.GetChild(0).GetComponent<Text>().text =
 			其他装饰_DesignsList.Count + "条";
 				break;
@@ -265,11 +279,11 @@ public class DecorativeDesignManager : MonoBehaviour
 		InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.油漆涂料_DesignsList = 油漆涂料_DesignsList;
 		InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.其他装饰_DesignsList = 其他装饰_DesignsList;
 		//本地缓存 底部金额
-		InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.楼地面_汇总金额 = 楼地面_汇总金额.ToString();
-		InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.墙柱面_汇总金额 = 墙柱面_汇总金额.ToString();
-		InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.天棚工程_汇总金额 = 天棚工程_汇总金额.ToString();
-		InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.油漆涂料_汇总金额 = 油漆涂料_汇总金额.ToString();
-		InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.其他装饰_汇总金额 = 其他装饰_汇总金额.ToString();
+		UnitDollarData.楼地面_汇总金额 = float.Parse(InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.楼地面_汇总金额);
+		UnitDollarData.墙柱面_汇总金额 = float.Parse(InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.墙柱面_汇总金额);
+		UnitDollarData.天棚工程_汇总金额 = float.Parse(InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.天棚工程_汇总金额);
+		UnitDollarData.油漆涂料_汇总金额 = float.Parse(InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.油漆涂料_汇总金额);
+		UnitDollarData.其他装饰_汇总金额 = float.Parse(InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.其他装饰_汇总金额);
 
 		//清除DesignsList
 		// UnitDollarData.楼地面_DesignsList.Clear();

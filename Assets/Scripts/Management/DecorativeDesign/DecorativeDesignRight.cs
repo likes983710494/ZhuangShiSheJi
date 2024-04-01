@@ -92,11 +92,11 @@ public class DecorativeDesignRight : MonoBehaviour
 		{
 			SetFnishButton();
 			//做法说明输入文字时 会按到按键 所以这里再开启模型模式脚本
-			if(Camera.main.transform.GetComponent<SimpleCameraController>().enabled==true)
+			if (Camera.main.transform.GetComponent<SimpleCameraController>().enabled == true)
 			{
 				Camera.main.transform.GetComponent<SimpleCameraController>().enabled = true;
 			}
-				
+
 		});
 
 		//onEndEdit
@@ -292,7 +292,7 @@ public class DecorativeDesignRight : MonoBehaviour
 	//做法说明-完成按钮
 	private void SetFnishButton()
 	{
-		Debug.Log("111111");
+		Debug.Log("做法说明-完成按钮");
 		//保存pdf 做法说明 补充说明
 		UnitDollarData.design.designDesc = Content_做法说明_03补充说明.transform.GetChild(0).GetChild(0).GetComponent<UnityEngine.UI.Text>().text;
 

@@ -6,6 +6,7 @@ using Unit;
 using System.Linq;
 using System.IO;
 using Siccity.GLTFUtility;
+using System;
 //装饰设计-中间展示
 public class DecorativeDesignModus : MonoBehaviour
 {
@@ -165,24 +166,24 @@ public class DecorativeDesignModus : MonoBehaviour
         switch (index)
         {
             case 0:
-                AddGenerateData(DecorativeDesignManager.Instance_.楼地面_DesignsList);
+                AddGenerateData(DecorativeDesignManager.Instance_.楼地面_DesignsList, index);
 
                 break;
 
             case 1:
-                AddGenerateData(DecorativeDesignManager.Instance_.墙柱面_DesignsList);
+                AddGenerateData(DecorativeDesignManager.Instance_.墙柱面_DesignsList, index);
 
                 break;
             case 2:
-                AddGenerateData(DecorativeDesignManager.Instance_.天棚工程_DesignsList);
+                AddGenerateData(DecorativeDesignManager.Instance_.天棚工程_DesignsList, index);
 
                 break;
             case 3:
-                AddGenerateData(DecorativeDesignManager.Instance_.油漆涂料_DesignsList);
+                AddGenerateData(DecorativeDesignManager.Instance_.油漆涂料_DesignsList, index);
 
                 break;
             case 4:
-                AddGenerateData(DecorativeDesignManager.Instance_.其他装饰_DesignsList);
+                AddGenerateData(DecorativeDesignManager.Instance_.其他装饰_DesignsList, index);
 
                 break;
         }
@@ -192,7 +193,7 @@ public class DecorativeDesignModus : MonoBehaviour
     /// <summary>
     /// 生成分部列表数据
     /// </summary>
-    public void AddGenerateData(List<Design> DesignsList)
+    public void AddGenerateData(List<Design> DesignsList, int index)
     {
         for (int i = 0; i < DesignsList.Count; i++)
         {
@@ -206,7 +207,88 @@ public class DecorativeDesignModus : MonoBehaviour
             {
                 instance_.transform.GetChild(0).GetComponent<Text>().text = (i + 1).ToString();
             }
+            Debug.Log("删除" + instance_.transform.GetChild(0).GetComponent<Text>().text + "--" + i);
+            int Listnum = i;
+            //添加删除
+            instance_.GetComponent<Button>().onClick.AddListener(() =>
+            {
 
+
+                if (Listnum >= 0 && Listnum < DesignsList.Count)
+                {
+
+                    DesignsList.RemoveAt(Listnum); // 删除索引为当前的元素
+                    Destroy(instance_);
+                    switch (index)
+                    {
+                        case 0:
+                            //减去汇总金额 
+                            InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.楼地面_汇总金额 =
+                            (float.Parse(InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.楼地面_汇总金额)
+                             - Convert.ToSingle(value[8])).ToString();
+                            DecorativeDesignLeft.Instance_.CollectList[0].text =
+                            InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.楼地面_汇总金额;
+                            DecorativeDesignLeft.Instance_.BottomButtonMoreLsit[0].transform.GetChild(0).GetComponent<Text>().text =
+                            InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.楼地面_DesignsList.Count.ToString() + "条";
+                            UnitDollarData.楼地面_汇总金额 =
+                             float.Parse(InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.楼地面_汇总金额);
+
+                            break;
+                        case 1:
+                            //减去汇总金额 
+                            InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.墙柱面_汇总金额 =
+                            (float.Parse(InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.墙柱面_汇总金额)
+                             - Convert.ToSingle(value[8])).ToString();
+                            DecorativeDesignLeft.Instance_.CollectList[1].text =
+                            InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.墙柱面_汇总金额;
+                            DecorativeDesignLeft.Instance_.BottomButtonMoreLsit[1].transform.GetChild(0).GetComponent<Text>().text =
+                            InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.墙柱面_DesignsList.Count.ToString() + "条";
+                            UnitDollarData.墙柱面_汇总金额 =
+                            float.Parse(InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.墙柱面_汇总金额);
+                            break;
+                        case 2:
+                            InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.天棚工程_汇总金额 =
+                                                   (float.Parse(InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.天棚工程_汇总金额)
+                                                    - Convert.ToSingle(value[8])).ToString();
+                            DecorativeDesignLeft.Instance_.CollectList[2].text =
+                            InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.天棚工程_汇总金额;
+                            DecorativeDesignLeft.Instance_.BottomButtonMoreLsit[2].transform.GetChild(0).GetComponent<Text>().text =
+                            InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.天棚工程_DesignsList.Count.ToString() + "条";
+                            UnitDollarData.天棚工程_汇总金额 =
+                             float.Parse(InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.天棚工程_汇总金额);
+
+                            break;
+                        case 3:
+                            InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.油漆涂料_汇总金额 =
+                                                   (float.Parse(InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.油漆涂料_汇总金额)
+                                                    - Convert.ToSingle(value[8])).ToString();
+
+                            DecorativeDesignLeft.Instance_.CollectList[3].text =
+                            InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.油漆涂料_汇总金额;
+                            DecorativeDesignLeft.Instance_.BottomButtonMoreLsit[3].transform.GetChild(0).GetComponent<Text>().text =
+                           InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.油漆涂料_DesignsList.Count.ToString() + "条";
+                            UnitDollarData.油漆涂料_汇总金额 =
+                             float.Parse(InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.油漆涂料_汇总金额);
+
+                            break;
+                        case 4:
+                            InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.其他装饰_汇总金额 =
+                                                   (float.Parse(InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.其他装饰_汇总金额)
+                                                    - Convert.ToSingle(value[8])).ToString();
+                            DecorativeDesignLeft.Instance_.CollectList[4].text =
+                            InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.其他装饰_汇总金额;
+                            DecorativeDesignLeft.Instance_.BottomButtonMoreLsit[4].transform.GetChild(0).GetComponent<Text>().text =
+                            InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.其他装饰_DesignsList.Count.ToString() + "条";
+                            UnitDollarData.其他装饰_汇总金额 =
+                            float.Parse(InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.其他装饰_汇总金额);
+                            break;
+                    }
+
+
+                }
+
+
+            });
             //此处在最大长度为9 因为Designs有11个对象 的 两个id属性不展示
             for (int j = 0; j < value.Length - 2; j++)
             {
