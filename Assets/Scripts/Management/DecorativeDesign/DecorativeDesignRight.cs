@@ -347,7 +347,22 @@ public class DecorativeDesignRight : MonoBehaviour
 					Material material_ = new Material(Shader.Find("Unlit/Texture"));
 					material_.name = beforeDot;
 					material_.SetTexture("_MainTex", texture);
-					DecorativeDesignSaveDate.HighligObject.GetComponent<MeshRenderer>().material = material_;
+
+
+					// 获取当前的材质数组
+					Material[] currentMaterials = DecorativeDesignSaveDate.HighligObject.GetComponent<MeshRenderer>().materials;
+					// 创建一个新的材质数组，长度为当前数组长度加1
+					Material[] newMaterials = new Material[currentMaterials.Length + 1];
+					// 将新材质放在数组的第一个位置
+					newMaterials[0] = material_;
+					// 将原来的材质复制到新数组中，从第二个位置开始
+					for (int i = 0; i < currentMaterials.Length; i++)
+					{
+						newMaterials[i + 1] = currentMaterials[i];
+					}
+					// 将新的材质数组赋值给meshRenderer的materials属性
+					DecorativeDesignSaveDate.HighligObject.GetComponent<MeshRenderer>().materials = newMaterials;
+					// DecorativeDesignSaveDate.HighligObject.GetComponent<MeshRenderer>().material = material_;
 					DecorativeDesignSaveDate.HighligObject.GetComponent<HighlightableObject>().enabled = true;//换完材质再打开
 					DecorativeDesignSaveDate.HighligObject.GetComponent<HighlightableObject>().ConstantOn(Color.cyan);//此方法打开边缘发光，参数可以控制发光的颜色
 

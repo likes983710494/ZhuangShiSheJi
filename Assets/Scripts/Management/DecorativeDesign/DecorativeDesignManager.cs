@@ -191,8 +191,6 @@ public class DecorativeDesignManager : MonoBehaviour
 				DecorativeDesignLeft.Instance_.BottomButtonMoreLsit[1].gameObject.transform.GetChild(0).GetComponent<Text>().text =
 			墙柱面_DesignsList.Count + "条";
 
-
-
 				break;
 			case "天棚":
 				天棚工程_汇总金额 = float.Parse(InvokInfoDataStorage.Instance_.infoDataStorage_.decorativeDesignManagerData.天棚工程_汇总金额);

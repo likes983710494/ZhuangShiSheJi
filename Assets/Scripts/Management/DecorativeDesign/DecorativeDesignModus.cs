@@ -7,6 +7,7 @@ using System.Linq;
 using System.IO;
 using Siccity.GLTFUtility;
 using System;
+using Unit.DecorativeDesign;
 //装饰设计-中间展示
 public class DecorativeDesignModus : MonoBehaviour
 {
@@ -216,9 +217,46 @@ public class DecorativeDesignModus : MonoBehaviour
 
                 if (Listnum >= 0 && Listnum < DesignsList.Count)
                 {
+                    //查找id 根据id 去查当前模型
+                    // 查模型id
+                    foreach (Transform child in GameObject.Find("三维模型展示").transform.GetComponentsInChildren<Transform>(true))
+                    {
+                        if (child.GetComponent<GLTFTypeInfo>() != null)
+                        {
+                            if (child.GetComponent<GLTFTypeInfo>().m_extrasA != null)
+                            {
+                                Debug.Log(value[9]);
+                                if (child.GetComponent<GLTFTypeInfo>().m_extrasA.ElementID == int.Parse(value[9].ToString()))
+                                {
+                                    //删除模型改变的材质
+                                    child.GetComponent<HighlightableObject>().enabled = false;
+                                    Material[] currentMaterials = child.GetComponent<MeshRenderer>().materials;
+                                    // 创建一个新的材质数组，长度为当前数组长度1
+                                    Material[] newMaterials = new Material[currentMaterials.Length - 1];
+                                    // 将原数组除了第一个元素之外的其他元素复制到新数组中
+                                    for (int i = 1; i < currentMaterials.Length; i++)
+                                    {
+
+                                        newMaterials[i - 1] = currentMaterials[i];
+                                        Debug.Log("保留材质" + newMaterials[i - 1]);
+                                    }
+                                    child.GetComponent<MeshRenderer>().materials = newMaterials;
+                                    child.GetComponent<HighlightableObject>().enabled = true;//换完材质再打开
+                                    break;
+                                }
+
+                            }
+
+
+
+                        }
+                    }
+
 
                     DesignsList.RemoveAt(Listnum); // 删除索引为当前的元素
                     Destroy(instance_);
+
+
                     switch (index)
                     {
                         case 0:
