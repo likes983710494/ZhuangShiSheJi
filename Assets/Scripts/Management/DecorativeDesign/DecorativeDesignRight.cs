@@ -139,7 +139,7 @@ public class DecorativeDesignRight : MonoBehaviour
 				DropdownSubentry.AddOptions(new List<string> { "请选择" });
 				break;
 			case 1:
-				DropdownSubentry.AddOptions(new List<string> { "找平层", "整体面层", "块料面层", "其他面层", "其他面层" });
+				DropdownSubentry.AddOptions(new List<string> { "找平层", "整体面层", "块料面层", "其他面层", "其他项目" });
 				DecorativeDesignSaveDate.departmentName = "楼地面装饰";
 				break;
 			case 2:

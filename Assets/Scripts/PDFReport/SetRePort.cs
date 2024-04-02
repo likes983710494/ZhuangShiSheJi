@@ -74,6 +74,33 @@ public class SetRePort : MonoBehaviour
         //装饰设计
         string[] 装饰设计Columns = new string[] { "分部名称/属性信息", "所属分项", "当前部件编号", "做法说明-工程设计",
         "做法说明-工程材质", "文字说明", "工程量(平方米)","单价(元)",  "合价","id", "部件id" };
+        //楼地面
+        DataTable 装饰设计dt楼地面 = new DataTable();
+        foreach (string item in 装饰设计Columns)
+        {
+            装饰设计dt楼地面.Columns.Add(item);
+        }
+        for (int i = 0; i < UnitDollarData.楼地面_DesignsList.Count; i++) //将数据储存到list
+        {
+
+            DataRow xedr = 装饰设计dt楼地面.NewRow();
+
+            object[] xeobjs = UnitDollarData.楼地面_DesignsList[i].GetType().GetProperties().Select(p => p.GetValue(UnitDollarData.楼地面_DesignsList[i])).ToArray();
+
+            //object[] xeobjs = { "贴镶面", "楼地面装饰工程", tzgsfilepath, tzgsfilepath, "楼地面装饰工程", "楼地面装饰工程", "楼地面装饰工程", "楼地面装饰工程" };
+            Debug.Log("墙柱面_DesignsList长度" + UnitDollarData.楼地面_DesignsList.Count);
+            Debug.Log("PDF" + UnitDollarData.楼地面_DesignsList[i].departmentName + "----路径：" + UnitDollarData.楼地面_DesignsList[i].designImagePath + "||");
+            Debug.Log("长度" + xeobjs.Length);
+            Debug.Log("设计" + UnitDollarData.楼地面_DesignsList[i]);
+            foreach (var obj in xeobjs)
+            {
+                Debug.Log("示例：" + obj);
+            }
+
+            xedr.ItemArray = xeobjs;
+            装饰设计dt楼地面.Rows.Add(xedr);
+        }
+        //墙柱面
         DataTable 装饰设计dt = new DataTable();
         foreach (string item in 装饰设计Columns)
         {
@@ -99,6 +126,85 @@ public class SetRePort : MonoBehaviour
             xedr.ItemArray = xeobjs;
             装饰设计dt.Rows.Add(xedr);
         }
+        //天棚
+        DataTable 装饰设计dt天棚 = new DataTable();
+        foreach (string item in 装饰设计Columns)
+        {
+            装饰设计dt天棚.Columns.Add(item);
+        }
+        for (int i = 0; i < UnitDollarData.天棚工程_DesignsList.Count; i++) //将数据储存到list
+        {
+
+            DataRow xedr = 装饰设计dt天棚.NewRow();
+
+            object[] xeobjs = UnitDollarData.天棚工程_DesignsList[i].GetType().GetProperties().Select(p => p.GetValue(UnitDollarData.天棚工程_DesignsList[i])).ToArray();
+
+            //object[] xeobjs = { "贴镶面", "楼地面装饰工程", tzgsfilepath, tzgsfilepath, "楼地面装饰工程", "楼地面装饰工程", "楼地面装饰工程", "楼地面装饰工程" };
+            Debug.Log("墙柱面_DesignsList长度" + UnitDollarData.天棚工程_DesignsList.Count);
+            Debug.Log("PDF" + UnitDollarData.天棚工程_DesignsList[i].departmentName + "----路径：" + UnitDollarData.天棚工程_DesignsList[i].designImagePath + "||");
+            Debug.Log("长度" + xeobjs.Length);
+            Debug.Log("设计" + UnitDollarData.天棚工程_DesignsList[i]);
+            foreach (var obj in xeobjs)
+            {
+                Debug.Log("示例：" + obj);
+            }
+
+            xedr.ItemArray = xeobjs;
+            装饰设计dt天棚.Rows.Add(xedr);
+        }
+        //油漆涂料
+        DataTable 装饰设计dt油漆涂料 = new DataTable();
+        foreach (string item in 装饰设计Columns)
+        {
+            装饰设计dt油漆涂料.Columns.Add(item);
+        }
+        for (int i = 0; i < UnitDollarData.油漆涂料_DesignsList.Count; i++) //将数据储存到list
+        {
+
+            DataRow xedr = 装饰设计dt油漆涂料.NewRow();
+
+            object[] xeobjs = UnitDollarData.油漆涂料_DesignsList[i].GetType().GetProperties().Select(p => p.GetValue(UnitDollarData.油漆涂料_DesignsList[i])).ToArray();
+
+            //object[] xeobjs = { "贴镶面", "楼地面装饰工程", tzgsfilepath, tzgsfilepath, "楼地面装饰工程", "楼地面装饰工程", "楼地面装饰工程", "楼地面装饰工程" };
+            Debug.Log("墙柱面_DesignsList长度" + UnitDollarData.油漆涂料_DesignsList.Count);
+            Debug.Log("PDF" + UnitDollarData.油漆涂料_DesignsList[i].departmentName + "----路径：" + UnitDollarData.油漆涂料_DesignsList[i].designImagePath + "||");
+            Debug.Log("长度" + xeobjs.Length);
+            Debug.Log("设计" + UnitDollarData.油漆涂料_DesignsList[i]);
+            foreach (var obj in xeobjs)
+            {
+                Debug.Log("示例：" + obj);
+            }
+
+            xedr.ItemArray = xeobjs;
+            装饰设计dt油漆涂料.Rows.Add(xedr);
+        }
+        //其他装饰
+        DataTable 装饰设计dt其他 = new DataTable();
+        foreach (string item in 装饰设计Columns)
+        {
+            装饰设计dt其他.Columns.Add(item);
+        }
+        for (int i = 0; i < UnitDollarData.其他装饰_DesignsList.Count; i++) //将数据储存到list
+        {
+
+            DataRow xedr = 装饰设计dt其他.NewRow();
+
+            object[] xeobjs = UnitDollarData.其他装饰_DesignsList[i].GetType().GetProperties().Select(p => p.GetValue(UnitDollarData.其他装饰_DesignsList[i])).ToArray();
+
+            //object[] xeobjs = { "贴镶面", "楼地面装饰工程", tzgsfilepath, tzgsfilepath, "楼地面装饰工程", "楼地面装饰工程", "楼地面装饰工程", "楼地面装饰工程" };
+            Debug.Log("墙柱面_DesignsList长度" + UnitDollarData.其他装饰_DesignsList.Count);
+            Debug.Log("PDF" + UnitDollarData.其他装饰_DesignsList[i].departmentName + "----路径：" + UnitDollarData.其他装饰_DesignsList[i].designImagePath + "||");
+            Debug.Log("长度" + xeobjs.Length);
+            Debug.Log("设计" + UnitDollarData.其他装饰_DesignsList[i]);
+            foreach (var obj in xeobjs)
+            {
+                Debug.Log("示例：" + obj);
+            }
+
+            xedr.ItemArray = xeobjs;
+            装饰设计dt其他.Rows.Add(xedr);
+        }
+
 
 
 
@@ -135,9 +241,15 @@ public class SetRePort : MonoBehaviour
                 pdf.AddSecondTitle("三、装饰设计");
                 pdf.AddNullLine();
                 // pdf.添加PDF表格(装饰设计dt);
+                pdf.添加PDF表格图片(装饰设计dt楼地面);
+                pdf.AddNullLine();
                 pdf.添加PDF表格图片(装饰设计dt);
-
-
+                pdf.AddNullLine();
+                pdf.添加PDF表格图片(装饰设计dt天棚);
+                pdf.AddNullLine();
+                pdf.添加PDF表格图片(装饰设计dt油漆涂料);
+                pdf.AddNullLine();
+                pdf.添加PDF表格图片(装饰设计dt其他);
 
 
                 pdf.AddSecondTitle("四、装饰效果展示");

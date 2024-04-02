@@ -6,12 +6,13 @@ using UnityEngine.UI;
 
 //将接口的数据    导入到场景中
 public class InitUnitAssetInfoToSence : MonoBehaviour
-{// Start is called before the first frame update
+{//在每个模块前，接口直接把数据赋值给InvokInfoDataStorage.Instance_.infoDataStorage_即可
     void Start()
     {
         State();
         C();
         D();
+        E();
     }
 
     void State()
@@ -45,6 +46,7 @@ public class InitUnitAssetInfoToSence : MonoBehaviour
     //投资估算
     public void B()
     {
+        Unit.UnitDollarData.DeductionNumber = int.Parse(InvokInfoDataStorage.Instance_.infoDataStorage_.estimateManagerData.DeductionNumber);
 
     }
     //限额分解
@@ -141,6 +143,6 @@ public class InitUnitAssetInfoToSence : MonoBehaviour
     //装饰效果展示
     void E()
     {
-
+        Unit.UnitDollarData.ImagePathList = InvokInfoDataStorage.Instance_.infoDataStorage_.resultManagerData.ImagePathList;
     }
 }
