@@ -241,15 +241,33 @@ public class SetRePort : MonoBehaviour
                 pdf.AddSecondTitle("三、装饰设计");
                 pdf.AddNullLine();
                 // pdf.添加PDF表格(装饰设计dt);
-                pdf.添加PDF表格图片(装饰设计dt楼地面);
-                pdf.AddNullLine();
-                pdf.添加PDF表格图片(装饰设计dt);
-                pdf.AddNullLine();
-                pdf.添加PDF表格图片(装饰设计dt天棚);
-                pdf.AddNullLine();
-                pdf.添加PDF表格图片(装饰设计dt油漆涂料);
-                pdf.AddNullLine();
-                pdf.添加PDF表格图片(装饰设计dt其他);
+                if (UnitDollarData.楼地面_DesignsList.Count > 0)
+                {
+                    pdf.添加PDF表格图片(装饰设计dt楼地面);
+                    pdf.AddNullLine();
+                }
+                if (UnitDollarData.楼地面_DesignsList.Count > 0)
+                {
+                    pdf.添加PDF表格图片(装饰设计dt);
+                    pdf.AddNullLine();
+                }
+
+                if (UnitDollarData.天棚工程_DesignsList.Count > 0)
+                {
+                    pdf.添加PDF表格图片(装饰设计dt天棚);
+                    pdf.AddNullLine();
+                }
+                if (UnitDollarData.油漆涂料_DesignsList.Count > 0)
+                {
+                    pdf.添加PDF表格图片(装饰设计dt油漆涂料);
+                    pdf.AddNullLine();
+                }
+                if (UnitDollarData.其他装饰_DesignsList.Count > 0)
+                {
+                    pdf.添加PDF表格图片(装饰设计dt其他);
+                    pdf.AddNullLine();
+                }
+
 
 
                 pdf.AddSecondTitle("四、装饰效果展示");
