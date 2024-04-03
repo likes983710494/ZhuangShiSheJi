@@ -19,6 +19,9 @@ public class HomePageManager : MonoBehaviour
 
 	public Button Button_生成实验报告;
 	public Button Button_退出;
+	public Button Button_音频;
+
+	public List<Button> ButtonsAddAudioList;//添加按钮音频  
 
 	//资源进度条
 	//public Animator Animator_资源进度;
@@ -42,6 +45,14 @@ public class HomePageManager : MonoBehaviour
 	}
 	void Start()
 	{
+		//添加按钮音频
+		for (int i = 0; i < ButtonsAddAudioList.Count; i++)
+		{
+			int x = i;
+			ButtonsAddAudioList[x].gameObject.AddComponent<ButtonAudioClick>();
+		}
+
+
 		Button_设计任务书.interactable = true;
 		//Button_投资估算.interactable = false;
 		//Button_限额分解.interactable = false;
@@ -63,10 +74,23 @@ public class HomePageManager : MonoBehaviour
 
 
 		});
-		Button_退出.onClick.AddListener(delegate {
+		Button_退出.onClick.AddListener(delegate
+		{
 			Application.Quit();
 		});
-
+		Button_音频.onClick.AddListener(delegate
+		{
+			Button_音频.transform.GetChild(1).gameObject.SetActive(!Button_音频.transform.GetChild(1).gameObject.activeSelf);
+			Button_音频.transform.GetChild(2).gameObject.SetActive(!Button_音频.transform.GetChild(2).gameObject.activeSelf);
+			if (Button_音频.transform.GetChild(1).gameObject.activeSelf == true)
+			{
+				GetComponent<AudioSource>().Play();
+			}
+			else
+			{
+				GetComponent<AudioSource>().Pause();
+			}
+		});
 	}
 
 	void Update()
