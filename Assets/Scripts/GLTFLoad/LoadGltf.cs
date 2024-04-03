@@ -28,10 +28,10 @@ namespace PlanesWalker
 			result.transform.position = ZeroParent.position;
 			result.transform.localScale = Vector3.one;
 			result.transform.SetParent(ZeroParent);
-			//设置相机脚本 
+			//设置浏览模式相机脚本 
 			result.AddComponent<CameraRotateAround>();
 			result.GetComponent<CameraRotateAround>().targetPos = result.transform;
-			result.GetComponent<CameraRotateAround>().AutoR = true;
+			//result.GetComponent<CameraRotateAround>().AutoR = true;
 			result.GetComponent<CameraRotateAround>().CursorEnable = true;
 
 
