@@ -814,7 +814,7 @@ MonoBehaviour:
   "Button_\u88C5\u9970\u8BBE\u8BA1": {fileID: 1305276560}
   "Button_\u88C5\u9970\u6548\u679C\u5C55\u793A": {fileID: 705637584}
   "Button_\u751F\u6210\u5B9E\u9A8C\u62A5\u544A": {fileID: 1092590628}
-  "Button_\u9000\u51FA": {fileID: 0}
+  "Button_\u9000\u51FA": {fileID: 1139695932}
 --- !u!114 &22688944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9498,7 +9498,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &290750951
 RectTransform:
   m_ObjectHideFlags: 0
@@ -29172,7 +29172,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 837598326}
   m_OnClick:
     m_PersistentCalls:
