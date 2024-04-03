@@ -18,6 +18,7 @@ public class HomePageManager : MonoBehaviour
 	public Button Button_装饰效果展示;
 
 	public Button Button_生成实验报告;
+	public Button Button_退出;
 
 	//资源进度条
 	//public Animator Animator_资源进度;
@@ -61,6 +62,9 @@ public class HomePageManager : MonoBehaviour
 
 
 
+		});
+		Button_退出.onClick.AddListener(delegate {
+			Application.Quit();
 		});
 
 	}
