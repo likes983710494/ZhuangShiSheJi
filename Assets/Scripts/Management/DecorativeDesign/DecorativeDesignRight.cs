@@ -348,7 +348,6 @@ public class DecorativeDesignRight : MonoBehaviour
 					material_.name = beforeDot;
 					material_.SetTexture("_MainTex", texture);
 
-
 					// 获取当前的材质数组
 					Material[] currentMaterials = DecorativeDesignSaveDate.HighligObject.GetComponent<MeshRenderer>().materials;
 					// 创建一个新的材质数组，长度为当前数组长度加1
