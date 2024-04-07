@@ -208,7 +208,7 @@ public class DecorativeDesignModus : MonoBehaviour
             {
                 instance_.transform.GetChild(0).GetComponent<Text>().text = (i + 1).ToString();
             }
-            Debug.Log("删除" + instance_.transform.GetChild(0).GetComponent<Text>().text + "--" + i);
+            //  Debug.Log("删除" + instance_.transform.GetChild(0).GetComponent<Text>().text + "--" + i);
             int Listnum = i;
             //添加删除
             instance_.GetComponent<Button>().onClick.AddListener(() =>
@@ -241,6 +241,8 @@ public class DecorativeDesignModus : MonoBehaviour
                                         Debug.Log("保留材质" + newMaterials[i - 1]);
                                     }
                                     child.GetComponent<MeshRenderer>().materials = newMaterials;
+                                    DecorativeDesignSaveDate.HighligObjectMaterial = child.GetComponent<MeshRenderer>().material;
+                                    Debug.Log("删除材质" + DecorativeDesignSaveDate.HighligObjectMaterial);
                                     child.GetComponent<HighlightableObject>().enabled = true;//换完材质再打开
                                     break;
                                 }
