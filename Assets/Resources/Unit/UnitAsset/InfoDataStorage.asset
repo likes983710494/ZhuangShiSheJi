@@ -20,15 +20,15 @@ MonoBehaviour:
     isFinishDataDownload: 0
   estimateManagerData:
     DeductionNumber: 0
-    EstimateNumber: 0
-    isFinishEstimate: 0
+    EstimateNumber: 100
+    isFinishEstimate: 1
   antidiastoleManagerData:
     AmountInputField:
-    - 
-    - 
-    - 
-    - 
-    - 
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
     "\u697C\u5730\u9762\u88C5\u9970InputField":
     - 
     - 
@@ -69,11 +69,11 @@ MonoBehaviour:
     "\u5929\u68DA\u5DE5\u7A0B_DesignsList": []
     "\u6CB9\u6F06\u6D82\u6599_DesignsList": []
     "\u5176\u4ED6\u88C5\u9970_DesignsList": []
-    "\u697C\u5730\u9762_\u914D\u989D": 0
-    "\u5899\u67F1\u9762_\u914D\u989D": 0
-    "\u5929\u68DA\u5DE5\u7A0B_\u914D\u989D": 0
-    "\u6CB9\u6F06\u6D82\u6599_\u914D\u989D": 0
-    "\u5176\u4ED6\u88C5\u9970_\u914D\u989D": 0
+    "\u697C\u5730\u9762_\u914D\u989D": 100
+    "\u5899\u67F1\u9762_\u914D\u989D": 100
+    "\u5929\u68DA\u5DE5\u7A0B_\u914D\u989D": 100
+    "\u6CB9\u6F06\u6D82\u6599_\u914D\u989D": 100
+    "\u5176\u4ED6\u88C5\u9970_\u914D\u989D": 200
     "\u697C\u5730\u9762_\u6C47\u603B\u91D1\u989D": 0
     "\u5899\u67F1\u9762_\u6C47\u603B\u91D1\u989D": 0
     "\u5929\u68DA\u5DE5\u7A0B_\u6C47\u603B\u91D1\u989D": 0
