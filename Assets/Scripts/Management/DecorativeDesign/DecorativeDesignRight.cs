@@ -259,7 +259,7 @@ public class DecorativeDesignRight : MonoBehaviour
 			{
 				if (i != 0)
 				{
-
+					Debug.Log("步骤" + i);
 					Objs[i - 1].SetActive(true);
 					Objs[i].SetActive(false);
 					Button_上一步.gameObject.SetActive(true);
@@ -267,6 +267,7 @@ public class DecorativeDesignRight : MonoBehaviour
 				}
 				if (i == 1)
 				{
+					Debug.Log("步骤" + i);
 					Button_上一步.gameObject.SetActive(false);
 					Button_完成.gameObject.SetActive(false);
 					GameObject.Find("Scroll View视图_做法说明").GetComponent<UnityEngine.UI.ScrollRect>().content =
@@ -275,6 +276,7 @@ public class DecorativeDesignRight : MonoBehaviour
 				}
 				if (i == 2)
 				{
+					Debug.Log("步骤" + i);
 					Button_上一步.gameObject.SetActive(true);
 					Button_完成.gameObject.SetActive(false);
 					GameObject.Find("Scroll View视图_做法说明").GetComponent<UnityEngine.UI.ScrollRect>().content =

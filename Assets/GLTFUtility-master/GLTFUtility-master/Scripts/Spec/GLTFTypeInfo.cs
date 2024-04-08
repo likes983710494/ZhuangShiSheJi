@@ -51,7 +51,7 @@ namespace Siccity.GLTFUtility
 					{
 						DecorativeDesignSaveDate.HighligObject.GetComponent<HighlightableObject>().enabled = false;//会锁住材质无法替换所以先关闭
 
-
+						DecorativeDesignSaveDate.HighligObject.GetComponent<MeshRenderer>().material = DecorativeDesignSaveDate.HighligObjectMaterial;
 						// 获取当前的材质数组
 						Material[] currentMaterials = DecorativeDesignSaveDate.HighligObject.GetComponent<MeshRenderer>().materials;
 						// 创建一个新的材质数组，长度为当前数组长度加1
@@ -82,6 +82,11 @@ namespace Siccity.GLTFUtility
 				}
 				//关闭所有步骤状态 开启步骤初始状态
 				DecorativeDesignSaveDate.InitProcedure();
+				//左侧弹窗 滑动状态 以及 完成 ，下一步按钮状态	
+				GameObject.Find("Scroll View视图_做法说明").GetComponent<UnityEngine.UI.ScrollRect>().content =
+					DecorativeDesignRight.Instance_.Content_做法说明_01选择做法.GetComponent<RectTransform>();
+				DecorativeDesignRight.Instance_.Button_上一步.gameObject.SetActive(false);
+				DecorativeDesignRight.Instance_.Button_完成.gameObject.SetActive(false);
 			}
 
 
