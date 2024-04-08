@@ -46,12 +46,26 @@ namespace Siccity.GLTFUtility
 				}
 				if (DecorativeDesignSaveDate.HighligObjectMaterial != null)
 				{
-					Debug.Log("材质名字" + DecorativeDesignSaveDate.HighligObjectMaterial.name + "-----m模型材质：--" + DecorativeDesignSaveDate.HighligObject.GetComponent<MeshRenderer>().material);
+
 					if (DecorativeDesignSaveDate.HighligObjectMaterial != DecorativeDesignSaveDate.HighligObject.GetComponent<MeshRenderer>().material)
 					{
 						DecorativeDesignSaveDate.HighligObject.GetComponent<HighlightableObject>().enabled = false;//会锁住材质无法替换所以先关闭
-						DecorativeDesignSaveDate.HighligObject.GetComponent<MeshRenderer>().material = DecorativeDesignSaveDate.HighligObjectMaterial;
-						DecorativeDesignSaveDate.HighligObject.GetComponent<HighlightableObject>().enabled = true;//在开启
+
+
+						// 获取当前的材质数组
+						Material[] currentMaterials = DecorativeDesignSaveDate.HighligObject.GetComponent<MeshRenderer>().materials;
+						// 创建一个新的材质数组，长度为当前数组长度加1
+						Material[] newMaterials = new Material[currentMaterials.Length + 1];
+						// 将新材质放在数组的第一个位置
+						newMaterials[0] = DecorativeDesignSaveDate.HighligObjectMaterial;
+						// 将原来的材质复制到新数组中，从第二个位置开始
+						for (int i = 0; i < currentMaterials.Length; i++)
+						{
+							newMaterials[i + 1] = currentMaterials[i];
+						}
+						// 将新的材质数组赋值给meshRenderer的materials属性
+						DecorativeDesignSaveDate.HighligObject.GetComponent<MeshRenderer>().materials = newMaterials;
+						DecorativeDesignSaveDate.HighligObject.GetComponent<HighlightableObject>().enabled = true;//换完材质再打开
 					}
 				}
 

@@ -9,7 +9,7 @@ using System.Reflection;
 using NPOI.SS.Formula.Functions;
 using System.IO;
 using Unit;
-
+using Siccity.GLTFUtility;
 /// <summary>
 /// 左侧脚本
 /// </summary>
@@ -280,13 +280,35 @@ public class DecorativeDesignRight : MonoBehaviour
 					GameObject.Find("Scroll View视图_做法说明").GetComponent<UnityEngine.UI.ScrollRect>().content =
 					Content_做法说明_02选择材质.GetComponent<RectTransform>();
 					Text_左侧名称.text = "选择工程材质";
+
+
+
+					//删除模型改变的材质
+					if (DecorativeDesignSaveDate.HighligObject.GetComponent<MeshRenderer>().materials.Length > 0)
+					{
+						Debug.Log("上一步模型" + DecorativeDesignSaveDate.HighligObject.name);
+						DecorativeDesignSaveDate.HighligObject.GetComponent<HighlightableObject>().enabled = false;
+						Material[] currentMaterials = DecorativeDesignSaveDate.HighligObject.GetComponent<MeshRenderer>().materials;
+						// 创建一个新的材质数组，长度为当前数组长度1
+						Material[] newMaterials = new Material[currentMaterials.Length - 1];
+						// 将原数组除了第一个元素之外的其他元素复制到新数组中
+						for (int x = 1; x < currentMaterials.Length; x++)
+						{
+
+							newMaterials[x - 1] = currentMaterials[x];
+							Debug.Log("保留材质" + newMaterials[x - 1]);
+						}
+						DecorativeDesignSaveDate.HighligObject.GetComponent<MeshRenderer>().materials = newMaterials;
+						DecorativeDesignSaveDate.HighligObjectMaterial = DecorativeDesignSaveDate.HighligObject.GetComponent<MeshRenderer>().material;
+						Debug.Log("删除材质" + DecorativeDesignSaveDate.HighligObjectMaterial);
+						DecorativeDesignSaveDate.HighligObject.GetComponent<HighlightableObject>().enabled = true;//换完材质再打开
+					}
+
+
 				}
-
-
-
 			}
-		}
 
+		}
 	}
 
 	//做法说明-完成按钮
@@ -361,7 +383,6 @@ public class DecorativeDesignRight : MonoBehaviour
 					}
 					// 将新的材质数组赋值给meshRenderer的materials属性
 					DecorativeDesignSaveDate.HighligObject.GetComponent<MeshRenderer>().materials = newMaterials;
-					// DecorativeDesignSaveDate.HighligObject.GetComponent<MeshRenderer>().material = material_;
 					DecorativeDesignSaveDate.HighligObject.GetComponent<HighlightableObject>().enabled = true;//换完材质再打开
 					DecorativeDesignSaveDate.HighligObject.GetComponent<HighlightableObject>().ConstantOn(Color.cyan);//此方法打开边缘发光，参数可以控制发光的颜色
 

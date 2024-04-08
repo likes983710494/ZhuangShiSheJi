@@ -95,7 +95,6 @@ namespace PlanesWalker
 						)
 						{
 							//1.模型更换材质
-
 							child.GetComponent<HighlightableObject>().enabled = false;//会锁住材质无法替换所以先关闭
 							StopCoroutine("MaterialA");
 							StartCoroutine(MaterialA(DesignsList_[i].designMaterialPath, child));
@@ -129,7 +128,25 @@ namespace PlanesWalker
 				Material material_ = new Material(Shader.Find("Unlit/Texture"));
 				material_.name = imageName;
 				material_.SetTexture("_MainTex", texture);
-				child.GetComponent<MeshRenderer>().material = material_;
+				//child.GetComponent<MeshRenderer>().material = material_;
+
+
+				Material[] currentMaterials = child.GetComponent<MeshRenderer>().materials; ;
+				// 创建一个新的材质数组，长度为当前数组长度1
+				Material[] newMaterials = new Material[currentMaterials.Length + 1];
+				Debug.Log("当前材质数组长度" + currentMaterials.Length + "//" + newMaterials.Length);
+				// // 将原数组除了第一个元素之外的其他元素复制到新数组中
+				for (int i = 0; i < currentMaterials.Length; i++)
+				{
+
+					newMaterials[i + 1] = currentMaterials[i];
+					Debug.Log("保留材质" + i + newMaterials[i]);
+				}
+				newMaterials[0] = material_;
+
+				child.GetComponent<MeshRenderer>().materials = newMaterials;
+
+
 			}
 
 		}
