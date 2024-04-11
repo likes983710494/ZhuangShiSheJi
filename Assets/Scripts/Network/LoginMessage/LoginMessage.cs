@@ -67,7 +67,9 @@ public class LoginMessage : MonoBehaviour
             // 检查是否有错误发生
             if (webRequest.result != UnityWebRequest.Result.Success)
             {
-                Debug.LogError("Error: " + webRequest.error);
+                //Debug.LogError("Error: " + webRequest.error);
+                Debug.Log("登录失败");
+                RegisteManager.Instance_.text_loginfailure.gameObject.SetActive(true);
             }
             else
             {
