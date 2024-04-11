@@ -5,11 +5,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Org.BouncyCastle.Math.EC.Rfc7748;
 
+//登录管理脚本
 public class RegisteManager : MonoBehaviour
 {
 
     public Button registeEnter;
     public Button registeQuit;
+
+    public InputField username_InputFile;
+    public InputField passwor_InputFile;
 
     public List<Button> ButtonsAddAudioList;//添加按钮音频
     void Awake()
@@ -29,7 +33,8 @@ public class RegisteManager : MonoBehaviour
 
     public void RegisteEnter()
     {
-        SceneManager.LoadScene("01MainMenu");
+        LoginMessage.Instance_.LoginRequest_post(username_InputFile.text, passwor_InputFile.text);
+
     }
     public void RegisteQuit()
     {

@@ -196,6 +196,8 @@ public class Unity_Web : MonoBehaviour
             webRequest.timeout = timeout;
             //设置信息头  根据实际需求来
             webRequest.SetRequestHeader("Content-Type", "application/json;");
+            webRequest.SetRequestHeader("Authorization", "Bearer YOUR_ACCESS_TOKEN");
+            webRequest.SetRequestHeader("Custom-Header", "Custom Value");
             //处理请求头设置
             if (header != null)
             {

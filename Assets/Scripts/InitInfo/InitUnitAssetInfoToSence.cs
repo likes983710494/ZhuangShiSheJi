@@ -9,14 +9,20 @@ public class InitUnitAssetInfoToSence : MonoBehaviour
 {//在每个模块前，接口直接把数据赋值给InvokInfoDataStorage.Instance_.infoDataStorage_即可
     void Start()
     {
+        Getinfo();
         State();
         C();
         D();
         E();
     }
-
+    void Getinfo()
+    {
+        //获取任务信息
+        LoginMessage.Instance_.InfoRequest(AppUrlConfig.taskplan);
+    }
     void State()
     {
+
         if (InvokInfoDataStorage.Instance_.infoDataStorage_.dataDownloadManagerData.isFinishDataDownload == true)
         {
             HomePageManager.Instance_.Button_设计任务书.interactable = true;

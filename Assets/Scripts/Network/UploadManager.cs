@@ -104,7 +104,7 @@ public class UploadManager : MonoBehaviour
         Post(url, GetSaveInfo, jsonData);
     }
 
-    private void GetSaveInfo(long code, HttpWebRequests request, HttpWebResponses rsponse)
+    public void GetSaveInfo(long code, HttpWebRequests request, HttpWebResponses rsponse)
     {
         if (code == 200 && rsponse.code == 200)
         {
@@ -209,6 +209,16 @@ public class UploadManager : MonoBehaviour
     {
         JsonData hender = new JsonData();
         hender["Authorization"] = "Bearer " + Access_token;
+        hender["Content-Type"] = "application/json";
+        hender["TENANT-ID"] = "1";
+        hender["UC-USER"] = "1";
+        Unity_Web.Web.PostRaw(url, callback, fields, hender, timeout);
+    }
+
+    public void LoginPost(string url, HttpWebCallBacks callback, JsonData fields = null, int timeout = 120000)
+    {
+        JsonData hender = new JsonData();
+        hender["Authorization"] = "Basic dnI6dnI=";
         hender["Content-Type"] = "application/json";
         hender["TENANT-ID"] = "1";
         hender["UC-USER"] = "1";
