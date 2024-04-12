@@ -1,5 +1,5 @@
 using System;
-
+using LitJson;
 using UnityEngine;
 using UnityEngine.Networking;
 using System.Collections;
@@ -128,6 +128,9 @@ public class LoginMessage : MonoBehaviour
             {
                 // 请求成功，处理服务器返回的数据
                 Debug.Log("初始信息Received: " + webRequest.downloadHandler.text);
+                //保存身份信息 模型  资料文档
+                GetLdentityinfo(webRequest.downloadHandler.text);
+
 
             }
 
@@ -141,7 +144,44 @@ public class LoginMessage : MonoBehaviour
         }
     }
 
+    //解析初始信息 给ldentityinfoNet
+    public void GetLdentityinfo(string downloadHandler)
+    {
+        JsonData IdentityData = JsonMapper.ToObject(downloadHandler);
+        JsonData data = IdentityData["data"];
+        if (data["id"] != null)
+        {
+            IdentityInfoNet.Instance_.InfoId = data["id"].ToString();
+            if (data["student"] != null)
+            {
+                JsonData student = data["student"];
+                IdentityInfoNet.Instance_.studenUsername = student["username"].ToString();//学号
+                IdentityInfoNet.Instance_.studenClass = student["stuClass"].ToString();//班级
+                IdentityInfoNet.Instance_.studenGrade = student["stuGrade"].ToString();//年级
+                IdentityInfoNet.Instance_.studentName = student["name"].ToString();//姓名
+            }
+            if (data["resourceList"].Count > 0)
+            {
+                JsonData resourceList = data["resourceList"];
+                JsonData item = resourceList[0];
+                IdentityInfoNet.Instance_.resourceName = item["name"].ToString();//资料名称
+                IdentityInfoNet.Instance_.resourceId = item["id"].ToString();
+                IdentityInfoNet.Instance_.resourceUrl = item["url"].ToString();//地址
+            }
 
+            if (data["modelList"].Count > 0)
+            {
+                JsonData resourceList = data["modelList"];
+                JsonData item = resourceList[0];
+                IdentityInfoNet.Instance_.modelName = item["name"].ToString();//资料名称
+                IdentityInfoNet.Instance_.modelId = item["id"].ToString();
+                IdentityInfoNet.Instance_.modelType = item["type"].ToString();//文件类型:线上模型
+                IdentityInfoNet.Instance_.modelUrl = item["url"].ToString();//地址
+            }
+
+        }
+
+    }
 }
 
 
