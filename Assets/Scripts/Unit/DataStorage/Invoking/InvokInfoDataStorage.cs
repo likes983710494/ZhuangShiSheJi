@@ -9,7 +9,12 @@ public class InvokInfoDataStorage : MonoBehaviour
 {
 
     public static InvokInfoDataStorage Instance_;
+
+    [Header("本地数据")]
     public InfoDataStorage infoDataStorage_;
+
+    [Header("是否进行接口请求")]
+    public bool isNet;
     void Awake()
     {
 

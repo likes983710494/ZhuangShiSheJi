@@ -7,6 +7,8 @@ using UnityEngine.UI;
 //将接口的数据    导入到场景中
 public class InitUnitAssetInfoToSence : MonoBehaviour
 {//在每个模块前，接口直接把数据赋值给InvokInfoDataStorage.Instance_.infoDataStorage_即可
+
+   
     void Start()
     {
         Getinfo();
@@ -17,8 +19,16 @@ public class InitUnitAssetInfoToSence : MonoBehaviour
     }
     void Getinfo()
     {
-        //获取任务信息
-        LoginMessage.Instance_.InfoRequest(AppUrlConfig.taskplan);
+        if (InvokInfoDataStorage.Instance_.isNet==false)
+        {
+            Debug.Log("不进行接口请求状态");
+        }
+        else
+        {
+            //获取任务信息
+            LoginMessage.Instance_.InfoRequest(AppUrlConfig.taskplan);
+        }
+
     }
     void State()
     {

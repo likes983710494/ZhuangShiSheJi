@@ -20,6 +20,8 @@ public class HomePageManager : MonoBehaviour
 	public Button Button_生成实验报告;
 	public Button Button_退出;
 	public Button Button_音频;
+	public Button Button_学员信息;
+	public GameObject studentInfo;//学员信息面板
 
 	public List<Button> ButtonsAddAudioList;//添加按钮音频  
 
@@ -89,6 +91,26 @@ public class HomePageManager : MonoBehaviour
 			else
 			{
 				GetComponent<AudioSource>().Pause();
+			}
+		});
+		Button_学员信息.onClick.AddListener(delegate
+		{
+			Button_学员信息.transform.GetChild(1).gameObject.SetActive(!Button_学员信息.transform.GetChild(1).gameObject.activeSelf);
+			Button_学员信息.transform.GetChild(2).gameObject.SetActive(!Button_学员信息.transform.GetChild(2).gameObject.activeSelf);
+			if (Button_学员信息.transform.GetChild(1).gameObject.activeSelf == true)
+			{
+
+				studentInfo.SetActive(false);
+			}
+			else
+			{
+
+				studentInfo.SetActive(true);
+				studentInfo.transform.GetChild(0).GetComponent<Text>().text = IdentityInfoNet.Instance_.studentName;
+				studentInfo.transform.GetChild(1).GetComponent<Text>().text = IdentityInfoNet.Instance_.studenGrade;
+				studentInfo.transform.GetChild(2).GetComponent<Text>().text = IdentityInfoNet.Instance_.studenClass;
+				studentInfo.transform.GetChild(3).GetComponent<Text>().text = IdentityInfoNet.Instance_.studenUsername;
+
 			}
 		});
 	}

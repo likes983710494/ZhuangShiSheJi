@@ -18,8 +18,27 @@ namespace PlanesWalker
 		{
 
 			//GLTFUtilityScript.Instance.ImportGLTFAsync(Application.streamingAssetsPath + "/NewProject.gltf", asd);
+			if (InvokInfoDataStorage.Instance_.isNet == false)
+			{
+				Debug.Log("不进行接口请求状态");
+				GLTFUtilityScript.Instance.ImportGLTFAsync(Application.streamingAssetsPath + "/Model" + "/装饰设计01.gltf", Initial);
+			}
+			else
+			{
+				if (Unit.UnitDollarData.ObjName == null)
+				{
+					Debug.Log("再次登录未下载模型");
+					GLTFUtilityScript.Instance.ImportGLTFAsync(Application.streamingAssetsPath + "/Model/" + InvokInfoDataStorage.Instance_.infoDataStorage_.ObjName, Initial);
+				}
+				else
+				{
 
-			GLTFUtilityScript.Instance.ImportGLTFAsync(Application.streamingAssetsPath + "/Model" + "/装饰设计01.gltf", Initial);
+					Debug.Log("第一次登录下载模型");
+					GLTFUtilityScript.Instance.ImportGLTFAsync(Application.streamingAssetsPath + "/Model/" + Unit.UnitDollarData.ObjName, Initial);
+				}
+
+			}
+
 
 			DecorativeDesignModus.Instance_.ModelMenu_UI.SetActive(false);
 		}

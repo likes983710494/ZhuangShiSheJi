@@ -8,11 +8,10 @@ using UnityEngine;
 public class AppUrlConfig
 {
 
-   public static string BaseUrl = "";
+   public static string BaseUrl = "http://192.168.1.33";
    //登录接口
    public static string login = "";
    //获取进行中的任务
    public static string taskplan = "http://192.168.1.33/admin/plan/BK_ZSZJ/taskplan";
 
-   
 }

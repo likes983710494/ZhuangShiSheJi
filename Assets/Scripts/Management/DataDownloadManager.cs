@@ -7,6 +7,7 @@ using System;
 using UnityEngine.UI;
 using Paroxe.PdfRenderer;
 using Unit;
+using iTextSharp.text;
 /// <summary>
 // 任务设计书 
 /// </summary>
@@ -20,10 +21,17 @@ public class DataDownloadManager : MonoBehaviour
 	private string ObjName;//模型名字
 	private Button PDF关闭button;
 
-
-	public string pdfurl = "";//pdf网络下载地址
+	[Header("任务书下载地址")]
+	public string pdfurl = "";//pdf任务书网络下载地址
+	[Header("模型下载地址")]
 	public string modelurl = "";//模型网络下载地址
 	public Button loadPdfButton;//下载文档按钮
+	[Header("资料下载地址(未启用)")]
+	public string pdfListurl = "";//pdf任务书网络下载地址
+	[Header("下载资料文档列表按钮(未启用)")]
+	public Button loadPdfButtonPlan;//下载文档按钮弹窗
+	[Header("下载资料文档列表弹窗(未启用)")]
+	public GameObject loadPdfPlan;//下载文档弹窗
 	public Button loadModelButton;//下载模型按钮
 
 	public GameObject LoadPlane;//下载面板
@@ -43,12 +51,18 @@ public class DataDownloadManager : MonoBehaviour
 		//下载文档按钮添加事件
 		loadPdfButton.onClick.AddListener(() =>
 		{
+			pdfurl = IdentityInfoNet.Instance_.taskBookUrl;
+			pdfurl = AppUrlConfig.BaseUrl + pdfurl;
+			Debug.Log("任务书地址" + pdfurl);
 			LoadPlane.SetActive(true);
 			OnDownloadAssets(pdfurl, 0);
 		});
 		//下载模型按钮添加事件
 		loadModelButton.onClick.AddListener(() =>
 		{
+			modelurl = IdentityInfoNet.Instance_.modelUrl;
+			modelurl = AppUrlConfig.BaseUrl + modelurl;
+			Debug.Log("模型地址" + modelurl);
 			LoadPlane.SetActive(true);
 			OnDownloadAssets(modelurl, 1);
 		});
@@ -147,7 +161,7 @@ public class DataDownloadManager : MonoBehaviour
 				Unit.UnitDollarData.isDataPDF = true;
 				//本地 -将pdf状态储存
 				InvokInfoDataStorage.Instance_.infoDataStorage_.dataDownloadManagerData.isDataPDF = Unit.UnitDollarData.isDataPDF;
-				
+
 			}
 
 		});
@@ -277,6 +291,7 @@ public class DataDownloadManager : MonoBehaviour
 				{
 					ObjName = downloadFileName;
 					Unit.UnitDollarData.ObjName = ObjName;
+					InvokInfoDataStorage.Instance_.infoDataStorage_.ObjName = ObjName;
 					openPlanes[1].SetActive(true);
 					using (FileStream fs = new FileStream(Application.streamingAssetsPath + "/Model/" + downloadFileName, FileMode.Create))
 					{

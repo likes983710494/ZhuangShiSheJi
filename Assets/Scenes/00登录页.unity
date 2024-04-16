@@ -499,12 +499,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InfoId: 
-  resourceId: 
+  resList: []
   modelId: 
-  resourceName: 
   modelName: 
   modelUrl: 
-  resourceUrl: 
   modelType: 
   studentName: 
   studenGrade: 

@@ -22,7 +22,7 @@ public class InfoDataStorage : ScriptableObject
 
     // InfoDataStorage 类直接继承自 ScriptableObject
 
-
+    public string ObjName;//加载模型，储存名字
     //登录时间
     public string LoginTime;
     //登录时长
