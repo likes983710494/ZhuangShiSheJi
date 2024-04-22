@@ -8,18 +8,19 @@ using UnityEngine.UI;
 public class InitUnitAssetInfoToSence : MonoBehaviour
 {//在每个模块前，接口直接把数据赋值给InvokInfoDataStorage.Instance_.infoDataStorage_即可
 
-   
+
     void Start()
     {
         Getinfo();
         State();
+        B();
         C();
         D();
         E();
     }
     void Getinfo()
     {
-        if (InvokInfoDataStorage.Instance_.isNet==false)
+        if (InvokInfoDataStorage.Instance_.isNet == false)
         {
             Debug.Log("不进行接口请求状态");
         }

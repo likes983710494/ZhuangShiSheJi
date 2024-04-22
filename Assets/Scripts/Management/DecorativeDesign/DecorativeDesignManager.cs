@@ -289,7 +289,7 @@ public class DecorativeDesignManager : MonoBehaviour
 		// UnitDollarData.天棚工程_DesignsList.Clear();
 		// UnitDollarData.油漆涂料_DesignsList.Clear();
 		// UnitDollarData.其他装饰_DesignsList.Clear();
-
+		HomePageManager.Instance_.Button_装饰效果展示.interactable = true;
 
 
 	}

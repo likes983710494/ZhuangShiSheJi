@@ -331,6 +331,7 @@ public class ResultManager : MonoBehaviour
 			Unit.UnitDollarData.ImagePathList.Add(imagePath_);
 			InvokInfoDataStorage.Instance_.infoDataStorage_.resultManagerData.ImagePathList = Unit.UnitDollarData.ImagePathList;
 		}
+		OKPlane.SetActive(true);
 
 	}
 

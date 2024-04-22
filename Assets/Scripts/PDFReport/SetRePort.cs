@@ -15,7 +15,7 @@ using System.Reflection;
 public class SetRePort : MonoBehaviour
 {
 
-    private string tzgsfilepath = @"Assets\StreamingAssets\ScreenShot\tzgs\投资估算.png";//投资估算地址
+    private string tzgsfilepath = Application.streamingAssetsPath + "/ScreenShot/tzgs/投资估算.png";//投资估算地址
     private List<DataTable> DataTable_List = new List<DataTable>();
 
     public Button Confirm_button;
@@ -219,7 +219,7 @@ public class SetRePort : MonoBehaviour
             {
                 Debug.Log("PDF创建成功");
                 pdf.AddTitle("装饰设计阶段造价实验报告");
-                pdf.AddSecondTitle("姓名：xxx   班级：2024级1班", 1);
+                pdf.AddSecondTitle("姓名：李克   班级：2024级20240606班", 1);
                 pdf.AddSecondTitle("一、投资估算");
                 pdf.AddNullLine();
                 pdf.AddImage(tzgsfilepath);

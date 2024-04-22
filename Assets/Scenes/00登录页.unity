@@ -499,6 +499,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InfoId: 
+  taskBookId: 
+  taskBookName: 
+  taskBookUrl: 
   resList: []
   modelId: 
   modelName: 
@@ -3423,7 +3426,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2757491703509497989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6236,8 +6239,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2741934809031976908}
   m_TextComponent: {fileID: 1056696019363906494}
   m_Placeholder: {fileID: 6144979154815849046}
-  m_ContentType: 0
-  m_InputType: 0
+  m_ContentType: 7
+  m_InputType: 2
   m_AsteriskChar: 42
   m_KeyboardType: 0
   m_LineType: 0
@@ -8291,7 +8294,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &6606028481754111953
 CanvasRenderer:
   m_ObjectHideFlags: 0

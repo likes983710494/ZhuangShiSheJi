@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14cc9d1867978774fb225699afacccaa, type: 3}
   m_Name: InfoDataStorage
   m_EditorClassIdentifier: 
+  ObjName: 
   LoginTime: 0
   LoginDuration: 
   dataDownloadManagerData:
@@ -21,7 +22,7 @@ MonoBehaviour:
   estimateManagerData:
     DeductionNumber: 0
     EstimateNumber: 100
-    isFinishEstimate: 1
+    isFinishEstimate: 0
   antidiastoleManagerData:
     AmountInputField:
     - 0
@@ -30,56 +31,56 @@ MonoBehaviour:
     - 0
     - 0
     "\u697C\u5730\u9762\u88C5\u9970InputField":
-    - 
-    - 
-    - 
-    - 
-    - 
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
     "\u5899\u67F1\u9762\u88C5\u9970InputField":
-    - 
-    - 
-    - 
-    - 
-    - 
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
     "\u5929\u68DA\u5DE5\u7A0BInputField":
-    - 
-    - 
-    - 
-    - 
+    - 0
+    - 0
+    - 0
+    - 0
     "\u6CB9\u6F06\u6D82\u6599InputField":
-    - 
-    - 
-    - 
-    - 
-    - 
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
     "\u5176\u4ED6\u88C5\u9970InputField":
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    isFinishAntidiastole: 1
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    isFinishAntidiastole: 0
   decorativeDesignManagerData:
     "\u697C\u5730\u9762_DesignsList": []
     "\u5899\u67F1\u9762_DesignsList": []
     "\u5929\u68DA\u5DE5\u7A0B_DesignsList": []
     "\u6CB9\u6F06\u6D82\u6599_DesignsList": []
     "\u5176\u4ED6\u88C5\u9970_DesignsList": []
-    "\u697C\u5730\u9762_\u914D\u989D": 100
-    "\u5899\u67F1\u9762_\u914D\u989D": 100
-    "\u5929\u68DA\u5DE5\u7A0B_\u914D\u989D": 100
-    "\u6CB9\u6F06\u6D82\u6599_\u914D\u989D": 100
-    "\u5176\u4ED6\u88C5\u9970_\u914D\u989D": 200
+    "\u697C\u5730\u9762_\u914D\u989D": 0
+    "\u5899\u67F1\u9762_\u914D\u989D": 0
+    "\u5929\u68DA\u5DE5\u7A0B_\u914D\u989D": 0
+    "\u6CB9\u6F06\u6D82\u6599_\u914D\u989D": 0
+    "\u5176\u4ED6\u88C5\u9970_\u914D\u989D": 0
     "\u697C\u5730\u9762_\u6C47\u603B\u91D1\u989D": 0
     "\u5899\u67F1\u9762_\u6C47\u603B\u91D1\u989D": 0
     "\u5929\u68DA\u5DE5\u7A0B_\u6C47\u603B\u91D1\u989D": 0
     "\u6CB9\u6F06\u6D82\u6599_\u6C47\u603B\u91D1\u989D": 0
     "\u5176\u4ED6\u88C5\u9970_\u6C47\u603B\u91D1\u989D": 0
-    isFinishDesign: 1
+    isFinishDesign: 0
   resultManagerData:
     ImagePathList: []
-    isFinishResult: 1
+    isFinishResult: 0
