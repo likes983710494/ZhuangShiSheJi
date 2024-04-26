@@ -27,13 +27,13 @@ namespace PlanesWalker
 			{
 				if (Unit.UnitDollarData.ObjName == null)
 				{
-					Debug.Log("再次登录未下载模型");
+					Debug.Log("再次登录未下载模型+" + InvokInfoDataStorage.Instance_.infoDataStorage_.ObjName);
 					GLTFUtilityScript.Instance.ImportGLTFAsync(Application.streamingAssetsPath + "/Model/" + InvokInfoDataStorage.Instance_.infoDataStorage_.ObjName, Initial);
 				}
 				else
 				{
 
-					Debug.Log("第一次登录下载模型");
+					Debug.Log("第一次登录下载模型+" + Unit.UnitDollarData.ObjName);
 					GLTFUtilityScript.Instance.ImportGLTFAsync(Application.streamingAssetsPath + "/Model/" + Unit.UnitDollarData.ObjName, Initial);
 				}
 
