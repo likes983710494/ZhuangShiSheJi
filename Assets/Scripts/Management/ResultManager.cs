@@ -190,8 +190,10 @@ public class ResultManager : MonoBehaviour
 			GameObject prefab = Resources.Load<GameObject>("prefab/Resul/Image_已上传BG");
 			Transform instance_Parent = GameObject.Find("Image_已上传").transform;
 			GameObject instance_ = Instantiate(prefab);
+
 			objects_save.Add(instance_);
 			instance_.transform.SetParent(instance_Parent);
+			instance_.transform.localScale = new Vector3(1f, 1f, 1);
 			instance_.transform.GetChild(0).GetComponent<UnityEngine.UI.Image>().sprite = sprite;
 			instance_.transform.GetChild(1).GetComponent<UnityEngine.UI.Button>().onClick.AddListener(() =>
 			{
@@ -248,7 +250,7 @@ public class ResultManager : MonoBehaviour
 				objects.Add(instance_);
 				instance_.transform.SetParent(instance_Parent);
 				instance_.transform.GetChild(0).GetComponent<UnityEngine.UI.Image>().sprite = sprite;
-
+				instance_.transform.localScale = new Vector3(1f, 1f, 1);
 				instance_.transform.GetChild(1).GetComponent<UnityEngine.UI.Button>().onClick.AddListener(() =>
 				{
 					DestroyLoadPane(instance_, file);
