@@ -63,6 +63,8 @@ public class EstimateManagerData
 [Serializable]
 public class AntidiastoleManagerData
 {
+
+    public string 总金额_Amount;//总金额
     public string[] AmountInputField; //分数从左到右 第一层金额
     public List<string> 楼地面装饰InputField;//分数从左到右
     public List<string> 墙柱面装饰InputField;//分数从左到右

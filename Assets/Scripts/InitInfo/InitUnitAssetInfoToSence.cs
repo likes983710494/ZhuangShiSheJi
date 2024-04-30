@@ -69,8 +69,9 @@ public class InitUnitAssetInfoToSence : MonoBehaviour
     //限额分解
     public void C()
     {
-        // AntidiastoleManager.Instance_.总金额_Amount="";
-
+        Debug.Log("ccccc" + InvokInfoDataStorage.Instance_.infoDataStorage_.antidiastoleManagerData.总金额_Amount);
+        AntidiastoleManager.Instance_.总金额_Amount.text =
+        InvokInfoDataStorage.Instance_.infoDataStorage_.antidiastoleManagerData.总金额_Amount;
         //分部金额
         AntidiastoleManager.Instance_.Amount_InputField[0].text =
         InvokInfoDataStorage.Instance_.infoDataStorage_.antidiastoleManagerData.AmountInputField[0].ToString();

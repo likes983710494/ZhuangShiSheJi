@@ -151,6 +151,9 @@ public class LoginMessage : MonoBehaviour
         JsonData data = IdentityData["data"];
         if (data["id"] != null)
         {
+            IdentityInfoNet.Instance_.params_cost = data["params"].ToString();
+            InvokInfoDataStorage.Instance_.infoDataStorage_.antidiastoleManagerData.总金额_Amount =
+            IdentityInfoNet.Instance_.params_cost;
             IdentityInfoNet.Instance_.InfoId = data["id"].ToString();
             if (data["student"] != null)
             {

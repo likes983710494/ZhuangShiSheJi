@@ -7,6 +7,9 @@ public class IdentityInfoNet : MonoBehaviour
 {
     public static IdentityInfoNet Instance_ { get; private set; }
 
+    [Header("限额分解金额")]
+    public string params_cost;//限额分解总费用
+
     [Header("任务id")]
     public string InfoId;//任务id
     [Header("任务书id")]
